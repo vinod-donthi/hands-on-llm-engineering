@@ -4,6 +4,8 @@
 
 This page answers: **where do LLMs sit in the stack, and when should you use them in production?** Everything else in Week 1 builds on this mental model.
 
+**Quick example:** Predicting **loan default** from 20 spreadsheet columns → classical ML (XGBoost) is usually better, cheaper, and explainable than GPT-4. Writing a **customer email** from bullet points → LLM. Naming the layer correctly is half the architecture interview.
+
 ---
 
 ## Concepts

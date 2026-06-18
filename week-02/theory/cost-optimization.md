@@ -10,7 +10,33 @@ LLM bills scale with tokens × price × traffic. **Cost optimization** is engine
 
 ### What problem are we solving?
 
-A single unbounded loop or missing `max_tokens` can burn budget in minutes. Production teams track **$/successful task**, set budgets, and optimize routing — Week 2 installs those habits in your benchmark studio.
+A bug that calls GPT-4o in a loop, or a user who pastes war-and-peace fifty times, can drain budget overnight. **Cost optimization** means measuring every call, capping spend, and picking cheaper models when benchmarks prove they are good enough.
+
+### Worked example: one request's cost
+
+GPT-4o Mini (verify live pricing):
+
+| | Tokens | $/1M | Cost |
+|---|--------|------|------|
+| Input | 3,500 | $0.15 | $0.000525 |
+| Output | 800 | $0.60 | $0.000480 |
+| **Total** | | | **$0.001005** |
+
+Looks tiny — but **10,000 requests/day** ≈ **$10/day** ≈ **$300/month** from one feature.
+
+Same prompt on **Llama 3.1 8B** local: **$0** (hardware already paid for).
+
+Your benchmark report (Day 7) compares quality vs $ so you pick defaults per task.
+
+### Cost incident story
+
+```
+09:00  Deploy new "summarize" feature — no max_tokens cap
+09:45  Alert: daily budget 80% ($4 of $5)
+10:00  Budget hit — new requests rejected with 429
+```
+
+**Fixes:** `max_tokens=500`, cache repeated docs (Week 5), route drafts to Ollama, cloud only for final polish.
 
 ### Cost formula
 

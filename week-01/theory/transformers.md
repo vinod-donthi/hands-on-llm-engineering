@@ -83,17 +83,25 @@ Each **Transformer Block** contains:
 
 ## Internal Mechanism: Next-Token Prediction
 
-LLMs learn:
+LLMs learn one job: **given everything so far, what token comes next?**
 
 ```
-P(token_t | token_1, token_2, ..., token_{t-1})
+P(next_token | all_previous_tokens)
 ```
 
-In plain terms: *given everything so far, what word comes next?*
+### Generation walkthrough (simplified)
 
-At inference, the model generates **one token at a time**, appending each to the context for the next step. This is **autoregressive** generation — see [inference.md](inference.md) for prefill/decode.
+Prompt: *"The capital of France is"*
 
-Training objective: minimize cross-entropy loss on next-token prediction across billions of tokens.
+| Step | Context so far | Model might predict |
+|------|----------------|---------------------|
+| 1 | `…France is` | ` Paris` |
+| 2 | `…France is Paris` | `.` or ` and` |
+| 3 | … | continues until stop token or `max_tokens` |
+
+Each step appends one token and runs the model again (KV cache makes decode efficient — see [inference.md](inference.md)). This is **autoregressive** generation: left to right, one piece at a time.
+
+Training shows the model billions of examples and penalizes wrong next-token guesses. You do not do this in Week 1 — you **call** models that already learned.
 
 ---
 

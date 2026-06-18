@@ -10,7 +10,24 @@ Every token in the prompt competes for space in the **context window** and shows
 
 ### What problem are we solving?
 
-Models have a fixed context budget (input + output). Stuff too much in and you get errors, truncation, or **lost-in-the-middle** failures where the model ignores middle sections.
+A user has a 40-message chat thread. Each new reply sends **the entire history** plus system prompt plus tools. Eventually you hit the context window — or pay for thousands of tokens you don't need.
+
+**Context management** = decide what to keep, what to drop, and what to reject **before** paying for the API call.
+
+### Worked example: tail-keep trim
+
+**Budget:** 8,000 input tokens max (after reserving output).  
+**Current history:** 12,000 tokens across 30 messages.
+
+| Step | Action |
+|------|--------|
+| 1 | Count tokens — over budget by 4,000 |
+| 2 | **Never drop** system prompt (500 tokens) |
+| 3 | **Drop oldest** user/assistant pairs until under 8,000 |
+| 4 | Maybe left with last 14 messages — send those |
+| 5 | Log `trimmed_messages_count: 16` in response so support can debug "the model forgot" |
+
+**Store full history in Postgres** (Week 2 Lab 6); **trim only what you send** to the model.
 
 ### The budget equation
 

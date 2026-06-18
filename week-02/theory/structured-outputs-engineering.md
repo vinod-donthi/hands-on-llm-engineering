@@ -10,7 +10,19 @@ Week 1 introduced the **JSON reliability ladder** for GPT-4o Mini. Week 2 extend
 
 ### What problem are we solving?
 
-Your benchmark and extraction pipelines must work on **any selected model**, not only OpenAI. Each provider offers different guarantees — your code must branch on capabilities, not assume one API.
+Week 1's JSON ladder worked for GPT-4o Mini. Week 2 adds **Anthropic** and **Ollama** — each supports different levels of schema enforcement. Your extraction service must branch on `capabilities` in the registry, not assume one API shape.
+
+### Same extraction, three providers (example)
+
+**Task:** Extract `{name, email}` from *"Contact Jane at jane@acme.com"*
+
+| Provider | Best ladder step | Typical outcome |
+|----------|------------------|-----------------|
+| GPT-4o Mini | `json_schema` strict | `parse_status: success` |
+| Claude Haiku | Tool-use or prompt JSON | `success` or `repaired` |
+| Llama 8B local | Prompt + Pydantic validate | Higher `parse_failure` rate — log it |
+
+**Fair benchmark:** Same prompt, temp=0, record `parse_status` and `schema_ladder_step` per model — not just "it returned JSON once."
 
 ### Capability matrix (Week 2)
 

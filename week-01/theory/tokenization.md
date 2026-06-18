@@ -2,7 +2,7 @@
 
 > Week 1 Theory · Day 1 · [← README](../README.md) · Prev: [transformers](transformers.md) · Next: [Lab 1](../labs/lab-01-tokenization.md)
 
-Models read **tokens**, not words or characters. Tokenization drives **cost**, **context limits**, and **multilingual behavior** — measure it before every production prompt.
+Models do not read letters or whole words — they read **tokens** (subword chunks). Providers bill you per token. Context limits are in tokens. Lab 1 has you count them so cost surprises stop being mysterious.
 
 ---
 
@@ -10,106 +10,106 @@ Models read **tokens**, not words or characters. Tokenization drives **cost**, *
 
 ### What problem are we solving?
 
-You paste a prompt into an API and get charged — but **not by character count**. Providers bill per **token**: subword chunks the model actually processes. The same English sentence can be 10 tokens in one model and 15 in another; code and JSON often cost more per character than plain prose.
-
-If you skip tokenization, you will misestimate cost, hit context limits unexpectedly, and break cross-model comparisons.
+You paste a prompt and get an invoice line like *"2,847 input tokens."* That number drives **cost**, **speed**, and whether you fit in the **context window**. If you guess from character count, you will be wrong — especially on code and JSON.
 
 ### What is a token?
 
-A **token** is a subword unit produced by a **tokenizer**. Common English words may be one token; rare words, code symbols, and non-Latin scripts split into multiple tokens.
+A **token** is a chunk of text from a **tokenizer** — a model-specific splitting ruleset.
 
-| Text type | Typical behavior |
-|-----------|------------------|
-| Plain English | ~4 characters per token (rough estimate) |
-| Code / JSON | More tokens per character (`{`, `"`, indentation) |
-| CJK / emoji | Often more tokens than equivalent English |
-| Rare proper nouns | Split into subwords |
+| Text | Might become | Note |
+|------|--------------|------|
+| `"hello"` | 1 token | Common English word |
+| `"unhappiness"` | `["un", "happiness"]` | Split into subwords |
+| `"ChatGPT"` | 1–2 tokens | Depends on vocabulary |
+| `{"key": "value"}` | Many tokens | `{`, `"`, `:`, spaces each often cost extra |
+| Emoji / CJK | Often more tokens per character | Than equivalent English |
 
-### How tokenization works (BPE)
+**Rough rule of thumb for English prose:** ~4 characters per token. **Do not rely on this for code, JSON, or billing** — always count with the right tool.
 
-**Byte-Pair Encoding (BPE)** is the most common scheme (GPT family):
+### How BPE works (one paragraph)
 
-1. Start with character-level vocabulary
-2. Iteratively merge the most frequent adjacent pairs
-3. Common words → single tokens; rare words → subwords
+**Byte-Pair Encoding** starts with characters and repeatedly merges frequent pairs into new tokens. Common words become single tokens; rare words split into pieces. Llama uses **SentencePiece**; GPT uses **tiktoken** — **different models → different token counts for the same string.**
 
-```
-"unhappiness" → ["un", "happiness"]
-"ChatGPT"     → may be 1–2 tokens depending on vocab
-```
+### Worked cost example
 
-Other schemes: **SentencePiece** (Llama), **byte-level BPE** (handles any Unicode without unknown tokens).
+GPT-4o Mini pricing (verify current rates on OpenAI's site):
 
-### Why this matters in production
+| | Tokens | Price per 1M | Cost |
+|---|--------|--------------|------|
+| Input | 2,000 | $0.15 | $0.00030 |
+| Output | 500 | $0.60 | $0.00030 |
+| **Total** | | | **$0.00060** |
 
-| Impact | Detail |
-|--------|--------|
-| **Billing** | APIs charge per input + output [token](../resources/glossary.md#llm--week-1-terms) |
-| **Context window** | Limits are in tokens, not characters |
-| **Efficiency** | English often cheaper than code, JSON, CJK, emoji |
-| **Cross-model compare** | Same prompt ≠ same token count across models ([Lab 1](../labs/lab-01-tokenization.md)) |
+Same prompt on Llama via Ollama: **$0** — but different token count and quality.
+
+Lab 1: compare `tiktoken` vs Llama tokenizer on the **same** code snippet — expect **≥15% difference**.
+
+### Why tokenization matters in production
+
+| Impact | Example |
+|--------|---------|
+| **Billing** | 1M requests × 500 extra tokens = real money |
+| **Context limit** | 120K-token PDF + history → overflow |
+| **Cross-model compare** | "Same prompt" ≠ same tokens in Lab 5 |
+| **Latency** | More tokens → longer prefill ([inference.md](inference.md)) |
 
 ### AI engineer takeaway
 
-Count tokens before shipping prompts — tokenizer differences across models break cost estimates and context budgets. Log token counts in your observability envelope from day one.
+Count tokens before shipping prompts. Log `input_tokens` and `output_tokens` on every call from day one.
 
 ---
 
 ## Cost formula
 
 ```
-total_cost = (input_tokens × input_price) + (output_tokens × output_price)
+total_cost = (input_tokens / 1e6 × input_price) + (output_tokens / 1e6 × output_price)
 ```
 
-Output tokens are often priced **higher** than input tokens.
+Output is often priced **higher** per token than input.
 
 ---
 
-## Token Counting Tools
+## Counting tools
 
 | Model family | Tool |
 |--------------|------|
 | OpenAI (GPT-4o Mini) | `tiktoken` |
-| Anthropic | SDK token counter / API |
+| Anthropic | SDK token counter |
 | Llama / local | Hugging Face `AutoTokenizer` |
-| Quick estimate | Provider `/models` docs for rough chars/token |
-
-**Week 1 Lab 1:** Compare `tiktoken` vs Llama tokenizer on code and JSON — expect ≥15% delta.
 
 ---
 
 ## Tradeoffs
 
-| Factor | Impact |
+| Choice | Effect |
 |--------|--------|
-| Verbose system prompts | Fixed token cost every request |
-| Pretty-printed JSON in prompts | Wastes tokens |
-| Long few-shot examples | Eats context budget fast |
+| Verbose system prompt | Pays same token tax every request |
+| Pretty-printed JSON in prompt | More tokens than minified |
+| Long few-shot examples | Eats context fast |
 
 ---
 
 ## Best Practices
 
-- Count tokens **before** shipping prompts; log counts in observability envelope.
-- Use provider **prompt caching** for static system prompts (Week 2+).
+- Count before deploy; log in observability envelope.
 - Minify JSON in high-volume paths.
-- Budget: `system + history + RAG chunks + user message + reserved output ≤ context limit`.
+- Budget: `system + history + RAG + user + reserved_output ≤ context_limit`.
 
 ---
 
 ## Common Mistakes
 
-- Estimating cost by character count (30–50% error on code).
-- Hitting context limits without measuring.
-- Assuming all models tokenize identically (breaks cost comparison in Lab 5).
+- Estimating cost from character count on code.
+- Assuming all models tokenize identically.
+- Ignoring system prompt tokens in every-call cost math.
 
 ---
 
 ## Checkpoint
 
-1. Why does JSON often use more tokens per character than plain English?
-2. If input is 2,000 tokens and output is 500, which usually costs more per token?
-3. What tool do you use for GPT-4o Mini token counts?
+1. Why does JSON often use more tokens than plain English?
+2. Input 2,000 tokens + output 500 — which side usually costs more per token?
+3. What tool for GPT-4o Mini counts?
 
 ---
 
@@ -117,13 +117,11 @@ Output tokens are often priced **higher** than input tokens.
 
 | Resource | Link | Why |
 |----------|------|-----|
-| OpenAI — Token counting | https://platform.openai.com/tokenizer | Interactive tokenizer |
-| tiktoken repo | https://github.com/openai/tiktoken | Lab 1 dependency |
-| Hugging Face Tokenizers docs | https://huggingface.co/docs/tokenizers | How BPE/SentencePiece work |
-| OpenAI pricing | https://openai.com/api/pricing/ | GPT-4o Mini $/MTok |
+| OpenAI Tokenizer | https://platform.openai.com/tokenizer | Interactive |
+| tiktoken repo | https://github.com/openai/tiktoken | Lab 1 |
 
 ---
 
 ## Next
 
-[Lab 1](../labs/lab-01-tokenization.md) in work dir → mark [Day 1](../daily/day-01.md) done → **[Day 2](../daily/day-02.md)** starts with [attention.md](attention.md)
+[Lab 1](../labs/lab-01-tokenization.md) → **[Day 2](../daily/day-02.md)** starts with [attention.md](attention.md)

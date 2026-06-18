@@ -2,7 +2,7 @@
 
 > Week 1 Theory · Day 3 · [← README](../README.md) · Prev: [tokenization](tokenization.md) · Next: [inference](inference.md)
 
-The **context window** is your hard budget for input + output tokens. Exceeding it breaks apps silently or expensively.
+The **context window** is the maximum number of tokens the model can see in one request — input **and** output combined. Think of it as a **fixed-size desk**: everything you put on it has to fit, or something falls off.
 
 ---
 
@@ -10,49 +10,88 @@ The **context window** is your hard budget for input + output tokens. Exceeding 
 
 ### What problem are we solving?
 
-Every LLM request has a **hard cap** on how many [tokens](../resources/glossary.md#token) fit in one call — the [context window](../resources/glossary.md#context-window). Input and output share that budget. Exceed it and your app errors, silently truncates, or burns money on tokens that never reach the model reliably.
+You cannot paste unlimited text into an LLM call. Every model has a hard cap (e.g. 128K tokens for many cloud models). Exceed it and you get errors, silent truncation, or surprise bills.
 
-### What counts toward the budget?
+**Input and output share the same desk.** A 128K window is not "128K tokens of prompt plus unlimited answer" — if you reserve 4K for the answer, you only have ~124K left for everything else.
 
-Not just the user's latest message. One request typically includes:
+### What actually counts toward the budget?
 
-| Component | Example | Why it matters |
-|-----------|---------|----------------|
-| System prompt | "You are a helpful assistant…" | Fixed cost on every call |
-| Chat history | Prior user/assistant turns | Grows with conversation length |
-| RAG chunks | Retrieved document snippets | Week 3 — stuffing docs eats budget fast |
-| User message | Current question | What users think they're paying for |
-| **Generated output** | `max_tokens` response | Output tokens count toward the **same** limit |
+One chat request is usually more than the user's latest message:
 
-GPT-4o Mini supports large contexts; local Llama varies by build — **always check model docs** for your deployment.
+| Piece | Example | Often forgotten? |
+|-------|---------|------------------|
+| System prompt | "You are a helpful assistant…" | Yes — sent **every** call |
+| Chat history | Last 20 back-and-forth turns | Grows over time |
+| RAG chunks | Pasted doc snippets (Week 3) | Can be huge |
+| User message | "Summarize this" | What users notice |
+| **Your answer** | Up to `max_tokens` | **Counts toward the same limit** |
 
-### Capacity vs quality
+### Worked example: budgeting a single call
 
-A large window (128K, 200K) is a **capacity** claim, not a quality guarantee. Models may **under-attend** to information buried in the middle of very long contexts ("lost in the middle" — see below). Do not assume stuffing 100 pages means the model reliably used page 50.
+Assume GPT-4o Mini with a **128,000 token** context window:
 
-**AI engineer takeaway:** Treat the context window as a **budget you design for** — reserve output tokens explicitly, log `input_tokens / context_limit` per request, and prefer retrieval over mega-prompts when corpora don't fit.
+| Component | Tokens |
+|-----------|--------|
+| System prompt | 500 |
+| Chat history (10 turns) | 8,000 |
+| User message + attached notes | 15,000 |
+| **Subtotal input** | **23,500** |
+| Reserved for output (`max_tokens`) | 4,000 |
+| Safety margin (your choice) | 500 |
+| **Total planned** | **28,000** |
+
+**Remaining headroom:** 128,000 − 28,000 = **100,000 tokens** — you're fine.
+
+Now imagine the user pastes a **120,000-token** PDF into the chat:
+
+| Component | Tokens |
+|-----------|--------|
+| System + history | 8,500 |
+| Pasted PDF | 120,000 |
+| Reserved output | 4,000 |
+| **Total** | **132,500** → **over limit** |
+
+Your app must trim, summarize, retrieve chunks (RAG), or reject — not blindly send and hope.
+
+### Big window ≠ perfect memory
+
+Marketing says "200K context!" That means **capacity**, not that the model reliably uses every token equally.
+
+Research on **"lost in the middle"**: facts buried in the center of a very long prompt are often ignored. Stuffing 100 pages does not mean the model faithfully used page 50.
+
+| Claim | Reality |
+|-------|---------|
+| "It fits in context" | Technically may fit |
+| "It read everything carefully" | Often false for middle sections |
+| Better approach for large docs | RAG — retrieve only relevant chunks (Week 3) |
+
+### AI engineer takeaway
+
+Design a **context budget** in code: count tokens, reserve output, trim or retrieve before calling the API. Log `input_tokens / context_limit` so you see utilization before users hit errors.
 
 ---
 
-## What Happens When You Exceed the Limit
+## What happens when you exceed the limit
 
-1. **Hard error** — API rejects request
-2. **Silent truncation** — provider drops tokens (often oldest)
-3. **App-level truncation** — your code chooses what to keep
+| What the system does | What you experience |
+|----------------------|---------------------|
+| **Hard error** | API returns 400 — request fails |
+| **Silent truncation** | Provider drops tokens (often oldest) — model "forgets" early instructions |
+| **Your code truncates** | You choose what to keep — must not drop system prompt silently |
 
-All three need explicit handling in production.
+All three need explicit handling. See [failure-recovery.md](../project/failure-recovery.md).
 
 ---
 
-## Truncation Strategies
+## Strategies when content does not fit
 
-| Strategy | Keeps | Loses | When |
-|----------|-------|-------|------|
-| Head | Start of prompt | Recent turns | Rare |
-| Tail | Recent turns | System prompt | Risky |
-| Middle-out | Start + end | Middle | Long docs in some APIs |
-| Summarize | Summary of old | Detail | Chat history compression |
-| **RAG** | Relevant chunks only | Irrelevant bulk | **Preferred for knowledge** (Week 3) |
+| Strategy | Plain English | Good when |
+|----------|---------------|-----------|
+| **RAG** | Search docs; send only top relevant chunks | Large knowledge bases (Week 3) |
+| **Summarize history** | Compress old chat turns into a short summary | Long conversations |
+| **Tail-keep** | Drop oldest messages, keep recent | Chat apps (Week 2) |
+| **Middle-out** | Keep start + end, drop middle | Some long-doc APIs |
+| **Mega-prompt** | Stuff everything in | Almost never — expensive and unreliable |
 
 ```mermaid
 flowchart TB
@@ -65,19 +104,13 @@ flowchart TB
 
 ---
 
-## "Lost in the Middle"
-
-Research shows models may **under-attend** to information in the center of very long contexts. Do not assume stuffing 100 pages guarantees the model "read" page 50.
-
----
-
-## Context Budget Formula
+## Context budget formula
 
 ```
 max_input = context_limit - max_output_tokens - system_tokens - safety_margin
 ```
 
-Log utilization: `input_tokens / context_limit` per request.
+**Checkpoint math:** 128K window, 4K reserved output, 2K system, 1K margin → max for history + user ≈ **121K tokens**.
 
 ---
 
@@ -85,37 +118,34 @@ Log utilization: `input_tokens / context_limit` per request.
 
 | Strategy | Strength | Weakness |
 |----------|----------|----------|
-| **RAG** (retrieve relevant chunks) | Grounded answers; scales to large corpora | Extra pipeline (Week 3) |
-| Summarize old history | Fits long multi-turn chats | Loses detail; summary errors compound |
-| Middle-out truncation | Keeps start + end of long docs | Middle facts vanish without warning |
-| Mega-prompt (stuff everything) | Simple to code | Expensive; quality degrades in the middle |
-| Silent provider truncation | Request "succeeds" | Oldest tokens dropped — often system instructions |
+| RAG | Grounded; scales to huge corpora | Extra pipeline (Week 3) |
+| Summarize old history | Keeps chat going | Summary errors compound |
+| Silent truncation | Request "succeeds" | System instructions may vanish |
+| Mega-prompt | Easy to code | Cost + "lost in the middle" |
 
 ---
 
 ## Best Practices
 
-- Reserve output tokens explicitly (`max_tokens` in API).
-- Never silently drop system instructions.
-- Prefer RAG over mega-prompts for large corpora.
-- Warn users when old chat history is compressed.
-
-See [failure-recovery.md](../project/failure-recovery.md) — token overflow handling.
+- Always set `max_tokens` — reserves output space on the desk.
+- Never silently drop the system prompt.
+- Warn users when old messages are compressed.
+- Prefer retrieval over "paste the whole company wiki."
 
 ---
 
 ## Common Mistakes
 
-- Stuffing full document corpus into one prompt.
-- Forgetting output tokens count toward limit.
-- Assuming long-context marketing = uniform quality at all positions.
+- Treating 128K as "unlimited for practical purposes."
+- Forgetting output tokens count toward the limit.
+- Pasting full PDFs instead of chunking + search.
 
 ---
 
 ## Checkpoint
 
-1. 128K window, 4K reserved output, 2K system — max user+history budget?
-2. Name two strategies better than blind truncation for a 500-page manual.
+1. 128K window, 4K output reserve, 2K system, 1K margin — what's left for user + history?
+2. Name two strategies better than pasting a 500-page manual.
 3. What is "lost in the middle"?
 
 ---
@@ -125,8 +155,7 @@ See [failure-recovery.md](../project/failure-recovery.md) — token overflow han
 | Resource | Link | Why |
 |----------|------|-----|
 | Lost in the Middle paper | https://arxiv.org/abs/2307.03172 | Long-context quality |
-| OpenAI — context windows | https://platform.openai.com/docs/models | Model-specific limits |
-| Anthropic — long context tips | https://docs.anthropic.com/en/docs/build-with-claude/prompt-caching | Context + caching |
+| OpenAI — models | https://platform.openai.com/docs/models | Per-model limits |
 
 ---
 

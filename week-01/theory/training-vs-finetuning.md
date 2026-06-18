@@ -2,7 +2,7 @@
 
 > Week 1 Theory · Day 4 · [← README](../README.md) · Next: [hallucinations](hallucinations.md)
 
-You rarely **train** models as an AI engineer — you **orchestrate** pre-trained models. This page explains the lifecycle so you pick prompt/RAG/fine-tune correctly.
+You will almost never **train** a foundation model from scratch. You **call** models that already went through a long pipeline at OpenAI, Anthropic, or Meta. This page explains that pipeline so you pick the right lever: prompt, RAG, or fine-tune.
 
 ---
 
@@ -10,32 +10,70 @@ You rarely **train** models as an AI engineer — you **orchestrate** pre-traine
 
 ### What problem are we solving?
 
-When a model misbehaves — wrong tone, ignores instructions, or lacks domain format — you need to know **which lever to pull**. Retrain from scratch? Tweak prompts? Add documents? Fine-tune?
+The model gives wrong tone, ignores format, or lacks domain vocabulary. What do you do?
 
-Most production teams never train a base model. They inherit one that already went through a long pipeline at a model lab, then adapt behavior at the edges. Confusing those stages leads to expensive mistakes (fine-tuning for facts that belong in RAG, or calling a prompt tweak "fine-tuning").
+| Wrong instinct | Right question |
+|--------------|----------------|
+| "Let's retrain GPT from scratch" | Costs millions — not your job |
+| "Let's fine-tune for our FAQ PDF" | Facts belong in **RAG**, not weights |
+| "I improved the system prompt" | That's **prompt engineering**, not fine-tuning |
 
-### What does the lifecycle look like?
+You need vocabulary for each **stage** so you propose sane solutions in design reviews.
 
-Think of it as a factory line, not a single switch:
+### The factory line (plain English)
 
-| Stage | Plain English | Who does it |
-|-------|---------------|-------------|
-| **Pre-training** | Read the internet; learn language and rough world knowledge | Model labs only |
-| **[SFT](../resources/glossary.md)** (supervised fine-tuning) | Learn specific tasks from labeled examples | Labs + enterprises |
-| **Instruction tuning** | Learn to follow user instructions from (instruction, response) pairs | Labs |
-| **[RLHF](../resources/glossary.md)** / **[RLAIF](../resources/glossary.md)** | Align to human (or AI) preferences — helpful, harmless, honest | Labs |
+| Stage | What happens | Real-world analogy |
+|-------|--------------|-------------------|
+| **Pre-training** | Model reads massive text; learns language + rough facts | Reading the whole library |
+| **SFT** (supervised fine-tuning) | Labeled input→output examples for specific tasks | Practice exams with answer keys |
+| **Instruction tuning** | (instruction, good response) pairs — learn to follow users | Customer service scripts |
+| **RLHF** | Humans rank answers; model learns preferences | Manager reviews which reply to send |
 
-Optional later: **[LoRA](../resources/glossary.md)** (Low-Rank Adaptation) — a cheap way to specialize a model without full retraining (Week 7).
+**GPT-4o Mini** you call via API is already through this line. You start at **prompt / RAG / tools**.
 
-**GPT-4o Mini** is already instruction-tuned and RLHF-aligned — you call it via API. Your job is choosing the right adaptation layer on top.
+### Worked scenario: company FAQ bot
+
+**Need:** Answer questions from a 200-page employee handbook.
+
+| Approach | Right? | Why |
+|----------|--------|-----|
+| Fine-tune on the PDF | **No** | Facts change; retraining is slow; model won't cite pages |
+| **RAG** — chunk handbook, retrieve, answer with citations | **Yes** | Updates when PDF changes (Week 3) |
+| Prompt: "Be friendly HR bot" | **Yes** | Tone/behavior — cheap |
+
+**Need:** Every reply must start with "AcmeCorp:" and use formal legal tone.
+
+| Approach | Right? | Why |
+|----------|--------|-----|
+| Prompt engineering | **Try first** | Often enough |
+| LoRA fine-tune on style examples | **Maybe** (Week 7) | When prompts won't stabilize format |
+
+### RLHF in one example
+
+Two draft answers to *"How do I reset my password?"*
+
+- **A:** Step-by-step reset link, concise  
+- **B:** Long lecture on password security history  
+
+Humans prefer A → reward model learns → policy favors helpful, direct answers. Side effect: model may **guess** when unsure instead of refusing ([hallucinations.md](hallucinations.md)).
+
+### Decision order (memorize)
+
+```
+1. Prompt engineering
+2. RAG (new facts from documents)
+3. Structured output API (format)
+4. Agents + tools (actions)
+5. Fine-tune / LoRA (style, niche behavior — Week 7)
+```
 
 ### AI engineer takeaway
 
-Memorize the decision order: **prompts → RAG → structured output → agents → fine-tune**. Most behavior fixes never require training; when they do, know which lifecycle stage you're actually changing.
+Fine-tuning changes **behavior and style**, not your live document store. Facts → RAG. Most teams never train a base model.
 
 ---
 
-## The Model Lifecycle
+## Lifecycle diagram
 
 ```mermaid
 flowchart LR
@@ -47,53 +85,16 @@ flowchart LR
     Base --> LoRA[Domain_LoRA_optional_Week7]
 ```
 
-| Stage | Data | Goal | Who |
-|-------|------|------|-----|
-| **Pre-training** | Trillions of tokens | Language + world knowledge | Model labs |
-| **[SFT](../resources/glossary.md)** | Labeled task pairs | Task/domain adaptation | Labs + enterprises |
-| **Instruction tuning** | (instruction, response) pairs | Follow user instructions | Labs |
-| **[RLHF](../resources/glossary.md) / [RLAIF](../resources/glossary.md)** | Human or AI preferences | Helpful, harmless, honest behavior | Labs |
-
-**GPT-4o Mini** is already instruction-tuned + RLHF-aligned — you call it via API.
-
 ---
 
-## RLHF Pipeline (Simplified)
+## When NOT to fine-tune
 
-1. Collect preference pairs: "Response A > B"
-2. Train **reward model** on preferences
-3. Optimize LLM with RL ([PPO](../resources/glossary.md) or similar) against reward model
-4. Result: better instruction following, refusals, tone
-
-**[RLAIF](../resources/glossary.md)** uses another LLM as judge — cheaper to scale than human labelers.
-
-Read: [InstructGPT paper](https://arxiv.org/abs/2203.02155) abstract + §2–3 on Day 4.
-
----
-
-## Decision Tree (memorize this)
-
-```
-Need behavior change?
-  → Try prompt engineering first
-Need new facts from docs?
-  → RAG (Week 3) — NOT fine-tuning for facts
-Need consistent format/style?
-  → Structured output + prompts, then consider [LoRA](../resources/glossary.md) (Week 7)
-Need tool actions?
-  → Agents (Week 4)
-```
-
----
-
-## When NOT to Fine-tune
-
-- Adding factual knowledge → **RAG**
+- Adding facts from docs → **RAG**
 - Quick iteration → **prompts**
-- Small data → prompts or few-shot
-- "I improved my system prompt" ≠ fine-tuning
+- Small dataset → few-shot in prompt
+- "We updated the system prompt" ≠ fine-tuning
 
-Fine-tune when: proprietary tone, domain format, or behavior prompts cannot stabilize.
+Fine-tune when: proprietary tone, domain format, or behavior that prompts cannot stabilize after real evals.
 
 ---
 
@@ -103,33 +104,31 @@ Fine-tune when: proprietary tone, domain format, or behavior prompts cannot stab
 |----------|------|------|-------------|
 | Prompt engineering | $ | Hours | High |
 | RAG | $$ | Days–weeks | Updates with docs |
-| [LoRA](../resources/glossary.md) fine-tune | $$$ | Weeks | Retrain pipeline |
+| LoRA fine-tune | $$$ | Weeks | Week 7 |
 | Full fine-tune | $$$$ | Months | Rare |
 
 ---
 
 ## Best Practices
 
-- Default to **API models** that are already instruction-tuned and RLHF-aligned — don't expose raw base models to users.
-- Run the **decision tree** before proposing fine-tuning; document why prompts and RAG were insufficient.
-- Treat fine-tuning as a **behavior/format** tool, not a knowledge store — facts belong in retrieval.
-- Measure **before and after** any lifecycle change with the same eval set (Week 6 preview).
-- When discussing alignment with stakeholders, name the stage: SFT changes task skill; RLHF changes preference and safety tone.
+- Default to instruction-tuned API models — not raw base models for users.
+- Document why prompts/RAG were insufficient before proposing fine-tune.
+- Same eval set before and after any change.
 
 ---
 
 ## Common Mistakes
 
-- Fine-tuning to inject facts (inefficient vs RAG).
-- Using base models for user-facing chat.
-- Skipping eval before/after any lifecycle change.
+- Fine-tuning to inject encyclopedic facts.
+- Confusing prompt tweaks with training.
+- Skipping eval before/after lifecycle changes.
 
 ---
 
 ## Checkpoint
 
-1. Order the stages: pre-train → SFT → instruct → RLHF.
-2. Why not fine-tune a FAQ bot when you have a PDF manual?
+1. Order: pre-train → SFT → instruct → RLHF.
+2. FAQ from PDF — RAG or fine-tune?
 3. What does RLHF optimize?
 
 ---
@@ -138,9 +137,8 @@ Fine-tune when: proprietary tone, domain format, or behavior prompts cannot stab
 
 | Resource | Link | Why |
 |----------|------|-----|
-| InstructGPT | https://arxiv.org/abs/2203.02155 | RLHF origin |
-| Lilian Weng — RLHF | https://lilianweng.github.io/posts/2021-01-02-controllable-generation/ | Preference learning |
-| Karpathy — State of GPT | https://www.youtube.com/watch?v=bZQun8Y4jUs | Lifecycle overview |
+| InstructGPT paper | https://arxiv.org/abs/2203.02155 | RLHF origin |
+| Karpathy — State of GPT | https://www.youtube.com/watch?v=bZQun8Y4jUs | Lifecycle talk |
 
 ---
 

@@ -10,7 +10,19 @@
 
 ### What problem are we solving?
 
-Teams burn money and ship slow products by defaulting to one flagship model for everything. Model selection is choosing the **cheapest model that meets the quality bar** for each task — and measuring when the bar is not met.
+"Which model should we use?" is not answered by Twitter hype. You need a **decision per task type**, backed by your Day 7 benchmark data.
+
+### Scenario: building a support bot (preview)
+
+| Task | Week 2 pick | Why (after you benchmark) |
+|------|-------------|---------------------------|
+| Extract ticket JSON (name, email, issue) | GPT-4o Mini + schema | Highest parse success rate |
+| Draft friendly reply | Claude Haiku or GPT-4o Mini | Compare tone + cost in report |
+| Classify urgency (low/med/high) | Cheapest model that passes eval | Often Haiku or local 8B |
+| Internal dev / CI tests | Llama 3.1 8B on Ollama | $0 per call |
+
+**Wrong:** One model for everything at max temperature.  
+**Right:** Registry metadata + benchmark evidence per route.
 
 ### Decision framework
 

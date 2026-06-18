@@ -2,7 +2,7 @@
 
 > Week 1 Theory · Day 3 · [← README](../README.md) · Prev: [inference](inference.md) · Next: [Lab 3](../labs/lab-03-sampling.md)
 
-Sampling controls **randomness** in LLM output. Lab 3 runs a temperature/top-p grid to show impact on hallucinations and format consistency.
+After the model scores possible next words, something has to **pick one**. **Temperature** and **top-p** control how random that pick feels. Lab 3 runs the same prompt at different settings so you can see the difference in your own output files.
 
 ---
 
@@ -10,54 +10,87 @@ Sampling controls **randomness** in LLM output. Lab 3 runs a temperature/top-p g
 
 ### What problem are we solving?
 
-After the model scores every possible next token (logits), something has to **pick one**. That choice controls how **random** or **deterministic** the output feels — critical for JSON extraction, creative writing, and eval reproducibility.
+The model does not output one "correct" word — it outputs a **ranked list of probabilities** for every possible next token. Sampling settings decide whether you always take the #1 choice (deterministic) or sometimes pick #3 or #7 (creative, risky).
 
-Sampling does **not** make the model smarter. It only changes which token gets selected from the same underlying distribution.
+Wrong settings cause:
 
-### How it works (one sentence)
+- **JSON extraction** that breaks format every other call
+- **Creative writing** that sounds robotic at temperature 0
+- **Hallucinated facts** at high temperature (made-up dates, fake names)
 
-Logits → softmax → **probability distribution** over the vocabulary → sample one token → repeat for each step of generation.
+Sampling does **not** make the model smarter. It only changes **which token gets selected** from the same underlying scores.
 
-### Temperature vs top-p — which knob?
+### The pipeline in plain English
 
-| Knob | What it does | Typical use |
-|------|--------------|-------------|
-| **[Temperature](../resources/glossary.md#temperature)** | Scales all probabilities — lower = more greedy | **Start here** — temp 0 for structured output and evals |
-| **[Top-p](../resources/glossary.md#top-p)** (nucleus) | Drops unlikely tail tokens; sample only from the top cumulative mass | Fine-tune focus when temperature alone is too loose |
+```
+Model scores every possible next word (logits)
+    → adjust with temperature
+    → convert to probabilities (softmax)
+    → optionally cut off unlikely tails (top-p)
+    → pick one token
+    → repeat for the next position
+```
 
-| Goal | Start with | Why |
-|------|------------|-----|
-| JSON / code / extraction | `temperature = 0` | Near-deterministic; format-stable |
-| General chat | `0.3–0.7` | Some variety without chaos |
-| Brainstorming | `0.8–1.2+` | More diverse phrasing — watch for [hallucinations](../resources/glossary.md#hallucination) |
+### Same prompt, different temperature (example)
 
-**AI engineer takeaway:** Use **temperature = 0** for structured output ([structured-output.md](structured-output.md)); log `temperature` and `top_p` with every `request_id`. **Adjust one knob at a time** — changing both without A/B tests makes debugging impossible.
+**Prompt (Lab 3 style):** *"List one major AI model release from January 2025."*
 
----
+| Setting | Example behavior |
+|---------|------------------|
+| **temperature = 0** | Same answer every run; format stable; fewer invented dates |
+| **temperature = 0.7** | Slight wording changes; still mostly sensible |
+| **temperature = 1.2** | Different model names each run; more plausible-sounding **but wrong** specifics |
 
-## Temperature
+At temp 0 you might get: *"OpenAI announced GPT-4o updates in early 2025."* (consistent)
+
+At temp 1.2 you might get: *"Anthropic released Claude 4 Ultra on January 3, 2025 with 2M context."* (confident tone — **verify every fact**)
+
+Lab 3 asks you to log: **fabricated specifics (Y/N)** and **format compliance (Y/N)** per grid cell.
+
+### Temperature — the main knob
+
+**Temperature** scales how flat or peaked the probability distribution is.
+
+| Temperature | Plain English | Use when |
+|-------------|---------------|----------|
+| **0** | Always pick the most likely token (greedy) | JSON, code, evals, benchmarks |
+| **0.3–0.7** | Slight variety | General chat |
+| **0.8–1.2+** | Surprising word choices | Brainstorming, creative writing |
+
+Formula (for reference):
 
 ```
 P(token_i) = softmax(logit_i / temperature)
 ```
 
-| Temperature | Behavior | Use when |
-|-------------|----------|----------|
-| **0** | Greedy (highest prob token) | JSON extraction, code, evals, Lab 3 baseline |
-| **0.3–0.7** | Moderate diversity | General chat |
-| **0.8–1.2+** | High variance | Creative writing, brainstorming |
+Lower temperature → winner takes all. Higher temperature → underdog tokens get a chance.
 
-Temperature does **not** make the model smarter — it adds randomness.
+### Top-p (nucleus sampling) — the secondary knob
+
+**Top-p** says: "Only consider the smallest set of tokens whose probabilities add up to `p`; ignore the long tail of weird options."
+
+| top_p | Plain English |
+|-------|---------------|
+| **0.1** | Very narrow — only the most likely words |
+| **0.9** | Broader — more variety |
+| **1.0** | No trimming — full distribution (after temperature) |
+
+**Industry habit:** Tune **temperature first**, leave `top_p = 1.0`. Adjusting both at once makes debugging hard ("which knob broke JSON?").
+
+### Which knob for which job?
+
+| Goal | Start here | Why |
+|------|------------|-----|
+| JSON / extraction | `temperature = 0` | Reproducible structure |
+| Chat assistant | `0.3–0.7` | Natural but not chaotic |
+| Brainstorming product names | `0.8–1.0` | Diversity matters more than precision |
+| Production evals | `temperature = 0` | Compare runs fairly |
+
+### AI engineer takeaway
+
+Log `temperature` and `top_p` with every `request_id`. Use **temp 0** for structured output ([structured-output.md](structured-output.md)). Change **one knob at a time** when tuning.
 
 ---
-
-## Top-P (Nucleus Sampling)
-
-Select smallest token set whose cumulative probability ≥ `p`; sample within that set.
-
-- `top_p = 0.1` — very focused
-- `top_p = 0.9` — broader
-- `top_p = 1.0` — no truncation
 
 ```mermaid
 flowchart LR
@@ -69,55 +102,37 @@ flowchart LR
 
 ---
 
-## Interaction Rule
-
-**Adjust one knob at a time.** Industry default: tune temperature, leave `top_p = 1.0` (or vice versa). Changing both without A/B tests makes debugging impossible.
-
----
-
 ## Tradeoffs
 
-| Setting | Strength | Weakness |
-|---------|----------|----------|
-| `temperature = 0` | Reproducible; consistent format (Lab 3 baseline) | No variety for creative tasks |
-| High temperature (`1.0+`) | Brainstorming; diverse phrasing | More fabricated specifics and format drift |
-| Low `top_p` (e.g. `0.5`) | Focused vocabulary | May discard valid but low-probability tokens |
-| `top_p = 1.0` | No nucleus truncation | Relies entirely on temperature for control |
-
----
-
-## Lab 3 Connection
-
-Fixed prompt about January 2025 model releases:
-
-- `temperature = 0` → consistent format, fewer fabricated dates
-- `temperature = 1.2` → more varied, more hallucinated specifics
-
-Log: fabricated specifics (Y/N), format compliance (Y/N).
+| Setting | Good for | Bad for |
+|---------|----------|---------|
+| temp = 0 | JSON, tests, benchmarks | Creative variety |
+| temp 1.0+ | Ideation | Factual extraction |
+| low top_p | Focused vocabulary | May block valid rare tokens |
 
 ---
 
 ## Best Practices
 
-- **temperature = 0** for structured output ladder ([structured-output.md](structured-output.md))
-- Log sampling params with `request_id` in observability envelope
-- Same prompt at temp 0 should be near-deterministic (provider-dependent)
+- temp = 0 for structured output ladder.
+- Same prompt at temp 0 should be nearly identical across runs (provider-dependent).
+- Never crank temperature to "fix" a badly written prompt.
 
 ---
 
 ## Common Mistakes
 
-- Cranking temperature to "fix" bad prompts.
+- High temperature for JSON extraction.
 - Expecting identical outputs at temp > 0.
-- Using high temperature for JSON extraction.
+- Changing temperature and top_p together without A/B tests.
 
 ---
 
 ## Checkpoint
 
-1. Which setting for JSON extraction — temp 0 or 1.2?
-2. What does top_p truncate?
-3. Why run Lab 3 grid instead of guessing?
+1. JSON extraction: temp 0 or 1.2?
+2. What does top_p remove from the distribution?
+3. Why run Lab 3's grid instead of guessing?
 
 ---
 
@@ -125,8 +140,8 @@ Log: fabricated specifics (Y/N), format compliance (Y/N).
 
 | Resource | Link | Why |
 |----------|------|-----|
-| OpenAI — API reference (temperature) | https://platform.openai.com/docs/api-reference/chat/create | Parameter docs |
-| Hugging Face — generation strategies | https://huggingface.co/docs/transformers/generation_strategies | Sampling theory |
+| OpenAI API reference | https://platform.openai.com/docs/api-reference/chat/create | Parameter docs |
+| HF generation strategies | https://huggingface.co/docs/transformers/generation_strategies | Theory |
 
 ---
 

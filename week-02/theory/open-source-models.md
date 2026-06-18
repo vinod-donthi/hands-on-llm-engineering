@@ -10,11 +10,19 @@ Cloud APIs are convenient; **open-weight models** run on your hardware for priva
 
 ### What problem are we solving?
 
-Not every workload can send data to OpenAI. Local inference gives you:
+Not every prompt can leave your laptop. **Open-source models** (run locally via Ollama) give you zero per-token cost and keep data on your machine — at the cost of hardware limits and sometimes lower quality on hard tasks.
 
-- **Privacy** — prompts never leave your machine
-- **Cost predictability** — hardware sunk cost, $0 per token
-- **Fast iteration** — no rate limits during development
+### When local wins vs when cloud wins
+
+| Situation | Use local (Llama 8B) | Use cloud (GPT / Claude) |
+|-----------|----------------------|---------------------------|
+| PII / regulated data cannot leave device | ✓ | ✗ |
+| Developer running 500 tests in CI | ✓ | Expensive |
+| JSON extraction with strict schema | Maybe — benchmark first | Often ✓ |
+| Long reasoning chain | Quality may lag | ✓ |
+| Demo with no GPU | ✗ (too slow) | ✓ |
+
+**Week 2 rule:** Register **both** in `models.yaml` and let `benchmark_report.json` show numbers — don't assume.
 
 ### The open-source stack (2026)
 

@@ -10,15 +10,35 @@ Users perceive latency from **time to first token (TTFT)**, not total generation
 
 ### What problem are we solving?
 
-A non-streaming call blocks until the full completion returns. For a 500-token answer at 40 tok/s, that is **12+ seconds of blank UI**. Streaming shows tokens incrementally so the app feels responsive.
+A non-streaming call blocks until the **entire** answer is ready. If the model writes 500 tokens at 40 tokens/second, the user stares at a blank screen for **12+ seconds**, then gets everything at once.
 
-### Key metrics
+Streaming sends each piece as it's generated — like watching someone type in real time instead of waiting for the full email.
 
-| Metric | Definition | Why it matters |
-|--------|------------|----------------|
-| **TTFT** | Time from request start to first token | Perceived snappiness |
-| **TPS** | Output tokens per second after first token | Reading speed UX |
-| **Total latency** | Request start to final token | End-to-end SLA |
+### What the user sees (non-streaming vs streaming)
+
+**Same prompt:** *"Explain Kubernetes in 3 paragraphs."*
+
+| Mode | User experience |
+|------|-----------------|
+| **Non-streaming** | Spinner for 8s → full text appears at once |
+| **Streaming** | First words at ~200ms → text grows paragraph by paragraph |
+
+Both may take **8 seconds total** — but streaming **feels** faster because something happens immediately.
+
+### Timeline with numbers (illustrative)
+
+```
+0 ms      User clicks Send
+150 ms    Prefill done (prompt processed)
+155 ms    First token: "Kubernetes"     ← TTFT ≈ 155ms
+400 ms    "Kubernetes is an open-source…"
+2000 ms   Still streaming…
+7500 ms   Final token; stream ends       ← total latency
+```
+
+**TTFT** = 155ms (user relief) · **Total** = 7500ms (billing, SLA) · **TPS** ≈ output_tokens / (total − TTFT)
+
+Log all three — optimizing only total latency hides a 5-second prefill problem.
 
 ### Transport: Server-Sent Events (SSE)
 

@@ -10,7 +10,51 @@
 
 ### What problem are we solving?
 
-LLMs are bad at live facts and side effects. Tools let the model say **"call this function with these args"** and your runtime executes them, then feeds results back into the conversation.
+**User:** *"What's 847 × 293?"*
+
+Without tools, the model might **guess** or do mental math wrong. With a `calculate` tool, it can say: *"I need to call calculate with this expression"* — and **your code** runs the real math.
+
+**The model proposes. Your app executes.** Never the other way around.
+
+### Worked example: calculate tool
+
+**1. You send** user message + tool definition:
+
+```
+USER: What is 847 × 293? Use the calculator.
+TOOLS: calculate(expression: string)
+```
+
+**2. Model responds** (no final answer yet — a tool request):
+
+```json
+{
+  "tool_calls": [{
+    "name": "calculate",
+    "arguments": {"expression": "847 * 293"}
+  }]
+}
+```
+
+**3. Your code runs** `calculate("847 * 293")` → `"248171"`
+
+**4. You send back** the tool result:
+
+```
+TOOL: 248171
+```
+
+**5. Model responds** in plain English:
+
+```
+The result of 847 × 293 is 248,171.
+```
+
+Lab 4 saves this path as `tool_call_trace.json`.
+
+### Without tools (what goes wrong)
+
+Same question, no tool — model might answer `248,071` (wrong digit) with full confidence. Tools ground **computable** steps in real execution.
 
 ### The tool loop
 

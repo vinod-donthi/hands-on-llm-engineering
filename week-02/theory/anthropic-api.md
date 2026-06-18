@@ -10,7 +10,40 @@ Anthropic's **Messages API** powers Claude models. It differs from OpenAI in a f
 
 ### What problem are we solving?
 
-Production systems rarely depend on a single vendor. Adding Anthropic gives you a **second opinion** on quality, a failover path, and leverage in vendor negotiations. Interviewers expect you to explain *how* you unified two different APIs.
+Relying on one cloud vendor is risky — outages, price hikes, or quality gaps on specific tasks. Anthropic (Claude) is your **second provider** in Week 2. The APIs look similar but differ in details; your adapter hides that from the rest of the app.
+
+### Same conversation, two APIs (side by side)
+
+**Goal:** System says "Be brief." User says "Hello."
+
+**OpenAI shape:**
+
+```json
+{
+  "model": "gpt-4o-mini",
+  "messages": [
+    {"role": "system", "content": "Be brief."},
+    {"role": "user", "content": "Hello"}
+  ]
+}
+```
+
+**Anthropic shape:**
+
+```json
+{
+  "model": "claude-3-5-haiku-20241022",
+  "system": "Be brief.",
+  "messages": [
+    {"role": "user", "content": "Hello"}
+  ],
+  "max_tokens": 1024
+}
+```
+
+**Key difference:** Anthropic's `system` is **outside** `messages[]`. Your `AnthropicProvider` maps `CompletionRequest.system_prompt` → `system=`.
+
+**Response difference:** Anthropic returns `content: [{type: "text", text: "Hi!"}]` — your adapter extracts the string before sending to the frontend.
 
 ### OpenAI vs Anthropic (at a glance)
 

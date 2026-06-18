@@ -8,11 +8,39 @@ Preview for **AI Radar** (Week 8 capstone): how to ingest news, papers, and laun
 
 ## Concepts
 
+Preview for **AI Radar** (Week 8): how to pull in news and papers without brittle HTML scraping.
+
 ### What problem are we solving?
 
-AI products that track the outside world — news digests, paper alerts, launch radars — need a **reliable pipeline** from many sources into one normalized store. If you scrape HTML on day one, you will rewrite parsers every time a site redesigns.
+You want a daily digest of AI news. The naive approach — scrape 20 websites' HTML — breaks every time someone redesigns a page. The engineering question is: **what is the most stable way to get new content on a schedule?**
 
-The engineering question is: *what is the most stable, polite way to get new content on a schedule?*
+### Example: one RSS item (what you actually get)
+
+Feed: `https://rss.arxiv.org/rss/cs.AI` — poll it every hour with `feedparser`.
+
+```xml
+<item>
+  <title>Attention Is All You Need (relisted example)</title>
+  <link>https://arxiv.org/abs/1706.03762</link>
+  <pubDate>Thu, 15 Jan 2026 08:00:00 GMT</pubDate>
+  <description>Abstract text here…</description>
+</item>
+```
+
+Your code normalizes to:
+
+```json
+{
+  "id": "sha256_of_url",
+  "source": "arxiv_cs_ai",
+  "title": "Attention Is All You Need…",
+  "url": "https://arxiv.org/abs/1706.03762",
+  "published_at": "2026-01-15T08:00:00Z",
+  "content_snippet": "Abstract text here…"
+}
+```
+
+**Dedupe** by URL hash so polling twice does not spam the digest.
 
 ### RSS: the simplest reliable feed
 

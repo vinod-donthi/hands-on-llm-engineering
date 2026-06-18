@@ -10,7 +10,41 @@ Week 1 introduced GPT-4o Mini through a thin provider wrapper. This page covers 
 
 ### What problem are we solving?
 
-Your application needs a **stable HTTP contract** to send prompts and receive completions with predictable billing, latency, and error codes. OpenAI's API is the de facto reference — most other providers mirror its patterns.
+Your app needs to send text to a cloud model and get text back — with token counts for billing and error codes when something breaks. OpenAI's Chat Completions API is the **reference pattern** most providers copy.
+
+### A minimal request (what you actually send)
+
+```json
+{
+  "model": "gpt-4o-mini",
+  "messages": [
+    {"role": "system", "content": "You are a concise assistant."},
+    {"role": "user", "content": "Name one benefit of unit tests."}
+  ],
+  "temperature": 0.7,
+  "max_tokens": 150
+}
+```
+
+### A minimal response (what you get back)
+
+```json
+{
+  "choices": [{
+    "message": {
+      "role": "assistant",
+      "content": "Unit tests catch regressions before production."
+    },
+    "finish_reason": "stop"
+  }],
+  "usage": {
+    "prompt_tokens": 28,
+    "completion_tokens": 12
+  }
+}
+```
+
+Your `OpenAIProvider` maps this into the Week 1 **observability envelope**: `input_tokens`, `output_tokens`, `cost_usd`, `latency_ms`, `request_id`.
 
 ### Core objects (plain English)
 

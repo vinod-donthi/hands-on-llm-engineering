@@ -2,7 +2,7 @@
 
 > Week 1 Theory · Day 5 · [← README](../README.md) · [Project Observability](../project/observability.md)
 
-When an LLM call fails in production, you need to know *which* request, *which* model, and *how much* it cost — without replaying the full prompt. This page defines the **observability envelope** your Playground Lite (and every downstream week) must emit on every call.
+When a user says *"the compare feature broke"*, you need to answer in minutes: which model failed, what did it cost, and was it a timeout or bad JSON? **Observability** is the flight recorder on every LLM call — the fields your Playground Lite must return on every response.
 
 ---
 
@@ -10,25 +10,58 @@ When an LLM call fails in production, you need to know *which* request, *which* 
 
 ### What problem are we solving?
 
-Traditional app logs tell you *that* something broke. LLM systems need more: **token counts** (billing), **latency per model** (SLAs), **parse status** (structured output), and **correlation IDs** (multi-model compare, retries, UI events).
+Regular app logs tell you *something* crashed. LLM systems need richer context:
 
-Without a standard envelope, you cannot answer: "Did Model B timeout or return garbage JSON?" or "What did this compare run cost?"
+| Question | Field that answers it |
+|----------|----------------------|
+| "Which request was this?" | `request_id` |
+| "How much did we spend?" | `input_tokens`, `output_tokens`, `cost_usd` |
+| "Was it slow to start or slow to finish?" | `latency_ms` (+ TTFT in Week 2) |
+| "Did JSON parsing work?" | `parse_status` |
+| "What went wrong?" | `error` |
 
-### What is the observability envelope?
+Without a **standard envelope** on every call, multi-model compare is a black box.
 
-A fixed set of fields attached to **every** LLM response — success, partial failure, or hard error. Think of it as the "flight recorder" for one model call.
+### A real debugging story
 
-| Field | Type | Purpose |
-|-------|------|---------|
-| `request_id` | UUID string | Correlate logs, errors, and UI events |
-| `parent_request_id` | UUID string | Batch compare operations (optional on single calls) |
-| `input_tokens` | int | Cost attribution, context budgeting |
-| `output_tokens` | int | Cost attribution, generation length |
-| `cost_usd` | float | Budget tracking |
-| `latency_ms` | float | End-to-end per model |
-| `error` | string \| null | Provider failure; null on success |
-| `parse_status` | enum \| null | `success` \| `repaired` \| `parse_failure` (extraction only) |
-| `json_validation_error` | string \| null | Pydantic/JSON error detail |
+User runs **compare** with GPT-4o Mini + Llama 3.1 8B. UI shows two panels — one empty with "Error."
+
+**Bad logging:** `"Error in compare"` — you cannot tell which model, whether you were billed, or if you should retry.
+
+**Good envelope on the failed slot:**
+
+```json
+{
+  "request_id": "550e8400-e29b-41d4-a716-446655440000:ollama/llama3.1:8b",
+  "parent_request_id": "550e8400-e29b-41d4-a716-446655440000",
+  "model_id": "llama3.1:8b",
+  "text": "",
+  "input_tokens": 0,
+  "output_tokens": 0,
+  "latency_ms": 30000.0,
+  "cost_usd": 0.0,
+  "error": "timeout after 30s",
+  "parse_status": null
+}
+```
+
+Meanwhile GPT-4o Mini's slot still has full text and tokens. **Partial failure** — one model down, others succeed. Your UI and tests must handle this (Lab 5 `test_compare_partial_failure`).
+
+### The observability envelope (9 fields)
+
+Attach these to **every** LLM response — success, partial failure, or hard error:
+
+| Field | Type | Plain English |
+|-------|------|---------------|
+| `request_id` | UUID string | Unique ID for this one model call |
+| `parent_request_id` | UUID (optional) | Groups all models in one compare batch |
+| `input_tokens` | int | How many prompt tokens (billing + context) |
+| `output_tokens` | int | How many generated tokens |
+| `cost_usd` | float | Dollar cost for this call |
+| `latency_ms` | float | End-to-end time for this model |
+| `error` | string or null | Provider failure message; null if OK |
+| `parse_status` | enum or null | `success` / `repaired` / `parse_failure` (JSON mode) |
+| `json_validation_error` | string or null | Why Pydantic rejected the JSON |
 
 ```mermaid
 flowchart LR
@@ -41,45 +74,46 @@ flowchart LR
 
 ### Multi-model compare: parent and child IDs
 
-When one prompt fans out to several models, use a **parent** ID for the batch and **child** IDs per model:
+One user click → three API calls. Use one **parent** ID plus **child** IDs per model:
 
 ```
 parent_request_id: 550e8400-...
-├── request_id: 550e8400-...:openai/gpt-4o-mini
-├── request_id: 550e8400-...:ollama/llama3.1:8b   (error: timeout)
-└── request_id: 550e8400-...:ollama/mistral:7b
+├── request_id: ...:openai/gpt-4o-mini     ✓ success
+├── request_id: ...:ollama/llama3.1:8b     ✗ error: timeout
+└── request_id: ...:ollama/mistral:7b      ✓ success
 ```
 
-Partial failures must still return full envelopes for failed models — never drop a slot because one provider timed out.
+**Rule:** Never drop a failed model from the response array — return the envelope with `error` set so the UI can show "Model B timed out."
 
-**AI engineer takeaway:** Observability is not optional telemetry — it is how you debug cost spikes, compare model quality, and prove SLAs in interviews and on-call.
+### AI engineer takeaway
+
+Observability is how you debug cost spikes, prove SLAs, and pass interviews. Generate `request_id` at the API boundary; log structured JSON; never log API keys or full prompts in production.
 
 ---
 
 ## Tradeoffs
 
-| Approach | Strength | Weakness |
-|----------|----------|----------|
-| Minimal envelope (tokens + latency) | Fast to ship; covers cost/debug basics | Misses parse failures and correlation across compare |
-| Full envelope (9 fields + parse status) | Production-ready; Week 1 standard | Slightly more schema work upfront |
-| Full prompt logging | Easiest replay | Privacy risk, storage cost, compliance issues |
-| Distributed tracing (OpenTelemetry) | End-to-end across services | Heavier setup — Week 6 preview; envelope still required per LLM call |
+| Approach | Good for | Watch out for |
+|----------|----------|---------------|
+| Minimal (tokens + latency) | Quick MVP | Misses parse failures and compare correlation |
+| Full 9-field envelope | Week 1 standard; production-ready | Small schema upfront cost |
+| Logging full prompts | Easy replay | Privacy and compliance risk |
 
 ---
 
 ## Best Practices
 
-- Generate `request_id` at the API boundary.
-- Log structured JSON; include `model_id`, `parse_status`, never API keys or full prompts.
-- Calculate `cost_usd` for successful **and** failed calls (input tokens may still be billed).
+- Generate IDs at the API boundary, not inside the provider SDK callback.
+- Calculate `cost_usd` even on failures — input tokens may still be billed.
+- Log `model_id` + `request_id` together in structured JSON.
 
 ---
 
 ## Common Mistakes
 
-- Logging only on error.
-- Using timestamps as IDs.
-- Omitting `error` on partial failures in multi-model compare.
+- Logging only on error (no baseline for "slow but successful").
+- Using timestamps as IDs (collisions under load).
+- Omitting failed models from compare results.
 - Dropping `parse_status` when JSON ladder fails.
 
 ---
@@ -87,8 +121,8 @@ Partial failures must still return full envelopes for failed models — never dr
 ## Checkpoint
 
 1. List all 9 observability fields.
-2. How are parent and child `request_id` related in compare?
-3. What must happen when Model B times out but A and C succeed?
+2. User compares 3 models; Llama times out. What should the API return?
+3. Why log `cost_usd` on failed calls?
 
 ---
 
@@ -96,9 +130,8 @@ Partial failures must still return full envelopes for failed models — never dr
 
 | Resource | Link | Why |
 |----------|------|-----|
-| OpenTelemetry concepts | https://opentelemetry.io/docs/concepts/ | Week 6 preview |
 | [project/observability.md](../project/observability.md) | local | Implementation checklist |
-| [Lab 5 resiliency test](../labs/lab-05-model-comparison.md) | local | Partial failure pattern |
+| OpenTelemetry concepts | https://opentelemetry.io/docs/concepts/ | Week 6 preview |
 
 ---
 
