@@ -2,7 +2,7 @@
 
 A structured, hands-on path from experienced software engineer to **LLM systems, AI agents, and production AI products** — with interview readiness built in.
 
-**Status:** Week 1 is fully implemented. Weeks 2–8 are defined in [prompt.md](prompt.md) and will be added using the same modular pattern.
+**Status:** Weeks 1–2 are fully implemented. Weeks 3–8 are defined in [prompt.md](prompt.md) and will be added using the same modular pattern.
 
 ---
 
@@ -54,7 +54,8 @@ Learning/
 │   ├── project/
 │   ├── checkpoints/
 │   └── ...
-├── week-02/ … week-08/      ← planned (see prompt.md)
+├── week-02/                  ← Week 2 curriculum (complete)
+├── week-03/ … week-08/      ← planned (see prompt.md)
 └── .cursor/rules/            ← AI authoring conventions for this repo
 ```
 
@@ -65,7 +66,7 @@ Learning/
 | Week | Focus                                           | Capstone direction                      |
 | ---- | ----------------------------------------------- | --------------------------------------- |
 | 1    | LLM foundations, tokens, prompts, observability | Prompt Playground Lite                  |
-| 2    | LLM engineering, APIs, streaming, abstraction   | Model benchmarking tool                 |
+| 2    | LLM engineering, APIs, streaming, abstraction   | [Model Benchmark Studio](week-02/project/overview.md) |
 | 3    | RAG — chunking, embeddings, vector DB           | Document Q&A chatbot                    |
 | 4    | AI agents, tools, MCP                           | Research agent                          |
 | 5    | Production systems — FastAPI, Docker, scaling   | Deployed AI service                     |
@@ -74,6 +75,17 @@ Learning/
 | 8    | Capstone                                        | AI Radar (full production-style system) |
 
 Full requirements: [prompt.md](prompt.md)
+
+---
+
+## Week 2 entry points
+
+| Resource                                                       | Use                                             |
+| -------------------------------------------------------------- | ----------------------------------------------- |
+| [week-02/START-HERE.md](week-02/START-HERE.md)                 | Orientation (requires Week 1 exit)              |
+| [week-02/daily/day-01.md](week-02/daily/day-01.md)             | **Today's steps**                               |
+| [week-02/progress.md](week-02/progress.md)                     | Completion tracker                              |
+| [week-02/roadmap.md](week-02/roadmap.md)                       | Models, time budget, outcomes                   |
 
 ---
 
