@@ -1,16 +1,32 @@
 # Failure Recovery
 
-> Week 1 Project · [Overview](overview.md) · [API](api.md) · Max 1 page
-> **Work dir:** All implementation code lives in `~/ai-learning/week-01-work/prompt-playground-lite/`
+> Week 1 Project · [Overview](overview.md) · [API](api.md) · [Lab 5](../labs/lab-05-model-comparison.md)
 
-## Provider Timeout
+> **Your code today:** partial failure handled in `lab04_backend/app/services/comparison.py`.  
+> **Work path:** `Learning/week-01-work/` or `~/ai-learning/week-01-work/`.
+
+---
+
+## What problem are we solving?
+
+Real systems have slow GPUs, downed Ollama, and models that return garbage JSON. This page describes **what users see** and **what your API returns** — never a full-batch crash because one provider failed.
+
+**Proof:** `test_compare_partial_failure()` in Lab 5.
+
+---
+
+## Provider timeout
 
 | | |
 |---|---|
 | **Detection** | `asyncio.TimeoutError`; `latency_ms` ≥ threshold; `error: "timeout after 30s"` |
 | **Fallback** | Return failed envelope; other models in compare continue |
-| **Logging** | `{"request_id", "model_id", "error": "timeout", "latency_ms"}` |
+| **Logging** | `{"request_id", "model_id", "error", "latency_ms"}` |
 | **UX** | Amber badge "Timed out"; show sibling model results |
+
+**Example:** Compare GPT + Llama + Mistral; Llama hangs → GPT and Mistral panels still populate.
+
+---
 
 ## Malformed JSON
 
@@ -21,7 +37,9 @@
 | **Logging** | `json_validation_error` + `request_id` |
 | **UX** | Show raw output in collapsible panel; badge "Parse failed" |
 
-## Model Unavailable
+---
+
+## Model unavailable
 
 | | |
 |---|---|
@@ -30,7 +48,11 @@
 | **Logging** | Provider + model_id + HTTP status |
 | **UX** | Red error badge per model; "Retry" button on compare |
 
-## Token Overflow
+**Example:** `mistral:7b` not pulled → 404 in envelope, other models unaffected.
+
+---
+
+## Token overflow
 
 | | |
 |---|---|
@@ -39,7 +61,9 @@
 | **Logging** | `input_tokens`, `context_limit`, `request_id` |
 | **UX** | "Prompt too long — remove N tokens" with estimate |
 
-## Budget Exceeded
+---
+
+## Budget exceeded
 
 | | |
 |---|---|
@@ -50,4 +74,10 @@
 
 ---
 
-**Principle:** Never fail the entire compare batch for one model failure. See `test_compare_partial_failure()` in [Lab 5](../labs/lab-05-model-comparison.md).
+**Principle:** Never fail the entire compare batch for one model failure.
+
+---
+
+## Next
+
+[acceptance-criteria.md](acceptance-criteria.md) · [theory/observability.md](../theory/observability.md)

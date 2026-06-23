@@ -10,6 +10,9 @@
 | 4 | Training lifecycle, hallucinations, JSON | [training-vs-finetuning](training-vs-finetuning.md) → [hallucinations](hallucinations.md) → [structured-output](structured-output.md) |
 | 5 | Observability, prompts | [observability](observability.md) → [prompt-engineering](prompt-engineering.md) |
 | 6 | RSS primer (AI Radar preview) | [rss-ingestion-primer](rss-ingestion-primer.md) |
+| 7 | Build + capstone (no new theory) | [BUILD-GUIDE](../project/BUILD-GUIDE.md) · [CAPSTONE-PROMPTS](../project/CAPSTONE-PROMPTS.md) |
+
+**Lost after Day 6?** [WHERE-AM-I.md](../WHERE-AM-I.md)
 
 **Entry point:** [START-HERE.md](../START-HERE.md) → [Day 1 playbook](../daily/day-01.md)
 

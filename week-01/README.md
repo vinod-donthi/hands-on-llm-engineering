@@ -2,7 +2,8 @@
 
 **8-Week AI Engineering Curriculum · Part 1 of 8**
 
-> **New here?** [START-HERE.md](START-HERE.md) → [Day 1 playbook](daily/day-01.md)
+> **New here?** [START-HERE.md](START-HERE.md) → [Day 1 playbook](daily/day-01.md)  
+> **Finished Day 6?** [WHERE-AM-I.md](WHERE-AM-I.md) → [BUILD-GUIDE](project/BUILD-GUIDE.md) → [Day 7](daily/day-07.md)
 
 ---
 
@@ -60,7 +61,7 @@ Full checklist: [checkpoints/exit-criteria.md](checkpoints/exit-criteria.md)
 | [daily/](daily/) | **Numbered playbooks** — one file per day (start here each session) |
 | [theory/](theory/) | Deep dives — one topic per file |
 | [labs/](labs/) | Hands-on exercises |
-| [project/](project/) | Prompt Playground Lite spec |
+| [project/](project/) | Prompt Playground Lite spec — **[BUILD-GUIDE](project/BUILD-GUIDE.md)** on Day 7 |
 | [interview/](interview/) | Questions + cheat sheet |
 | [checkpoints/](checkpoints/) | Quiz, exit criteria, progress |
 | [resources/](resources/) | Reading, glossary, references |
@@ -134,7 +135,7 @@ Full index: [theory/README.md](theory/README.md)
 [Overview](labs/README.md) · [Lab 1](labs/lab-01-tokenization.md) · [Lab 2](labs/lab-02-embeddings.md) · [Lab 3](labs/lab-03-sampling.md) · [Lab 4](labs/lab-04-provider-abstraction.md) · [Lab 5](labs/lab-05-model-comparison.md) · [Lab 6](labs/lab-06-local-benchmark.md) *(optional)*
 
 ### Project
-[Overview](project/overview.md) · [Architecture](project/architecture.md) · [Backend](project/backend.md) · [Frontend](project/frontend.md) · [API](project/api.md) · [Observability](project/observability.md) · [Evaluation Rubric](project/evaluation-rubric.md) · [Failure Recovery](project/failure-recovery.md) · [Acceptance Criteria](project/acceptance-criteria.md)
+[Overview](project/overview.md) · **[Build guide](project/BUILD-GUIDE.md)** · [Capstone prompts](project/CAPSTONE-PROMPTS.md) · [Architecture](project/architecture.md) · [Backend](project/backend.md) · [Frontend](project/frontend.md) · [API](project/api.md) · [Observability](project/observability.md) · [Evaluation Rubric](project/evaluation-rubric.md) · [Failure Recovery](project/failure-recovery.md) · [Acceptance Criteria](project/acceptance-criteria.md) · [Minimum viable Week 1](project/minimum-viable-week1.md)
 
 ### Interview & Validation
 [Concepts](interview/concepts.md) · [System Design](interview/system-design.md) · [Coding](interview/coding.md) · [Cheat Sheet](interview/cheat-sheet.md) · [Quiz](checkpoints/quiz.md) · [Exit Criteria](checkpoints/exit-criteria.md)

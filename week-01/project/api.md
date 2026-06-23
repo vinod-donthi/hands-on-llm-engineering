@@ -1,21 +1,30 @@
 # API Specification
 
-> Week 1 Project · [Backend](backend.md) · [Observability](observability.md)
+> Week 1 Project · [Backend](backend.md) · [Observability](observability.md) · [Build guide](BUILD-GUIDE.md)
 
-> **Work dir:** All implementation code lives in `~/ai-learning/week-01-work/prompt-playground-lite/`
-
-## Endpoints
-
-| Method | Path | Description |
-|--------|------|-------------|
-| GET | `/api/v1/models` | List required + optional models |
-| POST | `/api/v1/complete` | Single model completion |
-| POST | `/api/v1/compare` | Parallel fan-out |
-| POST | `/api/v1/extract` | JSON extraction with reliability ladder |
+> **Your code today:** `lab04_backend/app/main.py` — `/models`, `/complete`, `/compare` live; `/extract` on Day 7.  
+> **Work path:** `Learning/week-01-work/` or `~/ai-learning/week-01-work/`.
 
 ---
 
-## Compare Response
+## What problem are we solving?
+
+This page is the **contract** between your frontend (or curl) and backend — what to send, what comes back, and what must never happen (e.g. HTTP 500 when one model times out).
+
+---
+
+## Endpoints
+
+| Method | Path | Day | Description |
+|--------|------|-----|-------------|
+| GET | `/api/v1/models` | 5 | List required + optional models |
+| POST | `/api/v1/complete` | 5 | Single model completion |
+| POST | `/api/v1/compare` | 6 | Parallel fan-out |
+| POST | `/api/v1/extract` | 7 | JSON extraction with reliability ladder |
+
+---
+
+## Compare response
 
 ```json
 {
@@ -52,20 +61,23 @@
 }
 ```
 
+**Worked example:** User compares 3 models; Llama times out → still HTTP **200**, three `results` objects, failed slot has `error` set.
+
 ---
 
-## Extract Request / Response
+## Extract request / response
 
 **Request:**
 
 ```json
 {
   "text": "Jane Doe, CTO at Acme AI",
-  "schema": { "name": "string", "role": "string", "company": "string" }
+  "schema": { "name": "string", "role": "string", "company": "string" },
+  "model_id": "openai/gpt-4o-mini"
 }
 ```
 
-**Response:**
+**Response (success):**
 
 ```json
 {
@@ -86,8 +98,16 @@ On failure: `parse_status: "parse_failure"`, `parsed_json: null`, `json_validati
 
 ---
 
-## Error Isolation Rules
+## Error isolation rules
 
-- One model timeout/error must not raise HTTP 500 for the batch.
+- One model timeout/error must **not** raise HTTP 500 for the batch.
 - Always return `parent_request_id` and per-model `request_id`.
-- `total_cost_usd` sums only successful billed calls.
+- `total_cost_usd` sums `cost_usd` from all results (failed slots typically $0).
+
+Implementation: [services/comparison.py](../../week-01-work/lab04_backend/app/services/comparison.py) in your work dir.
+
+---
+
+## Next
+
+[backend.md](backend.md) · [CAPSTONE-PROMPTS.md](CAPSTONE-PROMPTS.md)

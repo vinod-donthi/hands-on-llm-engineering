@@ -38,4 +38,6 @@ Do **not** read all 14 theory files before Day 1. The daily playbook links only 
 
 ## 4. First step
 
-**→ [Day 1 playbook](daily/day-01.md)**
+**New to Week 1:** **→ [Day 1 playbook](daily/day-01.md)**
+
+**Finished Day 6:** **→ [Where am I?](WHERE-AM-I.md)** · [Build guide](project/BUILD-GUIDE.md) · [Day 7](daily/day-07.md)

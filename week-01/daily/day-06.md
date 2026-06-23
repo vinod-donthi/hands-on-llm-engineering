@@ -10,6 +10,8 @@
 | **Work dir** | `week-01-work/` |
 | **Stop when** | `compare_sample_output.json` exists; resiliency test passes |
 
+**Tomorrow:** [Day 7](day-07.md) starts with [BUILD-GUIDE](../project/BUILD-GUIDE.md) — not the raw project folder.
+
 ---
 
 ## Steps
@@ -34,9 +36,20 @@ Read [Lab 5](../labs/lab-05-model-comparison.md) + [evaluation rubric](../projec
 
 [Lab 6](../labs/lab-06-local-benchmark.md) → `benchmark_summary.csv` — **skip if behind**
 
-### Step 5 — UI scaffold (~90 min)
+### Step 5 — UI scaffold (optional — defer to Day 7 if behind)
 
-Next.js compare UI per [project/frontend.md](../project/frontend.md)
+**Option A — automated scaffold (recommended):**
+
+```bash
+cd Learning/week-01
+chmod +x scripts/scaffold-playground-lite.sh
+./scripts/scaffold-playground-lite.sh
+cd week-01-work/prompt-playground-lite/frontend && npm install && npm run dev
+```
+
+**Option B — skip UI today:** Day 7 [BUILD-GUIDE](../project/BUILD-GUIDE.md) Path B uses backend + capstone export only.
+
+UI details: [project/frontend.md](../project/frontend.md) (start with one-page MVP in `page.tsx`)
 
 ### Step 6 — Close out
 
@@ -54,4 +67,4 @@ Next.js compare UI per [project/frontend.md](../project/frontend.md)
 
 ## Tomorrow
 
-**→ [Day 7 — Playground Lite + Capstone](day-07.md)**
+**→ [Day 7 — Playground Lite + Capstone](day-07.md)** — read [BUILD-GUIDE](../project/BUILD-GUIDE.md) first
