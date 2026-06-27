@@ -1,5 +1,6 @@
 # Work directory (labs, venv, secrets — lives outside curriculum repo)
 week-01-work/
+week-02-work/
 
 # OS / editor
 .DS_Store
