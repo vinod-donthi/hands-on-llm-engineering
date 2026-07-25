@@ -28,6 +28,10 @@ Think of it like this:
 | Hard to train in parallel on GPUs | Trains efficiently at scale |
 | Memory fades over long sentences | Long-range connections are easier to learn |
 
+![Side-by-side: RNN reads tokens sequentially with passing memory; Transformer connects all tokens via self-attention](../assets/images/day-01/transformers-rnn-vs-attention.svg)
+
+*Figure: RNNs process left-to-right with a hidden state; transformers let every token attend to every other token in one parallel pass.*
+
 That shift unlocked three things that matter for your job:
 
 1. **Parallel training** — GPUs process many tokens at once instead of waiting for each step
@@ -45,6 +49,10 @@ All modern transformers share the same core building blocks (attention + feed-fo
 | **Encoder-only** | Reads the **whole** input at once (left and right context) | BERT, embedding models | Search, classification, **RAG embeddings** (Week 3) |
 | **Decoder-only** | Reads left-to-right only; predicts the **next** token | GPT, Llama, Claude | Chat, code, agents — **this is 95% of production LLM work in 2026** |
 | **Encoder-decoder** | One stack reads input; another stack writes output | T5, BART | Translation, summarization pipelines (less common for general assistants) |
+
+![Three transformer variants: encoder-only, decoder-only, and encoder-decoder](../assets/images/day-01/transformers-three-shapes.svg)
+
+*Figure: Same attention building blocks — different "look directions." Production chat APIs use decoder-only (GPT, Llama, Claude).*
 
 **Production LLM applications almost always use decoder-only models.** When you call the OpenAI or Ollama API for chat, you are talking to a decoder-only stack.
 
