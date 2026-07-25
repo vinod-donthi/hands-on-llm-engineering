@@ -12,8 +12,6 @@
 | 6 | RSS primer (AI Radar preview) | [rss-ingestion-primer](rss-ingestion-primer.md) |
 | 7 | Build + capstone (no new theory) | [BUILD-GUIDE](../project/BUILD-GUIDE.md) · [CAPSTONE-PROMPTS](../project/CAPSTONE-PROMPTS.md) |
 
-**Lost after Day 6?** [WHERE-AM-I.md](../WHERE-AM-I.md)
-
 **Entry point:** [START-HERE.md](../START-HERE.md) → [Day 1 playbook](../daily/day-01.md)
 
 Each file follows the **Concepts** pattern: start with the problem in plain English, use comparison tables, include an **AI engineer takeaway**, then tradeoffs, checkpoint questions, and **Go Deeper** links. Unfamiliar terms link to the [glossary](../resources/glossary.md) (one-line lookup) or [appendix](../../appendix/README.md) (optional ~10 min deep dives).

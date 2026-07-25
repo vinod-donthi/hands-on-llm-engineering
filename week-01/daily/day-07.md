@@ -1,6 +1,6 @@
 # Day 7 — Playground Lite + Capstone
 
-> **You are here:** Day 7 of 7 · [← Daily index](README.md) · [Where am I?](../WHERE-AM-I.md) · [Progress](../progress.md)
+> **You are here:** Day 7 of 7 · [← Daily index](README.md) · [Progress](../progress.md)
 
 | | |
 |---|---|
@@ -139,6 +139,4 @@ Read [CAPSTONE-PROMPTS.md](../project/CAPSTONE-PROMPTS.md) — **use these five 
 
 ## What's next
 
-Week 1 complete — proceed to **Week 2** only when [exit criteria](../checkpoints/exit-criteria.md) pass.
-
-Read `prompt.md` at repo root before starting Week 2 generation.
+When [exit criteria](../checkpoints/exit-criteria.md) pass, continue to [Week 2 START-HERE](../../week-02/START-HERE.md) → [Day 1 playbook](../../week-02/daily/day-01.md).

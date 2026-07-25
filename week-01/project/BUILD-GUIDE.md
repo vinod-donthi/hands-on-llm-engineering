@@ -1,6 +1,6 @@
 # Build Guide — From Labs to Prompt Playground Lite
 
-> Week 1 Project · **Start here on Day 7** · [← Where am I?](../WHERE-AM-I.md) · [Overview](overview.md)
+> Week 1 Project · **Start here on Day 7** · [← Day 7 playbook](../daily/day-07.md) · [Overview](overview.md)
 
 Labs 4–6 had you build **`lab04_backend/`** — a FastAPI app with providers, observability, and compare. The **project** docs describe **`prompt-playground-lite/`** — the same backend plus a Next.js UI. This guide connects the two in plain language.
 
@@ -161,6 +161,17 @@ cd prompt-playground-lite/frontend && npm run dev
 ## AI engineer takeaway
 
 Week 1 labs teach **API-first** LLM engineering (providers, telemetry, compare). The project adds **product shape** (UI, export, capstone narrative). You are not behind if you only have `lab04_backend/` — you are on the normal lab track. Day 7 closes the gap.
+
+---
+
+## Common confusion
+
+| Symptom | Cause | Fix |
+|---------|-------|-----|
+| Project docs mention `prompt-playground-lite/` but I only have `lab04_backend/` | Labs build incrementally; project describes final layout | Migration section above or Path B |
+| Day 6 UI step but no frontend yet | UI is optional until Day 7 | Run [scaffold script](../scripts/scaffold-playground-lite.sh) or Path B |
+| "5 benchmark prompts" with no text | Capstone prompts are in a separate file | [CAPSTONE-PROMPTS.md](CAPSTONE-PROMPTS.md) |
+| Two work paths in docs | Repo-local vs setup script default | Same folder — use whichever you `cd` into |
 
 ---
 

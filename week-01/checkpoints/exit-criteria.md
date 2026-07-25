@@ -16,7 +16,7 @@
 
 ## Build
 
-- [ ] Prompt Playground Lite runs (`uvicorn` + `npm run dev`)
+- [ ] Prompt Playground Lite runs (`uvicorn` + `npm run dev`, or Path B backend-only)
 - [ ] GPT-4o Mini + Llama 3.1 8B compare works
 - [ ] JSON extraction ladder with `parse_status`
 - [ ] `test_compare_partial_failure()` passes
@@ -33,4 +33,4 @@
 
 - [ ] Production standards: `.gitignore`, `Makefile`, README, tests
 
-**Rule:** Good enough to continue > perfect. Proceed to Week 2 when all boxes checked.
+**Rule:** Good enough to continue > perfect. Proceed to [Week 2](../../week-02/START-HERE.md) when all boxes checked.

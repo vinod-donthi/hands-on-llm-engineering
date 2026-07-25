@@ -2,8 +2,7 @@
 
 **8-Week AI Engineering Curriculum · Part 1 of 8**
 
-> **New here?** [START-HERE.md](START-HERE.md) → [Day 1 playbook](daily/day-01.md)  
-> **Finished Day 6?** [WHERE-AM-I.md](WHERE-AM-I.md) → [BUILD-GUIDE](project/BUILD-GUIDE.md) → [Day 7](daily/day-07.md)
+> **New here?** [START-HERE.md](START-HERE.md) → [Day 1 playbook](daily/day-01.md)
 
 ---
 

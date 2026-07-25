@@ -1,6 +1,6 @@
 # Prompt Playground Lite — Overview
 
-> Week 1 Project · [← README](../README.md) · **[Build guide](BUILD-GUIDE.md)** · [Where am I?](../WHERE-AM-I.md)
+> Week 1 Project · [← README](../README.md) · **[Build guide](BUILD-GUIDE.md)**
 
 > **Your code today:** `week-01-work/lab04_backend/` (Labs 4–6). Final layout: `prompt-playground-lite/` — see [BUILD-GUIDE.md](BUILD-GUIDE.md).  
 > **Work path:** `Learning/week-01-work/` or `~/ai-learning/week-01-work/` (same idea, two valid locations).
@@ -35,7 +35,7 @@ A reduced-scope multi-model comparison tool:
 | 6 | + `/compare`, `compare_sample_output.json`, optional benchmark |
 | 7 | + `/extract`, capstone JSON + report, optional UI |
 
-Details: [BUILD-GUIDE.md](BUILD-GUIDE.md) · [WHERE-AM-I.md](../WHERE-AM-I.md)
+Details: [BUILD-GUIDE.md](BUILD-GUIDE.md)
 
 ---
 
