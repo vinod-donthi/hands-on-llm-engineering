@@ -46,6 +46,10 @@ Your app needs to send text to a cloud model and get text back — with token co
 
 Your `OpenAIProvider` maps this into the Week 1 **observability envelope**: `input_tokens`, `output_tokens`, `cost_usd`, `latency_ms`, `request_id`.
 
+![OpenAI JSON fields mapped to LLMResponse envelope fields](../assets/images/day-01/openai-envelope-mapping.svg)
+
+*Figure: Vendor response fields normalize into one observability envelope — same shape for every provider.*
+
 ### Core objects (plain English)
 
 | Object | What it is |

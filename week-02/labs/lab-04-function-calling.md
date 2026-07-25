@@ -8,6 +8,10 @@
 
 **Goal:** Tool loop with one deterministic tool; trace logged to JSON.
 
+![tool_call_trace.json showing calculate tool rounds and final answer](../assets/images/labs/lab-04-tool-trace.svg)
+
+*Figure: Trace captures tool_call, tool_result, and final text — save as deliverable for portfolio.*
+
 ---
 
 ## Tool: `calculate`

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" role="img" aria-labelledby="title desc">
+  <title id="title">Lab 4 tool call trace JSON output</title>
+  <desc id="desc">tool_call_trace.json showing calculate tool invocation, result, rounds, and latency for 127 times 49.</desc>
+  <rect width="720" height="300" fill="#fafafa"/>
+  <text x="360" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#1a1a1a">Lab 4: tool_call_trace.json (illustrative)</text>
+  <text x="360" y="42" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">POST /api/v1/chat/tools -- model proposes, app executes</text>
+
+  <rect x="40" y="58" width="640" height="220" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="56" y="78" font-family="ui-monospace, monospace" font-size="9" fill="#64748b">{</text>
+  <text x="72" y="96" font-family="ui-monospace, monospace" font-size="9" fill="#2563eb">&quot;model_id&quot;: &quot;gpt-4o-mini&quot;,</text>
+  <text x="72" y="114" font-family="ui-monospace, monospace" font-size="9" fill="#475569">&quot;user_message&quot;: &quot;What is 127 * 49? Use calculator.&quot;,</text>
+  <text x="72" y="132" font-family="ui-monospace, monospace" font-size="9" fill="#475569">&quot;rounds&quot;: 2,</text>
+  <text x="72" y="150" font-family="ui-monospace, monospace" font-size="9" fill="#475569">&quot;trace&quot;: [</text>
+  <text x="88" y="168" font-family="ui-monospace, monospace" font-size="8" fill="#f59e0b">{ &quot;step&quot;: &quot;tool_call&quot;, &quot;name&quot;: &quot;calculate&quot;,</text>
+  <text x="104" y="184" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">&quot;arguments&quot;: {&quot;expression&quot;: &quot;127 * 49&quot;} },</text>
+  <text x="88" y="200" font-family="ui-monospace, monospace" font-size="8" fill="#16a34a">{ &quot;step&quot;: &quot;tool_result&quot;, &quot;result&quot;: &quot;6223&quot; },</text>
+  <text x="88" y="216" font-family="ui-monospace, monospace" font-size="8" fill="#2563eb">{ &quot;step&quot;: &quot;final&quot;, &quot;text&quot;: &quot;127 x 49 = 6,223.&quot; }</text>
+  <text x="72" y="234" font-family="ui-monospace, monospace" font-size="9" fill="#475569">],</text>
+  <text x="72" y="252" font-family="ui-monospace, monospace" font-size="9" fill="#ea580c">&quot;latency_ms&quot;: 890.2</text>
+  <text x="56" y="268" font-family="ui-monospace, monospace" font-size="9" fill="#64748b">}</text>
+
+  <text x="360" y="292" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Tests: mock provider tool_call, max_rounds prevents infinite loop</text>
+</svg>

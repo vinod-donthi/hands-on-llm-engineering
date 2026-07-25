@@ -26,6 +26,10 @@ Create `lab01_provider_smoke.py` that:
 2. Calls each provider with the same prompt: `"Reply with exactly: OK"`
 3. Writes `provider_smoke_results.json`
 
+![Expected terminal output and provider_smoke_results.json shape](../assets/images/labs/lab-01-provider-smoke-output.svg)
+
+*Figure: All three providers return "OK" through the shared interface with observability fields.*
+
 ### Expected output shape
 
 ```json

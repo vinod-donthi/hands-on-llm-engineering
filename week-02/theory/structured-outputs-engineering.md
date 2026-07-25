@@ -34,6 +34,10 @@ Week 1's JSON ladder worked for GPT-4o Mini. Week 2 adds **Anthropic** and **Oll
 
 Always read `capabilities` from [models.yaml](../labs/lab-02-model-registry.md) before choosing a ladder step.
 
+![Cross-provider JSON capability matrix for GPT-4o Mini, Claude Haiku, and Llama 8B](../assets/images/day-04/json-capability-matrix.svg)
+
+*Figure: Strict schema support varies — branch on registry `capabilities`, not assumptions.*
+
 ### Unified response contract
 
 Extend Week 1's envelope — same fields for every provider:

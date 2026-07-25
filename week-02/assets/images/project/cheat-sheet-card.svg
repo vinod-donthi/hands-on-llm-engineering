@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 320" role="img" aria-labelledby="title desc">
+  <title id="title">Week 2 interview cheat sheet quick reference</title>
+  <desc id="desc">One-page card with API differences, TTFT metrics, tool loop, context budget, and structured output ladder.</desc>
+  <rect width="720" height="320" fill="#fafafa"/>
+  <text x="360" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#1a1a1a">Week 2 cheat sheet -- memorize these patterns</text>
+
+  <rect x="40" y="40" width="310" height="120" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="56" y="62" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#475569">API differences</text>
+  <text x="56" y="80" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">OpenAI: system in messages[]</text>
+  <text x="56" y="96" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Anthropic: top-level system param</text>
+  <text x="56" y="112" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">Stream: delta.content vs block_delta</text>
+  <text x="56" y="128" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">Tools: tool_calls vs tool_use blocks</text>
+
+  <rect x="370" y="40" width="310" height="120" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="386" y="62" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#475569">Metrics</text>
+  <text x="386" y="80" font-family="system-ui, sans-serif" font-size="9" fill="#16a34a">TTFT = first token (UX)</text>
+  <text x="386" y="96" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">TPS = output / (total - ttft)</text>
+  <text x="386" y="112" font-family="ui-monospace, monospace" font-size="8" fill="#ea580c">cost = (in/1e6 x $in) + (out/1e6 x $out)</text>
+  <text x="386" y="128" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Log all three separately</text>
+
+  <rect x="40" y="172" width="310" height="120" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="56" y="194" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#475569">Tool loop</text>
+  <text x="56" y="212" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">user -&gt; LLM -&gt; tool_call</text>
+  <text x="56" y="226" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">-&gt; execute -&gt; tool_result</text>
+  <text x="56" y="240" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">-&gt; LLM -&gt; answer</text>
+  <text x="56" y="262" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Model proposes; app executes</text>
+
+  <rect x="370" y="172" width="310" height="120" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="386" y="194" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#475569">Context + guardrails</text>
+  <text x="386" y="212" font-family="ui-monospace, monospace" font-size="8" fill="#475569">available = window - max_out - margin</text>
+  <text x="386" y="226" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Tail-keep trim -&gt; reject if still over</text>
+  <text x="386" y="242" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Input guards before LLM</text>
+  <text x="386" y="258" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Output scan before user</text>
+
+  <text x="360" y="310" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">JSON ladder: schema -&gt; JSON mode -&gt; Pydantic -&gt; retry -&gt; parse_failure | Benchmark: same prompts, temp=0</text>
+</svg>

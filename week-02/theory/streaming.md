@@ -25,6 +25,10 @@ Streaming sends each piece as it's generated — like watching someone type in r
 
 Both may take **8 seconds total** — but streaming **feels** faster because something happens immediately.
 
+![Non-streaming spinner vs streaming first token at 155ms on the same 8 second total timeline](../assets/images/day-03/streaming-ux-timeline.svg)
+
+*Figure: Total latency can match — TTFT is what the user feels; log it separately from total time.*
+
 ### Timeline with numbers (illustrative)
 
 ```
@@ -74,6 +78,10 @@ Your observability envelope should record **TTFT separately from total latency**
 | Ollama | `stream: true` in JSON body | `message.content` fragments |
 
 Your `BaseLLMProvider.stream()` should yield **normalized** `StreamChunk(text=, finish_reason=)` objects.
+
+![Provider-specific stream chunks normalized to StreamChunk then SSE events](../assets/images/day-03/provider-chunk-normalization.svg)
+
+*Figure: OpenAI, Anthropic, and Ollama chunk shapes differ — your adapter yields one `StreamChunk` type to FastAPI SSE.*
 
 ---
 

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 260" role="img" aria-labelledby="title desc">
+  <title id="title">Single request cost breakdown and scale impact</title>
+  <desc id="desc">Bar chart showing input and output token costs for one GPT-4o Mini request and monthly projection at 10K requests per day.</desc>
+  <rect width="720" height="260" fill="#fafafa"/>
+  <text x="360" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#1a1a1a">One request looks cheap -- volume is not</text>
+  <text x="360" y="42" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">GPT-4o Mini: 3,500 input + 800 output tokens (verify live pricing)</text>
+
+  <rect x="80" y="58" width="560" height="24" rx="4" fill="#f1f5f9"/>
+  <text x="360" y="74" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#475569">Cost per request</text>
+
+  <line x1="120" y1="170" x2="600" y2="170" stroke="#64748b" stroke-width="1.5"/>
+  <rect x="180" y="110" width="80" height="60" rx="4" fill="#2563eb"/>
+  <text x="220" y="102" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#2563eb">$0.000525</text>
+  <text x="220" y="188" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Input</text>
+  <text x="220" y="202" text-anchor="middle" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">3,500 tok</text>
+
+  <rect x="340" y="122" width="80" height="48" rx="4" fill="#ea580c"/>
+  <text x="380" y="114" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#ea580c">$0.000480</text>
+  <text x="380" y="188" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Output</text>
+  <text x="380" y="202" text-anchor="middle" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">800 tok</text>
+
+  <rect x="500" y="98" width="80" height="72" rx="4" fill="#1e293b"/>
+  <text x="540" y="90" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" font-weight="600" fill="#1e293b">Total</text>
+  <text x="540" y="134" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#ffffff">$0.001</text>
+  <text x="540" y="188" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">per call</text>
+
+  <rect x="80" y="216" width="560" height="36" rx="6" fill="#fff7ed" stroke="#ea580c"/>
+  <text x="360" y="232" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#9a3412">10,000 req/day x $0.001 = ~$10/day = ~$300/month</text>
+  <text x="360" y="246" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Same prompt on Ollama llama3.1:8b: $0 marginal cost</text>
+</svg>

@@ -8,6 +8,10 @@
 
 **Goal:** `POST /api/v1/stream` streams tokens via SSE; capture TTFT per model.
 
+![Streaming UI with incremental tokens and TTFT metrics on done event](../assets/images/labs/lab-03-streaming-ui.svg)
+
+*Figure: Tokens appear as they arrive — `done` event carries TTFT, latency, and cost for benchmarking.*
+
 ---
 
 ## Backend

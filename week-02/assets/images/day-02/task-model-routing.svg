@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 280" role="img" aria-labelledby="title desc">
+  <title id="title">Task-based model routing for a support bot</title>
+  <desc id="desc">Different tasks route to GPT-4o Mini, Claude Haiku, or local Llama based on requirements.</desc>
+  <rect width="720" height="280" fill="#fafafa"/>
+  <text x="360" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#1a1a1a">Route by task, not by hype</text>
+  <text x="360" y="42" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">Support bot example -- confirm with Day 7 benchmark data</text>
+
+  <rect x="40" y="58" width="640" height="36" rx="6" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="56" y="80" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#475569">Task</text>
+  <text x="280" y="80" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#475569">Week 2 pick</text>
+  <text x="480" y="80" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#475569">Why</text>
+
+  <rect x="40" y="98" width="640" height="36" rx="0" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="56" y="120" font-family="system-ui, sans-serif" font-size="9" fill="#1a1a1a">Extract ticket JSON</text>
+  <text x="280" y="120" font-family="ui-monospace, monospace" font-size="9" fill="#2563eb">gpt-4o-mini + schema</text>
+  <text x="480" y="120" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Highest parse success</text>
+
+  <rect x="40" y="134" width="640" height="36" rx="0" fill="#fafafa" stroke="#e2e8f0"/>
+  <text x="56" y="156" font-family="system-ui, sans-serif" font-size="9" fill="#1a1a1a">Draft friendly reply</text>
+  <text x="280" y="156" font-family="ui-monospace, monospace" font-size="9" fill="#2563eb">Haiku or GPT-4o Mini</text>
+  <text x="480" y="156" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Compare tone + cost</text>
+
+  <rect x="40" y="170" width="640" height="36" rx="0" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="56" y="192" font-family="system-ui, sans-serif" font-size="9" fill="#1a1a1a">Classify urgency</text>
+  <text x="280" y="192" font-family="ui-monospace, monospace" font-size="9" fill="#2563eb">Cheapest that passes eval</text>
+  <text x="480" y="192" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Often Haiku or local 8B</text>
+
+  <rect x="40" y="206" width="640" height="36" rx="0" fill="#fafafa" stroke="#e2e8f0"/>
+  <text x="56" y="228" font-family="system-ui, sans-serif" font-size="9" fill="#1a1a1a">CI / dev tests</text>
+  <text x="280" y="228" font-family="ui-monospace, monospace" font-size="9" fill="#16a34a">llama3.1:8b (Ollama)</text>
+  <text x="480" y="228" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">$0 per call</text>
+
+  <rect x="120" y="252" width="480" height="22" rx="4" fill="#fef2f2" stroke="#fca5a5"/>
+  <text x="360" y="267" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#991b1b">Wrong: one model for everything | Right: models.yaml metadata + benchmark proof</text>
+</svg>
