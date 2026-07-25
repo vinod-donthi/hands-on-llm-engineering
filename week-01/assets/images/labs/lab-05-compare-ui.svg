@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" role="img" aria-labelledby="title desc">
+  <title id="title">Lab 5 multi-model compare UI</title>
+  <desc id="desc">Three model panels with evaluation score sliders and export button.</desc>
+  <rect width="720" height="300" fill="#fafafa"/>
+  <text x="360" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#1a1a1a">Lab 5: compare + manual scores (illustrative)</text>
+  <text x="360" y="42" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">Fan out to 3 models; score correctness, format, groundedness, conciseness</text>
+
+  <!-- Card 1: GPT-4o Mini -->
+  <rect x="24" y="58" width="210" height="160" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="129" y="78" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#475569">GPT-4o Mini</text>
+  <text x="40" y="98" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Response text...</text>
+  <text x="40" y="118" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">842ms | $0.00008</text>
+  <text x="40" y="140" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">Correctness: 4/5</text>
+  <text x="40" y="154" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">Format: 5/5</text>
+
+  <!-- Card 2: Llama timeout (left-aligned like other cards) -->
+  <rect x="255" y="58" width="210" height="160" rx="8" fill="#ffffff" stroke="#fecaca" stroke-width="2"/>
+  <text x="360" y="78" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#b91c1c">Llama 3.1 8B</text>
+  <text x="271" y="98" font-family="system-ui, sans-serif" font-size="9" fill="#cbd5e1">(empty panel)</text>
+  <rect x="271" y="108" width="178" height="22" rx="4" fill="#fef2f2" stroke="#fecaca"/>
+  <text x="360" y="123" text-anchor="middle" font-family="ui-monospace, monospace" font-size="8" fill="#b91c1c">timeout after 30s</text>
+  <text x="271" y="148" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">30000ms | $0.0</text>
+
+  <!-- Card 3: Mistral 7B -->
+  <rect x="486" y="58" width="210" height="160" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="591" y="78" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#475569">Mistral 7B</text>
+  <text x="502" y="98" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Response text...</text>
+  <text x="502" y="118" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">1100ms | $0.0</text>
+  <text x="502" y="140" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">Composite: 3.75/5</text>
+
+  <rect x="280" y="232" width="160" height="28" rx="6" fill="#2563eb"/>
+  <text x="360" y="250" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#ffffff">Export JSON</text>
+
+  <text x="360" y="284" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Deliverable: compare_sample_output.json with observability + scores</text>
+</svg>

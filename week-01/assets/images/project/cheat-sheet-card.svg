@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 320" role="img" aria-labelledby="title desc">
+  <title id="title">Week 1 interview cheat sheet quick reference</title>
+  <desc id="desc">One-page card with sampling defaults, JSON ladder, observability fields, and token budget formula.</desc>
+  <rect width="720" height="320" fill="#fafafa"/>
+  <text x="360" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#1a1a1a">Week 1 cheat sheet -- memorize these patterns</text>
+
+  <rect x="40" y="40" width="310" height="120" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="56" y="62" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#475569">Sampling</text>
+  <text x="56" y="80" font-family="ui-monospace, monospace" font-size="9" fill="#64748b">JSON / code: temp=0, top_p=1.0</text>
+  <text x="56" y="96" font-family="ui-monospace, monospace" font-size="9" fill="#64748b">Chat: temp=0.7 | Creative: temp=1.0</text>
+  <text x="56" y="118" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">High temp = more fabricated specifics</text>
+
+  <rect x="370" y="40" width="310" height="120" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="386" y="62" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#475569">JSON ladder</text>
+  <text x="386" y="80" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Structured output</text>
+  <text x="386" y="94" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">- JSON mode - Pydantic - retry once</text>
+  <text x="386" y="112" font-family="ui-monospace, monospace" font-size="9" fill="#16a34a">parse_status: success | repaired | parse_failure</text>
+
+  <rect x="40" y="172" width="310" height="120" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="56" y="194" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#475569">Observability envelope</text>
+  <text x="56" y="212" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">request_id, input/output tokens,</text>
+  <text x="56" y="226" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">cost_usd, latency_ms, error,</text>
+  <text x="56" y="240" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">parse_status, json_validation_error</text>
+  <text x="56" y="262" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Same shape on success and failure</text>
+
+  <rect x="370" y="172" width="310" height="120" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="386" y="194" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#475569">Token budget</text>
+  <text x="386" y="216" font-family="ui-monospace, monospace" font-size="8" fill="#475569">max_input = context_limit</text>
+  <text x="386" y="230" font-family="ui-monospace, monospace" font-size="8" fill="#475569">  - max_output - system - margin</text>
+  <text x="386" y="254" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Hallucination: confident != correct</text>
+  <text x="386" y="270" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Facts from docs: RAG, not fine-tune</text>
+
+  <text x="360" y="310" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Eval composite: (correctness + format + groundedness + conciseness) / 4</text>
+</svg>

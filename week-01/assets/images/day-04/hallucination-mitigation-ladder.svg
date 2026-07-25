@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 320" role="img" aria-labelledby="title desc">
+  <title id="title">Hallucination mitigation ladder</title>
+  <desc id="desc">Layered defenses from Week 1 prompts through RAG, tools, and evals.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="720" height="320" fill="#fafafa"/>
+  <text x="360" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#1a1a1a">Layer defenses -- you cannot eliminate hallucinations in one setting</text>
+  <text x="360" y="42" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">Week 1 items at top; RAG, tools, and evals come later in the curriculum</text>
+
+  <rect x="200" y="58" width="320" height="36" rx="6" fill="#f0fdf4" stroke="#86efac"/>
+  <text x="360" y="80" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#166534">1. System prompt: say I don&apos;t know if uncertain</text>
+  <text x="540" y="80" font-family="system-ui, sans-serif" font-size="9" fill="#16a34a">Week 1</text>
+
+  <line x1="360" y1="94" x2="360" y2="104" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="200" y="108" width="320" height="36" rx="6" fill="#f0fdf4" stroke="#86efac"/>
+  <text x="360" y="130" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#166534">2. temperature = 0 for factual extraction</text>
+  <text x="540" y="130" font-family="system-ui, sans-serif" font-size="9" fill="#16a34a">Week 1</text>
+
+  <line x1="360" y1="144" x2="360" y2="154" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="200" y="158" width="320" height="36" rx="6" fill="#eff6ff" stroke="#93c5fd"/>
+  <text x="360" y="180" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#1d4ed8">3. RAG with citations</text>
+  <text x="540" y="180" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Week 3</text>
+
+  <line x1="360" y1="194" x2="360" y2="204" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="200" y="208" width="320" height="36" rx="6" fill="#eff6ff" stroke="#93c5fd"/>
+  <text x="360" y="230" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#1d4ed8">4. Tool verification (search, DB)</text>
+  <text x="540" y="230" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Week 4</text>
+
+  <line x1="360" y1="244" x2="360" y2="254" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="200" y="258" width="320" height="36" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="360" y="280" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#475569">5. Eval pipeline -- measure hallucination rate</text>
+  <text x="540" y="280" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Week 6</text>
+
+  <text x="360" y="310" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Never promise &quot;always accurate&quot; in product copy</text>
+</svg>

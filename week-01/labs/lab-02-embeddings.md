@@ -14,6 +14,12 @@ source .venv/bin/activate
 
 **Goal:** Build semantic search over 20 document snippets; understand embedding space.
 
+## What success looks like
+
+![Illustrative top-3 cosine matches for a Python query with Monty Python false positive at rank 3](../assets/images/labs/lab-02-similarity-scores.svg)
+
+*Figure: Top matches should be semantically related; lexical overlap alone (e.g. "Monty Python") may score lower than true Python docs.*
+
 **File:** `lab02_embeddings.py`
 
 **Dataset:** Create `documents.json` with 20 short snippets across 4 topics (python, cooking, finance, sports) — 5 per topic.

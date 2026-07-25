@@ -40,6 +40,10 @@ flowchart LR
 
 **Week 1 note:** The frontend box is **optional** for minimum viable Week 1. The backend + capstone export satisfies the core engineering outcomes.
 
+![Next.js UI to FastAPI to providers with observability on every response](../assets/images/project/playground-lite-architecture.svg)
+
+*Figure: Lab 4 backend grows into the capstone — every provider response carries the observability envelope.*
+
 ---
 
 ## Target folder structure

@@ -60,6 +60,10 @@ flowchart LR
 
 **Why this is dangerous:** Numbers, dates, and "according to their earnings call" all **sound** researched. They may be **completely made up** — especially if Acme is fictional or the model never saw real filings.
 
+![Chat bubble with invented revenue and fake citation highlighted](../assets/images/day-04/hallucination-confidence-vs-truth.svg)
+
+*Figure: Fluency and accuracy are separate — polite tone is not evidence.*
+
 **How you might catch it:** No source document; numbers don't match your data; user checks the actual earnings report.
 
 ---
@@ -141,6 +145,10 @@ You will not fix hallucinations in one afternoon. You **layer defenses** over th
 | **RAG with citations** | Ground answers in your documents | Week 3 |
 | **Tool verification** (search, DB, API) | Check facts before answering | Week 4 |
 | **Eval pipeline** | Measure hallucination rate on fixed questions | Week 6 |
+
+![Layered mitigation ladder from Week 1 prompts through RAG, tools, and evals](../assets/images/day-04/hallucination-mitigation-ladder.svg)
+
+*Figure: Layer defenses over the curriculum — you cannot flip one setting to eliminate hallucinations.*
 
 ```mermaid
 flowchart TB

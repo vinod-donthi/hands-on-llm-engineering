@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" role="img" aria-labelledby="title desc">
+  <title id="title">From logits to sampled token</title>
+  <desc id="desc">Pipeline: model logits, temperature scaling, softmax probabilities, top-p cutoff, then one token is picked.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#64748b"/>
+    </marker>
+    <marker id="arrow-up" markerWidth="6" markerHeight="6" refX="3" refY="1" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,6 L3,0 L6,6 Z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="720" height="300" fill="#fafafa"/>
+  <text x="360" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#1a1a1a">Sampling pipeline: logits to one token</text>
+  <text x="360" y="42" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">Temperature and top-p only change which token gets picked from the same scores</text>
+
+  <!-- Shared row: all boxes y=58 h=96, center y=106 -->
+  <!-- Stage 1: Logits -->
+  <text x="76" y="54" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#475569">1. Logits</text>
+  <rect x="16" y="58" width="120" height="96" rx="6" fill="#ffffff" stroke="#cbd5e1"/>
+  <line x1="28" y1="138" x2="124" y2="138" stroke="#e2e8f0" stroke-width="1"/>
+  <rect x="32" y="118" width="18" height="20" fill="#94a3b8"/>
+  <rect x="54" y="126" width="18" height="12" fill="#64748b"/>
+  <rect x="76" y="102" width="18" height="36" fill="#2563eb"/>
+  <rect x="98" y="130" width="18" height="8" fill="#cbd5e1"/>
+  <text x="41" y="150" text-anchor="middle" font-family="ui-monospace, monospace" font-size="7" fill="#64748b">A</text>
+  <text x="63" y="150" text-anchor="middle" font-family="ui-monospace, monospace" font-size="7" fill="#64748b">B</text>
+  <text x="85" y="150" text-anchor="middle" font-family="ui-monospace, monospace" font-size="7" fill="#2563eb">C</text>
+  <text x="107" y="150" text-anchor="middle" font-family="ui-monospace, monospace" font-size="7" fill="#64748b">D</text>
+
+  <line x1="140" y1="106" x2="152" y2="106" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Stage 2: Temperature -->
+  <text x="188" y="54" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#475569">2. / temp</text>
+  <rect x="156" y="58" width="64" height="96" rx="6" fill="#fff7ed" stroke="#fed7aa"/>
+  <text x="188" y="96" text-anchor="middle" font-family="ui-monospace, monospace" font-size="16" fill="#ea580c">T</text>
+  <text x="188" y="118" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">0 = greedy</text>
+  <text x="188" y="132" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">1+ = flat</text>
+
+  <line x1="224" y1="106" x2="236" y2="106" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Stage 3: Softmax -->
+  <text x="292" y="54" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#475569">3. Softmax</text>
+  <rect x="240" y="58" width="104" height="96" rx="6" fill="#ffffff" stroke="#cbd5e1"/>
+  <line x1="252" y1="138" x2="332" y2="138" stroke="#e2e8f0" stroke-width="1"/>
+  <rect x="256" y="126" width="16" height="12" fill="#e2e8f0"/>
+  <text x="264" y="122" text-anchor="middle" font-family="ui-monospace, monospace" font-size="7" fill="#64748b">8%</text>
+  <rect x="276" y="118" width="16" height="20" fill="#e2e8f0"/>
+  <text x="284" y="114" text-anchor="middle" font-family="ui-monospace, monospace" font-size="7" fill="#64748b">15%</text>
+  <rect x="296" y="94" width="16" height="44" fill="#2563eb"/>
+  <text x="304" y="90" text-anchor="middle" font-family="ui-monospace, monospace" font-size="7" fill="#1d4ed8">62%</text>
+  <rect x="316" y="130" width="16" height="8" fill="#e2e8f0"/>
+  <text x="324" y="126" text-anchor="middle" font-family="ui-monospace, monospace" font-size="7" fill="#64748b">5%</text>
+
+  <line x1="348" y1="106" x2="360" y2="106" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Stage 4: Top-p -->
+  <text x="406" y="54" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#475569">4. Top-p</text>
+  <rect x="364" y="58" width="84" height="96" rx="6" fill="#ffffff" stroke="#cbd5e1"/>
+  <rect x="376" y="78" width="48" height="52" fill="#dbeafe" stroke="#2563eb" stroke-dasharray="4 2"/>
+  <text x="400" y="100" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#1d4ed8">nucleus</text>
+  <text x="400" y="114" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">p = 0.9</text>
+  <line x1="424" y1="78" x2="424" y2="130" stroke="#ea580c" stroke-width="1.5" stroke-dasharray="3 2"/>
+  <text x="432" y="96" font-family="system-ui, sans-serif" font-size="8" fill="#c2410c">cut</text>
+  <text x="432" y="108" font-family="system-ui, sans-serif" font-size="8" fill="#c2410c">tail</text>
+
+  <line x1="452" y1="106" x2="464" y2="106" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Stage 5: Pick -->
+  <text x="528" y="54" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#475569">5. Pick</text>
+  <rect x="468" y="58" width="120" height="96" rx="6" fill="#ffffff" stroke="#cbd5e1"/>
+  <rect x="484" y="78" width="88" height="56" rx="8" fill="#2563eb"/>
+  <text x="528" y="104" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" font-weight="600" fill="#ffffff">OpenAI</text>
+  <text x="528" y="122" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#bfdbfe">next token</text>
+
+  <!-- Repeat loop: bottom-center of row -->
+  <path d="M 528 154 L 528 172 L 76 172 L 76 154" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow-up)"/>
+  <text x="302" y="188" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Repeat for each position in the answer</text>
+
+  <!-- Use cases -->
+  <rect x="80" y="204" width="260" height="52" rx="6" fill="#f0fdf4" stroke="#bbf7d0"/>
+  <text x="210" y="224" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#166534">temp = 0</text>
+  <text x="210" y="242" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">JSON, code, evals -- always top token</text>
+
+  <rect x="380" y="204" width="260" height="52" rx="6" fill="#fff7ed" stroke="#fed7aa"/>
+  <text x="510" y="224" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#c2410c">temp = 1.2</text>
+  <text x="510" y="242" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Brainstorming -- rare tokens get a chance</text>
+
+  <text x="360" y="284" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Tune temperature first; leave top_p = 1.0 unless you have a reason</text>
+</svg>

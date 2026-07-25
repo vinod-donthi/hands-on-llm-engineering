@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 320" role="img" aria-labelledby="title desc">
+  <title id="title">Attention score matrix QK transpose heatmap</title>
+  <desc id="desc">Heatmap of compatibility scores; row it shows highest score at column cat.</desc>
+  <rect width="720" height="320" fill="#fafafa"/>
+  <text x="360" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#1a1a1a">Step 1: QK transpose score matrix (simplified)</text>
+  <text x="360" y="42" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">Row i = token i asks; column j = how much it likes token j (before softmax)</text>
+
+  <!-- Chart frame -->
+  <rect x="120" y="58" width="420" height="44" fill="#f1f5f9" stroke="none"/>
+  <line x1="120" y1="58" x2="540" y2="58" stroke="#94a3b8" stroke-width="1.5"/>
+  <line x1="120" y1="102" x2="540" y2="102" stroke="#cbd5e1" stroke-width="1"/>
+  <line x1="120" y1="58" x2="120" y2="256" stroke="#94a3b8" stroke-width="1.5"/>
+  <line x1="540" y1="58" x2="540" y2="256" stroke="#cbd5e1" stroke-width="1"/>
+  <line x1="120" y1="256" x2="540" y2="256" stroke="#94a3b8" stroke-width="1.5"/>
+
+  <!-- Column headers (keys) -->
+  <text x="195" y="82" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" font-weight="600" fill="#64748b">The</text>
+  <text x="270" y="82" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" font-weight="600" fill="#64748b">cat</text>
+  <text x="345" y="82" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" font-weight="600" fill="#64748b">mat</text>
+  <text x="420" y="82" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" font-weight="600" fill="#64748b">it</text>
+  <text x="495" y="82" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" font-weight="600" fill="#64748b">tired</text>
+  <text x="330" y="74" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#94a3b8">Key (K) -- column j</text>
+
+  <!-- Row labels + cells: cell size 75x36, start x=165 -->
+  <!-- Row The -->
+  <text x="108" y="131" text-anchor="end" font-family="ui-monospace, monospace" font-size="10" fill="#64748b">The</text>
+  <rect x="165" y="112" width="75" height="36" rx="2" fill="#dbeafe"/><text x="202" y="134" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#1e40af">0.62</text>
+  <rect x="240" y="112" width="75" height="36" rx="2" fill="#eff6ff"/><text x="277" y="134" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#64748b">0.21</text>
+  <rect x="315" y="112" width="75" height="36" rx="2" fill="#f8fafc"/><text x="352" y="134" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#64748b">0.09</text>
+  <rect x="390" y="112" width="75" height="36" rx="2" fill="#f8fafc"/><text x="427" y="134" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#64748b">0.04</text>
+  <rect x="465" y="112" width="75" height="36" rx="2" fill="#f8fafc"/><text x="502" y="134" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#64748b">0.04</text>
+
+  <!-- Row cat -->
+  <text x="108" y="167" text-anchor="end" font-family="ui-monospace, monospace" font-size="10" fill="#64748b">cat</text>
+  <rect x="165" y="148" width="75" height="36" rx="2" fill="#eff6ff"/><text x="202" y="170" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#64748b">0.18</text>
+  <rect x="240" y="148" width="75" height="36" rx="2" fill="#dbeafe"/><text x="277" y="170" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#1e40af">0.55</text>
+  <rect x="315" y="148" width="75" height="36" rx="2" fill="#f8fafc"/><text x="352" y="170" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#64748b">0.12</text>
+  <rect x="390" y="148" width="75" height="36" rx="2" fill="#f8fafc"/><text x="427" y="170" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#64748b">0.08</text>
+  <rect x="465" y="148" width="75" height="36" rx="2" fill="#f8fafc"/><text x="502" y="170" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#64748b">0.07</text>
+
+  <!-- Row mat -->
+  <text x="108" y="203" text-anchor="end" font-family="ui-monospace, monospace" font-size="10" fill="#64748b">mat</text>
+  <rect x="165" y="184" width="75" height="36" rx="2" fill="#f8fafc"/><text x="202" y="206" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#64748b">0.11</text>
+  <rect x="240" y="184" width="75" height="36" rx="2" fill="#eff6ff"/><text x="277" y="206" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#64748b">0.19</text>
+  <rect x="315" y="184" width="75" height="36" rx="2" fill="#dbeafe"/><text x="352" y="206" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#1e40af">0.48</text>
+  <rect x="390" y="184" width="75" height="36" rx="2" fill="#f8fafc"/><text x="427" y="206" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#64748b">0.11</text>
+  <rect x="465" y="184" width="75" height="36" rx="2" fill="#f8fafc"/><text x="502" y="206" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#64748b">0.11</text>
+
+  <!-- Row it (highlighted) -->
+  <text x="108" y="239" text-anchor="end" font-family="ui-monospace, monospace" font-size="10" font-weight="600" fill="#1e40af">it</text>
+  <rect x="165" y="220" width="75" height="36" rx="2" fill="#f8fafc"/><text x="202" y="242" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#64748b">0.05</text>
+  <rect x="240" y="220" width="75" height="36" rx="2" fill="#2563eb" stroke="#1e40af" stroke-width="2"/><text x="277" y="242" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" font-weight="600" fill="#ffffff">0.72</text>
+  <rect x="315" y="220" width="75" height="36" rx="2" fill="#eff6ff"/><text x="352" y="242" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#64748b">0.08</text>
+  <rect x="390" y="220" width="75" height="36" rx="2" fill="#f8fafc"/><text x="427" y="242" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#64748b">0.06</text>
+  <rect x="465" y="220" width="75" height="36" rx="2" fill="#f8fafc"/><text x="502" y="242" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#64748b">0.09</text>
+
+  <text x="60" y="190" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748b" transform="rotate(-90 60 190)">Query (Q) row i</text>
+
+  <text x="360" y="306" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">Cell (it, cat) = 0.72 -- highest in row; softmax turns this row into attention weights</text>
+</svg>

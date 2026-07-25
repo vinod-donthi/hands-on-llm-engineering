@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 280" role="img" aria-labelledby="title desc">
+  <title id="title">Lab 6 local benchmark summary</title>
+  <desc id="desc">Table comparing Llama and Mistral tokens per second and mean latency from benchmark_summary.csv.</desc>
+  <rect width="720" height="280" fill="#fafafa"/>
+  <text x="360" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#1a1a1a">Lab 6: expected benchmark output (illustrative)</text>
+  <text x="360" y="42" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">Local Ollama only -- $0 cost; compare tokens/sec on your hardware</text>
+
+  <rect x="40" y="58" width="640" height="180" rx="8" fill="#1e293b"/>
+  <rect x="40" y="58" width="640" height="28" rx="8" fill="#334155"/>
+  <text x="360" y="76" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#94a3b8">python lab06_local_benchmark.py</text>
+
+  <text x="56" y="104" font-family="ui-monospace, monospace" font-size="10" fill="#64748b">model          mean_latency_ms  tokens/sec</text>
+  <line x1="56" y1="110" x2="664" y2="110" stroke="#475569"/>
+  <text x="56" y="128" font-family="ui-monospace, monospace" font-size="10" fill="#4ade80">llama3.1:8b       2100 +/- 180      42.1</text>
+  <text x="56" y="148" font-family="ui-monospace, monospace" font-size="10" fill="#38bdf8">mistral:7b        1850 +/- 120      48.3</text>
+
+  <rect x="56" y="164" width="400" height="22" rx="4" fill="#172554" stroke="#2563eb"/>
+  <text x="256" y="180" text-anchor="middle" font-family="ui-monospace, monospace" font-size="9" fill="#93c5fd">Warm up Ollama before timing -- first run is often slower</text>
+
+  <text x="360" y="260" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Deliverable: benchmark_summary.csv + 3-sentence dev vs cloud recommendation</text>
+</svg>

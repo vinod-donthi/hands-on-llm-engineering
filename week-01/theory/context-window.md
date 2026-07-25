@@ -42,6 +42,10 @@ Assume GPT-4o Mini with a **128,000 token** context window:
 
 **Remaining headroom:** 128,000 − 28,000 = **100,000 tokens** — you're fine.
 
+![Stacked bar showing system, history, user input, output reserve, and remaining headroom in a 128K window](../assets/images/day-03/context-window-budget-bar.svg)
+
+*Figure: Input and output share one budget — reserve `max_tokens` before you fill the rest; system prompt and history count every call.*
+
 Now imagine the user pastes a **120,000-token** PDF into the chat:
 
 | Component | Tokens |
@@ -52,6 +56,10 @@ Now imagine the user pastes a **120,000-token** PDF into the chat:
 | **Total** | **132,500** → **over limit** |
 
 Your app must trim, summarize, retrieve chunks (RAG), or reject — not blindly send and hope.
+
+![Bar exceeding 128K limit after a large PDF paste with error and truncation outcomes](../assets/images/day-03/context-window-overflow.svg)
+
+*Figure: 132,500 planned tokens exceeds a 128K desk — your app should trim, RAG, or reject instead of hoping the provider fixes it.*
 
 ### Big window ≠ perfect memory
 

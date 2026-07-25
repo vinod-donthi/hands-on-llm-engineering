@@ -56,6 +56,7 @@ Full checklist: [checkpoints/exit-criteria.md](checkpoints/exit-criteria.md)
 
 | Folder | Purpose |
 |--------|---------|
+| [assets/images/](assets/images/) | Theory diagrams and lab screenshots (Phase 0+) |
 | [START-HERE.md](START-HERE.md) | One-time orientation → Day 1 |
 | [daily/](daily/) | **Numbered playbooks** — one file per day (start here each session) |
 | [theory/](theory/) | Deep dives — one topic per file |

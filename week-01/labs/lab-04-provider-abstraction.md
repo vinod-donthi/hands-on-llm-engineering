@@ -19,6 +19,12 @@ Ensure Ollama is running (`ollama serve`) and `.env` has `OPENAI_API_KEY` (see [
 
 **Goal:** Implement a minimal `BaseLLMProvider` with **OpenAI (GPT-4o Mini)** and **Ollama** — non-streaming only (streaming deferred to Week 2). Every response must include the observability envelope.
 
+## What success looks like
+
+![FastAPI /docs and sample LLMResponse JSON with observability fields](../assets/images/labs/lab-04-provider-swagger.svg)
+
+*Figure: Swagger at `/docs` plus every response includes `request_id`, tokens, `latency_ms`, and `cost_usd`.*
+
 **Directory:**
 
 ```

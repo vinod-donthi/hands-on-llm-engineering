@@ -51,6 +51,10 @@ The user experiences two different waits:
 
 Your observability envelope should log both. Hiding them behind one `latency_ms` number makes debugging painful.
 
+![Timeline from 0ms request through prefill, TTFT at 125ms, and decode streaming to 900ms](../assets/images/day-03/inference-prefill-decode-timeline.svg)
+
+*Figure: Prefill = delay before the first word; decode = tokens trickling in after TTFT. Log both, not just total latency.*
+
 ---
 
 ### Prefill: reading the prompt
@@ -144,6 +148,10 @@ Without optimization, each decode step would re-run attention over **every token
 The **KV cache** (key/value cache) stores attention results from earlier tokens so decode only computes the **new** token.
 
 **Analogy:** You're writing a long email reply. Instead of re-reading your entire draft from page 1 every time you add a word, you keep notes on what you've already processed. The KV cache is those notes.
+
+![Three decode steps with growing KV cache boxes reusing prior tokens](../assets/images/day-03/inference-kv-cache.svg)
+
+*Figure: Each decode step only computes the new token — prior keys and values stay cached in GPU memory (longer context = more RAM).*
 
 | Without KV cache | With KV cache |
 |------------------|---------------|

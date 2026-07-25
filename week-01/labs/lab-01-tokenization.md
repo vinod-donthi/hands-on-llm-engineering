@@ -14,6 +14,12 @@ source .venv/bin/activate
 
 **Goal:** Compare token counts across tokenizers and estimate API cost.
 
+## What success looks like
+
+![Illustrative terminal output from lab01_tokenization.py with token counts and CSV delta](../assets/images/labs/lab-01-terminal-output.svg)
+
+*Figure: You should see per-prompt token counts and at least one row where OpenAI vs Llama differs by 15%+ (often code or JSON).*
+
 **File:** `lab01_tokenization.py`
 
 ```python

@@ -31,6 +31,10 @@ Model scores every possible next word (logits)
     → repeat for the next position
 ```
 
+![Pipeline from logits through temperature, softmax, top-p filter, to picked token](../assets/images/day-03/sampling-logits-to-token.svg)
+
+*Figure: Sampling only changes which token gets picked from the same scores — it does not make the model smarter.*
+
 ### Same prompt, different temperature (example)
 
 **Prompt (Lab 3 style):** *"List one major AI model release from January 2025."*
@@ -64,6 +68,10 @@ P(token_i) = softmax(logit_i / temperature)
 ```
 
 Lower temperature → winner takes all. Higher temperature → underdog tokens get a chance.
+
+![Side-by-side probability bars: sharp peak at temp 0 vs flatter distribution at temp 1.2](../assets/images/day-03/sampling-temp-curves.svg)
+
+*Figure: Temp 0 always picks the top token; temp 1.2 gives tail tokens a chance — more variety and more fabricated specifics.*
 
 ### Top-p (nucleus sampling) — the secondary knob
 

@@ -70,6 +70,10 @@ The matrix multiply `QK^T` produces an **`n × n` score matrix**:
 
 This is the "who should I pay attention to?" step. Every token scores every other token in one shot — that parallel lookup is why transformers replaced slow step-by-step RNNs for long-range links.
 
+![Heatmap of QK transpose scores with row it and column cat highlighted](../assets/images/day-02/attention-score-matrix-heatmap.svg)
+
+*Figure: Row `it` shows the highest score at column `cat` (cell (it, cat)) — softmax on this row produces the coreference weight.*
+
 #### Step 2: `/ √d_k` — why scale?
 
 Dot products grow with vector dimension. When `d_k` is large (e.g. 64 or 128), raw scores can become very large numbers.
@@ -136,6 +140,10 @@ Each position mostly keeps its own representation, with a small cross-token blen
 #### Coreference example
 
 In *"The cat sat on the mat because it was tired"*:
+
+![Token it attends strongly to cat, not mat, in a coreference example](../assets/images/day-02/attention-it-refers-to-cat.svg)
+
+*Figure: When processing `it`, the model learns to assign high attention to `cat` rather than `mat`.*
 
 1. When processing **it**, its **query** vector encodes something like "I need a noun to refer to."
 2. **Keys** for **cat**, **mat**, etc. are compared to that query.

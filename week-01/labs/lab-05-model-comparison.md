@@ -18,6 +18,12 @@ Requires Lab 4 providers and Ollama models pulled (`llama3.1:8b`, `mistral:7b` o
 
 **Goal:** Fan out one prompt to 3 models concurrently; return observability envelope per model; attach manual evaluation scores.
 
+## What success looks like
+
+![Three-model compare panels with scores and export, one slot showing timeout](../assets/images/labs/lab-05-compare-ui.svg)
+
+*Figure: One model may timeout while others succeed — score each panel and export `compare_sample_output.json`.*
+
 **File:** `app/services/comparison.py`
 
 ```python

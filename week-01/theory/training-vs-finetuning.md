@@ -36,6 +36,10 @@ Think of training a new engineer:
 | **2. Fine-tuning** | How to answer like a helpful assistant | Internship in one role (support, coding, medical) |
 | **3. RLHF** | What humans *prefer* — tone, safety, brevity | Manager reviews emails before they go to customers |
 
+![Four-stage vendor pipeline from pre-training through chat API](../assets/images/day-04/training-lifecycle-rail.svg)
+
+*Figure: GPT-4o Mini is already at step 4 — your levers are prompts, RAG, and structured output, not pre-training.*
+
 ```mermaid
 flowchart TD
     A[Stage 1: Pre-training] --> B[Base model]

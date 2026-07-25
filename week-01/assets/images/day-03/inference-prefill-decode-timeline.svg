@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 260" role="img" aria-labelledby="title desc">
+  <title id="title">Prefill and decode timeline with TTFT</title>
+  <desc id="desc">Timeline from request to 900ms total: prefill until 120ms, first token at 125ms TTFT, then decode streaming.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="720" height="260" fill="#fafafa"/>
+  <text x="360" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#1a1a1a">One API call: prefill then decode (haiku example)</text>
+  <text x="360" y="42" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">User sees blank UI during prefill; streaming trickles in during decode</text>
+
+  <!-- Time axis: 0-900ms mapped to x 80-640 (560px) -->
+  <line x1="80" y1="200" x2="640" y2="200" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="660" y="204" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">time</text>
+  <text x="80" y="216" font-family="ui-monospace, monospace" font-size="9" fill="#64748b">0 ms</text>
+  <text x="158" y="216" text-anchor="middle" font-family="ui-monospace, monospace" font-size="9" fill="#64748b">120</text>
+  <text x="171" y="216" text-anchor="middle" font-family="ui-monospace, monospace" font-size="9" fill="#ea580c">125 TTFT</text>
+  <text x="640" y="216" text-anchor="end" font-family="ui-monospace, monospace" font-size="9" fill="#64748b">900 ms total</text>
+
+  <!-- Tick marks -->
+  <line x1="80" y1="196" x2="80" y2="204" stroke="#cbd5e1"/>
+  <line x1="158" y1="196" x2="158" y2="204" stroke="#cbd5e1"/>
+  <line x1="171" y1="196" x2="171" y2="204" stroke="#ea580c" stroke-width="1.5"/>
+  <line x1="640" y1="196" x2="640" y2="204" stroke="#cbd5e1"/>
+
+  <!-- Prefill bar: 0-120ms = 80 to 158 -->
+  <rect x="80" y="72" width="78" height="32" rx="4" fill="#e2e8f0" stroke="#94a3b8"/>
+  <text x="119" y="92" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#475569">PREFILL</text>
+  <text x="119" y="118" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Read all input tokens</text>
+  <line x1="119" y1="104" x2="119" y2="72" stroke="#94a3b8" stroke-width="1" stroke-dasharray="3 2"/>
+
+  <!-- Blank UI during prefill -->
+  <rect x="250" y="58" width="120" height="56" rx="6" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="310" y="78" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#94a3b8">Chat UI</text>
+  <text x="310" y="96" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#cbd5e1">(empty -- waiting)</text>
+  <line x1="158" y1="88" x2="248" y2="88" stroke="#64748b" stroke-width="1" stroke-dasharray="4 3"/>
+
+  <!-- TTFT marker -->
+  <line x1="171" y1="58" x2="171" y2="190" stroke="#ea580c" stroke-width="1.5" stroke-dasharray="5 4"/>
+  <text x="179" y="68" font-family="system-ui, sans-serif" font-size="9" fill="#c2410c">first token</text>
+  <line x1="171" y1="76" x2="171" y2="82" stroke="#ea580c" stroke-width="1"/>
+
+  <!-- Decode bar: 125-900ms -->
+  <rect x="171" y="132" width="469" height="32" rx="4" fill="#dbeafe" stroke="#2563eb"/>
+  <text x="405" y="152" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#1d4ed8">DECODE (one token per step)</text>
+  <text x="405" y="178" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Soft ... gray ... clouds ... (streaming)</text>
+
+  <!-- Streaming UI -->
+  <rect x="520" y="58" width="160" height="56" rx="6" fill="#ffffff" stroke="#2563eb"/>
+  <text x="600" y="78" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Chat UI</text>
+  <text x="600" y="96" text-anchor="middle" font-family="ui-monospace, monospace" font-size="9" fill="#2563eb">Soft gray clouds</text>
+  <line x1="520" y1="88" x2="480" y2="148" stroke="#2563eb" stroke-width="1" stroke-dasharray="4 3"/>
+
+  <!-- Metrics callouts -->
+  <rect x="80" y="228" width="200" height="22" rx="4" fill="#f8fafc" stroke="#e2e8f0"/>
+  <text x="180" y="243" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#475569">TTFT ~125 ms (prefill + overhead)</text>
+  <rect x="440" y="228" width="200" height="22" rx="4" fill="#f8fafc" stroke="#e2e8f0"/>
+  <text x="540" y="243" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#475569">Total ~900 ms for full haiku</text>
+</svg>

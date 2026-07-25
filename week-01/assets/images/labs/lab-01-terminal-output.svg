@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 320" role="img" aria-labelledby="title desc">
+  <title id="title">Lab 1 expected terminal output</title>
+  <desc id="desc">Example token count table from lab01_tokenization.py showing OpenAI vs Llama delta on a code prompt.</desc>
+  <rect width="720" height="320" fill="#fafafa"/>
+  <text x="360" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#1a1a1a">Lab 1: expected terminal output (illustrative)</text>
+  <text x="360" y="42" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">Local token counting only -- no API calls</text>
+
+  <!-- Terminal window -->
+  <rect x="40" y="56" width="640" height="240" rx="8" fill="#1e293b"/>
+  <rect x="40" y="56" width="640" height="28" rx="8" fill="#334155"/>
+  <circle cx="60" cy="70" r="5" fill="#ef4444"/>
+  <circle cx="78" cy="70" r="5" fill="#eab308"/>
+  <circle cx="96" cy="70" r="5" fill="#22c55e"/>
+  <text x="360" y="74" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#94a3b8">python lab01_tokenization.py</text>
+
+  <!-- Output lines -->
+  <text x="56" y="104" font-family="ui-monospace, monospace" font-size="11" fill="#e2e8f0">Prompt 1: 12 tokens | Est. cost (500 out): $0.0050</text>
+  <text x="56" y="124" font-family="ui-monospace, monospace" font-size="11" fill="#e2e8f0">Prompt 2: 187 tokens | Est. cost (500 out): $0.0055</text>
+  <text x="56" y="144" font-family="ui-monospace, monospace" font-size="11" fill="#e2e8f0">Prompt 3: 18 tokens | Est. cost (500 out): $0.0050</text>
+  <text x="56" y="164" font-family="ui-monospace, monospace" font-size="11" fill="#e2e8f0">Prompt 4: 24 tokens | Est. cost (500 out): $0.0051</text>
+  <text x="56" y="184" font-family="ui-monospace, monospace" font-size="11" fill="#e2e8f0">Prompt 5: 802 tokens | Est. cost (500 out): $0.0070</text>
+
+  <line x1="56" y1="198" x2="664" y2="198" stroke="#475569" stroke-width="1"/>
+
+  <text x="56" y="218" font-family="ui-monospace, monospace" font-size="10" fill="#94a3b8">CSV delta (prompt 2 code): openai=187 llama=156 delta=+19.9%</text>
+  <rect x="52" y="226" width="616" height="22" rx="4" fill="#422006" stroke="#ea580c"/>
+  <text x="360" y="242" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#fdba74">Code/JSON prompts often show 15%+ tokenizer variance</text>
+
+  <text x="360" y="278" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Deliverable: token_cost_report.csv + 3-sentence observation</text>
+</svg>

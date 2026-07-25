@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" role="img" aria-labelledby="title desc">
+  <title id="title">Lab 4 FastAPI docs and observability response</title>
+  <desc id="desc">Swagger /docs page and sample JSON envelope from POST /api/v1/complete.</desc>
+  <rect width="720" height="300" fill="#fafafa"/>
+  <text x="360" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#1a1a1a">Lab 4: expected API output (illustrative)</text>
+  <text x="360" y="42" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">Every provider response includes the observability envelope</text>
+
+  <rect x="40" y="58" width="300" height="220" rx="8" fill="#1e293b"/>
+  <rect x="40" y="58" width="300" height="28" rx="8" fill="#334155"/>
+  <text x="190" y="76" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#94a3b8">localhost:8000/docs</text>
+  <text x="56" y="104" font-family="system-ui, sans-serif" font-size="10" fill="#38bdf8">POST /api/v1/complete</text>
+  <text x="56" y="124" font-family="system-ui, sans-serif" font-size="9" fill="#94a3b8">POST /api/v1/compare</text>
+  <text x="56" y="148" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Schemas: CompletionRequest</text>
+  <text x="56" y="164" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">LLMResponse with envelope</text>
+  <rect x="56" y="180" width="120" height="24" rx="4" fill="#2563eb"/>
+  <text x="116" y="196" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#ffffff">Try it out</text>
+
+  <rect x="360" y="58" width="320" height="220" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="376" y="80" font-family="ui-monospace, monospace" font-size="9" fill="#64748b">Response 200:</text>
+  <text x="376" y="98" font-family="ui-monospace, monospace" font-size="8" fill="#1a1a1a">{</text>
+  <text x="392" y="114" font-family="ui-monospace, monospace" font-size="8" fill="#2563eb">&quot;request_id&quot;: &quot;7c9e...&quot;,</text>
+  <text x="392" y="130" font-family="ui-monospace, monospace" font-size="8" fill="#475569">&quot;text&quot;: &quot;Hello!&quot;,</text>
+  <text x="392" y="146" font-family="ui-monospace, monospace" font-size="8" fill="#16a34a">&quot;input_tokens&quot;: 12,</text>
+  <text x="392" y="162" font-family="ui-monospace, monospace" font-size="8" fill="#16a34a">&quot;latency_ms&quot;: 420.5,</text>
+  <text x="392" y="178" font-family="ui-monospace, monospace" font-size="8" fill="#ea580c">&quot;cost_usd&quot;: 0.00001,</text>
+  <text x="392" y="194" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">&quot;error&quot;: null</text>
+  <text x="376" y="210" font-family="ui-monospace, monospace" font-size="8" fill="#1a1a1a">}</text>
+
+  <text x="360" y="292" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Deliverable: working lab04_backend with OpenAI + Ollama providers</text>
+</svg>

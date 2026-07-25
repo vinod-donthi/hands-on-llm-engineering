@@ -16,6 +16,12 @@ First time? Run `./scripts/setup-work.sh` from `Learning/week-01/`. Copy `.env.e
 
 **Goal:** Observe how temperature and top-p affect output variance and hallucination tendency.
 
+## What success looks like
+
+![Three panels comparing temp 0.0, 0.7, and 1.2 outputs for the same fixed prompt](../assets/images/labs/lab-03-temp-grid.svg)
+
+*Figure: Temp 0 runs should be nearly identical with stable format; high temp runs show more varied (and likely fabricated) specifics.*
+
 **File:** `lab03_sampling_grid.py`
 
 **Models:** **GPT-4o Mini** (cloud) or **Ollama Llama 3.1 8B** (free, local).

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" role="img" aria-labelledby="title desc">
+  <title id="title">Three transformer variants: encoder-only, decoder-only, encoder-decoder</title>
+  <desc id="desc">BERT reads bidirectionally, GPT generates left-to-right, T5 uses an encoder stack and a decoder stack.</desc>
+  <defs>
+    <marker id="flowGray" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#64748b"/>
+    </marker>
+    <marker id="flowGreen" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#16a34a"/>
+    </marker>
+    <marker id="flowBlue" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#2563eb"/>
+    </marker>
+  </defs>
+  <rect width="720" height="300" fill="#fafafa"/>
+  <text x="360" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#1a1a1a">Three shapes of transformer (same building blocks, different look directions)</text>
+
+  <!-- Column 1: Encoder-only -->
+  <rect x="16" y="44" width="216" height="220" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text x="124" y="68" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#1a1a1a">Encoder-only</text>
+  <text x="124" y="84" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">BERT, embedding models</text>
+  <rect x="40" y="100" width="168" height="56" rx="6" fill="#f0fdf4" stroke="#22c55e" stroke-width="1.5"/>
+  <text x="124" y="122" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#166534">Encoder stack</text>
+  <text x="124" y="140" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">bidirectional attention</text>
+  <!-- token row: 3 boxes (38px) + 2 gaps (24px), centered in column -->
+  <rect x="45" y="168" width="38" height="28" rx="3" fill="#f8fafc" stroke="#94a3b8"/>
+  <text x="64" y="186" text-anchor="middle" font-family="ui-monospace, monospace" font-size="9" fill="#1a1a1a">The</text>
+  <rect x="107" y="168" width="38" height="28" rx="3" fill="#f8fafc" stroke="#94a3b8"/>
+  <text x="126" y="186" text-anchor="middle" font-family="ui-monospace, monospace" font-size="9" fill="#1a1a1a">cat</text>
+  <rect x="169" y="168" width="38" height="28" rx="3" fill="#f8fafc" stroke="#94a3b8"/>
+  <text x="188" y="186" text-anchor="middle" font-family="ui-monospace, monospace" font-size="9" fill="#1a1a1a">sat</text>
+  <!-- bidirectional arrows in gaps (small heads, 1.5px stroke) -->
+  <line x1="86" y1="182" x2="100" y2="182" stroke="#16a34a" stroke-width="1.5" marker-end="url(#flowGreen)"/>
+  <line x1="104" y1="186" x2="90" y2="186" stroke="#16a34a" stroke-width="1.5" marker-end="url(#flowGreen)"/>
+  <line x1="148" y1="182" x2="162" y2="182" stroke="#16a34a" stroke-width="1.5" marker-end="url(#flowGreen)"/>
+  <line x1="166" y1="186" x2="152" y2="186" stroke="#16a34a" stroke-width="1.5" marker-end="url(#flowGreen)"/>
+  <text x="124" y="218" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">Reads whole input at once</text>
+  <text x="124" y="234" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#166534">RAG embeddings, search</text>
+  <text x="124" y="250" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#94a3b8">Does not generate text</text>
+
+  <!-- Column 2: Decoder-only (highlighted) -->
+  <rect x="252" y="44" width="216" height="220" rx="8" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+  <text x="360" y="68" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#1e40af">Decoder-only</text>
+  <text x="360" y="84" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#3b82f6">GPT, Llama, Claude</text>
+  <rect x="276" y="100" width="168" height="56" rx="6" fill="#2563eb"/>
+  <text x="360" y="122" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#ffffff">Decoder stack</text>
+  <text x="360" y="140" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#bfdbfe">causal (left-to-right) mask</text>
+  <!-- tokens with forward arrows in 24px gaps -->
+  <rect x="281" y="168" width="38" height="28" rx="3" fill="#ffffff" stroke="#2563eb"/>
+  <text x="300" y="186" text-anchor="middle" font-family="ui-monospace, monospace" font-size="9" fill="#1e40af">The</text>
+  <rect x="343" y="168" width="38" height="28" rx="3" fill="#ffffff" stroke="#2563eb"/>
+  <text x="362" y="186" text-anchor="middle" font-family="ui-monospace, monospace" font-size="9" fill="#1e40af">cat</text>
+  <rect x="405" y="168" width="38" height="28" rx="3" fill="#ffffff" stroke="#2563eb"/>
+  <text x="424" y="186" text-anchor="middle" font-family="ui-monospace, monospace" font-size="9" fill="#1e40af">?</text>
+  <line x1="322" y1="184" x2="338" y2="184" stroke="#2563eb" stroke-width="1.5" marker-end="url(#flowBlue)"/>
+  <line x1="384" y1="184" x2="400" y2="184" stroke="#2563eb" stroke-width="1.5" marker-end="url(#flowBlue)"/>
+  <text x="360" y="218" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">Predicts next token only</text>
+  <text x="360" y="234" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#1e40af">Chat, code, agents (95% of work)</text>
+  <text x="360" y="250" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#3b82f6">Your API calls use this</text>
+
+  <!-- Column 3: Encoder-decoder -->
+  <rect x="488" y="44" width="216" height="220" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text x="596" y="68" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#1a1a1a">Encoder-decoder</text>
+  <text x="596" y="84" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">T5, BART</text>
+  <rect x="512" y="96" width="168" height="40" rx="6" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="596" y="114" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#64748b">Encoder (read input)</text>
+  <text x="596" y="128" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#94a3b8">French sentence</text>
+  <line x1="596" y1="140" x2="596" y2="168" stroke="#64748b" stroke-width="1.5" marker-end="url(#flowGray)"/>
+  <rect x="512" y="170" width="168" height="40" rx="6" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="596" y="188" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#64748b">Decoder (write output)</text>
+  <text x="596" y="202" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#94a3b8">English translation</text>
+  <text x="596" y="218" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">Two stacks: read then write</text>
+  <text x="596" y="234" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#64748b">Translation, summarization</text>
+  <text x="596" y="250" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#94a3b8">Less common for chat assistants</text>
+</svg>
