@@ -29,4 +29,4 @@
 - [ ] Interview checkpoint ≥ 4/5 hire-ready
 - [ ] `benchmark_report.json` + `benchmark_summary.md`
 
-**Rule:** Proceed to Week 3 (RAG) only when all boxes checked.
+**Rule:** Proceed to [Week 3 (RAG)](../../week-03/START-HERE.md) only when all boxes checked.

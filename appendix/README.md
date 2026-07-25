@@ -21,7 +21,9 @@ This folder holds **prerequisite and tangent topics** referenced across the 8-we
 | [Classical ML](classical-ml.md) | Week 1 — when *not* to use an LLM; tabular prediction, fraud, churn | ~10 min |
 | [RNNs & LSTMs](rnn-lstm.md) | Week 1 — what transformers replaced; sequence modeling history | ~10 min |
 
-More topics will be added as later weeks need them. One file per **topic area**, not per algorithm.
+**Week-critical topics** (hybrid RAG, MCP, eval frameworks) live in `week-XX/theory/` — not appendix.
+
+More optional tangents will be added as needed. One file per **topic area**, not per algorithm.
 
 ---
 

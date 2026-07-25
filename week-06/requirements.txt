@@ -1,0 +1,40 @@
+# Week 6 curriculum — Labs 1–6 and Eval Pipeline Studio
+# Install: pip install -r requirements.txt
+
+# Week 1–5 carry-over
+tiktoken>=0.7.0
+openai>=1.50.0
+httpx>=0.27.0
+python-dotenv>=1.0.0
+fastapi>=0.115.0
+uvicorn[standard]>=0.30.0
+pydantic>=2.8.0
+pytest>=8.0.0
+pytest-asyncio>=0.24.0
+ruff>=0.6.0
+anthropic>=0.39.0
+pyyaml>=6.0.0
+sqlalchemy>=2.0.0
+sse-starlette>=2.1.0
+
+# Week 3 RAG eval carry-over
+ragas>=0.2.0
+datasets>=2.20.0
+langchain-openai>=0.2.0
+
+# Week 6 — Evaluation stack
+deepeval>=1.3.0
+langfuse>=2.50.0
+opentelemetry-api>=1.27.0
+opentelemetry-sdk>=1.27.0
+opentelemetry-instrumentation-fastapi>=0.48b0
+opentelemetry-exporter-otlp>=1.27.0
+
+# Reporting + CI helpers
+jinja2>=3.1.0
+pandas>=2.2.0
+jsonschema>=4.23.0
+structlog>=24.0.0
+
+# Optional agent eval (Week 4 carry-over patterns)
+jsonpath-ng>=1.6.0
