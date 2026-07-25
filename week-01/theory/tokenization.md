@@ -26,9 +26,51 @@ A **token** is a chunk of text from a **tokenizer** — a model-specific splitti
 
 **Rough rule of thumb for English prose:** ~4 characters per token. **Do not rely on this for code, JSON, or billing** — always count with the right tool.
 
-### How BPE works (one paragraph)
+### How BPE works
 
-**Byte-Pair Encoding** starts with characters and repeatedly merges frequent pairs into new tokens. Common words become single tokens; rare words split into pieces. Llama uses **SentencePiece**; GPT uses **tiktoken** — **different models → different token counts for the same string.**
+**Byte-Pair Encoding (BPE)** is the algorithm behind most modern LLM tokenizers (GPT's tiktoken, Llama's SentencePiece, and others). The goal is simple: build a vocabulary of useful chunks — whole common words when possible, smaller pieces when not — so the model sees a compact sequence of IDs instead of raw characters.
+
+#### Step by step
+
+1. **Start small** — Begin with every byte or character as its own token (plus a few special tokens like end-of-text).
+2. **Count pairs** — Scan the training corpus and count which **adjacent pairs** appear most often (e.g. `"t" + "h"`, `"th" + "e"`, `"the" + " "`).
+3. **Merge the winner** — Replace the most frequent pair with one new token. `"t" + "h"` might become a single token `th`.
+4. **Repeat** — Run steps 2–3 thousands of times until you hit the target vocabulary size (often 32k–128k tokens for production models).
+
+After training, **new text** is encoded at runtime: the tokenizer applies its learned vocabulary and merge rules to split your string into a sequence of token IDs. Exact algorithms differ by library (tiktoken vs SentencePiece), but the outcome is the same — text becomes numbered chunks the model understands.
+
+#### Worked example (simplified)
+
+Imagine a tiny corpus that says `"the cat"`, `"the dog"`, and `"cat sat"` over and over. Spaces count as separate pieces until merged — `" cat"` includes the leading space.
+
+| Merge step | New token | Effect on `"the cat"` |
+|------------|-----------|------------------------|
+| 1 | `th` | `"th" + "e" + " cat"` |
+| 2 | `the` | `"the" + " cat"` |
+| 3 | `cat` | `"the" + " cat"` (one token for the common word) |
+
+Rare words never seen enough to merge stay split: `"unhappiness"` might become `["un", "happiness"]` or similar — still readable to the model, just more tokens.
+
+#### Why the same string tokenizes differently
+
+Each model family ships its **own** merge table and vocabulary, trained on different data:
+
+| Model family | Tokenizer | Same `"Hello, world!"` |
+|--------------|-----------|-------------------------|
+| GPT-4o Mini | tiktoken (BPE) | Often ~4 tokens |
+| Llama 3.1 | SentencePiece (BPE variant) | Often ~4–5 tokens — not identical |
+
+**Code and JSON** tokenize poorly on every model: `{`, `"`, `:`, and newlines often each cost a token — see the table under [What is a token?](#what-is-a-token) above.
+
+**Different models → different token counts for the same string.** Lab 1 has you compare tokenizers on the same snippet instead of assuming one count.
+
+#### What you do not need to memorize
+
+You will not retrain a BPE vocabulary in Week 1. What matters for engineering:
+
+- Tokenizers are **model-specific** — always use the tokenizer that matches the model you call.
+- Common English compresses well; **code, JSON, and rare Unicode** do not.
+- Billing and context limits use **token IDs**, not words or characters.
 
 ### Worked cost example
 
@@ -108,8 +150,9 @@ Output is often priced **higher** per token than input.
 ## Checkpoint
 
 1. Why does JSON often use more tokens than plain English?
-2. Input 2,000 tokens + output 500 — which side usually costs more per token?
-3. What tool for GPT-4o Mini counts?
+2. Why might `"unhappiness"` use more tokens than `"hello"`?
+3. Input 2,000 tokens + output 500 — which side usually costs more per token?
+4. What tool counts tokens for GPT-4o Mini?
 
 ---
 
