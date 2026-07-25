@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 220" role="img" aria-labelledby="title desc">
+  <title id="title">RSS ingestion pipeline</title>
+  <desc id="desc">Fetch feeds, parse XML, dedupe by URL hash, normalize records, store for downstream RAG.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="720" height="220" fill="#fafafa"/>
+  <text x="360" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#1a1a1a">Stable ingestion: RSS before HTML scraping</text>
+  <text x="360" y="42" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">Poll arXiv RSS hourly -- dedupe by URL hash so repeats do not spam the digest</text>
+
+  <rect x="24" y="80" width="100" height="48" rx="6" fill="#eff6ff" stroke="#2563eb"/>
+  <text x="74" y="102" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" font-weight="600" fill="#1d4ed8">Fetch</text>
+  <text x="74" y="116" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">RSS URL</text>
+
+  <line x1="128" y1="104" x2="148" y2="104" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="152" y="80" width="100" height="48" rx="6" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="202" y="102" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" font-weight="600" fill="#475569">Parse</text>
+  <text x="202" y="116" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">title, link</text>
+
+  <line x1="256" y1="104" x2="276" y2="104" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="280" y="80" width="100" height="48" rx="6" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="330" y="102" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" font-weight="600" fill="#475569">Dedupe</text>
+  <text x="330" y="116" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">sha256(url)</text>
+
+  <line x1="384" y1="104" x2="404" y2="104" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="408" y="80" width="100" height="48" rx="6" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="458" y="102" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" font-weight="600" fill="#475569">Normalize</text>
+  <text x="458" y="116" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">JSON record</text>
+
+  <line x1="512" y1="104" x2="532" y2="104" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="536" y="80" width="160" height="48" rx="6" fill="#dcfce7" stroke="#86efac"/>
+  <text x="616" y="102" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" font-weight="600" fill="#166534">Store</text>
+  <text x="616" y="116" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">RAG / digest (Week 8)</text>
+
+  <rect x="120" y="148" width="480" height="56" rx="6" fill="#f8fafc" stroke="#e2e8f0"/>
+  <text x="360" y="168" text-anchor="middle" font-family="ui-monospace, monospace" font-size="8" fill="#475569">{ id, source, title, url, published_at, content_snippet }</text>
+  <text x="360" y="188" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Prefer RSS / APIs over brittle HTML scraping</text>
+</svg>

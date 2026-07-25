@@ -23,6 +23,10 @@ Copy `.env.example` → `.env` in your work dir. Never commit `.env`.
 | **Learning path** | `week-01/` | Read playbooks, theory, lab specs |
 | **Work path** | `week-01-work/` or `~/ai-learning/week-01-work/` | Python, deliverables, project code |
 
+![Learning path markdown repo vs work path with venv and secrets](assets/images/project/start-here-two-paths.svg)
+
+*Figure: Read specs in `week-01/`; run code and store secrets in `week-01-work/` only.*
+
 ---
 
 ## 3. Every study session

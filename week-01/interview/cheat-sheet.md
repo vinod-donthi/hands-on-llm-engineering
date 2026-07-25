@@ -2,6 +2,10 @@
 
 > [← README](../README.md) · [Concepts](concepts.md)
 
+![One-page reference card for sampling, JSON ladder, observability, and token budget](../assets/images/project/cheat-sheet-card.svg)
+
+*Figure: Patterns to memorize before interviews — details in theory docs.*
+
 ## Sampling Defaults
 
 | Task | Temperature | Top-P |

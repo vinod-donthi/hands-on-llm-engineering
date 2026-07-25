@@ -47,6 +47,10 @@ User runs **compare** with GPT-4o Mini + Llama 3.1 8B. UI shows two panels — o
 
 Meanwhile GPT-4o Mini's slot still has full text and tokens. **Partial failure** — one model down, others succeed. Your UI and tests must handle this (Lab 5 `test_compare_partial_failure`).
 
+![Three compare panels with one timeout and two successes sharing parent_request_id](../assets/images/day-05/observability-compare-partial-failure.svg)
+
+*Figure: Never drop failed models from the response array — return the envelope with `error` set so the UI can show what happened.*
+
 ### Success looks like (same shape, every time)
 
 When the call works, return the **same fields** — just with `error: null` and real token counts. Your frontend `MetricsBar` can render one component for both paths.
@@ -104,6 +108,10 @@ Attach these to **every** LLM response — success, partial failure, or hard err
 | `error` | string or null | Provider failure message; null if OK |
 | `parse_status` | enum or null | `success` / `repaired` / `parse_failure` (JSON mode) |
 | `json_validation_error` | string or null | Why Pydantic rejected the JSON |
+
+![Annotated JSON log line with request_id, tokens, cost, and latency fields](../assets/images/day-05/observability-envelope-fields.svg)
+
+*Figure: Same envelope shape on success and failure — generate `request_id` at the API boundary.*
 
 ```mermaid
 flowchart LR

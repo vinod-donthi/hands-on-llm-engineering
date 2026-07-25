@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 280" role="img" aria-labelledby="title desc">
+  <title id="title">Multi-model compare with partial failure</title>
+  <desc id="desc">Three compare panels: GPT success, Llama timeout error, Mistral success with shared parent_request_id.</desc>
+  <rect width="720" height="280" fill="#fafafa"/>
+  <text x="360" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#1a1a1a">Compare: partial failure (Lab 5)</text>
+  <text x="360" y="42" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">One blank panel with error -- others still show results; never drop failed slots</text>
+
+  <text x="360" y="58" text-anchor="middle" font-family="ui-monospace, monospace" font-size="9" fill="#64748b">parent_request_id: 550e8400-e29b-41d4-a716-446655440000</text>
+
+  <!-- Panel 1 success -->
+  <rect x="24" y="72" width="210" height="140" rx="8" fill="#ffffff" stroke="#86efac" stroke-width="2"/>
+  <text x="129" y="92" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#166534">GPT-4o Mini</text>
+  <text x="40" y="112" font-family="system-ui, sans-serif" font-size="9" fill="#475569">Soft gray clouds gather...</text>
+  <text x="40" y="128" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">842 ms | $0.00003</text>
+  <text x="40" y="144" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">error: null</text>
+  <rect x="40" y="156" width="80" height="18" rx="3" fill="#dcfce7"/>
+  <text x="80" y="169" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#166534">success</text>
+
+  <!-- Panel 2 failure -->
+  <rect x="255" y="72" width="210" height="140" rx="8" fill="#ffffff" stroke="#fecaca" stroke-width="2"/>
+  <text x="360" y="92" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#b91c1c">Llama 3.1 8B</text>
+  <text x="360" y="118" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#cbd5e1">(empty panel)</text>
+  <text x="271" y="136" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">30000 ms | $0.0</text>
+  <rect x="271" y="148" width="178" height="22" rx="3" fill="#fef2f2"/>
+  <text x="360" y="163" text-anchor="middle" font-family="ui-monospace, monospace" font-size="8" fill="#b91c1c">error: timeout after 30s</text>
+
+  <!-- Panel 3 success -->
+  <rect x="486" y="72" width="210" height="140" rx="8" fill="#ffffff" stroke="#86efac" stroke-width="2"/>
+  <text x="591" y="92" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#166534">Mistral 7B</text>
+  <text x="502" y="112" font-family="system-ui, sans-serif" font-size="9" fill="#475569">Rain falls on rooftops...</text>
+  <text x="502" y="128" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">1100 ms | $0.0</text>
+  <text x="502" y="144" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">error: null</text>
+  <rect x="502" y="156" width="80" height="18" rx="3" fill="#dcfce7"/>
+  <text x="542" y="169" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#166534">success</text>
+
+  <rect x="80" y="228" width="560" height="40" rx="6" fill="#f8fafc" stroke="#e2e8f0"/>
+  <text x="360" y="248" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#475569">Blank panel? Check error (timeout) vs parse_status (bad JSON)</text>
+  <text x="360" y="262" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Return 3 result objects -- same parent_request_id on all</text>
+</svg>

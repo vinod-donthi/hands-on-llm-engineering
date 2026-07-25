@@ -135,11 +135,19 @@ Sure! {"name": "John Doe", "email": "john@example.com", "age": "34"}
 - API steered generation toward schema
 - Pydantic confirms types → `parse_status: success`
 
+![Side-by-side prompt-only broken output vs structured valid JSON](../assets/images/day-04/structured-output-valid-invalid.svg)
+
+*Figure: Prompt-only output breaks `json.loads()`; structured output + Pydantic gives `parse_status: success`.*
+
 ---
 
 ### The JSON reliability ladder (use this in Labs 4–5)
 
 When extraction must not crash your app, climb the ladder **in order**. Stop when something works.
+
+![Vertical JSON reliability ladder with parse_status outcomes](../assets/images/day-04/json-ladder-fallback.svg)
+
+*Figure: Structured output first; one retry max; `parse_failure` must not crash multi-model compare.*
 
 | Step | What you try | Typical result |
 |------|--------------|----------------|

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 260" role="img" aria-labelledby="title desc">
+  <title id="title">Prompt Playground Lite architecture</title>
+  <desc id="desc">Next.js UI to FastAPI compare endpoint to providers with observability envelope on every response.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="720" height="260" fill="#fafafa"/>
+  <text x="360" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#1a1a1a">Prompt Playground Lite -- Week 1 architecture</text>
+  <text x="360" y="42" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">Lab 4 backend grows into the capstone; frontend optional for minimum viable Week 1</text>
+
+  <rect x="40" y="70" width="180" height="120" rx="8" fill="#eff6ff" stroke="#2563eb"/>
+  <text x="130" y="94" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#1d4ed8">Next.js UI</text>
+  <text x="130" y="114" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Prompt input</text>
+  <text x="130" y="128" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Compare panel</text>
+  <text x="130" y="142" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Metrics + export</text>
+
+  <line x1="224" y1="130" x2="256" y2="130" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="260" y="70" width="200" height="120" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="360" y="94" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#475569">FastAPI</text>
+  <text x="360" y="114" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">/api/v1/compare</text>
+  <text x="360" y="128" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Observability envelope</text>
+  <text x="360" y="142" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">JSON ladder</text>
+
+  <line x1="464" y1="130" x2="496" y2="130" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="500" y="70" width="180" height="120" rx="8" fill="#f0fdf4" stroke="#86efac"/>
+  <text x="590" y="94" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#166534">Providers</text>
+  <text x="590" y="118" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">OpenAI GPT-4o Mini</text>
+  <text x="590" y="134" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Ollama Llama / Mistral</text>
+
+  <rect x="120" y="204" width="480" height="40" rx="6" fill="#f8fafc" stroke="#e2e8f0"/>
+  <text x="360" y="228" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#475569">Every response: request_id, tokens, cost_usd, latency_ms, error, parse_status</text>
+</svg>

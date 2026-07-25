@@ -42,6 +42,10 @@ cd ../backend && uvicorn app.main:app --reload --port 8000
 
 **Goal:** Compare button works before you build six components.
 
+![Wireframe of single-page UI with prompts, model checkboxes, compare button, and result panels](../assets/images/project/ui-single-page-mock.svg)
+
+*Figure: Put everything in `page.tsx` first — split into components after Compare works.*
+
 Put everything in `app/page.tsx` first:
 
 1. Textareas for system + user prompt

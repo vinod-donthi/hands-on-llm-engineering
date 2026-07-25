@@ -16,6 +16,10 @@ You're designing a production system and someone says "use AI." But **AI**, **ma
 
 This page gives you a decision map: **where LLMs sit in the stack, and when you should reach for something simpler instead.**
 
+![Nested rings from AI down to GenAI with product examples per layer](../assets/images/day-01/ai-vs-ml-nested-stack.svg)
+
+*Figure: LLMs are one slice of GenAI — tabular loan default often belongs in classical ML, not GPT.*
+
 ### Artificial Intelligence (AI)
 
 The broad field of building systems that perform tasks requiring human-like intelligence: reasoning, perception, language understanding, planning, and decision-making.

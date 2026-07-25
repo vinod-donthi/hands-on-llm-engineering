@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 320" role="img" aria-labelledby="title desc">
+  <title id="title">Prompt Playground Lite single-page UI wireframe</title>
+  <desc id="desc">Wireframe showing prompt inputs, model checkboxes, compare button, side-by-side results, and metrics bar.</desc>
+  <rect width="720" height="320" fill="#fafafa"/>
+  <text x="360" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#1a1a1a">Single-page UI wireframe (Day 7 Path A)</text>
+  <text x="360" y="42" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">Start with one page.tsx -- split into components after Compare works</text>
+
+  <rect x="40" y="58" width="640" height="248" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+
+  <!-- Header -->
+  <rect x="40" y="58" width="640" height="32" rx="8" fill="#f1f5f9"/>
+  <text x="360" y="78" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#475569">Prompt Playground Lite</text>
+
+  <!-- Inputs -->
+  <text x="56" y="108" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">System prompt</text>
+  <rect x="56" y="112" width="608" height="28" rx="4" fill="#f8fafc" stroke="#e2e8f0"/>
+  <text x="56" y="152" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">User prompt</text>
+  <rect x="56" y="156" width="608" height="36" rx="4" fill="#f8fafc" stroke="#e2e8f0"/>
+
+  <!-- Model picks -->
+  <rect x="56" y="200" width="16" height="16" rx="2" fill="#2563eb"/>
+  <text x="80" y="212" font-family="system-ui, sans-serif" font-size="9" fill="#475569">GPT-4o Mini</text>
+  <rect x="180" y="200" width="16" height="16" rx="2" fill="#2563eb"/>
+  <text x="204" y="212" font-family="system-ui, sans-serif" font-size="9" fill="#475569">Llama 3.1 8B</text>
+  <rect x="320" y="196" width="80" height="24" rx="4" fill="#2563eb"/>
+  <text x="360" y="212" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#ffffff">Compare</text>
+
+  <!-- Results -->
+  <rect x="56" y="228" width="290" height="64" rx="4" fill="#f0fdf4" stroke="#bbf7d0"/>
+  <text x="72" y="248" font-family="system-ui, sans-serif" font-size="9" fill="#475569">Model A response...</text>
+  <text x="72" y="280" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">842ms | $0.00003</text>
+
+  <rect x="374" y="228" width="290" height="64" rx="4" fill="#f0fdf4" stroke="#bbf7d0"/>
+  <text x="390" y="248" font-family="system-ui, sans-serif" font-size="9" fill="#475569">Model B response...</text>
+  <text x="390" y="280" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">1100ms | $0.0</text>
+</svg>

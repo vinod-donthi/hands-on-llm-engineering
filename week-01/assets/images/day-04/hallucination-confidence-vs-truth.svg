@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 270" role="img" aria-labelledby="title desc">
+  <title id="title">Confident tone does not mean correct facts</title>
+  <desc id="desc">Model output with polished prose and fake revenue numbers -- fluency and accuracy are separate.</desc>
+  <rect width="720" height="270" fill="#fafafa"/>
+  <text x="360" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#1a1a1a">Confident tone is not evidence</text>
+  <text x="360" y="42" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">The model predicts plausible text -- it does not verify facts unless you add RAG or tools</text>
+
+  <!-- User bubble -->
+  <rect x="40" y="58" width="280" height="36" rx="8" fill="#e2e8f0"/>
+  <text x="56" y="80" font-family="system-ui, sans-serif" font-size="10" fill="#475569">What was Acme Corp Q3 2024 revenue?</text>
+
+  <!-- Model bubble -->
+  <rect x="380" y="58" width="300" height="132" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="396" y="78" font-family="system-ui, sans-serif" font-size="10" fill="#1a1a1a">Acme Corp reported Q3 2024 revenue of</text>
+
+  <!-- Highlight: invented number -->
+  <rect x="396" y="86" width="76" height="20" rx="3" fill="#fef2f2" stroke="#fecaca"/>
+  <text x="434" y="100" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#b91c1c">$4.2 billion</text>
+  <text x="434" y="118" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#b91c1c">invented number</text>
+
+  <text x="478" y="100" font-family="system-ui, sans-serif" font-size="10" fill="#1a1a1a">, up 18% YoY,</text>
+
+  <text x="396" y="142" font-family="system-ui, sans-serif" font-size="10" fill="#1a1a1a">according to</text>
+  <rect x="478" y="128" width="132" height="20" rx="3" fill="#fef2f2" stroke="#fecaca"/>
+  <text x="544" y="142" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#b91c1c">October earnings call.</text>
+  <text x="544" y="160" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#b91c1c">fake citation</text>
+
+  <!-- Two columns -->
+  <rect x="80" y="204" width="260" height="52" rx="6" fill="#fef2f2" stroke="#fecaca"/>
+  <text x="210" y="224" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#b91c1c">Sounds researched</text>
+  <text x="210" y="242" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Polite, specific, cites a call</text>
+
+  <rect x="380" y="204" width="260" height="52" rx="6" fill="#f0fdf4" stroke="#bbf7d0"/>
+  <text x="510" y="224" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#166534">Actually verified?</text>
+  <text x="510" y="242" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">No source doc -- may be confabulation</text>
+</svg>

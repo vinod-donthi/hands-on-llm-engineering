@@ -59,6 +59,10 @@ Prefer the most stable source type first:
 | 3 | Sitemaps | URL discovery; still need fetch + parse |
 | 4 | HTML scraping | Last resort — breaks when layout changes |
 
+![RSS fetch, parse, dedupe, normalize, and store pipeline](../assets/images/day-06/rss-pipeline.svg)
+
+*Figure: Prefer publisher-maintained RSS over brittle HTML scraping — dedupe by URL hash on every poll.*
+
 ```mermaid
 flowchart TB
     Sources[Feeds_APIs_HTML] --> Fetch[Scheduled_Fetch]

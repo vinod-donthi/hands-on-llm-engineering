@@ -41,6 +41,10 @@ Summarize the following document:
 
 **Result:** Shorter, structured, explicit refusal rule — fewer hallucinations ([hallucinations.md](hallucinations.md)).
 
+![Weak Summarize this vs structured system rules with refusal and bullet format](../assets/images/day-05/prompt-weak-vs-strong.svg)
+
+*Figure: Explicit rules (max bullets, refusal when missing data) reduce hallucination risk more than vague instructions.*
+
 ### Playground Lite scenario (where prompts meet observability)
 
 You are building the compare feature. Same user message, two system prompts, two very different outcomes:

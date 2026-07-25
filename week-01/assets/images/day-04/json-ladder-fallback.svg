@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 340" role="img" aria-labelledby="title desc">
+  <title id="title">JSON reliability ladder with parse_status outcomes</title>
+  <desc id="desc">Six steps from structured output through retry to parse_failure without crashing compare.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="720" height="340" fill="#fafafa"/>
+  <text x="360" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#1a1a1a">JSON reliability ladder (Labs 4-5)</text>
+  <text x="360" y="42" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">Climb in order -- one retry max; never crash multi-model compare</text>
+
+  <!-- Vertical flow -->
+  <rect x="240" y="58" width="240" height="32" rx="6" fill="#2563eb"/>
+  <text x="360" y="78" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#ffffff">1. Structured output + schema</text>
+  <text x="500" y="78" font-family="ui-monospace, monospace" font-size="9" fill="#16a34a">success</text>
+
+  <line x1="360" y1="90" x2="360" y2="100" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="240" y="104" width="240" height="32" rx="6" fill="#eff6ff" stroke="#2563eb"/>
+  <text x="360" y="124" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#1d4ed8">2. JSON mode fallback</text>
+
+  <line x1="360" y1="136" x2="360" y2="146" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="240" y="150" width="240" height="32" rx="6" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="360" y="170" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#475569">3. Pydantic validate types</text>
+
+  <line x1="360" y1="182" x2="360" y2="192" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="240" y="196" width="240" height="32" rx="6" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="360" y="216" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#475569">4. Prompt repair line</text>
+
+  <line x1="360" y1="228" x2="360" y2="238" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="240" y="242" width="240" height="32" rx="6" fill="#fff7ed" stroke="#fed7aa"/>
+  <text x="360" y="262" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#c2410c">5. Retry once at temp = 0</text>
+  <text x="500" y="262" font-family="ui-monospace, monospace" font-size="9" fill="#ca8a04">repaired</text>
+
+  <line x1="360" y1="274" x2="360" y2="284" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="240" y="288" width="240" height="32" rx="6" fill="#fef2f2" stroke="#fecaca"/>
+  <text x="360" y="308" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#b91c1c">Fail: parse_failure (log, show raw text)</text>
+
+  <!-- Side note -->
+  <rect x="520" y="150" width="160" height="72" rx="6" fill="#f8fafc" stroke="#e2e8f0"/>
+  <text x="600" y="172" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" font-weight="600" fill="#475569">Syntax vs semantics</text>
+  <text x="600" y="188" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">Valid JSON text</text>
+  <text x="600" y="202" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">vs correct schema</text>
+  <text x="600" y="216" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">Pydantic catches both</text>
+</svg>

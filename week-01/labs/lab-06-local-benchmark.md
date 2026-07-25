@@ -18,6 +18,12 @@ ollama pull mistral:7b
 
 **Goal:** Benchmark Ollama models on your machine — measure tokens/sec, latency, and memory footprint. Builds intuition for local vs. cloud tradeoffs (AI Radar will run scheduled local/cloud inference).
 
+## What success looks like
+
+![Terminal table comparing Llama and Mistral mean latency and tokens per second](../assets/images/labs/lab-06-benchmark.svg)
+
+*Figure: `benchmark_summary.csv` with mean latency and tokens/sec — warm up Ollama before timing.*
+
 **File:** `lab06_local_benchmark.py`
 
 **Tasks:**

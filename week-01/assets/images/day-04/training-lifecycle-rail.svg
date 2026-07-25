@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 220" role="img" aria-labelledby="title desc">
+  <title id="title">LLM training lifecycle from pre-training to chat API</title>
+  <desc id="desc">Four stages: pre-training, fine-tuning, RLHF or DPO, then the chat model you call via API.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="720" height="220" fill="#fafafa"/>
+  <text x="360" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#1a1a1a">Vendor pipeline: what happened before your first API call</text>
+  <text x="360" y="42" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">You consume step 4 -- prompts and RAG are your levers, not step 1</text>
+
+  <!-- Stage boxes: y=70 h=72, gap 24px between -->
+  <rect x="24" y="70" width="148" height="72" rx="8" fill="#f1f5f9" stroke="#94a3b8"/>
+  <text x="98" y="94" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#475569">1. Pre-training</text>
+  <text x="98" y="112" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">Next-word prediction</text>
+  <text x="98" y="126" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">Web, books, code</text>
+
+  <line x1="176" y1="106" x2="196" y2="106" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="200" y="70" width="148" height="72" rx="8" fill="#eff6ff" stroke="#2563eb"/>
+  <text x="274" y="94" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#1d4ed8">2. Fine-tuning</text>
+  <text x="274" y="112" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">Prompt to answer pairs</text>
+  <text x="274" y="126" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">Helpful assistant</text>
+
+  <line x1="352" y1="106" x2="372" y2="106" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="376" y="70" width="148" height="72" rx="8" fill="#fff7ed" stroke="#ea580c"/>
+  <text x="450" y="94" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#c2410c">3. RLHF / DPO</text>
+  <text x="450" y="112" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">Human preferences</text>
+  <text x="450" y="126" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">Tone, safety, brevity</text>
+
+  <line x1="528" y1="106" x2="548" y2="106" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="552" y="70" width="144" height="72" rx="8" fill="#2563eb"/>
+  <text x="624" y="94" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#ffffff">4. Chat API</text>
+  <text x="624" y="112" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#bfdbfe">GPT-4o Mini, Claude</text>
+  <text x="624" y="126" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#bfdbfe">You call this</text>
+
+  <!-- Cost band -->
+  <text x="98" y="158" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#94a3b8">$$$ millions</text>
+  <text x="274" y="158" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#94a3b8">$$ moderate</text>
+  <text x="450" y="158" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#94a3b8">$$ high</text>
+  <text x="624" y="158" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#16a34a">per-token API</text>
+
+  <rect x="80" y="172" width="560" height="36" rx="6" fill="#f0fdf4" stroke="#bbf7d0"/>
+  <text x="360" y="194" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#166534">Your levers: prompts, RAG, structured output, tools -- fine-tune is last resort (Week 7)</text>
+</svg>
