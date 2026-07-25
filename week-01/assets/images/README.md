@@ -44,3 +44,4 @@ From `week-01/theory/tokenization.md`, use relative path: `../assets/images/day-
 - Accent blue `#2563eb` (model / tokenizer), accent orange `#ea580c` (cost / limits)
 - Max width ~720px in SVG `viewBox`; figures should read on mobile GitHub preview
 - Alt text: one sentence describing what to notice
+- **SVG must be valid XML:** use `&quot;` for quotes, `&amp;` for ampersands, ASCII punctuation only (no smart quotes or special Unicode arrows)
