@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" role="img" aria-labelledby="title desc">
+  <title id="title">Lab 2 expected similarity search output</title>
+  <desc id="desc">Top-3 cosine matches for a Python query plus a low-scoring Monty Python false positive.</desc>
+  <rect width="720" height="300" fill="#fafafa"/>
+  <text x="360" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#1a1a1a">Lab 2: expected similarity output (illustrative)</text>
+  <text x="360" y="42" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">Semantic match beats keyword overlap</text>
+
+  <rect x="40" y="56" width="640" height="220" rx="8" fill="#1e293b"/>
+  <rect x="40" y="56" width="640" height="28" rx="8" fill="#334155"/>
+  <circle cx="60" cy="70" r="5" fill="#ef4444"/>
+  <circle cx="78" cy="70" r="5" fill="#eab308"/>
+  <circle cx="96" cy="70" r="5" fill="#22c55e"/>
+  <text x="360" y="74" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#94a3b8">python lab02_embeddings.py</text>
+
+  <text x="56" y="104" font-family="ui-monospace, monospace" font-size="11" fill="#38bdf8">Query: &quot;python dictionary comprehension&quot;</text>
+
+  <text x="56" y="132" font-family="ui-monospace, monospace" font-size="11" fill="#4ade80">Top 1: (0.82) List comprehensions and dict comprehensions in Python...</text>
+  <text x="56" y="152" font-family="ui-monospace, monospace" font-size="11" fill="#a3e635">Top 2: (0.71) Building dicts from loops in Python 3...</text>
+  <text x="56" y="172" font-family="ui-monospace, monospace" font-size="11" fill="#fde047">Top 3: (0.45) Monty Python was a comedy group...</text>
+
+  <line x1="56" y1="186" x2="664" y2="186" stroke="#475569"/>
+
+  <text x="56" y="206" font-family="ui-monospace, monospace" font-size="10" fill="#94a3b8">Ambiguous query matrix: finance doc scores 0.11 (below threshold)</text>
+  <rect x="52" y="214" width="616" height="22" rx="4" fill="#172554" stroke="#2563eb"/>
+  <text x="360" y="230" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#93c5fd">Extension: explain one wrong top-1 (lexical vs semantic)</text>
+
+  <text x="360" y="278" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Deliverable: similarity_results.md with failure analysis</text>
+</svg>

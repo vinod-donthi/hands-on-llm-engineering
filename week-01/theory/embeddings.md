@@ -33,6 +33,10 @@ After embedding, cosine similarity might look like:
 | Query ↔ Doc C | **0.85** | Strong — same topic, different wording |
 | Query ↔ Doc B | **0.12** | Weak — finance, not Python |
 
+![Horizontal bars showing query similarity to each doc with a 0.7 threshold line](../assets/images/day-02/embeddings-similarity-threshold.svg)
+
+*Figure: Docs A and C score above the typical match threshold; Doc B (finance) stays far below — embedding search still finds A and C without the word "loop".*
+
 Keyword search might miss Doc C (no word "loop"). Embedding search finds both A and C because **meaning** is close, not just spelling.
 
 ### What is an embedding?
@@ -40,6 +44,10 @@ Keyword search might miss Doc C (no word "loop"). Embedding search finds both A 
 An **embedding** is a fixed-size vector — often 384 to 3072 numbers — produced by a specialized model. You do not read the numbers by hand; you compare them with math (cosine similarity, dot product).
 
 Think of it as a **coordinate in meaning-space**: docs about Python cluster together; docs about finance cluster elsewhere.
+
+![2D scatter of king, queen, man, woman showing parallel semantic directions](../assets/images/day-02/embeddings-2d-neighbors.svg)
+
+*Figure: Nearby points = similar meaning. Analogies (king to queen vs man to woman) show up as similar directions in vector space.*
 
 ### Embedding models vs chat LLMs (don't mix them up)
 

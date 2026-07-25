@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 340" role="img" aria-labelledby="title desc">
+  <title id="title">Lab 3 temperature grid comparison</title>
+  <desc id="desc">Same prompt at temp 0, 0.7, and 1.2 showing format stability vs fabricated specifics.</desc>
+  <rect width="720" height="340" fill="#fafafa"/>
+  <text x="360" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#1a1a1a">Lab 3: same prompt, different temperature (illustrative)</text>
+  <text x="360" y="42" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">Log fabricated specifics (Y/N) and format compliance (Y/N) per run</text>
+
+  <!-- Three panels -->
+  <rect x="24" y="58" width="210" height="200" rx="8" fill="#ffffff" stroke="#bbf7d0" stroke-width="2"/>
+  <text x="129" y="78" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#166534">temp = 0.0</text>
+  <text x="36" y="98" font-family="ui-monospace, monospace" font-size="8" fill="#475569">- GPT-4o updates (Jan 2025)</text>
+  <text x="36" y="112" font-family="ui-monospace, monospace" font-size="8" fill="#475569">- I am not certain on dates</text>
+  <text x="36" y="126" font-family="ui-monospace, monospace" font-size="8" fill="#475569">- Parameter counts unverified</text>
+  <text x="129" y="152" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">fabricated: N | format: Y</text>
+  <text x="129" y="168" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#16a34a">Near-identical across runs</text>
+
+  <rect x="255" y="58" width="210" height="200" rx="8" fill="#ffffff" stroke="#bfdbfe" stroke-width="2"/>
+  <text x="360" y="78" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#1d4ed8">temp = 0.7</text>
+  <text x="267" y="98" font-family="ui-monospace, monospace" font-size="8" fill="#475569">- Claude 3.5 refresh...</text>
+  <text x="267" y="112" font-family="ui-monospace, monospace" font-size="8" fill="#475569">- Gemini 2.0 preview...</text>
+  <text x="267" y="126" font-family="ui-monospace, monospace" font-size="8" fill="#475569">- Some dates may vary</text>
+  <text x="360" y="152" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">fabricated: maybe | format: Y</text>
+  <text x="360" y="168" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Slight wording changes</text>
+
+  <rect x="486" y="58" width="210" height="200" rx="8" fill="#ffffff" stroke="#fed7aa" stroke-width="2"/>
+  <text x="591" y="78" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#c2410c">temp = 1.2</text>
+  <text x="498" y="98" font-family="ui-monospace, monospace" font-size="8" fill="#475569">- Claude 4 Ultra Jan 3</text>
+  <text x="498" y="112" font-family="ui-monospace, monospace" font-size="8" fill="#475569">- 2M context, 800B params</text>
+  <text x="498" y="126" font-family="ui-monospace, monospace" font-size="8" fill="#475569">- GPT-5 preview Jan 15...</text>
+  <rect x="498" y="136" width="186" height="22" rx="4" fill="#fef2f2" stroke="#fecaca"/>
+  <text x="591" y="152" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#b91c1c">fabricated: Y | verify all facts</text>
+  <text x="591" y="168" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#ea580c">Confident but wrong specifics</text>
+
+  <!-- Grid note -->
+  <rect x="80" y="272" width="560" height="48" rx="6" fill="#f8fafc" stroke="#e2e8f0"/>
+  <text x="360" y="292" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#1a1a1a">10-run grid: temp 0.0 (x3), 0.7 (x3), 1.2 (x3), then top_p=0.5</text>
+  <text x="360" y="310" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Deliverable: sampling_grid_results.jsonl + sampling_analysis.md</text>
+</svg>

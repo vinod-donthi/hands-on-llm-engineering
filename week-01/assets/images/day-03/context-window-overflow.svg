@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" role="img" aria-labelledby="title desc">
+  <title id="title">Context window overflow when pasting a large PDF</title>
+  <desc id="desc">132,500 tokens exceeds 128K limit; the dashed line cuts through the PDF segment before output reserve.</desc>
+  <rect width="720" height="300" fill="#fafafa"/>
+  <text x="360" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#1a1a1a">Overflow: pasted PDF exceeds the desk</text>
+  <text x="360" y="42" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">8,500 + 120,000 + 4,000 = 132,500 tokens (limit 128,000)</text>
+
+  <!-- Scale: bar x=80 w=580 represents 132,500 tokens; limit at 128K = x 80+561.8 = 641.8 -->
+  <rect x="80" y="68" width="580" height="24" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="80" y="84" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">0 tokens</text>
+
+  <!-- Limit line -->
+  <line x1="642" y1="58" x2="642" y2="148" stroke="#ea580c" stroke-width="2" stroke-dasharray="6 4"/>
+  <text x="642" y="56" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#c2410c">128K limit</text>
+
+  <!-- Segments proportional to 132,500 -->
+  <!-- sys+hist 8500 = 37.2px -->
+  <rect x="80" y="96" width="37" height="36" rx="2" fill="#6366f1"/>
+  <text x="98" y="118" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#ffffff">8.5K</text>
+
+  <!-- PDF within limit: 119,500 tokens = 522.6px -->
+  <rect x="117" y="96" width="525" height="36" fill="#2563eb"/>
+  <text x="380" y="118" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#ffffff">Pasted PDF: 120,000 tokens</text>
+
+  <!-- PDF overflow 500 tokens = 2.2px + output 4000 = 17.5px = total 19.7px red/orange past limit -->
+  <rect x="642" y="96" width="3" height="36" fill="#f97316"/>
+  <rect x="645" y="96" width="15" height="36" fill="#ef4444"/>
+  <text x="652" y="118" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" font-weight="600" fill="#ffffff">4K</text>
+
+  <!-- Overflow callout -->
+  <rect x="648" y="72" width="52" height="18" rx="4" fill="#fef2f2" stroke="#fecaca"/>
+  <text x="674" y="84" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#b91c1c">+4.5K over</text>
+  <line x1="652" y1="90" x2="652" y2="96" stroke="#ef4444" stroke-width="1"/>
+
+  <!-- Axis -->
+  <line x1="80" y1="140" x2="660" y2="140" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="80" y="154" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">0</text>
+  <text x="642" y="154" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#c2410c">128,000</text>
+  <text x="660" y="168" text-anchor="end" font-family="system-ui, sans-serif" font-size="9" fill="#b91c1c">132,500 total</text>
+  <text x="360" y="168" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">500 tokens of PDF + all 4K output sit past the limit</text>
+
+  <!-- Outcomes -->
+  <rect x="62" y="182" width="190" height="48" rx="6" fill="#fef2f2" stroke="#fecaca"/>
+  <text x="157" y="202" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#b91c1c">Hard error (400)</text>
+  <text x="157" y="218" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Request rejected</text>
+
+  <rect x="265" y="182" width="190" height="48" rx="6" fill="#fff7ed" stroke="#fed7aa"/>
+  <text x="360" y="202" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#c2410c">Silent truncation</text>
+  <text x="360" y="218" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Oldest tokens dropped</text>
+
+  <rect x="468" y="182" width="190" height="48" rx="6" fill="#eff6ff" stroke="#bfdbfe"/>
+  <text x="563" y="202" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#1d4ed8">Your code trims</text>
+  <text x="563" y="218" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">RAG, summarize, reject</text>
+
+  <text x="360" y="258" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#1a1a1a">Fix: chunk + retrieve (RAG) instead of pasting the whole PDF</text>
+  <text x="360" y="276" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Log input_tokens / context_limit before every call</text>
+</svg>
