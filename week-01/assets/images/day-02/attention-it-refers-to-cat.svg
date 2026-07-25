@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 220" role="img" aria-labelledby="title desc">
+  <title id="title">Coreference: it attends to cat</title>
+  <desc id="desc">In the sentence about the cat, the token it strongly attends to cat rather than mat.</desc>
+  <defs>
+    <marker id="attnArrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#2563eb"/>
+    </marker>
+  </defs>
+  <rect width="720" height="220" fill="#fafafa"/>
+
+  <!-- Zone 1: title + sentence -->
+  <text x="360" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#1a1a1a">Coreference: what does &quot;it&quot; refer to?</text>
+  <text x="360" y="44" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">The cat sat on the mat because it was tired</text>
+
+  <!-- Arc peak is at ~(280, 86); label sits just above with short leader line -->
+  <path d="M 424 110 Q 280 58 136 110" fill="none" stroke="#2563eb" stroke-width="1.5" marker-end="url(#attnArrow)"/>
+  <line x1="280" y1="78" x2="280" y2="84" stroke="#2563eb" stroke-width="1"/>
+  <text x="280" y="74" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#1e40af">high attention weight</text>
+
+  <!-- Zone 3: token boxes -->
+  <rect x="32" y="110" width="56" height="32" rx="4" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="60" y="130" text-anchor="middle" font-family="ui-monospace, monospace" font-size="11" fill="#64748b">The</text>
+
+  <rect x="108" y="110" width="56" height="32" rx="4" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+  <text x="136" y="130" text-anchor="middle" font-family="ui-monospace, monospace" font-size="11" font-weight="600" fill="#1e40af">cat</text>
+
+  <rect x="184" y="110" width="56" height="32" rx="4" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="212" y="130" text-anchor="middle" font-family="ui-monospace, monospace" font-size="11" fill="#64748b">sat</text>
+
+  <rect x="260" y="110" width="40" height="32" rx="4" fill="#f1f5f9" stroke="#e2e8f0"/>
+  <text x="280" y="130" text-anchor="middle" font-family="ui-monospace, monospace" font-size="11" fill="#94a3b8">...</text>
+
+  <rect x="320" y="110" width="56" height="32" rx="4" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="348" y="130" text-anchor="middle" font-family="ui-monospace, monospace" font-size="11" fill="#64748b">mat</text>
+
+  <rect x="396" y="110" width="56" height="32" rx="4" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+  <text x="424" y="130" text-anchor="middle" font-family="ui-monospace, monospace" font-size="11" font-weight="600" fill="#1e40af">it</text>
+
+  <rect x="472" y="110" width="56" height="32" rx="4" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="500" y="130" text-anchor="middle" font-family="ui-monospace, monospace" font-size="11" fill="#64748b">was</text>
+
+  <rect x="548" y="110" width="56" height="32" rx="4" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="576" y="130" text-anchor="middle" font-family="ui-monospace, monospace" font-size="11" fill="#64748b">tired</text>
+
+  <!-- Zone 4: legend -->
+  <rect x="32" y="162" width="14" height="14" rx="2" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="54" y="173" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">query token (it)</text>
+  <rect x="160" y="162" width="14" height="14" rx="2" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+  <text x="182" y="173" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">attended token (cat)</text>
+  <text x="360" y="200" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">Learned from data: score(it, cat) &gt;&gt; score(it, mat)</text>
+</svg>
