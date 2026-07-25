@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 220" role="img" aria-labelledby="title desc">
+  <title id="title">Text string converted to token IDs by a tokenizer</title>
+  <desc id="desc">The word unhappiness splits into two subword tokens un and happiness, each mapped to a numeric ID for the model.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="720" height="220" fill="#fafafa"/>
+  <text x="360" y="28" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#1a1a1a">Text ’ Tokenizer ’ Token IDs</text>
+
+  <!-- Input -->
+  <rect x="24" y="52" width="180" height="56" rx="8" fill="#fff" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text x="114" y="76" text-anchor="middle" font-family="ui-monospace, monospace" font-size="15" fill="#1a1a1a">"unhappiness"</text>
+  <text x="114" y="96" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#64748b">raw string (13 chars)</text>
+
+  <!-- Arrow 1 -->
+  <line x1="210" y1="80" x2="268" y2="80" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Tokenizer -->
+  <rect x="276" y="48" width="168" height="64" rx="8" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+  <text x="360" y="74" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#1e40af">Tokenizer</text>
+  <text x="360" y="94" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#3b82f6">BPE merge rules</text>
+
+  <!-- Arrow 2 -->
+  <line x1="450" y1="80" x2="508" y2="80" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Output tokens -->
+  <rect x="516" y="52" width="180" height="56" rx="8" fill="#fff" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text x="606" y="76" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" fill="#1a1a1a">["un", "happiness"]</text>
+  <text x="606" y="96" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#64748b">2 tokens (not 1 word)</text>
+
+  <!-- IDs row -->
+  <text x="360" y="138" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#64748b">Each token maps to a vocabulary ID the model reads:</text>
+  <rect x="200" y="152" width="120" height="44" rx="6" fill="#f0fdf4" stroke="#22c55e" stroke-width="1.5"/>
+  <text x="260" y="172" text-anchor="middle" font-family="ui-monospace, monospace" font-size="12" fill="#166534">"un" ’ 8472</text>
+  <text x="260" y="188" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">token ID</text>
+  <rect x="400" y="152" width="120" height="44" rx="6" fill="#f0fdf4" stroke="#22c55e" stroke-width="1.5"/>
+  <text x="460" y="172" text-anchor="middle" font-family="ui-monospace, monospace" font-size="12" fill="#166534">"happiness" ’ 31041</text>
+  <text x="460" y="188" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">token ID</text>
+</svg>

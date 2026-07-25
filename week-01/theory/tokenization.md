@@ -26,6 +26,10 @@ A **token** is a chunk of text from a **tokenizer** — a model-specific splitti
 
 **Rough rule of thumb for English prose:** ~4 characters per token. **Do not rely on this for code, JSON, or billing** — always count with the right tool.
 
+![Text string split into subword tokens, each mapped to a numeric ID](../assets/images/day-01/tokenization-text-to-ids.svg)
+
+*Figure: The model never sees raw characters — the tokenizer splits text into subwords and converts each chunk to a vocabulary ID.*
+
 ### How BPE works
 
 **Byte-Pair Encoding (BPE)** is the algorithm behind most modern LLM tokenizers (GPT's tiktoken, Llama's SentencePiece, and others). The goal is simple: build a vocabulary of useful chunks — whole common words when possible, smaller pieces when not — so the model sees a compact sequence of IDs instead of raw characters.
@@ -43,6 +47,10 @@ After training, **new text** is encoded at runtime: the tokenizer applies its le
 
 Imagine a tiny corpus that says `"the cat"`, `"the dog"`, and `"cat sat"` over and over. Spaces count as separate pieces until merged — `" cat"` includes the leading space.
 
+![BPE merge steps showing characters combining into the and cat tokens](../assets/images/day-01/tokenization-bpe-merge-steps.svg)
+
+*Figure: Frequent pairs merge into new vocabulary entries until common phrases compress into fewer tokens.*
+
 | Merge step | New token | Effect on `"the cat"` |
 |------------|-----------|------------------------|
 | 1 | `th` | `"th" + "e" + " cat"` |
@@ -59,6 +67,10 @@ Each model family ships its **own** merge table and vocabulary, trained on diffe
 |--------------|-----------|-------------------------|
 | GPT-4o Mini | tiktoken (BPE) | Often ~4 tokens |
 | Llama 3.1 | SentencePiece (BPE variant) | Often ~4–5 tokens — not identical |
+
+![Bar chart comparing token counts for prose, JSON, and code across GPT and Llama tokenizers](../assets/images/day-01/tokenization-cross-model-bars.svg)
+
+*Figure: Illustrative counts — prose compresses well; JSON and code cost more tokens and differ more across tokenizers. Lab 1 replaces these with your measured numbers.*
 
 **Code and JSON** tokenize poorly on every model: `{`, `"`, `:`, and newlines often each cost a token — see the table under [What is a token?](#what-is-a-token) above.
 
