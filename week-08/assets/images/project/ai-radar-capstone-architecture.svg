@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 420" role="img" aria-labelledby="title desc">
+  <title id="title">AI Radar capstone system architecture</title>
+  <desc id="desc">Full capstone diagram with scheduler, ingestion, data layer, AI layer, FastAPI, Next.js dashboard, email, and eval CI.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="720" height="420" fill="#fafafa"/>
+  <text x="360" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#1a1a1a">AI Radar capstone architecture</text>
+  <text x="360" y="42" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">Pipeline + agent + product surface + eval gate</text>
+
+  <rect x="280" y="54" width="160" height="32" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="360" y="74" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#92400e">Celery Beat / APScheduler</text>
+
+  <line x1="360" y1="86" x2="360" y2="104" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="40" y="108" width="640" height="48" rx="6" fill="#f0fdf4" stroke="#22c55e"/>
+  <text x="360" y="128" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#166534">Ingestion: RSS + Crawl + GitHub</text>
+  <text x="360" y="144" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">Normalizer -- Chunker -- Embedder</text>
+
+  <line x1="360" y1="156" x2="360" y2="174" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="120" y="178" width="140" height="40" rx="6" fill="#1e293b"/>
+  <text x="190" y="196" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#94a3b8">PostgreSQL</text>
+  <text x="190" y="210" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">pgvector</text>
+
+  <rect x="280" y="178" width="160" height="40" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="360" y="196" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#92400e">Redis cache</text>
+  <text x="360" y="210" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">semantic similarity</text>
+
+  <rect x="460" y="178" width="140" height="40" rx="6" fill="#fff7ed" stroke="#ea580c"/>
+  <text x="530" y="196" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#9a3412">LangGraph</text>
+  <text x="530" y="210" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">+ MCP + RAG</text>
+
+  <line x1="190" y1="218" x2="190" y2="248" stroke="#64748b" stroke-width="1.5"/>
+  <line x1="530" y1="218" x2="530" y2="248" stroke="#64748b" stroke-width="1.5"/>
+  <line x1="190" y1="248" x2="530" y2="248" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="240" y="252" width="240" height="40" rx="6" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="360" y="270" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#475569">FastAPI REST</text>
+  <text x="360" y="284" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">feed / query / digest / health</text>
+
+  <line x1="360" y1="292" x2="360" y2="312" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="120" y="316" width="160" height="40" rx="6" fill="#eff6ff" stroke="#2563eb"/>
+  <text x="200" y="334" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#1d4ed8">Next.js Dashboard</text>
+  <text x="200" y="348" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">Feed / Query / Digest</text>
+
+  <rect x="300" y="316" width="120" height="40" rx="6" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="360" y="334" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#475569">Email digest</text>
+  <text x="360" y="348" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">Resend / SMTP</text>
+
+  <rect x="440" y="316" width="160" height="40" rx="6" fill="#fef2f2" stroke="#ef4444"/>
+  <text x="520" y="334" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#b91c1c">RAGAS + CI gate</text>
+  <text x="520" y="348" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">GitHub Actions</text>
+
+  <rect x="40" y="368" width="640" height="40" rx="6" fill="#f8fafc" stroke="#e2e8f0"/>
+  <text x="360" y="386" text-anchor="middle" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">Query: embed -&gt; Redis hit? -&gt; LangGraph plan -&gt; MCP? -&gt; RAG -&gt; cite -&gt; cache set</text>
+  <text x="360" y="400" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Work dir: ~/ai-learning/week-08-work/ai-radar/</text>
+</svg>

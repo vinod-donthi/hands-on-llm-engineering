@@ -29,6 +29,10 @@ Teams ship RAG chatbots that "feel fine" in demos, then fail in production:
 
 Both are required for production readiness — offline alone is not enough long-term.
 
+![Evaluation pyramid from manual QA through offline and online eval to production readiness](../assets/images/day-01/eval-pyramid.svg)
+
+*Figure: Each layer adds confidence — Week 6 automates offline eval and wires online sampling; manual QA alone is not enough.*
+
 ### Worked scenario: the silent regression
 
 Monday: engineer changes system prompt from "Answer from context only" to "Be helpful and concise."

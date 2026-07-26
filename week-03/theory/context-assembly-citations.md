@@ -14,6 +14,10 @@ Retrieval gives you 5 chunk objects. The generator needs one coherent **context 
 
 Bad assembly → truncated mid-sentence chunks, duplicate paragraphs, or 8K tokens of noise → hallucinations.
 
+![Retrieved chunks assembled into labeled context block with citation headers](../assets/images/day-04/context-citations-assembly.svg)
+
+*Figure: Each chunk gets a SOURCE label — LLM cites [c2] and user verifies handbook.pdf p.13.*
+
 ### A concrete example
 
 Retrieved chunks (after rerank):

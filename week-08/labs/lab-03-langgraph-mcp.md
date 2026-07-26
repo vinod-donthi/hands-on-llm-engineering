@@ -8,6 +8,10 @@
 
 **Goal:** LangGraph agent invokes MCP tools and records a trace you can show in interviews.
 
+![Lab 3 expected mcp_tool_trace.json with github_search call](../assets/images/labs/lab-03-langgraph-mcp.svg)
+
+*Figure: Tool call latency and final answer preview — portfolio artifact for agent demos.*
+
 ---
 
 ## Task

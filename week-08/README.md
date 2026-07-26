@@ -61,6 +61,7 @@ Full checklist: [checkpoints/exit-criteria.md](checkpoints/exit-criteria.md)
 | Folder | Purpose |
 |--------|---------|
 | [START-HERE.md](START-HERE.md) | One-time orientation → Day 1 |
+| [assets/images/](assets/images/) | SVG figures for theory, labs, project |
 | [daily/](daily/) | **Numbered playbooks** — one file per day, mapped to 4 phases |
 | [theory/](theory/) | Capstone architecture decisions — one topic per file |
 | [labs/](labs/) | Integration-focused labs (lighter than Weeks 1–6) |

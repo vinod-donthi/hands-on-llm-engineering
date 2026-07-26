@@ -22,6 +22,10 @@ Clone repo → `docker compose up` → 3 minutes later interviewer hits `:3000` 
 
 postgres (pgvector), redis, backend, worker, frontend — see [docker.md](../project/docker.md).
 
+![Docker Compose local stack and optional Azure Container Apps deploy path](../assets/images/day-07/docker-azure-deployment.svg)
+
+*Figure: `docker compose up` boots all services in dependency order — Azure is optional proof of cloud deploy.*
+
 ### Health dependency order
 
 ```

@@ -10,6 +10,10 @@
 
 When it works: `SELECT count(*) FROM document_chunks` matches Chroma chunk count; cosine query returns same top-1 chunk_id as Chroma for a smoke query.
 
+![Lab 6 pgvector migration with matching chunk counts and top-1 smoke query](../assets/images/labs/lab-06-pgvector-migrate.svg)
+
+*Figure: Chroma vectors copied to PostgreSQL — row count and top-1 chunk_id must match for smoke query.*
+
 **Optional — not required for Week 3 exit criteria** if Lab 6 skipped and documented in progress.md.
 
 ---

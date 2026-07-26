@@ -8,6 +8,10 @@
 
 **Goal:** GitHub Actions workflow runs RAGAS and fails on regression.
 
+![Lab 7 eval CI gate failing on regression then passing on revert](../assets/images/labs/lab-07-eval-ci-gate.svg)
+
+*Figure: Intentional faithfulness drop blocks merge — revert restores green badge.*
+
 ---
 
 ## Task

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 320" role="img" aria-labelledby="title desc">
+  <title id="title">Evaluation pyramid from manual QA to production readiness</title>
+  <desc id="desc">Pyramid showing manual QA at the base, offline eval in the middle, online eval near the top, and production readiness at the apex.</desc>
+  <rect width="720" height="320" fill="#fafafa"/>
+  <text x="360" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#1a1a1a">Evaluation pyramid -- production readiness signal</text>
+  <text x="360" y="42" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">Each layer adds confidence; skip a layer and regressions slip through</text>
+
+  <polygon points="360,58 520,268 200,268" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.5"/>
+  <line x1="248" y1="218" x2="472" y2="218" stroke="#cbd5e1" stroke-width="1"/>
+  <line x1="280" y1="168" x2="440" y2="168" stroke="#cbd5e1" stroke-width="1"/>
+  <line x1="312" y1="118" x2="408" y2="118" stroke="#cbd5e1" stroke-width="1"/>
+
+  <rect x="300" y="68" width="120" height="36" rx="6" fill="#2563eb"/>
+  <text x="360" y="90" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" font-weight="600" fill="#ffffff">Production ready</text>
+
+  <rect x="318" y="128" width="84" height="28" rx="4" fill="#eff6ff" stroke="#2563eb"/>
+  <text x="360" y="146" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#1d4ed8">Online eval (1-5%)</text>
+
+  <rect x="292" y="178" width="136" height="28" rx="4" fill="#f0fdf4" stroke="#16a34a"/>
+  <text x="360" y="196" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#166534">Offline eval (CI golden set)</text>
+
+  <rect x="260" y="228" width="200" height="28" rx="4" fill="#fff7ed" stroke="#ea580c"/>
+  <text x="360" y="246" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#9a3412">Manual QA (demo only)</text>
+
+  <text x="540" y="130" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Langfuse drift</text>
+  <line x1="408" y1="142" x2="532" y2="130" stroke="#64748b" stroke-width="1"/>
+
+  <text x="540" y="180" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">RAGAS + CI gate</text>
+  <line x1="440" y1="192" x2="532" y2="180" stroke="#64748b" stroke-width="1"/>
+
+  <text x="540" y="240" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Looks good in demo</text>
+  <line x1="472" y1="242" x2="532" y2="240" stroke="#64748b" stroke-width="1"/>
+
+  <text x="360" y="300" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Week 6 goal: automate offline + wire online sampling -- never ship on manual QA alone</text>
+</svg>

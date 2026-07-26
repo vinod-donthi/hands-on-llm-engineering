@@ -41,6 +41,10 @@ Langfuse trace `trace_9f2a`:
 
 Action: Qdrant index not loaded / cold start — not an LLM problem.
 
+![OpenTelemetry trace with Langfuse UI showing qdrant_search as 11.2s bottleneck](../assets/images/day-06/otel-langfuse-traces.svg)
+
+*Figure: Nested spans reveal which step failed — here qdrant_search dominates, not llm_generate.*
+
 ### OpenTelemetry basics
 
 - **Trace** — one end-to-end request (has `trace_id`)

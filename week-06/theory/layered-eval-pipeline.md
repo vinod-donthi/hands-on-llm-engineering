@@ -24,6 +24,10 @@ Running full RAGAS on 50 samples for every keystroke burns time and money. Runni
 
 Skip layers intelligently: no Promptfoo if PR doesn't touch prompts.
 
+![Layered eval pipeline L1 through L5 with cost and duration labels](../assets/images/day-03/layered-pipeline-stages.svg)
+
+*Figure: Stack cheap/fast layers on every PR; run expensive RAGAS and red team on schedule or merge to main.*
+
 ### Worked scenario: Tuesday release
 
 ```

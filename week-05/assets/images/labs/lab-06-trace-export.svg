@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 320" role="img" aria-labelledby="title desc">
+  <title id="title">Lab 6 Langfuse trace export output</title>
+  <desc id="desc">trace_export.json and Langfuse UI showing nested spans for one RAG request with request_id.</desc>
+  <rect width="720" height="320" fill="#fafafa"/>
+  <text x="360" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#1a1a1a">Lab 6: expected trace_export.json + Langfuse UI</text>
+  <text x="360" y="42" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">One RAG request with nested spans visible in Langfuse</text>
+
+  <rect x="40" y="58" width="340" height="240" rx="8" fill="#1e293b"/>
+  <rect x="40" y="58" width="340" height="28" rx="8" fill="#334155"/>
+  <circle cx="58" cy="72" r="5" fill="#ef4444"/>
+  <circle cx="74" cy="72" r="5" fill="#f59e0b"/>
+  <circle cx="90" cy="72" r="5" fill="#22c55e"/>
+  <text x="210" y="76" text-anchor="middle" font-family="ui-monospace, monospace" font-size="9" fill="#94a3b8">python lab06_trace_demo.py</text>
+
+  <text x="56" y="104" font-family="ui-monospace, monospace" font-size="9" fill="#64748b">POST /api/v1/rag/query</text>
+  <text x="56" y="122" font-family="ui-monospace, monospace" font-size="9" fill="#64748b">X-Request-ID: req_trace_demo_01</text>
+  <text x="56" y="142" font-family="ui-monospace, monospace" font-size="9" fill="#22c55e">Langfuse trace_id: trace_9f2a</text>
+  <text x="56" y="162" font-family="ui-monospace, monospace" font-size="9" fill="#64748b">Spans: rag_answer &gt; embed_query &gt; qdrant_search &gt; llm_generate</text>
+  <text x="56" y="182" font-family="ui-monospace, monospace" font-size="9" fill="#64748b">Wrote trace_export.json</text>
+
+  <rect x="56" y="196" width="308" height="88" rx="4" fill="#0f172a"/>
+  <text x="72" y="216" font-family="ui-monospace, monospace" font-size="8" fill="#38bdf8">{&quot;trace_id&quot;: &quot;trace_9f2a&quot;, &quot;request_id&quot;: &quot;req_trace_demo_01&quot;,</text>
+  <text x="72" y="232" font-family="ui-monospace, monospace" font-size="8" fill="#16a34a">&quot;spans&quot;: [&quot;rag_answer&quot;, &quot;embed_query&quot;, &quot;qdrant_search&quot;, &quot;llm_generate&quot;],</text>
+  <text x="72" y="248" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">&quot;total_ms&quot;: 1210, &quot;tokens&quot;: {&quot;input&quot;: 820, &quot;output&quot;: 156}}</text>
+  <text x="72" y="264" font-family="ui-monospace, monospace" font-size="8" fill="#94a3b8">}</text>
+
+  <rect x="400" y="58" width="280" height="240" rx="8" fill="#334155"/>
+  <text x="540" y="78" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#e2e8f0">Langfuse dashboard</text>
+
+  <rect x="416" y="90" width="248" height="24" rx="4" fill="#1e293b"/>
+  <text x="540" y="106" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#94a3b8">rag_answer (1.2s)</text>
+
+  <rect x="432" y="122" width="80" height="18" rx="3" fill="#475569"/>
+  <text x="472" y="134" text-anchor="middle" font-family="system-ui, sans-serif" font-size="7" fill="#e2e8f0">embed 180ms</text>
+
+  <rect x="432" y="146" width="120" height="18" rx="3" fill="#475569"/>
+  <text x="492" y="158" text-anchor="middle" font-family="system-ui, sans-serif" font-size="7" fill="#e2e8f0">qdrant_search 620ms</text>
+
+  <rect x="432" y="170" width="100" height="18" rx="3" fill="#475569"/>
+  <text x="482" y="182" text-anchor="middle" font-family="system-ui, sans-serif" font-size="7" fill="#e2e8f0">llm_generate 410ms</text>
+
+  <rect x="416" y="200" width="248" height="40" rx="4" fill="#1e293b"/>
+  <text x="540" y="218" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">prompt + completion + cost</text>
+  <text x="540" y="232" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">metadata: cache_hit, chunks</text>
+
+  <text x="540" y="268" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#94a3b8">@observe() on rag_answer()</text>
+  <text x="540" y="284" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">LANGFUSE_PUBLIC_KEY + SECRET_KEY in .env</text>
+
+  <text x="360" y="312" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Deliverable: nested spans + request_id correlation in Langfuse</text>
+</svg>

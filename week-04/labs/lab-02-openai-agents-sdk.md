@@ -8,6 +8,10 @@
 
 **Goal:** Triage agent routes a research question to a Research specialist and a formatting task to a Writer — trace saved as JSON.
 
+![Lab 2 expected handoff_trace.json with Triage routing to Research and Writer agents](../assets/images/labs/lab-02-handoff-trace.svg)
+
+*Figure: Triage routes by intent — trace shows handoff target and tool calls per specialist.*
+
 ---
 
 ## Agents

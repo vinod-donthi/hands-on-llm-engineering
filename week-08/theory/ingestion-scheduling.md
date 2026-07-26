@@ -34,6 +34,10 @@ Configure in `config/sources.yaml` — never hardcode URLs in Python.
 raw item → extract title, url, published_at, body text → category tag → chunk → embed → store
 ```
 
+![RSS and cron ingestion from Celery Beat through pgvector store](../assets/images/day-01/ingestion-scheduling.svg)
+
+*Figure: Scheduled fetchers, normalization, and embed pipeline — feeds live in `config/sources.yaml`.*
+
 **Sample normalized document:**
 
 ```json

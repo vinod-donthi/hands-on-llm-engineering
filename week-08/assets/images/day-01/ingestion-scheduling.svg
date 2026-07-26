@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 340" role="img" aria-labelledby="title desc">
+  <title id="title">RSS and cron ingestion scheduling pipeline</title>
+  <desc id="desc">Celery Beat triggers RSS and GitHub fetchers, normalizes documents, embeds chunks, and stores in Postgres on a schedule.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="720" height="340" fill="#fafafa"/>
+  <text x="360" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#1a1a1a">Ingestion and scheduling pipeline</text>
+  <text x="360" y="42" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">Every 6h ingest -- 7 AM daily digest from sources.yaml</text>
+
+  <rect x="280" y="58" width="160" height="40" rx="8" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="360" y="76" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#92400e">Celery Beat</text>
+  <text x="360" y="90" text-anchor="middle" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">0 */6 * * *  |  0 7 * * *</text>
+
+  <line x1="320" y1="98" x2="200" y2="128" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="400" y1="98" x2="520" y2="128" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="80" y="132" width="120" height="48" rx="6" fill="#f0fdf4" stroke="#22c55e"/>
+  <text x="140" y="154" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#166534">RSS fetcher</text>
+  <text x="140" y="170" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">feedparser</text>
+
+  <rect x="220" y="132" width="120" height="48" rx="6" fill="#f0fdf4" stroke="#22c55e"/>
+  <text x="280" y="154" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#166534">GitHub sync</text>
+  <text x="280" y="170" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">PyGithub search</text>
+
+  <rect x="380" y="132" width="120" height="48" rx="6" fill="#f0fdf4" stroke="#22c55e"/>
+  <text x="440" y="154" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#166534">Light crawl</text>
+  <text x="440" y="170" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">depth cap 1</text>
+
+  <rect x="540" y="132" width="120" height="48" rx="6" fill="#fff7ed" stroke="#ea580c"/>
+  <text x="600" y="154" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#9a3412">run_digest</text>
+  <text x="600" y="170" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">7 AM email job</text>
+
+  <line x1="280" y1="180" x2="280" y2="208" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="440" y1="180" x2="440" y2="208" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="200" y="212" width="320" height="40" rx="6" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="360" y="232" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#475569">Normalizer: title, url, published_at, category</text>
+  <text x="360" y="246" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">dedupe by URL -- skip existing</text>
+
+  <line x1="360" y1="252" x2="360" y2="276" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="240" y="280" width="240" height="40" rx="6" fill="#eff6ff" stroke="#2563eb"/>
+  <text x="360" y="298" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#1d4ed8">Chunk + embed + store</text>
+  <text x="360" y="312" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">text-embedding-3-small --&gt; pgvector</text>
+
+  <text x="360" y="334" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Configure feeds in config/sources.yaml -- never hardcode URLs</text>
+</svg>

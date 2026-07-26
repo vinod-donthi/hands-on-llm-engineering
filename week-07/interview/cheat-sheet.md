@@ -2,6 +2,10 @@
 
 > [← README](../README.md) · Printable one-pager
 
+![Week 7 interview cheat sheet — decision matrix, LoRA, agentic RAG, MCP production](../assets/images/project/cheat-sheet-card.svg)
+
+*Figure: One-page patterns — fill in your baseline vs advanced path numbers before interviews.*
+
 ## Decision matrix (quick)
 
 | Need | Pick |

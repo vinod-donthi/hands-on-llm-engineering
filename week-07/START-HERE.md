@@ -31,6 +31,10 @@ Never commit `.env`.
 | **Learning path** | `Learning/week-07/` | Read playbooks, theory, lab specs |
 | **Work path** | `week-07-work/` or `~/ai-learning/week-07-work/` | Python, deliverables, `advanced-ai-studio/` |
 
+![Learning path vs work path plus Track A and Track B capstone choice](assets/images/project/start-here-two-paths.svg)
+
+*Figure: Read curriculum in week-07/ — code in week-07-work/ — pick one capstone track on Day 1.*
+
 ---
 
 ## 3. Pick your capstone track (Day 1 decision)

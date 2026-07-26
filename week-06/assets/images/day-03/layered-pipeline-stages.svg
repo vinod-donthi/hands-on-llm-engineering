@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 340" role="img" aria-labelledby="title desc">
+  <title id="title">Layered eval pipeline stages L1 through L5</title>
+  <desc id="desc">Five stacked layers from fast DeepEval on PRs to online Langfuse sampling with cost and duration labels.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="720" height="340" fill="#fafafa"/>
+  <text x="360" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#1a1a1a">Layered eval pipeline -- fast to thorough</text>
+  <text x="360" y="42" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">Skip layers intelligently when PR does not touch prompts</text>
+
+  <rect x="80" y="58" width="560" height="44" rx="6" fill="#eff6ff" stroke="#2563eb"/>
+  <text x="96" y="78" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#1d4ed8">L1 Fast</text>
+  <text x="180" y="78" font-family="system-ui, sans-serif" font-size="9" fill="#475569">DeepEval pytest</text>
+  <text x="380" y="78" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Every PR</text>
+  <text x="500" y="78" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">1-3 min ~$0.15</text>
+
+  <line x1="360" y1="102" x2="360" y2="114" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="80" y="118" width="560" height="44" rx="6" fill="#f0fdf4" stroke="#16a34a"/>
+  <text x="96" y="138" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#166534">L2 Prompt</text>
+  <text x="180" y="138" font-family="system-ui, sans-serif" font-size="9" fill="#475569">Promptfoo regression</text>
+  <text x="380" y="138" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Prompt diff PRs</text>
+  <text x="500" y="138" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">3-8 min ~$0.50</text>
+
+  <line x1="360" y1="162" x2="360" y2="174" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="80" y="178" width="560" height="44" rx="6" fill="#fff7ed" stroke="#ea580c"/>
+  <text x="96" y="198" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#9a3412">L3 Full</text>
+  <text x="180" y="198" font-family="system-ui, sans-serif" font-size="9" fill="#475569">RAGAS 30-50 samples</text>
+  <text x="380" y="198" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Merge to main / nightly</text>
+  <text x="500" y="198" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">10-20 min ~$2-5</text>
+
+  <line x1="360" y1="222" x2="360" y2="234" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="80" y="238" width="560" height="44" rx="6" fill="#fef2f2" stroke="#ef4444"/>
+  <text x="96" y="258" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#dc2626">L4 Security</text>
+  <text x="180" y="258" font-family="system-ui, sans-serif" font-size="9" fill="#475569">Promptfoo red team</text>
+  <text x="380" y="258" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Weekly / pre-release</text>
+  <text x="500" y="258" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">15-30 min ~$2-5</text>
+
+  <line x1="360" y1="282" x2="360" y2="294" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="80" y="298" width="560" height="32" rx="6" fill="#f1f5f9" stroke="#64748b"/>
+  <text x="96" y="318" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#475569">L5 Online</text>
+  <text x="180" y="318" font-family="system-ui, sans-serif" font-size="9" fill="#475569">Langfuse sampling 1-5% traffic</text>
+  <text x="500" y="318" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">Continuous</text>
+
+  <text x="360" y="336" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Short-circuit: if L1 fails, skip L3 RAGAS -- save time and cost</text>
+</svg>

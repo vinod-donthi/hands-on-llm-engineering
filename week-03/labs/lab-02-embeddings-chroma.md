@@ -17,6 +17,10 @@ source .venv/bin/activate
 
 When it works: `chroma_index_stats.json` reports chunk count and sample query hits with scores > 0.7 for on-topic questions.
 
+![Lab 2 expected chroma_index_stats.json with smoke query scores](../assets/images/labs/lab-02-chroma-index.svg)
+
+*Figure: doc_qa_v1 collection indexed — on-topic queries should score above 0.7.*
+
 ---
 
 ## Task

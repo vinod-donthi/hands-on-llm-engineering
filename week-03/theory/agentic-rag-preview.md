@@ -18,6 +18,10 @@ Some questions need **multiple retrieval steps**:
 
 Single-shot RAG returns weak context; agentic RAG loops until context is good enough or a step limit hits.
 
+![Classic single-shot RAG vs agentic RAG retrieve-assess-requery loop](../assets/images/day-06/agentic-rag-loop.svg)
+
+*Figure: Agentic RAG loops retrieve and judge — higher latency, bridge to Week 4 LangGraph agents.*
+
 ### A concrete example
 
 Query: *"Compare PTO policy between US and UK handbooks."*

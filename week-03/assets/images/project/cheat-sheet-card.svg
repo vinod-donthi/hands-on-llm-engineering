@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 320" role="img" aria-labelledby="title desc">
+  <title id="title">Week 3 interview cheat sheet quick reference</title>
+  <desc id="desc">One-page card with RAG pipeline, numbers, formulas, stack, and debug order.</desc>
+  <rect width="720" height="320" fill="#fafafa"/>
+  <text x="360" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#1a1a1a">Week 3 cheat sheet -- memorize these patterns</text>
+
+  <rect x="40" y="40" width="310" height="120" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="56" y="62" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#475569">RAG pipeline</text>
+  <text x="56" y="80" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">Ingest -&gt; Chunk -&gt; Embed -&gt; Index</text>
+  <text x="56" y="96" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">Query -&gt; BM25+Dense -&gt; RRF</text>
+  <text x="56" y="110" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">-&gt; Rerank top-5 -&gt; Assemble -&gt; LLM</text>
+  <text x="56" y="128" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Retrieve -&gt; assemble -&gt; generate -&gt; cite -&gt; measure</text>
+  <text x="56" y="146" font-family="system-ui, sans-serif" font-size="9" fill="#16a34a">Faithfulness gate &gt;= 0.75</text>
+
+  <rect x="370" y="40" width="310" height="120" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="386" y="62" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#475569">Numbers to know</text>
+  <text x="386" y="80" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Chunk: 512 tok, overlap 64</text>
+  <text x="386" y="96" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">RRF k=60, retrieve 50+50</text>
+  <text x="386" y="112" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Rerank 20 -&gt; 5, context 2000 tok</text>
+  <text x="386" y="128" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Golden set &gt;= 50 pairs</text>
+  <text x="386" y="146" font-family="ui-monospace, monospace" font-size="8" fill="#ea580c">RRF: score += 1/(k + rank)</text>
+
+  <rect x="40" y="172" width="310" height="120" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="56" y="194" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#475569">Stack (2026)</text>
+  <text x="56" y="212" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Embed: text-embedding-3-small</text>
+  <text x="56" y="228" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Dev: Chroma | Prod: pgvector</text>
+  <text x="56" y="244" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Lexical: BM25 | Fusion: RRF</text>
+  <text x="56" y="260" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Rerank: BGE / Cohere | Eval: RAGAS</text>
+  <text x="56" y="278" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Chat: GPT-4o Mini</text>
+
+  <rect x="370" y="172" width="310" height="120" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="386" y="194" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#475569">Debug order</text>
+  <text x="386" y="212" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">1. Ingestion  2. Chunking</text>
+  <text x="386" y="228" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">3. Retrieval  4. Rerank  5. Prompt</text>
+  <text x="386" y="248" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Wrong fact? Check context has truth</text>
+  <text x="386" y="264" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Miss exact term? Enable hybrid</text>
+  <text x="386" y="280" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Log chunk_ids per request</text>
+
+  <text x="360" y="310" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Cosine sim: (A dot B) / (||A|| x ||B||) -- bi-encoder retrieval, cross-encoder rerank</text>
+</svg>

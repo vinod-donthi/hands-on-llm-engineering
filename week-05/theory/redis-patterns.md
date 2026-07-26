@@ -28,6 +28,10 @@ Request 3: (same, 6 minutes later, TTL=300s) → cache MISS again
 
 Exact cache keys use a hash of normalized query text. Semantic cache (Day 4) handles paraphrases.
 
+![Redis exact cache hit path and token bucket rate limit per API key](../assets/images/day-03/redis-cache-rate-limit.svg)
+
+*Figure: Cache hits return in sub-millisecond; token bucket blocks abuse with HTTP 429 and Retry-After.*
+
 ### Key naming convention
 
 ```

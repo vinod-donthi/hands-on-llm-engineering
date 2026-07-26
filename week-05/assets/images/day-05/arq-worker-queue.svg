@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" role="img" aria-labelledby="title desc">
+  <title id="title">ARQ background worker queue flow</title>
+  <desc id="desc">API enqueues job to Redis in 50ms, worker processes RAG async, client polls for result.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="720" height="300" fill="#fafafa"/>
+  <text x="360" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#1a1a1a">ARQ worker queue pattern</text>
+  <text x="360" y="42" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">Long RAG work off the HTTP thread -- API returns 202 immediately</text>
+
+  <rect x="40" y="70" width="120" height="44" rx="8" fill="#eff6ff" stroke="#2563eb"/>
+  <text x="100" y="90" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#1d4ed8">Client</text>
+  <text x="100" y="106" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">POST /jobs/rag</text>
+
+  <line x1="160" y1="92" x2="188" y2="92" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="190" y="70" width="120" height="44" rx="8" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+  <text x="250" y="90" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#1d4ed8">FastAPI</text>
+  <text x="250" y="106" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">T+50ms 202</text>
+
+  <line x1="310" y1="92" x2="338" y2="92" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="340" y="58" width="140" height="72" rx="8" fill="#fef2f2" stroke="#dc2626"/>
+  <text x="410" y="78" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#991b1b">Redis queue</text>
+  <text x="410" y="96" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">arq:queue list</text>
+  <text x="410" y="112" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">job:abc:status</text>
+  <text x="410" y="124" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">job:abc:result</text>
+
+  <line x1="410" y1="130" x2="410" y2="158" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="340" y="160" width="140" height="44" rx="8" fill="#f0fdf4" stroke="#16a34a"/>
+  <text x="410" y="180" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#166534">ARQ worker</text>
+  <text x="410" y="196" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">run_rag_async()</text>
+
+  <line x1="480" y1="182" x2="520" y2="182" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="522" y="160" width="158" height="44" rx="8" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="601" y="180" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#475569">RAG pipeline</text>
+  <text x="601" y="196" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">T+8400ms complete</text>
+
+  <line x1="100" y1="114" x2="100" y2="220" stroke="#64748b" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <line x1="100" y1="220" x2="188" y2="220" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="190" y="200" width="120" height="44" rx="8" fill="#eff6ff" stroke="#2563eb"/>
+  <text x="250" y="220" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#1d4ed8">GET /jobs/abc</text>
+  <text x="250" y="236" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">poll status</text>
+
+  <rect x="40" y="260" width="640" height="32" rx="6" fill="#fff7ed" stroke="#ea580c"/>
+  <text x="360" y="280" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Idempotency: skip if job:abc:result exists | max_tries=3 with backoff on 503</text>
+</svg>

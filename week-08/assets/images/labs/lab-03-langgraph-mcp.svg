@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" role="img" aria-labelledby="title desc">
+  <title id="title">Lab 3 LangGraph MCP tool trace output</title>
+  <desc id="desc">Terminal showing github_search tool call with latency and final answer preview in mcp_tool_trace.json.</desc>
+  <rect width="720" height="300" fill="#fafafa"/>
+  <text x="360" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#1a1a1a">Lab 3: expected mcp_tool_trace.json</text>
+  <text x="360" y="42" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">LangGraph invokes MCP tools with observable trace</text>
+
+  <rect x="40" y="58" width="640" height="220" rx="8" fill="#1e293b"/>
+  <rect x="40" y="58" width="640" height="28" rx="8" fill="#334155"/>
+  <circle cx="58" cy="72" r="5" fill="#ef4444"/>
+  <circle cx="74" cy="72" r="5" fill="#f59e0b"/>
+  <circle cx="90" cy="72" r="5" fill="#22c55e"/>
+  <text x="360" y="76" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#94a3b8">python lab03_mcp_trace.py</text>
+
+  <text x="56" y="104" font-family="ui-monospace, monospace" font-size="9" fill="#64748b">Query: Find two trending AI repos on GitHub this week...</text>
+  <text x="56" y="124" font-family="ui-monospace, monospace" font-size="9" fill="#38bdf8">tool: github_search -- latency 380ms -- error: null</text>
+  <text x="72" y="140" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">input: {&quot;q&quot;: &quot;agent topic:ai&quot;}</text>
+  <text x="56" y="160" font-family="ui-monospace, monospace" font-size="9" fill="#22c55e">final_answer: Two repos stand out...</text>
+  <text x="56" y="180" font-family="ui-monospace, monospace" font-size="9" fill="#64748b">total_latency_ms: 4100 -- cost_usd: 0.012</text>
+
+  <rect x="56" y="192" width="608" height="72" rx="4" fill="#0f172a"/>
+  <text x="72" y="212" font-family="ui-monospace, monospace" font-size="8" fill="#94a3b8">&quot;tool_calls&quot;: [{ &quot;tool&quot;: &quot;github_search&quot;,</text>
+  <text x="88" y="228" font-family="ui-monospace, monospace" font-size="8" fill="#38bdf8">&quot;input&quot;: {&quot;q&quot;: &quot;agent topic:ai&quot;}, &quot;latency_ms&quot;: 380 }]</text>
+  <text x="72" y="248" font-family="ui-monospace, monospace" font-size="8" fill="#16a34a">Estimated cost: $0.10-0.30</text>
+
+  <text x="360" y="292" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Deliverable: at least 1 MCP tool invoked -- trace for interviews</text>
+</svg>

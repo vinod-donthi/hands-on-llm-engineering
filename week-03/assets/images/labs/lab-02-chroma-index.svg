@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" role="img" aria-labelledby="title desc">
+  <title id="title">Lab 2 Chroma index stats output</title>
+  <desc id="desc">Terminal showing chroma_index_stats.json with chunk count and smoke query hits.</desc>
+  <rect width="720" height="300" fill="#fafafa"/>
+  <text x="360" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#1a1a1a">Lab 2: expected chroma_index_stats.json</text>
+  <text x="360" y="42" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">Embed fixed chunks into doc_qa_v1 collection</text>
+
+  <rect x="40" y="58" width="640" height="220" rx="8" fill="#1e293b"/>
+  <rect x="40" y="58" width="640" height="28" rx="8" fill="#334155"/>
+  <circle cx="58" cy="72" r="5" fill="#ef4444"/>
+  <circle cx="74" cy="72" r="5" fill="#f59e0b"/>
+  <circle cx="90" cy="72" r="5" fill="#22c55e"/>
+  <text x="360" y="76" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#94a3b8">python lab02_embed_chroma.py</text>
+
+  <text x="56" y="104" font-family="ui-monospace, monospace" font-size="9" fill="#22c55e">Indexed 247 chunks into doc_qa_v1</text>
+  <text x="56" y="124" font-family="ui-monospace, monospace" font-size="9" fill="#64748b">Model: text-embedding-3-small (1536 dims)</text>
+  <text x="56" y="144" font-family="ui-monospace, monospace" font-size="9" fill="#64748b">Persist: ./chroma_data/</text>
+  <text x="56" y="168" font-family="ui-monospace, monospace" font-size="9" fill="#64748b">Smoke queries:</text>
+  <text x="72" y="188" font-family="ui-monospace, monospace" font-size="9" fill="#16a34a">Q1 &quot;remote stipend&quot;  top score=0.84  chunk=c042</text>
+  <text x="72" y="204" font-family="ui-monospace, monospace" font-size="9" fill="#16a34a">Q2 &quot;API key rotation&quot; top score=0.79  chunk=c118</text>
+  <text x="72" y="220" font-family="ui-monospace, monospace" font-size="9" fill="#16a34a">Q3 &quot;PTO accrual&quot;      top score=0.81  chunk=c055</text>
+  <text x="56" y="244" font-family="ui-monospace, monospace" font-size="9" fill="#64748b">Wrote chroma_index_stats.json</text>
+
+  <text x="360" y="292" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Pass: on-topic queries score &gt; 0.7 with correct chunk_id</text>
+</svg>

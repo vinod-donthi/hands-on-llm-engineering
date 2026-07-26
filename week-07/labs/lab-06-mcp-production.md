@@ -8,6 +8,10 @@
 
 **Goal:** Production checklist passes for SSE MCP server with auth and rate limits.
 
+![mcp_production_checklist.json with all six required checks passing](../assets/images/labs/lab-06-mcp-production-checklist.svg)
+
+*Figure: All required checks pass — auth, rate limit, SSRF block, response cap, and health endpoint.*
+
 ---
 
 ## Task

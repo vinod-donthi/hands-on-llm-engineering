@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 280" role="img" aria-labelledby="title desc">
+  <title id="title">Golden dataset trace regression detection</title>
+  <desc id="desc">Baseline trace compared to current run showing changed retrieval spans despite similar final answer.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="720" height="280" fill="#fafafa"/>
+  <text x="360" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#1a1a1a">Golden set + trace regression</text>
+  <text x="360" y="42" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">Faithfulness flat but retrieval spans changed -- structural regression</text>
+
+  <rect x="40" y="58" width="200" height="72" rx="8" fill="#eff6ff" stroke="#2563eb"/>
+  <text x="140" y="78" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#1d4ed8">Golden dataset</text>
+  <text x="140" y="96" text-anchor="middle" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">g014: PTO accrual?</text>
+  <text x="140" y="112" text-anchor="middle" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">answer: 1.67 days/mo</text>
+  <text x="140" y="124" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">30 fixed pairs</text>
+
+  <line x1="244" y1="94" x2="276" y2="94" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="280" y="58" width="180" height="72" rx="8" fill="#f0fdf4" stroke="#16a34a"/>
+  <text x="370" y="78" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" font-weight="600" fill="#166534">Baseline trace</text>
+  <text x="370" y="96" text-anchor="middle" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">retrieve: handbook p8</text>
+  <text x="370" y="110" text-anchor="middle" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">generate: 1.67 days</text>
+  <text x="370" y="124" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">faithfulness 0.79</text>
+
+  <line x1="464" y1="94" x2="496" y2="94" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="500" y="58" width="180" height="72" rx="8" fill="#fef2f2" stroke="#ef4444"/>
+  <text x="590" y="78" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" font-weight="600" fill="#dc2626">Current trace</text>
+  <text x="590" y="96" text-anchor="middle" font-family="ui-monospace, monospace" font-size="8" fill="#dc2626">retrieve: handbook p12</text>
+  <text x="590" y="110" text-anchor="middle" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">generate: 1.67 days</text>
+  <text x="590" y="124" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">faithfulness 0.78</text>
+
+  <rect x="40" y="148" width="640" height="108" rx="8" fill="#1e293b"/>
+  <text x="56" y="172" font-family="ui-monospace, monospace" font-size="9" fill="#94a3b8">Span diff g014:</text>
+  <text x="56" y="192" font-family="ui-monospace, monospace" font-size="8" fill="#22c55e">+ answer match: &quot;1.67 days per month&quot;</text>
+  <text x="56" y="210" font-family="ui-monospace, monospace" font-size="8" fill="#ef4444">- retrieval span changed: p8 -&gt; p12 (reranker regression)</text>
+  <text x="56" y="228" font-family="ui-monospace, monospace" font-size="8" fill="#f59e0b">! latency +340ms (3 retrieve retries)</text>
+  <text x="56" y="246" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">REGRESSION: structural -- flag even if faithfulness within 5%</text>
+
+  <text x="360" y="272" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Store baselines in eval/traces/baseline/ -- diff spans on every nightly run</text>
+</svg>

@@ -63,6 +63,7 @@ Full checklist: [checkpoints/exit-criteria.md](checkpoints/exit-criteria.md)
 | [START-HERE.md](START-HERE.md) | One-time orientation → Day 1 |
 | [daily/](daily/) | **Numbered playbooks** — one file per day |
 | [theory/](theory/) | Deep dives — one topic per file |
+| [assets/images/](assets/images/) | SVG diagrams for theory, labs, project |
 | [labs/](labs/) | Hands-on exercises |
 | [project/](project/) | Doc Q&A Studio spec |
 | [interview/](interview/) | Questions + cheat sheet |

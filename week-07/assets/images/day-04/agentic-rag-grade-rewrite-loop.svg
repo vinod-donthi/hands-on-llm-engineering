@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 340" role="img" aria-labelledby="title desc">
+  <title id="title">Agentic RAG grade and rewrite loop</title>
+  <desc id="desc">LangGraph flow from plan query through retrieve, grade context, conditional rewrite, and generate with citations.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="720" height="340" fill="#fafafa"/>
+  <text x="360" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#1a1a1a">Agentic RAG: grade-rewrite loop</text>
+  <text x="360" y="42" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">Compliance Q&amp;A -- max 3 retrieval steps</text>
+
+  <line x1="120" y1="100" x2="160" y2="100" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="240" y1="100" x2="280" y2="100" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="360" y1="100" x2="400" y2="100" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="480" y1="100" x2="520" y2="100" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="600" y1="100" x2="640" y2="100" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="40" y="76" width="80" height="48" rx="6" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="80" y="98" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#475569">plan_query</text>
+  <text x="80" y="112" text-anchor="middle" font-family="system-ui, sans-serif" font-size="7" fill="#64748b">split intents</text>
+
+  <rect x="160" y="76" width="80" height="48" rx="6" fill="#eff6ff" stroke="#2563eb"/>
+  <text x="200" y="98" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#1d4ed8">retrieve</text>
+  <text x="200" y="112" text-anchor="middle" font-family="system-ui, sans-serif" font-size="7" fill="#64748b">hybrid search</text>
+
+  <rect x="280" y="76" width="80" height="48" rx="6" fill="#fff7ed" stroke="#ea580c"/>
+  <text x="320" y="98" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#9a3412">grade_context</text>
+  <text x="320" y="112" text-anchor="middle" font-family="system-ui, sans-serif" font-size="7" fill="#64748b">sufficient?</text>
+
+  <rect x="400" y="76" width="80" height="48" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="440" y="98" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#92400e">rewrite_query</text>
+  <text x="440" y="112" text-anchor="middle" font-family="system-ui, sans-serif" font-size="7" fill="#64748b">if insufficient</text>
+
+  <rect x="520" y="76" width="80" height="48" rx="6" fill="#eff6ff" stroke="#2563eb"/>
+  <text x="560" y="98" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#1d4ed8">retrieve</text>
+  <text x="560" y="112" text-anchor="middle" font-family="system-ui, sans-serif" font-size="7" fill="#64748b">pass 2</text>
+
+  <rect x="640" y="76" width="80" height="48" rx="6" fill="#f0fdf4" stroke="#22c55e"/>
+  <text x="680" y="98" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#166534">generate</text>
+  <text x="680" y="112" text-anchor="middle" font-family="system-ui, sans-serif" font-size="7" fill="#64748b">with cites</text>
+
+  <path d="M440 124 L440 148 L200 148 L200 124" fill="none" stroke="#ea580c" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="320" y="162" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#ea580c">needs_retry=true -- loop back</text>
+
+  <line x1="320" y1="124" x2="680" y2="124" stroke="#16a34a" stroke-width="1.5" stroke-dasharray="6,4" marker-end="url(#arrow)"/>
+  <text x="500" y="140" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#16a34a">sufficient -- skip rewrite</text>
+
+  <rect x="40" y="180" width="640" height="140" rx="6" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="360" y="202" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#475569">Worked trace: EU vs US SOC2 retention</text>
+  <text x="56" y="224" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Step 1: plan splits into EU policy + US SOC2 queries</text>
+  <text x="56" y="242" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Step 2: retrieve -- 6 chunks, US evidence weak</text>
+  <text x="56" y="260" font-family="system-ui, sans-serif" font-size="9" fill="#ea580c">Step 3: grade -- needs_retry=true, missing US backup window</text>
+  <text x="56" y="278" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Step 4: rewrite -- &quot;SOC2 appendix backup retention days&quot;</text>
+  <text x="56" y="296" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Step 5: retrieve pass 2 -- 3 relevant US chunks</text>
+  <text x="56" y="314" font-family="system-ui, sans-serif" font-size="9" fill="#16a34a">Step 6: generate grounded comparison with citations</text>
+</svg>

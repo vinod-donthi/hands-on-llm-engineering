@@ -16,6 +16,10 @@ source .venv/bin/activate
 
 **Goal:** When this lab works, `lab01_health_probe.py` returns JSON showing `/health` always 200 and `/ready` 200 only when dependencies are reachable.
 
+![Expected health_check_report.json with /health and /ready probe results](../assets/images/labs/lab-01-health-probe-output.svg)
+
+*Figure: /health always passes; /ready checks Redis and returns structured checks JSON.*
+
 ---
 
 ## Task

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" role="img" aria-labelledby="title desc">
+  <title id="title">Lab 4 rerank comparison output</title>
+  <desc id="desc">rerank_comparison.json showing cross-encoder fixing rank@1 after hybrid retrieval.</desc>
+  <rect width="720" height="300" fill="#fafafa"/>
+  <text x="360" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#1a1a1a">Lab 4: rerank_comparison.json</text>
+  <text x="360" y="42" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">Hybrid top-20 reranked to top-5 with BGE cross-encoder</text>
+
+  <rect x="40" y="58" width="640" height="220" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="56" y="82" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#475569">Query: equipment stipend for remote workers</text>
+
+  <rect x="56" y="92" width="300" height="100" rx="6" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="206" y="112" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" font-weight="600" fill="#475569">Before rerank (RRF order)</text>
+  <text x="72" y="132" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">#1 c031 core hours 10am-3pm (0.31)</text>
+  <text x="72" y="148" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">#2 c042 stipend $500 (0.94)</text>
+  <text x="72" y="164" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">#3 c018 dental plan (0.08)</text>
+  <text x="72" y="180" font-family="system-ui, sans-serif" font-size="8" fill="#ea580c">Wrong #1 reaches LLM without rerank</text>
+
+  <rect x="372" y="92" width="292" height="100" rx="6" fill="#f0fdf4" stroke="#16a34a"/>
+  <text x="518" y="112" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" font-weight="600" fill="#166534">After rerank (top-5)</text>
+  <text x="388" y="132" font-family="ui-monospace, monospace" font-size="8" fill="#16a34a">#1 c042 stipend $500 (0.94)</text>
+  <text x="388" y="148" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">#2 c031 core hours (0.31)</text>
+  <text x="388" y="164" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">#3 c055 PTO policy (0.22)</text>
+  <text x="388" y="180" font-family="system-ui, sans-serif" font-size="8" fill="#16a34a">Correct chunk now #1</text>
+
+  <rect x="56" y="204" width="608" height="56" rx="4" fill="#1e293b"/>
+  <text x="72" y="224" font-family="ui-monospace, monospace" font-size="8" fill="#38bdf8">&quot;rerank_fixed_rank1&quot;: true, &quot;context_tokens&quot;: 550,</text>
+  <text x="72" y="240" font-family="ui-monospace, monospace" font-size="8" fill="#94a3b8">&quot;assembled_preview&quot;: &quot;[SOURCE c042] Equipment stipend: $500...&quot;</text>
+  <text x="72" y="256" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">model: BAAI/bge-reranker-base, latency_ms: 182</text>
+
+  <text x="360" y="292" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Pass: rerank_fixed_rank1 true for at least one of 5 test queries</text>
+</svg>

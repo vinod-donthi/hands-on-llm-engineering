@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" role="img" aria-labelledby="title desc">
+  <title id="title">Lab 5 ARQ job trace demo output</title>
+  <desc id="desc">job_run_trace.json showing 202 enqueue in 45ms and completed status after worker processing.</desc>
+  <rect width="720" height="300" fill="#fafafa"/>
+  <text x="360" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#1a1a1a">Lab 5: expected job_run_trace.json</text>
+  <text x="360" y="42" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">POST returns 202 in under 100ms; worker completes async RAG</text>
+
+  <rect x="40" y="58" width="640" height="220" rx="8" fill="#1e293b"/>
+  <rect x="40" y="58" width="640" height="28" rx="8" fill="#334155"/>
+  <circle cx="58" cy="72" r="5" fill="#ef4444"/>
+  <circle cx="74" cy="72" r="5" fill="#f59e0b"/>
+  <circle cx="90" cy="72" r="5" fill="#22c55e"/>
+  <text x="360" y="76" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#94a3b8">python lab05_job_trace_demo.py</text>
+
+  <text x="56" y="104" font-family="ui-monospace, monospace" font-size="9" fill="#64748b">T+0ms    POST /api/v1/jobs/rag</text>
+  <text x="72" y="122" font-family="ui-monospace, monospace" font-size="9" fill="#22c55e">T+45ms   202 {&quot;job_id&quot;: &quot;abc123&quot;, &quot;status&quot;: &quot;queued&quot;}</text>
+  <text x="56" y="142" font-family="ui-monospace, monospace" font-size="9" fill="#64748b">T+200ms  worker picked job -- status: running</text>
+  <text x="56" y="162" font-family="ui-monospace, monospace" font-size="9" fill="#64748b">T+8400ms worker complete -- result in Redis job:abc123:result</text>
+  <text x="56" y="182" font-family="ui-monospace, monospace" font-size="9" fill="#22c55e">GET /jobs/abc123 -- {&quot;status&quot;: &quot;completed&quot;, &quot;answer&quot;: &quot;...&quot;}</text>
+
+  <rect x="56" y="196" width="608" height="72" rx="4" fill="#0f172a"/>
+  <text x="72" y="216" font-family="ui-monospace, monospace" font-size="8" fill="#38bdf8">&quot;enqueue_ms&quot;: 45, &quot;worker_start_ms&quot;: 200, &quot;complete_ms&quot;: 8400,</text>
+  <text x="72" y="232" font-family="ui-monospace, monospace" font-size="8" fill="#16a34a">&quot;status&quot;: &quot;completed&quot;, &quot;poll_count&quot;: 12, &quot;idempotent_retry&quot;: false</text>
+  <text x="72" y="248" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">worker service: arq app.worker.WorkerSettings</text>
+
+  <text x="360" y="292" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Deliverable: ARQ worker in Compose + POST/GET job routes</text>
+</svg>

@@ -10,6 +10,10 @@
 
 When it works: `rerank_comparison.json` shows at least one query where rerank fixes rank@1.
 
+![Lab 4 rerank_comparison.json showing cross-encoder fixing rank order](../assets/images/labs/lab-04-rerank-comparison.svg)
+
+*Figure: Stipend chunk moves from RRF #2 to rerank #1 — wrong context no longer reaches the LLM.*
+
 ---
 
 ## Task

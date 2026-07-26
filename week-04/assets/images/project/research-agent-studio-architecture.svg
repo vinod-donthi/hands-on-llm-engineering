@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 360" role="img" aria-labelledby="title desc">
+  <title id="title">Research Agent Studio architecture overview</title>
+  <desc id="desc">FastAPI connects to LangGraph with SQLite checkpoints, MCP tools, RAG doc search, and external APIs.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="720" height="360" fill="#fafafa"/>
+  <text x="360" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#1a1a1a">Research Agent Studio architecture</text>
+  <text x="360" y="42" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">Week 4 project -- LangGraph orchestration with MCP, RAG, HITL, and checkpoints</text>
+
+  <rect x="40" y="58" width="640" height="56" rx="8" fill="#eff6ff" stroke="#2563eb"/>
+  <text x="360" y="78" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#1d4ed8">Client (CLI / curl / optional UI)</text>
+  <text x="360" y="98" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">POST /research -- thread_id for resume</text>
+
+  <line x1="360" y1="114" x2="360" y2="132" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="40" y="136" width="640" height="48" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="360" y="156" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#475569">FastAPI :8001</text>
+  <text x="360" y="172" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">api/routes/research.py -- HITL approval handler</text>
+
+  <line x1="360" y1="184" x2="360" y2="200" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="40" y="204" width="640" height="88" rx="8" fill="#2563eb"/>
+  <text x="360" y="224" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#ffffff">LangGraph Research Graph</text>
+  <text x="120" y="244" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#bfdbfe">plan</text>
+  <text x="200" y="244" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#bfdbfe">research</text>
+  <text x="280" y="244" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#bfdbfe">tools+HITL</text>
+  <text x="360" y="244" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#bfdbfe">reflect</text>
+  <text x="440" y="244" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#bfdbfe">write</text>
+  <text x="520" y="244" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#bfdbfe">observability</text>
+  <rect x="56" y="256" width="120" height="24" rx="4" fill="#1e293b"/>
+  <text x="116" y="272" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#94a3b8">SQLite checkpoints</text>
+  <rect x="544" y="256" width="120" height="24" rx="4" fill="#1e293b"/>
+  <text x="604" y="272" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#94a3b8">OpenAI API</text>
+
+  <line x1="360" y1="292" x2="360" y2="308" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="40" y="312" width="200" height="40" rx="6" fill="#fff7ed" stroke="#ea580c"/>
+  <text x="140" y="328" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#9a3412">MCP research-tools</text>
+  <text x="140" y="342" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">web_search, fetch_url</text>
+
+  <rect x="260" y="312" width="200" height="40" rx="6" fill="#f0fdf4" stroke="#16a34a"/>
+  <text x="360" y="328" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#166534">doc_search (Week 3 RAG)</text>
+  <text x="360" y="342" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">Chroma index</text>
+
+  <rect x="480" y="312" width="200" height="40" rx="6" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="580" y="328" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#475569">External APIs</text>
+  <text x="580" y="342" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">Tavily, DuckDuckGo</text>
+</svg>

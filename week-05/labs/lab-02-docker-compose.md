@@ -16,6 +16,10 @@ docker compose version   # requires Compose v2
 
 **Goal:** `docker compose ps` shows `api` and `redis` both **healthy**; curl to `/ready` confirms Redis connectivity from inside the API container network.
 
+![Expected docker compose ps with api and redis both Up healthy](../assets/images/labs/lab-02-compose-healthy.svg)
+
+*Figure: Health gates ensure api waits for redis before accepting traffic.*
+
 ---
 
 ## Task

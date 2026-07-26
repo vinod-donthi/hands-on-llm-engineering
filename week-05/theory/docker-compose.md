@@ -26,6 +26,10 @@ docker compose up -d --build
 
 If `api` marks itself `healthy` before Redis accepts connections, the first RAG request crashes — Compose **healthchecks** and `depends_on: condition: service_healthy` prevent that.
 
+![Docker Compose services api, redis, worker, and qdrant with health gates](../assets/images/day-02/docker-compose-services.svg)
+
+*Figure: Service names become container DNS — `REDIS_URL=redis://redis:6379/0`, not localhost.*
+
 ### Service graph (Production AI Stack)
 
 ```mermaid

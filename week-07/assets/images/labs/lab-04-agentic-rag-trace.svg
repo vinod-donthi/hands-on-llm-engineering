@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 320" role="img" aria-labelledby="title desc">
+  <title id="title">Lab 4 agentic RAG trace JSON output</title>
+  <desc id="desc">Terminal and agentic_rag_trace.json showing multi-hop retrieval with grade, rewrite, and citation steps.</desc>
+  <rect width="720" height="320" fill="#fafafa"/>
+  <text x="360" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#1a1a1a">Lab 4: agentic_rag_trace.json</text>
+  <text x="360" y="42" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">LangGraph beats single-shot RAG on multihop golden cases</text>
+
+  <rect x="40" y="58" width="640" height="240" rx="8" fill="#1e293b"/>
+  <rect x="40" y="58" width="640" height="28" rx="8" fill="#334155"/>
+  <circle cx="58" cy="72" r="5" fill="#ef4444"/>
+  <circle cx="74" cy="72" r="5" fill="#f59e0b"/>
+  <circle cx="90" cy="72" r="5" fill="#22c55e"/>
+  <text x="360" y="76" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#94a3b8">python lab04_agentic_rag_eval.py --cases data/golden/multihop.jsonl</text>
+
+  <text x="56" y="104" font-family="ui-monospace, monospace" font-size="9" fill="#64748b">Case 1: EU retention vs US SOC2 backup window</text>
+  <text x="72" y="120" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">step 1 plan_query --&gt; 2 intents</text>
+  <text x="72" y="134" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">step 2 retrieve --&gt; 6 chunks (US weak)</text>
+  <text x="72" y="148" font-family="ui-monospace, monospace" font-size="8" fill="#ea580c">step 3 grade_context --&gt; needs_retry=true</text>
+  <text x="72" y="162" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">step 4 rewrite_query --&gt; SOC2 backup retention</text>
+  <text x="72" y="176" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">step 5 retrieve --&gt; 3 US chunks</text>
+  <text x="72" y="190" font-family="ui-monospace, monospace" font-size="8" fill="#16a34a">step 6 generate --&gt; cites [eu-policy:3] [soc2-appendix:1]</text>
+
+  <rect x="56" y="200" width="608" height="84" rx="4" fill="#0f172a"/>
+  <text x="72" y="220" font-family="ui-monospace, monospace" font-size="8" fill="#94a3b8">Summary: 8/10 multihop pass (agentic) vs 4/10 (classic RAG)</text>
+  <text x="72" y="236" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">avg_steps: 2.4 | max_steps: 3 | avg_latency_ms: 4200</text>
+  <text x="72" y="252" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">Wrote agentic_rag_trace.json (10 cases)</text>
+  <text x="72" y="268" font-family="ui-monospace, monospace" font-size="8" fill="#16a34a">pass: agentic &gt; classic by +3 cases minimum</text>
+
+  <text x="360" y="312" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Deliverable: trace JSON with step-by-step node events per case</text>
+</svg>

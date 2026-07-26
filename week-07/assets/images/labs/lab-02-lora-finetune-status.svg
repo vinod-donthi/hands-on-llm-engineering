@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" role="img" aria-labelledby="title desc">
+  <title id="title">Lab 2 LoRA fine-tune job status and eval report</title>
+  <desc id="desc">Terminal showing fine-tune job submission, ft model ID, and finetune_eval_report.json beating baseline.</desc>
+  <rect width="720" height="300" fill="#fafafa"/>
+  <text x="360" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#1a1a1a">Lab 2: fine-tune job + eval report</text>
+  <text x="360" y="42" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">50-200 JSONL rows -- OpenAI job or local LoRA</text>
+
+  <rect x="40" y="58" width="640" height="220" rx="8" fill="#1e293b"/>
+  <rect x="40" y="58" width="640" height="28" rx="8" fill="#334155"/>
+  <circle cx="58" cy="72" r="5" fill="#ef4444"/>
+  <circle cx="74" cy="72" r="5" fill="#f59e0b"/>
+  <circle cx="90" cy="72" r="5" fill="#22c55e"/>
+  <text x="360" y="76" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#94a3b8">python lab02_submit_finetune.py --file data/finetune/train.jsonl</text>
+
+  <text x="56" y="104" font-family="ui-monospace, monospace" font-size="9" fill="#64748b">Uploaded 127 rows (train.jsonl)</text>
+  <text x="56" y="124" font-family="ui-monospace, monospace" font-size="9" fill="#64748b">Job ftjob-abc123 status: running...</text>
+  <text x="56" y="144" font-family="ui-monospace, monospace" font-size="9" fill="#22c55e">Job ftjob-abc123 status: succeeded</text>
+  <text x="56" y="164" font-family="ui-monospace, monospace" font-size="9" fill="#22c55e">Model: ft:gpt-4o-mini:acme:support-triage:abc123</text>
+
+  <rect x="56" y="176" width="608" height="88" rx="4" fill="#0f172a"/>
+  <text x="72" y="196" font-family="ui-monospace, monospace" font-size="8" fill="#94a3b8">finetune_eval_report.json:</text>
+  <text x="88" y="212" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">baseline_prompt: 0.70 accuracy (35/50)</text>
+  <text x="88" y="228" font-family="ui-monospace, monospace" font-size="8" fill="#16a34a">finetuned: 0.94 accuracy (47/50)</text>
+  <text x="88" y="244" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">cost_per_1k: $0.0008 vs $0.002 baseline</text>
+  <text x="88" y="260" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">pass: finetuned &gt; baseline + 0.10 margin</text>
+
+  <text x="360" y="292" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Deliverable: finetune_eval_report.json with deployed ft: model id</text>
+</svg>

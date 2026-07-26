@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 360" role="img" aria-labelledby="title desc">
+  <title id="title">pgvector corpus and Redis semantic cache layers</title>
+  <desc id="desc">Query checks Redis for similar embeddings first; on miss hybrid retrieval from pgvector runs before agent caches the answer.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="720" height="360" fill="#fafafa"/>
+  <text x="360" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#1a1a1a">pgvector + Redis semantic cache</text>
+  <text x="360" y="42" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">Postgres is source of truth -- Redis stores recent answers</text>
+
+  <rect x="40" y="58" width="300" height="200" rx="8" fill="#eff6ff" stroke="#2563eb"/>
+  <text x="190" y="78" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#1d4ed8">PostgreSQL + pgvector</text>
+  <text x="190" y="96" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Durable corpus -- hybrid retrieval</text>
+
+  <rect x="56" y="108" width="120" height="32" rx="4" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="116" y="128" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#475569">Vector top 20</text>
+  <rect x="188" y="108" width="120" height="32" rx="4" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="248" y="128" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#475569">BM25 / ts_rank</text>
+  <rect x="120" y="152" width="140" height="32" rx="4" fill="#f0fdf4" stroke="#22c55e"/>
+  <text x="190" y="172" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#166534">RRF merge top 8</text>
+
+  <rect x="56" y="196" width="268" height="48" rx="4" fill="#1e293b"/>
+  <text x="72" y="216" font-family="ui-monospace, monospace" font-size="8" fill="#94a3b8">chunks.embedding vector(1536)</text>
+  <text x="72" y="232" font-family="ui-monospace, monospace" font-size="8" fill="#38bdf8">ivfflat index -- cosine distance</text>
+
+  <rect x="380" y="58" width="300" height="200" rx="8" fill="#fff7ed" stroke="#ea580c"/>
+  <text x="530" y="78" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#9a3412">Redis semantic cache</text>
+  <text x="530" y="96" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Ephemeral answers -- TTL 3600s</text>
+
+  <rect x="396" y="112" width="268" height="28" rx="4" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="530" y="130" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#475569">1. Embed query</text>
+  <rect x="396" y="148" width="268" height="28" rx="4" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="530" y="166" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#475569">2. Cosine &gt;= 0.92? return cached JSON</text>
+  <rect x="396" y="184" width="268" height="28" rx="4" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="530" y="202" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#92400e">3. Miss: run agent -- store result</text>
+
+  <text x="530" y="240" text-anchor="middle" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">similarity 0.94 -- 180ms hit</text>
+
+  <rect x="40" y="276" width="640" height="64" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="360" y="296" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#475569">Query path</text>
+  <text x="80" y="318" font-family="ui-monospace, monospace" font-size="9" fill="#64748b">User query</text>
+  <line x1="140" y1="314" x2="168" y2="314" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="200" y="318" font-family="ui-monospace, monospace" font-size="9" fill="#ea580c">Redis?</text>
+  <line x1="240" y1="314" x2="268" y2="314" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="310" y="318" font-family="ui-monospace, monospace" font-size="9" fill="#2563eb">pgvector RAG</text>
+  <line x1="390" y1="314" x2="418" y2="314" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="460" y="318" font-family="ui-monospace, monospace" font-size="9" fill="#475569">Agent answer</text>
+  <line x1="520" y1="314" x2="548" y2="314" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="590" y="318" font-family="ui-monospace, monospace" font-size="9" fill="#ea580c">cache set</text>
+
+  <text x="360" y="352" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Cache key includes model_version -- bypass with ?no_cache=true</text>
+</svg>

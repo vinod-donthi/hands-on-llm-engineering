@@ -4,6 +4,10 @@
 
 ## System diagram
 
+![Production AI Stack architecture from clients through FastAPI to Redis, worker, Qdrant, OpenAI, and Langfuse](../assets/images/project/production-ai-stack-architecture.svg)
+
+*Figure: Sync RAG hits middleware and cache layers; async jobs enqueue to ARQ worker via shared Redis.*
+
 ```mermaid
 flowchart TB
     subgraph clients [Clients]

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 320" role="img" aria-labelledby="title desc">
+  <title id="title">GraphRAG community detection and summary nodes</title>
+  <desc id="desc">Documents become entity graph, clustered into communities with summary nodes for global thematic retrieval.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="720" height="320" fill="#fafafa"/>
+  <text x="360" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#1a1a1a">GraphRAG: communities and global themes</text>
+  <text x="360" y="42" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">200 RFC corpus -- vector RAG weak on cross-doc synthesis</text>
+
+  <line x1="100" y1="100" x2="180" y2="100" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="260" y1="100" x2="340" y2="100" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="420" y1="100" x2="500" y2="100" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="580" y1="100" x2="660" y2="100" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="40" y="76" width="60" height="48" rx="6" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="70" y="98" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#475569">Docs</text>
+  <text x="70" y="112" text-anchor="middle" font-family="system-ui, sans-serif" font-size="7" fill="#64748b">200 RFCs</text>
+
+  <rect x="180" y="76" width="80" height="48" rx="6" fill="#eff6ff" stroke="#2563eb"/>
+  <text x="220" y="98" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#1d4ed8">Extract</text>
+  <text x="220" y="112" text-anchor="middle" font-family="system-ui, sans-serif" font-size="7" fill="#64748b">entities</text>
+
+  <rect x="340" y="76" width="80" height="48" rx="6" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="380" y="98" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#475569">Graph</text>
+  <text x="380" y="112" text-anchor="middle" font-family="system-ui, sans-serif" font-size="7" fill="#64748b">edges</text>
+
+  <rect x="500" y="76" width="80" height="48" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="540" y="98" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#92400e">Communities</text>
+  <text x="540" y="112" text-anchor="middle" font-family="system-ui, sans-serif" font-size="7" fill="#64748b">cluster</text>
+
+  <rect x="660" y="76" width="60" height="48" rx="6" fill="#f0fdf4" stroke="#22c55e"/>
+  <text x="690" y="98" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#166534">Summaries</text>
+  <text x="690" y="112" text-anchor="middle" font-family="system-ui, sans-serif" font-size="7" fill="#64748b">per comm.</text>
+
+  <circle cx="180" cy="200" r="36" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+  <text x="180" y="196" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" font-weight="600" fill="#1d4ed8">Comm A</text>
+  <text x="180" y="210" text-anchor="middle" font-family="system-ui, sans-serif" font-size="7" fill="#64748b">Reliability</text>
+
+  <circle cx="360" cy="200" r="36" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+  <text x="360" y="196" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" font-weight="600" fill="#92400e">Comm B</text>
+  <text x="360" y="210" text-anchor="middle" font-family="system-ui, sans-serif" font-size="7" fill="#64748b">Payments</text>
+
+  <circle cx="540" cy="200" r="36" fill="#f0fdf4" stroke="#22c55e" stroke-width="2"/>
+  <text x="540" y="196" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" font-weight="600" fill="#166534">Comm C</text>
+  <text x="540" y="210" text-anchor="middle" font-family="system-ui, sans-serif" font-size="7" fill="#64748b">Security</text>
+
+  <line x1="216" y1="200" x2="324" y2="200" stroke="#94a3b8" stroke-width="1"/>
+  <line x1="396" y1="200" x2="504" y2="200" stroke="#94a3b8" stroke-width="1"/>
+
+  <rect x="80" y="252" width="560" height="56" rx="6" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="360" y="272" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Local Q: &quot;RFC-142 approval date&quot; -- vector search wins</text>
+  <text x="360" y="290" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#16a34a">Global Q: &quot;Top 5 Q3 reliability themes&quot; -- community summary wins</text>
+  <text x="360" y="304" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">Optional -- not required for Week 7 exit criteria</text>
+</svg>

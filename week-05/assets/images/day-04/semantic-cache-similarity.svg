@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 320" role="img" aria-labelledby="title desc">
+  <title id="title">Semantic cache embedding similarity lookup</title>
+  <desc id="desc">Paraphrased query embeds to vector, cosine similarity 0.94 exceeds threshold 0.92 for cache hit.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="720" height="320" fill="#fafafa"/>
+  <text x="360" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#1a1a1a">Semantic cache: embedding similarity</text>
+  <text x="360" y="42" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">Paraphrases hit even when query strings differ</text>
+
+  <rect x="40" y="58" width="280" height="48" rx="6" fill="#eff6ff" stroke="#2563eb"/>
+  <text x="56" y="78" font-family="system-ui, sans-serif" font-size="9" fill="#1d4ed8">Query A (stored):</text>
+  <text x="56" y="94" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">&quot;What is our refund policy for annual plans?&quot;</text>
+
+  <rect x="40" y="116" width="280" height="48" rx="6" fill="#fff7ed" stroke="#ea580c"/>
+  <text x="56" y="136" font-family="system-ui, sans-serif" font-size="9" fill="#9a3412">Query B (incoming):</text>
+  <text x="56" y="152" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">&quot;How do yearly subscription refunds work?&quot;</text>
+
+  <line x1="324" y1="82" x2="360" y2="82" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="324" y1="140" x2="360" y2="140" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="362" y="58" width="120" height="36" rx="4" fill="#f0fdf4" stroke="#16a34a"/>
+  <text x="422" y="80" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#166534">embed()</text>
+
+  <rect x="362" y="116" width="120" height="36" rx="4" fill="#f0fdf4" stroke="#16a34a"/>
+  <text x="422" y="138" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#166534">embed()</text>
+
+  <rect x="500" y="58" width="180" height="200" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="590" y="78" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#475569">Stored vectors (Redis)</text>
+
+  <circle cx="540" cy="110" r="6" fill="#2563eb"/>
+  <text x="556" y="114" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">vec A + cached answer</text>
+
+  <circle cx="620" cy="150" r="6" fill="#cbd5e1"/>
+  <text x="636" y="154" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">vec C (other topic)</text>
+
+  <circle cx="560" cy="190" r="6" fill="#cbd5e1"/>
+  <text x="576" y="194" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">vec D</text>
+
+  <line x1="482" y1="134" x2="534" y2="110" stroke="#16a34a" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="500" y="128" font-family="system-ui, sans-serif" font-size="9" font-weight="600" fill="#16a34a">sim 0.94</text>
+
+  <rect x="40" y="180" width="440" height="56" rx="6" fill="#f0fdf4" stroke="#16a34a"/>
+  <text x="260" y="202" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#166534">HIT: sim 0.94 &gt;= threshold 0.92</text>
+  <text x="260" y="222" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Return cached answer -- embed cost only ($0.00004), no LLM call</text>
+
+  <rect x="40" y="250" width="640" height="52" rx="6" fill="#fef2f2" stroke="#dc2626"/>
+  <text x="360" y="270" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#991b1b">False positive risk: threshold too low (0.85) matches wrong topic</text>
+  <text x="360" y="288" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Lookup order: semantic --&gt; exact --&gt; RAG pipeline</text>
+</svg>

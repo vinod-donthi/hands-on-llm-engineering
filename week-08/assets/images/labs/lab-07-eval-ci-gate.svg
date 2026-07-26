@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" role="img" aria-labelledby="title desc">
+  <title id="title">Lab 7 eval CI gate GitHub Actions output</title>
+  <desc id="desc">GitHub Actions workflow failing on intentional faithfulness regression then passing after revert.</desc>
+  <rect width="720" height="300" fill="#fafafa"/>
+  <text x="360" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#1a1a1a">Lab 7: eval CI gate workflow</text>
+  <text x="360" y="42" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">Optional -- verify PR fails on regression then passes on revert</text>
+
+  <rect x="40" y="58" width="640" height="220" rx="8" fill="#1e293b"/>
+  <rect x="40" y="58" width="640" height="28" rx="8" fill="#334155"/>
+  <circle cx="58" cy="72" r="5" fill="#ef4444"/>
+  <circle cx="74" cy="72" r="5" fill="#f59e0b"/>
+  <circle cx="90" cy="72" r="5" fill="#22c55e"/>
+  <text x="360" y="76" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#94a3b8">.github/workflows/eval-gate.yml</text>
+
+  <text x="56" y="104" font-family="ui-monospace, monospace" font-size="9" fill="#64748b">Run RAGAS on 10 golden questions (config/eval_golden.yaml)</text>
+  <text x="56" y="124" font-family="ui-monospace, monospace" font-size="9" fill="#64748b">Compare vs artifacts/rag_eval_baseline.json</text>
+
+  <rect x="56" y="136" width="608" height="52" rx="4" fill="#450a0a" stroke="#ef4444"/>
+  <text x="72" y="156" font-family="ui-monospace, monospace" font-size="9" fill="#ef4444">FAIL: faithfulness 0.82 -&gt; 0.71 (regression &gt; 5%)</text>
+  <text x="72" y="172" font-family="ui-monospace, monospace" font-size="8" fill="#fca5a5">PR #42 -- bad prompt change -- merge blocked</text>
+
+  <rect x="56" y="196" width="608" height="52" rx="4" fill="#052e16" stroke="#22c55e"/>
+  <text x="72" y="216" font-family="ui-monospace, monospace" font-size="9" fill="#22c55e">PASS: faithfulness 0.82 -- context_precision 0.78</text>
+  <text x="72" y="232" font-family="ui-monospace, monospace" font-size="8" fill="#86efac">PR #43 -- revert -- badge green in README</text>
+
+  <text x="56" y="262" font-family="ui-monospace, monospace" font-size="9" fill="#64748b">Estimated cost: $1-2 per CI run</text>
+
+  <text x="360" y="292" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Deliverable: workflow on PR -- intentional regression fails -- revert passes</text>
+</svg>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 320" role="img" aria-labelledby="title desc">
+  <title id="title">Eval observability dashboard with faithfulness drift</title>
+  <desc id="desc">Dashboard mockup showing faithfulness trend chart, p95 latency, cost per query, and trace drill-down panel.</desc>
+  <rect width="720" height="320" fill="#fafafa"/>
+  <text x="360" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#1a1a1a">Eval dashboard -- Langfuse + OTel</text>
+  <text x="360" y="42" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">CI passed yesterday; dashboard catches production drift today</text>
+
+  <rect x="40" y="58" width="640" height="240" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+  <rect x="40" y="58" width="640" height="28" rx="8" fill="#f1f5f9"/>
+  <text x="56" y="76" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#475569">Eval Pipeline Studio Dashboard</text>
+  <text x="600" y="76" text-anchor="end" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">Last 7 days</text>
+
+  <rect x="56" y="98" width="180" height="48" rx="4" fill="#eff6ff" stroke="#2563eb"/>
+  <text x="68" y="116" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">Faithfulness (online)</text>
+  <text x="68" y="136" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#1d4ed8">0.76</text>
+  <text x="130" y="136" font-family="system-ui, sans-serif" font-size="8" fill="#ef4444">-4% vs baseline</text>
+
+  <rect x="248" y="98" width="180" height="48" rx="4" fill="#f8fafc" stroke="#e2e8f0"/>
+  <text x="260" y="116" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">p95 latency</text>
+  <text x="260" y="136" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#475569">2.4s</text>
+  <text x="340" y="136" font-family="system-ui, sans-serif" font-size="8" fill="#ea580c">+18% spike</text>
+
+  <rect x="440" y="98" width="180" height="48" rx="4" fill="#f8fafc" stroke="#e2e8f0"/>
+  <text x="452" y="116" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">Cost / query</text>
+  <text x="452" y="136" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#475569">$0.003</text>
+  <text x="520" y="136" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">stable</text>
+
+  <rect x="56" y="158" width="380" height="120" rx="4" fill="#f8fafc" stroke="#e2e8f0"/>
+  <text x="68" y="176" font-family="system-ui, sans-serif" font-size="9" font-weight="600" fill="#475569">Faithfulness trend</text>
+  <line x1="80" y1="258" x2="420" y2="258" stroke="#cbd5e1" stroke-width="1"/>
+  <polyline points="80,230 120,228 160,225 200,220 240,218 280,210 320,205 360,200 400,195" fill="none" stroke="#2563eb" stroke-width="2"/>
+  <line x1="280" y1="190" x2="280" y2="258" stroke="#ef4444" stroke-width="1" stroke-dasharray="3 2"/>
+  <text x="288" y="188" font-family="system-ui, sans-serif" font-size="7" fill="#ef4444">drift alert</text>
+  <text x="400" y="252" font-family="system-ui, sans-serif" font-size="7" fill="#64748b">Jul 25</text>
+
+  <rect x="448" y="158" width="216" height="120" rx="4" fill="#1e293b"/>
+  <text x="460" y="176" font-family="system-ui, sans-serif" font-size="9" font-weight="600" fill="#94a3b8">Trace drill-down</text>
+  <text x="460" y="196" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">eval_run -- faithfulness 0.71</text>
+  <text x="460" y="212" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">  retrieve (420ms)</text>
+  <text x="460" y="228" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">  generate (1800ms)</text>
+  <text x="460" y="248" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">  score: faithfulness=0.71</text>
+  <text x="460" y="264" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">  linked: eval_20260725</text>
+
+  <text x="360" y="312" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Three streams: OTel traces, CI reports, online judge scores on 1-5% sample</text>
+</svg>

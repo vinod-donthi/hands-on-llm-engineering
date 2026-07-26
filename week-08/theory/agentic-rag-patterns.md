@@ -26,6 +26,10 @@ Fails when corpus lacks today's GitHub stars but MCP could fetch them.
 User query → plan → [MCP search if needed] → retrieve → critique ("enough?") → synthesize with citations
 ```
 
+![Agentic RAG query path compared to always-retrieve static RAG](../assets/images/day-04/agentic-rag-patterns.svg)
+
+*Figure: The agent decides whether to call MCP, retrieve, or both — every fact maps to a citation URL.*
+
 ---
 
 ## Concepts

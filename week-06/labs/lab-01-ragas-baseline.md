@@ -10,6 +10,10 @@
 
 When it works: JSON shows aggregate faithfulness ≥ 0.70 on your golden set (tune pipeline if below).
 
+![Expected ragas_baseline_report.json terminal output with faithfulness and context metrics](../assets/images/labs/lab-01-ragas-baseline-report.svg)
+
+*Figure: Lab 1 deliverable — pinned CI baseline written to reports/ragas_baseline_report.json.*
+
 ---
 
 ## Task

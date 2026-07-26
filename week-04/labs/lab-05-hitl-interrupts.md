@@ -8,6 +8,10 @@
 
 **Goal:** When the agent calls a high-risk tool, the graph pauses, CLI asks Approve/Reject, checkpoint persists, and the run continues or skips safely.
 
+![Lab 5 expected hitl_approval_trace.json with Approve Reject CLI prompt](../assets/images/labs/lab-05-hitl-approval.svg)
+
+*Figure: Graph pauses on fetch_url — human approves or rejects before tool executes.*
+
 ---
 
 ## Risk config

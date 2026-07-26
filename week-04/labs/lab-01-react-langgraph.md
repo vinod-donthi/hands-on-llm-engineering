@@ -8,6 +8,10 @@
 
 **Goal:** When it works, you run one research-style question and see a JSON trace of each graph node — plan, tool call, observe, final answer — without an infinite loop.
 
+![Lab 1 expected react_trace.json showing plan research tools write nodes](../assets/images/labs/lab-01-react-langgraph-trace.svg)
+
+*Figure: Deliverable is a JSON trace of each graph node — no infinite research loop.*
+
 ---
 
 ## Graph shape

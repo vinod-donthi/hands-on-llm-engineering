@@ -22,6 +22,10 @@ Teams skip RAG because "the model fits the whole PDF now." That ignores **cost**
 
 **Insight:** Full stuff wins on *"summarize entire handbook"*; RAG wins on *specific* FAQs at 15× lower cost.
 
+![Bar comparison of long context stuff vs RAG on cost, latency, and answer quality](../assets/images/day-05/long-context-vs-rag-cost-quality.svg)
+
+*Figure: RAG wins on specific FAQs at 15× lower cost — full stuff only when you need whole-doc summary and cost is acceptable.*
+
 ### Needle-in-haystack
 
 Benchmarks show models miss facts buried in huge contexts ("needle" test). RAG ** narrows** the haystack — often improving precision even when full doc fits.

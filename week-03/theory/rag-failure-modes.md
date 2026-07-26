@@ -13,6 +13,10 @@ RAG systems fail in predictable ways. Learning to **symptom → layer → fix** 
 User reports: *"The bot said 30 PTO days but the handbook says 15."*  
 Is it chunking? Retrieval? The LLM ignoring context? Without a debug checklist, you random-walk fixes.
 
+![RAG failure debug tree from symptom to layer to first check](../assets/images/day-05/rag-failure-debug-tree.svg)
+
+*Figure: Symptom maps to layer — debug in order: ingestion, chunking, retrieval, rerank, prompt.*
+
 ### Failure mode catalog
 
 | Symptom | Likely layer | First check |

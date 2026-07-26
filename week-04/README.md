@@ -71,6 +71,7 @@ Full checklist: [checkpoints/exit-criteria.md](checkpoints/exit-criteria.md)
 | [resources/](resources/) | Reading, glossary, references |
 | [appendix/](../appendix/) | **Optional** deep dives — never blocks week progress |
 | [portfolio/](portfolio/) | Resume, LinkedIn, showcase |
+| [assets/images/](assets/images/) | SVG diagrams for theory, labs, project |
 | [requirements.txt](requirements.txt) | Python deps (copied to work path) |
 | [scripts/setup-work.sh](scripts/setup-work.sh) | Bootstrap work directory |
 

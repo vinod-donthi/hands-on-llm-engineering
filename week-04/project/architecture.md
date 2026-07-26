@@ -2,6 +2,10 @@
 
 > Week 4 Project · [← Overview](overview.md) · [Backend](backend.md)
 
+![Research Agent Studio architecture from FastAPI through LangGraph to MCP tools and RAG](../assets/images/project/research-agent-studio-architecture.svg)
+
+*Figure: LangGraph orchestrates plan → research → tools (with HITL) → reflect → write; MCP and Week 3 RAG sit below.*
+
 ## System diagram
 
 ```mermaid

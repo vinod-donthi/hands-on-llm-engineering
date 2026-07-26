@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" role="img" aria-labelledby="title desc">
+  <title id="title">Lab 1 ReAct LangGraph node trace output</title>
+  <desc id="desc">Terminal showing plan research tools write nodes logged to react_trace.json without infinite loop.</desc>
+  <rect width="720" height="300" fill="#fafafa"/>
+  <text x="360" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#1a1a1a">Lab 1: expected react_trace.json</text>
+  <text x="360" y="42" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">One research question -- JSON trace of each graph node</text>
+
+  <rect x="40" y="58" width="640" height="220" rx="8" fill="#1e293b"/>
+  <rect x="40" y="58" width="640" height="28" rx="8" fill="#334155"/>
+  <circle cx="58" cy="72" r="5" fill="#ef4444"/>
+  <circle cx="74" cy="72" r="5" fill="#f59e0b"/>
+  <circle cx="90" cy="72" r="5" fill="#22c55e"/>
+  <text x="360" y="76" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#94a3b8">python lab01_react_langgraph.py --question &quot;What was Anthropic latest release?&quot;</text>
+
+  <text x="56" y="104" font-family="ui-monospace, monospace" font-size="9" fill="#64748b">[plan] sub_questions: [&quot;latest Anthropic model release date&quot;]</text>
+  <text x="56" y="124" font-family="ui-monospace, monospace" font-size="9" fill="#38bdf8">[research] tool_call: web_search(query=&quot;Anthropic latest model 2026&quot;)</text>
+  <text x="56" y="144" font-family="ui-monospace, monospace" font-size="9" fill="#fbbf24">[tools] result: 5 snippets, top url=https://...</text>
+  <text x="56" y="164" font-family="ui-monospace, monospace" font-size="9" fill="#38bdf8">[research] final_answer ready -- no more tool_calls</text>
+  <text x="56" y="184" font-family="ui-monospace, monospace" font-size="9" fill="#22c55e">[write] &quot;Anthropic announced Claude 3.7 in March 2026 ([source](url)).&quot;</text>
+  <text x="56" y="208" font-family="ui-monospace, monospace" font-size="9" fill="#64748b">Wrote react_trace.json (4 nodes, tool_rounds=1, loop_guard: ok)</text>
+
+  <rect x="56" y="220" width="608" height="48" rx="4" fill="#0f172a"/>
+  <text x="72" y="240" font-family="ui-monospace, monospace" font-size="8" fill="#94a3b8">{ &quot;node&quot;: &quot;plan&quot;, &quot;plan&quot;: [&quot;...&quot;], &quot;tool_rounds&quot;: 0 }</text>
+  <text x="72" y="256" font-family="ui-monospace, monospace" font-size="8" fill="#94a3b8">{ &quot;node&quot;: &quot;tools&quot;, &quot;tool&quot;: &quot;web_search&quot;, &quot;latency_ms&quot;: 890 }</text>
+
+  <text x="360" y="292" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Deliverable: graph completes with trace -- no infinite research loop</text>
+</svg>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" role="img" aria-labelledby="title desc">
+  <title id="title">Lab 3 hybrid search results comparison</title>
+  <desc id="desc">hybrid_search_results.json showing hybrid rank@1 beating dense-only on keyword queries.</desc>
+  <rect width="720" height="300" fill="#fafafa"/>
+  <text x="360" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#1a1a1a">Lab 3: hybrid_search_results.json</text>
+  <text x="360" y="42" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">BM25 + dense + RRF (k=60) vs dense-only baseline</text>
+
+  <rect x="40" y="58" width="640" height="220" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="56" y="82" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#475569">Query comparison table</text>
+
+  <rect x="56" y="92" width="608" height="24" fill="#f1f5f9"/>
+  <text x="72" y="108" font-family="system-ui, sans-serif" font-size="8" font-weight="600" fill="#64748b">Query</text>
+  <text x="280" y="108" font-family="system-ui, sans-serif" font-size="8" font-weight="600" fill="#64748b">Dense rank@1</text>
+  <text x="420" y="108" font-family="system-ui, sans-serif" font-size="8" font-weight="600" fill="#64748b">Hybrid rank@1</text>
+  <text x="560" y="108" font-family="system-ui, sans-serif" font-size="8" font-weight="600" fill="#64748b">Winner</text>
+
+  <text x="72" y="132" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">equipment stipend remote</text>
+  <text x="280" y="132" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">#3 c042</text>
+  <text x="420" y="132" font-family="ui-monospace, monospace" font-size="8" fill="#16a34a">#1 c042</text>
+  <text x="560" y="132" font-family="system-ui, sans-serif" font-size="8" fill="#16a34a">hybrid</text>
+
+  <text x="72" y="152" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">ERR_AUTH_4012</text>
+  <text x="280" y="152" font-family="ui-monospace, monospace" font-size="8" fill="#ea580c">#40 miss</text>
+  <text x="420" y="152" font-family="ui-monospace, monospace" font-size="8" fill="#16a34a">#1 c201</text>
+  <text x="560" y="152" font-family="system-ui, sans-serif" font-size="8" fill="#16a34a">hybrid</text>
+
+  <text x="72" y="172" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">WFH laptop allowance</text>
+  <text x="280" y="172" font-family="ui-monospace, monospace" font-size="8" fill="#16a34a">#1 c042</text>
+  <text x="420" y="172" font-family="ui-monospace, monospace" font-size="8" fill="#16a34a">#1 c042</text>
+  <text x="560" y="172" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">tie</text>
+
+  <rect x="56" y="188" width="608" height="72" rx="4" fill="#1e293b"/>
+  <text x="72" y="208" font-family="ui-monospace, monospace" font-size="8" fill="#38bdf8">&quot;q2&quot;: { &quot;hybrid_top1&quot;: &quot;c201&quot;, &quot;dense_top1&quot;: &quot;c088&quot;,</text>
+  <text x="88" y="224" font-family="ui-monospace, monospace" font-size="8" fill="#16a34a">&quot;rrf_score&quot;: 0.031, &quot;expects_chunk_contains&quot;: &quot;4012&quot;, &quot;pass&quot;: true }</text>
+  <text x="72" y="244" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">10 queries tested -- hybrid wins on 6/10 vs dense-only</text>
+
+  <text x="360" y="292" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Pass: at least one query where hybrid rank@1 beats dense-only</text>
+</svg>

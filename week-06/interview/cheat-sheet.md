@@ -2,6 +2,10 @@
 
 > Week 6 · [← Concepts](concepts.md) · [Quiz](../checkpoints/quiz.md)
 
+![Week 6 interview cheat sheet — layered eval, RAGAS metrics, CI gate, judge calibration, red team, agents](../assets/images/project/cheat-sheet-card.svg)
+
+*Figure: One-page reference — layered eval tools, RAGAS metrics, CI gate rules, and trajectory eval.*
+
 ## One-liner pitch
 
 *"Layered eval: DeepEval on every PR, full RAGAS on main with 5% faithfulness gate, Promptfoo on prompts, red team weekly, Langfuse for online drift."*

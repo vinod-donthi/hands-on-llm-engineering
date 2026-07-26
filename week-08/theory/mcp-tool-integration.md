@@ -26,6 +26,10 @@ LangGraph `tool_router` calls MCP tool `github_search` with `{"q": "topic:agents
 | **MCP client** | LangGraph / agent invokes tools |
 | **Tool schema** | Name, description, JSON input schema |
 
+![MCP client in LangGraph calling web search, RSS, and GitHub tools](../assets/images/day-03/mcp-tool-integration.svg)
+
+*Figure: Graph calls MCP client — API keys stay in the server process, not in tool arguments logged to traces.*
+
 ### AI Radar tools (minimum)
 
 | Tool | Input | Output |

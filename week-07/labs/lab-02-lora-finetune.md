@@ -17,6 +17,10 @@ export OPENAI_API_KEY=sk-...
 
 **Goal:** Submit a fine-tune job, deploy model ID, beat prompt baseline on golden set.
 
+![Fine-tune job status and finetune_eval_report.json beating baseline](../assets/images/labs/lab-02-lora-finetune-status.svg)
+
+*Figure: Job succeeds to ft: model id — eval report must beat prompt baseline by your margin.*
+
 ---
 
 ## Task

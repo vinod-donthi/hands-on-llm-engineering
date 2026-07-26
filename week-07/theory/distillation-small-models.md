@@ -23,6 +23,10 @@ GPT-4o Mini at 2M requests/month might cost hundreds of dollars. A 3B parameter 
 
 **Decision:** Route 80% traffic to distilled 3B; escalate to Mini when confidence < 0.7.
 
+![Teacher model generates pairs; student model serves at lower cost and latency](../assets/images/day-03/teacher-student-distillation.svg)
+
+*Figure: Teacher labels once — distilled student closes most of the quality gap at ~340ms vs 890ms p95 latency.*
+
 ### Distillation methods (Week 7 scope)
 
 | Method | How | Week 7 lab |

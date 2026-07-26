@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" role="img" aria-labelledby="title desc">
+  <title id="title">LLM judge calibration curve vs human labels</title>
+  <desc id="desc">Scatter plot showing judge scores aligned with human good, partial, and bad labels after rubric tuning.</desc>
+  <rect width="720" height="300" fill="#fafafa"/>
+  <text x="360" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#1a1a1a">Judge calibration -- scores must match humans</text>
+  <text x="360" y="42" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">Target 80%+ agreement on frozen label set before CI thresholds</text>
+
+  <rect x="80" y="58" width="560" height="200" rx="4" fill="#ffffff" stroke="#cbd5e1"/>
+  <line x1="120" y1="238" x2="600" y2="238" stroke="#64748b" stroke-width="1"/>
+  <line x1="120" y1="78" x2="120" y2="238" stroke="#64748b" stroke-width="1"/>
+  <text x="360" y="256" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Human label zone</text>
+  <text x="104" y="162" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b" transform="rotate(-90 104 162)">Judge score</text>
+
+  <rect x="120" y="78" width="160" height="48" rx="2" fill="#fee2e2" opacity="0.5"/>
+  <text x="200" y="96" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#dc2626">bad zone</text>
+  <rect x="120" y="126" width="160" height="56" rx="2" fill="#fef9c3" opacity="0.5"/>
+  <text x="200" y="158" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#a16207">partial zone</text>
+  <rect x="120" y="182" width="160" height="56" rx="2" fill="#dcfce7" opacity="0.5"/>
+  <text x="200" y="214" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#166534">good zone</text>
+
+  <circle cx="480" cy="210" r="5" fill="#16a34a"/>
+  <circle cx="520" cy="200" r="5" fill="#16a34a"/>
+  <circle cx="560" cy="218" r="5" fill="#16a34a"/>
+  <circle cx="440" cy="148" r="5" fill="#eab308"/>
+  <circle cx="500" cy="138" r="5" fill="#eab308"/>
+  <circle cx="460" cy="98" r="5" fill="#ef4444"/>
+  <circle cx="540" cy="108" r="5" fill="#ef4444" opacity="0.4"/>
+  <circle cx="540" cy="108" r="5" fill="none" stroke="#16a34a" stroke-width="2"/>
+  <text x="556" y="104" font-family="system-ui, sans-serif" font-size="7" fill="#166534">v2 fixed</text>
+
+  <line x1="280" y1="238" x2="600" y2="78" stroke="#2563eb" stroke-width="1.5" stroke-dasharray="4 3" opacity="0.6"/>
+  <text x="580" y="88" font-family="system-ui, sans-serif" font-size="8" fill="#2563eb">ideal</text>
+
+  <rect x="420" y="68" width="200" height="52" rx="4" fill="#f8fafc" stroke="#e2e8f0"/>
+  <text x="432" y="84" font-family="system-ui, sans-serif" font-size="8" fill="#475569">v1 agreement: 67%</text>
+  <text x="432" y="98" font-family="system-ui, sans-serif" font-size="8" fill="#166534">v2 agreement: 87%</text>
+  <text x="432" y="112" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">Rubric: judge_rubric_v1.txt</text>
+
+  <text x="360" y="292" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Tune rubric until misclassified invented-benefit samples move into bad zone</text>
+</svg>

@@ -26,6 +26,10 @@ A faithful answer that leaks employee SSNs from context is a **security failure*
 | **Indirect injection** | Malicious text hidden in uploaded PDF | Retrieval doesn't execute hidden commands |
 | **Tool abuse** | "Call delete_database tool" | Tool guardrails block |
 
+![Red team attack categories for prompt injection, jailbreak, PII exfil, indirect injection, and tool abuse](../assets/images/day-06/red-team-categories.svg)
+
+*Figure: Quality eval asks correctness; security eval asks whether an attacker can break policy or leak data.*
+
 ### Promptfoo red team setup
 
 ```yaml

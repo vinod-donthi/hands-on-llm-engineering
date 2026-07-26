@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 320" role="img" aria-labelledby="title desc">
+  <title id="title">Agent observability trace spans for one research run</title>
+  <desc id="desc">Timeline of node_start, llm_call, tool_call, reflect, hitl_interrupt, and run_complete events with costs.</desc>
+  <rect width="720" height="320" fill="#fafafa"/>
+  <text x="360" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#1a1a1a">Agent observability trace spans</text>
+  <text x="360" y="42" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">research_trace.jsonl -- one JSON object per line, thread_id=job-88</text>
+
+  <line x1="60" y1="68" x2="660" y2="68" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="60" y="62" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">10:00:00</text>
+  <text x="660" y="62" text-anchor="end" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">10:00:20</text>
+
+  <rect x="60" y="80" width="48" height="20" rx="3" fill="#2563eb"/>
+  <text x="84" y="94" text-anchor="middle" font-family="system-ui, sans-serif" font-size="7" fill="#ffffff">plan</text>
+  <text x="84" y="112" text-anchor="middle" font-family="system-ui, sans-serif" font-size="7" fill="#64748b">node_start</text>
+
+  <rect x="120" y="80" width="80" height="20" rx="3" fill="#eff6ff" stroke="#2563eb"/>
+  <text x="160" y="94" text-anchor="middle" font-family="system-ui, sans-serif" font-size="7" fill="#1d4ed8">llm_call</text>
+  <text x="160" y="112" text-anchor="middle" font-family="system-ui, sans-serif" font-size="7" fill="#64748b">820 in / 140 out</text>
+
+  <rect x="210" y="80" width="100" height="20" rx="3" fill="#fff7ed" stroke="#ea580c"/>
+  <text x="260" y="94" text-anchor="middle" font-family="system-ui, sans-serif" font-size="7" fill="#9a3412">web_search</text>
+  <text x="260" y="112" text-anchor="middle" font-family="system-ui, sans-serif" font-size="7" fill="#64748b">890ms, 5 results</text>
+
+  <rect x="320" y="80" width="60" height="20" rx="3" fill="#eff6ff" stroke="#2563eb"/>
+  <text x="350" y="94" text-anchor="middle" font-family="system-ui, sans-serif" font-size="7" fill="#1d4ed8">llm_call</text>
+
+  <rect x="390" y="80" width="72" height="20" rx="3" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="426" y="94" text-anchor="middle" font-family="system-ui, sans-serif" font-size="7" fill="#92400e">reflect</text>
+  <text x="426" y="112" text-anchor="middle" font-family="system-ui, sans-serif" font-size="7" fill="#64748b">score=0.55</text>
+
+  <rect x="472" y="80" width="88" height="20" rx="3" fill="#fef2f2" stroke="#ef4444"/>
+  <text x="516" y="94" text-anchor="middle" font-family="system-ui, sans-serif" font-size="7" fill="#991b1b">hitl_interrupt</text>
+  <text x="516" y="112" text-anchor="middle" font-family="system-ui, sans-serif" font-size="7" fill="#64748b">fetch_url approved</text>
+
+  <rect x="570" y="80" width="80" height="20" rx="3" fill="#16a34a"/>
+  <text x="610" y="94" text-anchor="middle" font-family="system-ui, sans-serif" font-size="7" fill="#ffffff">complete</text>
+  <text x="610" y="112" text-anchor="middle" font-family="system-ui, sans-serif" font-size="7" fill="#64748b">$0.04 total</text>
+
+  <rect x="40" y="136" width="640" height="160" rx="8" fill="#1e293b"/>
+  <rect x="40" y="136" width="640" height="24" rx="8" fill="#334155"/>
+  <text x="360" y="152" text-anchor="middle" font-family="ui-monospace, monospace" font-size="9" fill="#94a3b8">research_trace.jsonl</text>
+  <text x="56" y="176" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">{&quot;event&quot;: &quot;node_start&quot;, &quot;node&quot;: &quot;plan&quot;, &quot;thread_id&quot;: &quot;job-88&quot;}</text>
+  <text x="56" y="192" font-family="ui-monospace, monospace" font-size="8" fill="#38bdf8">{&quot;event&quot;: &quot;llm_call&quot;, &quot;tokens_in&quot;: 820, &quot;cost_usd&quot;: 0.0002}</text>
+  <text x="56" y="208" font-family="ui-monospace, monospace" font-size="8" fill="#fbbf24">{&quot;event&quot;: &quot;tool_call&quot;, &quot;tool&quot;: &quot;web_search&quot;, &quot;latency_ms&quot;: 890}</text>
+  <text x="56" y="224" font-family="ui-monospace, monospace" font-size="8" fill="#fbbf24">{&quot;event&quot;: &quot;reflect&quot;, &quot;coverage_score&quot;: 0.55, &quot;should_continue&quot;: true}</text>
+  <text x="56" y="240" font-family="ui-monospace, monospace" font-size="8" fill="#f87171">{&quot;event&quot;: &quot;hitl_interrupt&quot;, &quot;tool&quot;: &quot;fetch_url&quot;, &quot;decision&quot;: &quot;approved&quot;}</text>
+  <text x="56" y="256" font-family="ui-monospace, monospace" font-size="8" fill="#22c55e">{&quot;event&quot;: &quot;run_complete&quot;, &quot;total_cost_usd&quot;: 0.04, &quot;tool_rounds&quot;: 4}</text>
+
+  <text x="360" y="308" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Debug wrong answers: see which tool was skipped and why reflection did not re-route</text>
+</svg>

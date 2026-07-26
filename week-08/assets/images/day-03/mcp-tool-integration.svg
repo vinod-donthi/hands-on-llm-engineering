@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" role="img" aria-labelledby="title desc">
+  <title id="title">MCP tools integrated in LangGraph agent</title>
+  <desc id="desc">LangGraph tool router calls MCP client which invokes MCP server tools for web search, RSS lookup, and GitHub search.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="720" height="300" fill="#fafafa"/>
+  <text x="360" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#1a1a1a">MCP tool integration in AI Radar</text>
+  <text x="360" y="42" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">Graph never imports PyGithub directly -- only MCP adapter changes</text>
+
+  <rect x="40" y="70" width="140" height="56" rx="8" fill="#fff7ed" stroke="#ea580c"/>
+  <text x="110" y="94" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#9a3412">LangGraph</text>
+  <text x="110" y="112" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">tool_router node</text>
+
+  <line x1="180" y1="98" x2="208" y2="98" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="216" y="70" width="120" height="56" rx="8" fill="#eff6ff" stroke="#2563eb"/>
+  <text x="276" y="94" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#1d4ed8">MCP client</text>
+  <text x="276" y="112" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">tool schema invoke</text>
+
+  <line x1="336" y1="98" x2="364" y2="98" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="372" y="58" width="160" height="80" rx="8" fill="#f1f5f9" stroke="#64748b"/>
+  <text x="452" y="78" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#475569">MCP server</text>
+  <text x="452" y="96" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">API keys in server env</text>
+  <text x="452" y="110" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">rate limit per tool</text>
+  <text x="452" y="124" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">Pydantic input validation</text>
+
+  <line x1="452" y1="138" x2="452" y2="162" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="80" y="166" width="160" height="44" rx="6" fill="#f0fdf4" stroke="#22c55e"/>
+  <text x="160" y="186" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#166534">web_search</text>
+  <text x="160" y="200" text-anchor="middle" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">{query: string}</text>
+
+  <rect x="280" y="166" width="160" height="44" rx="6" fill="#f0fdf4" stroke="#22c55e"/>
+  <text x="360" y="186" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#166534">rss_lookup</text>
+  <text x="360" y="200" text-anchor="middle" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">{feed_id, limit}</text>
+
+  <rect x="480" y="166" width="160" height="44" rx="6" fill="#f0fdf4" stroke="#22c55e"/>
+  <text x="560" y="186" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#166534">github_search</text>
+  <text x="560" y="200" text-anchor="middle" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">{q, sort}</text>
+
+  <rect x="40" y="232" width="640" height="52" rx="4" fill="#1e293b"/>
+  <text x="56" y="252" font-family="ui-monospace, monospace" font-size="8" fill="#38bdf8">github_search({&quot;q&quot;: &quot;topic:agents stars:&gt;100&quot;})</text>
+  <text x="56" y="268" font-family="ui-monospace, monospace" font-size="8" fill="#22c55e">-&gt; [{name, stars, url}] -- trace in mcp_tool_trace.json</text>
+
+  <text x="360" y="294" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Swap search provider by changing MCP server -- graph stays the same</text>
+</svg>

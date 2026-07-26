@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 280" role="img" aria-labelledby="title desc">
+  <title id="title">Agent trajectory scoring with tool sequence</title>
+  <desc id="desc">Timeline comparing expected tool sequence against actual trajectory with pass and fail scoring.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#64748b"/>
+    </marker>
+    <marker id="arrowGreen" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#16a34a"/>
+    </marker>
+    <marker id="arrowRed" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#ef4444"/>
+    </marker>
+  </defs>
+  <rect width="720" height="280" fill="#fafafa"/>
+  <text x="360" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#1a1a1a">Agent trajectory eval -- right steps, not just right answer</text>
+  <text x="360" y="42" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">Correct answer via wrong tool path is fragile</text>
+
+  <text x="56" y="68" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#166534">Expected trajectory (PASS)</text>
+  <rect x="56" y="78" width="100" height="32" rx="4" fill="#dcfce7" stroke="#16a34a"/>
+  <text x="106" y="98" text-anchor="middle" font-family="ui-monospace, monospace" font-size="8" fill="#166534">check_calendar</text>
+  <line x1="160" y1="94" x2="184" y2="94" stroke="#16a34a" stroke-width="1.5" marker-end="url(#arrowGreen)"/>
+  <rect x="188" y="78" width="80" height="32" rx="4" fill="#dcfce7" stroke="#16a34a"/>
+  <text x="228" y="98" text-anchor="middle" font-family="ui-monospace, monospace" font-size="8" fill="#166534">book_room</text>
+  <line x1="272" y1="94" x2="296" y2="94" stroke="#16a34a" stroke-width="1.5" marker-end="url(#arrowGreen)"/>
+  <rect x="300" y="78" width="80" height="32" rx="4" fill="#dcfce7" stroke="#16a34a"/>
+  <text x="340" y="98" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#166534">answer</text>
+  <text x="420" y="98" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">2 tools, 1.2s</text>
+
+  <text x="56" y="138" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#dc2626">Actual trajectory (FAIL)</text>
+  <rect x="56" y="148" width="88" height="32" rx="4" fill="#fee2e2" stroke="#ef4444"/>
+  <text x="100" y="168" text-anchor="middle" font-family="ui-monospace, monospace" font-size="8" fill="#dc2626">search_docs x3</text>
+  <line x1="148" y1="164" x2="172" y2="164" stroke="#ef4444" stroke-width="1.5" marker-end="url(#arrowRed)"/>
+  <rect x="176" y="148" width="80" height="32" rx="4" fill="#fee2e2" stroke="#ef4444"/>
+  <text x="216" y="168" text-anchor="middle" font-family="ui-monospace, monospace" font-size="8" fill="#dc2626">send_email</text>
+  <line x1="260" y1="164" x2="284" y2="164" stroke="#ef4444" stroke-width="1.5" marker-end="url(#arrowRed)"/>
+  <rect x="288" y="148" width="80" height="32" rx="4" fill="#dcfce7" stroke="#16a34a"/>
+  <text x="328" y="168" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#166534">answer</text>
+  <text x="420" y="168" font-family="system-ui, sans-serif" font-size="8" fill="#ef4444">forbidden tool used</text>
+
+  <rect x="40" y="200" width="640" height="56" rx="8" fill="#f8fafc" stroke="#e2e8f0"/>
+  <text x="56" y="220" font-family="system-ui, sans-serif" font-size="9" font-weight="600" fill="#475569">Scoring checks</text>
+  <text x="56" y="238" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">Tool sequence match</text>
+  <text x="180" y="238" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">Forbidden tools absent</text>
+  <text x="320" y="238" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">Max tool calls &lt;= 4</text>
+  <text x="460" y="238" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">Outcome contains expected text</text>
+  <text x="56" y="252" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">agent_t003: trajectory_score=0.25 outcome_score=1.0 -- FAIL overall</text>
+
+  <text x="360" y="272" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Golden trajectories in eval/ -- assert tool order, not just final string</text>
+</svg>

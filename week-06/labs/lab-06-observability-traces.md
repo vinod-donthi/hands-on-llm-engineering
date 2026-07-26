@@ -10,6 +10,10 @@
 
 When it works: Langfuse project shows eval run traces with faithfulness scores and span hierarchy.
 
+![Expected Langfuse UI showing eval_run traces with faithfulness scores and span hierarchy](../assets/images/labs/lab-06-langfuse-traces.svg)
+
+*Figure: Lab 6 deliverable (optional) — eval runs visible in Langfuse with @observe and score_current_trace.*
+
 ---
 
 ## Task

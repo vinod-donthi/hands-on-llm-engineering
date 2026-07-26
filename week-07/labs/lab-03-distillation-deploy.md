@@ -8,6 +8,10 @@
 
 **Goal:** Benchmark teacher (cloud) vs student (Ollama 3B) on latency, cost, quality.
 
+![distillation_benchmark.json comparing teacher and student latency cost and ROUGE-L](../assets/images/labs/lab-03-distillation-benchmark.svg)
+
+*Figure: Distilled student closes most of the quality gap — router recommendation included in deliverable.*
+
 ---
 
 ## Task

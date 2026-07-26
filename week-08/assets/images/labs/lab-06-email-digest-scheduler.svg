@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 320" role="img" aria-labelledby="title desc">
+  <title id="title">Lab 6 email digest preview mockup</title>
+  <desc id="desc">HTML digest preview with headline summary, model sections, GitHub highlights, and footer link to dashboard.</desc>
+  <rect width="720" height="320" fill="#fafafa"/>
+  <text x="360" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#1a1a1a">Lab 6: expected digest_preview.html</text>
+  <text x="360" y="42" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">run_digest job -- DIGEST_CRON 0 7 * * *</text>
+
+  <rect x="80" y="58" width="560" height="240" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+  <rect x="80" y="58" width="560" height="48" rx="8" fill="#1e293b"/>
+  <text x="360" y="82" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#f8fafc">AI Radar Daily Digest</text>
+  <text x="360" y="98" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#94a3b8">July 25, 2026 -- last 24 hours</text>
+
+  <text x="96" y="128" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#475569">Headline summary</text>
+  <text x="96" y="144" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Three major model releases and two trending agent repos...</text>
+  <rect x="96" y="152" width="528" height="4" rx="2" fill="#e2e8f0"/>
+  <rect x="96" y="152" width="380" height="4" rx="2" fill="#cbd5e1"/>
+
+  <text x="96" y="176" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#1d4ed8">New models and tools</text>
+  <text x="96" y="192" font-family="system-ui, sans-serif" font-size="9" fill="#2563eb">GPT-4.1 Mini release (openai.com)</text>
+  <text x="96" y="206" font-family="system-ui, sans-serif" font-size="9" fill="#2563eb">Claude 3.5 update (anthropic.com)</text>
+
+  <text x="96" y="228" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#166534">GitHub highlights</text>
+  <text x="96" y="244" font-family="system-ui, sans-serif" font-size="9" fill="#16a34a">agent-kit -- 2.1k stars (github.com)</text>
+
+  <rect x="96" y="256" width="528" height="28" rx="4" fill="#f8fafc" stroke="#e2e8f0"/>
+  <text x="360" y="274" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">View full dashboard at localhost:3000</text>
+
+  <text x="360" y="312" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Deliverable: HTML renders with 3+ external links -- Celery Beat registered</text>
+</svg>

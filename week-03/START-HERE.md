@@ -34,6 +34,10 @@ Place 5–10 PDFs or Markdown files in `~/ai-learning/week-03-work/data/document
 | **Learning path** | `Learning/week-03/` | Read playbooks, theory, lab specs |
 | **Work path** | `week-03-work/` or `~/ai-learning/week-03-work/` | Python, deliverables, `doc-qa-studio/` |
 
+![Learning path vs work path — two folders, do not mix them](assets/images/project/start-here-two-paths.svg)
+
+*Figure: Read curriculum in `week-03/`; code and secrets live in `week-03-work/` only.*
+
 ---
 
 ## 3. Every study session

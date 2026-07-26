@@ -10,6 +10,10 @@
 
 When it works: green pytest output in <3 minutes; failures show which golden ID broke.
 
+![Expected pytest -v output with DeepEval faithfulness and GEval tests passing](../assets/images/labs/lab-02-deepeval-pytest-output.svg)
+
+*Figure: Lab 2 deliverable — pytest suite with faithfulness and custom GEval thresholds.*
+
 ---
 
 ## Task

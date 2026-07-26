@@ -32,6 +32,10 @@ Optional: copy Week 3 retrieval helpers as a head start (see [README](README.md#
 | **Learning path** | `Learning/week-04/` | Read playbooks, theory, lab specs |
 | **Work path** | `week-04-work/` or `~/ai-learning/week-04-work/` | Python, deliverables, `research-agent-studio/` |
 
+![Learning path vs work path — two folders, do not mix them](assets/images/project/start-here-two-paths.svg)
+
+*Figure: Read curriculum in `week-04/`; code and secrets live in `week-04-work/`.*
+
 ---
 
 ## 3. Every study session

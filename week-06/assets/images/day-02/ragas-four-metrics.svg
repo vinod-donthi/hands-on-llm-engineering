@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" role="img" aria-labelledby="title desc">
+  <title id="title">RAGAS four metrics and fix levers</title>
+  <desc id="desc">Four quadrants showing faithfulness, context precision, context recall, and answer relevancy with their fix levers.</desc>
+  <rect width="720" height="300" fill="#fafafa"/>
+  <text x="360" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#1a1a1a">RAGAS four metrics -- per-layer signals</text>
+  <text x="360" y="42" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">One aggregate score cannot separate retrieval vs generation failures</text>
+
+  <rect x="40" y="58" width="310" height="100" rx="8" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="56" y="80" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#1d4ed8">Faithfulness</text>
+  <text x="56" y="98" font-family="system-ui, sans-serif" font-size="9" fill="#475569">Is the answer grounded in context?</text>
+  <text x="56" y="118" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Fix: prompt, model, temperature</text>
+  <text x="56" y="140" font-family="ui-monospace, monospace" font-size="8" fill="#16a34a">Example: 0.91 -- stipend $500 cited</text>
+
+  <rect x="370" y="58" width="310" height="100" rx="8" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="386" y="80" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#166534">Context precision</text>
+  <text x="386" y="98" font-family="system-ui, sans-serif" font-size="9" fill="#475569">Are retrieved chunks on-topic?</text>
+  <text x="386" y="118" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Fix: reranker, top-k, hybrid weights</text>
+  <text x="386" y="140" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">Low noise = high precision</text>
+
+  <rect x="40" y="172" width="310" height="100" rx="8" fill="#fff7ed" stroke="#ea580c" stroke-width="1.5"/>
+  <text x="56" y="194" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#9a3412">Context recall</text>
+  <text x="56" y="212" font-family="system-ui, sans-serif" font-size="9" fill="#475569">Did retrieval find ground-truth info?</text>
+  <text x="56" y="232" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Fix: chunk size, embeddings, BM25</text>
+  <text x="56" y="254" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">Missed paragraph = low recall</text>
+
+  <rect x="370" y="172" width="310" height="100" rx="8" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
+  <text x="386" y="194" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#475569">Answer relevancy</text>
+  <text x="386" y="212" font-family="system-ui, sans-serif" font-size="9" fill="#475569">Does the answer address the question?</text>
+  <text x="386" y="232" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Fix: prompt, max tokens</text>
+  <text x="386" y="254" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">Verbose off-topic = low relevancy</text>
+
+  <text x="360" y="292" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Week 6 CI gate pins faithfulness; tune other metrics when that layer fails</text>
+</svg>

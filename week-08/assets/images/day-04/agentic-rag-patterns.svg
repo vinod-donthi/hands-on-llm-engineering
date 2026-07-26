@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 340" role="img" aria-labelledby="title desc">
+  <title id="title">Agentic RAG query decision path</title>
+  <desc id="desc">User query goes through plan, optional MCP search, retrieval, critique loop, and synthesis with citations instead of always retrieving.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="720" height="340" fill="#fafafa"/>
+  <text x="360" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#1a1a1a">Agentic RAG vs static RAG</text>
+  <text x="360" y="42" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">Agent decides whether, when, and how to retrieve</text>
+
+  <rect x="40" y="58" width="300" height="88" rx="8" fill="#fef2f2" stroke="#ef4444"/>
+  <text x="190" y="78" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#b91c1c">Weak: static RAG</text>
+  <text x="56" y="98" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">query -&gt; always top 8 -&gt; LLM answer</text>
+  <text x="56" y="114" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Fails when corpus lacks live GitHub stars</text>
+  <text x="56" y="130" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Pollutes context with irrelevant chunks</text>
+
+  <rect x="380" y="58" width="300" height="88" rx="8" fill="#f0fdf4" stroke="#22c55e"/>
+  <text x="530" y="78" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#166534">Strong: agentic RAG</text>
+  <text x="396" y="98" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">plan -&gt; MCP? -&gt; retrieve -&gt; critique -&gt; cite</text>
+  <text x="396" y="114" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Live data + corpus when needed</text>
+  <text x="396" y="130" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Every fact maps to [title](url)</text>
+
+  <text x="360" y="168" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#475569">Query path detail</text>
+
+  <rect x="300" y="180" width="120" height="36" rx="6" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="360" y="202" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#475569">User query</text>
+
+  <line x1="360" y1="216" x2="360" y2="236" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="300" y="240" width="120" height="36" rx="6" fill="#eff6ff" stroke="#2563eb"/>
+  <text x="360" y="262" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#1d4ed8">plan</text>
+
+  <line x1="300" y1="258" x2="180" y2="258" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="420" y1="258" x2="540" y2="258" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="60" y="240" width="120" height="36" rx="6" fill="#fff7ed" stroke="#ea580c"/>
+  <text x="120" y="262" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#9a3412">MCP search</text>
+
+  <rect x="540" y="240" width="120" height="36" rx="6" fill="#eff6ff" stroke="#2563eb"/>
+  <text x="600" y="262" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#1d4ed8">retrieve</text>
+
+  <line x1="120" y1="276" x2="120" y2="292" stroke="#64748b" stroke-width="1.5"/>
+  <line x1="600" y1="276" x2="600" y2="292" stroke="#64748b" stroke-width="1.5"/>
+  <line x1="120" y1="292" x2="600" y2="292" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="280" y="296" width="160" height="36" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="360" y="318" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#92400e">critique + synthesize</text>
+
+  <text x="680" y="200" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">digest</text>
+  <text x="680" y="212" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">RAG only</text>
+  <text x="680" y="232" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">breaking</text>
+  <text x="680" y="244" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">MCP first</text>
+</svg>

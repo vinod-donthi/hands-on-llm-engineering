@@ -24,6 +24,10 @@ Week 4 `fetch_url` fetches arbitrary URLs. Production additions:
 | **Response cap** | 32 KB max body | Memory blowup on huge HTML |
 | **Health endpoint** | `GET /health` → tool count | K8s can't probe readiness |
 
+![MCP production SSE gateway with Bearer auth, Redis rate limiter, and SSRF-safe fetch](../assets/images/day-06/mcp-production-auth-rate-limits.svg)
+
+*Figure: Same tool definitions as dev — production adds auth, 60 RPM rate limit, SSRF blocks, and health probe.*
+
 ### Transport modes
 
 | Mode | Dev | Production |

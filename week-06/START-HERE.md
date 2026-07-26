@@ -28,6 +28,10 @@ Optional: copy Week 3 golden dataset and Week 5 RAG service (see [README](README
 
 ## 2. Your two folders
 
+![Learning path vs work path — two folders, do not mix them](assets/images/project/start-here-two-paths.svg)
+
+*Figure: Read curriculum in week-06/; run code, Promptfoo, and eval-pipeline-studio in week-06-work/.*
+
 | | Where | What you do |
 |---|--------|-------------|
 | **Learning path** | `Learning/week-06/` | Read playbooks, theory, lab specs |

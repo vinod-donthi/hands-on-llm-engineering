@@ -14,6 +14,10 @@
 
 Without traces, you guess. With traces, you see: wrong tool chosen at step 3, reflection `coverage_score` skipped, doc_search never called.
 
+![Agent observability trace spans for one research run from plan through HITL to completion](../assets/images/day-07/agent-observability.svg)
+
+*Figure: Log every node, LLM call, tool invocation, reflection score, and dollar cost — one JSON line per event.*
+
 ### Worked example: one run trace
 
 `research_trace.jsonl` (one JSON object per line):

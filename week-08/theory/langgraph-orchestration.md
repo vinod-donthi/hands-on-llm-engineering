@@ -52,6 +52,10 @@ class AgentState(TypedDict):
 
 **Conditional edge:** if `critique.sufficient == False` → back to `tool_router` (max 3 loops).
 
+![LangGraph capstone flow from plan through critique loop to synthesize](../assets/images/day-03/langgraph-orchestration.svg)
+
+*Figure: Explicit nodes and conditional edges — critique loops back to `tool_router` when context is insufficient.*
+
 ### Checkpointing
 
 Sqlite saver for dev; Postgres saver for production. After crash, resume from last node — Week 4 pattern.

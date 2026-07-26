@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 320" role="img" aria-labelledby="title desc">
+  <title id="title">ReAct loop vs fixed chain for research questions</title>
+  <desc id="desc">Agent loops Reason Act Observe until done; chain runs retrieve prompt answer in fixed order.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#64748b"/>
+    </marker>
+    <marker id="arrowBlue" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#2563eb"/>
+    </marker>
+  </defs>
+  <rect width="720" height="320" fill="#fafafa"/>
+  <text x="360" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#1a1a1a">ReAct agent vs fixed chain</text>
+  <text x="360" y="42" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">Same question: compare EU AI Act with internal policy doc</text>
+
+  <rect x="40" y="58" width="300" height="220" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text x="190" y="78" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#475569">Fixed chain (Week 3 RAG)</text>
+  <rect x="80" y="92" width="220" height="32" rx="4" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="190" y="112" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#475569">1. Embed question</text>
+  <line x1="190" y1="124" x2="190" y2="136" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="80" y="140" width="220" height="32" rx="4" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="190" y="160" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#475569">2. Retrieve top-5 chunks</text>
+  <line x1="190" y1="172" x2="190" y2="184" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="80" y="188" width="220" height="32" rx="4" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="190" y="208" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#475569">3. One LLM call</text>
+  <text x="190" y="248" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#ea580c">Fails when web search needed first</text>
+  <text x="190" y="264" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">LLM never picks next step</text>
+
+  <rect x="380" y="58" width="300" height="220" rx="8" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+  <text x="530" y="78" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#1d4ed8">ReAct agent (Week 4)</text>
+  <rect x="420" y="92" width="72" height="28" rx="4" fill="#2563eb"/>
+  <text x="456" y="110" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#ffffff">Reason</text>
+  <line x1="492" y1="106" x2="508" y2="106" stroke="#2563eb" stroke-width="1.5" marker-end="url(#arrowBlue)"/>
+  <rect x="512" y="92" width="56" height="28" rx="4" fill="#2563eb"/>
+  <text x="540" y="110" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#ffffff">Act</text>
+  <line x1="568" y1="106" x2="584" y2="106" stroke="#2563eb" stroke-width="1.5" marker-end="url(#arrowBlue)"/>
+  <rect x="588" y="92" width="72" height="28" rx="4" fill="#2563eb"/>
+  <text x="624" y="110" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#ffffff">Observe</text>
+  <path d="M624,120 Q530,148 456,120" fill="none" stroke="#2563eb" stroke-width="1.5" marker-end="url(#arrowBlue)"/>
+  <text x="530" y="158" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#1d4ed8">repeat until answer complete</text>
+  <rect x="420" y="172" width="220" height="28" rx="4" fill="#f0fdf4" stroke="#16a34a"/>
+  <text x="530" y="190" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#166534">web_search then doc_search then write</text>
+  <text x="530" y="228" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">LLM decides: search again, new tool, or stop</text>
+  <text x="530" y="264" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Lab 1 logs each step to react_trace.json</text>
+
+  <text x="360" y="304" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Use a chain when steps are always the same; use an agent when the path depends on findings</text>
+</svg>

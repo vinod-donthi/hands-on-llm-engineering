@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 320" role="img" aria-labelledby="title desc">
+  <title id="title">Teacher-student model distillation pipeline</title>
+  <desc id="desc">Large teacher model generates training pairs; small student model learns to match quality at lower cost and latency.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="720" height="320" fill="#fafafa"/>
+  <text x="360" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#1a1a1a">Teacher-student distillation</text>
+  <text x="360" y="42" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">Generate labels once -- serve cheap student at scale</text>
+
+  <line x1="160" y1="120" x2="240" y2="120" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="360" y1="120" x2="440" y2="120" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="560" y1="120" x2="640" y2="120" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="520" y1="160" x2="520" y2="200" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="520" y1="248" x2="520" y2="268" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="40" y="88" width="120" height="64" rx="6" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="100" y="112" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#475569">Prompts</text>
+  <text x="100" y="130" text-anchor="middle" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">100-2K rows</text>
+
+  <rect x="240" y="76" width="120" height="88" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+  <text x="300" y="100" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#92400e">Teacher</text>
+  <text x="300" y="118" text-anchor="middle" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">GPT-4o Mini</text>
+  <text x="300" y="134" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">p95 890ms</text>
+  <text x="300" y="150" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#ea580c">$0.45 / 1K req</text>
+
+  <rect x="440" y="88" width="120" height="64" rx="6" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="500" y="112" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#475569">Pairs JSONL</text>
+  <text x="500" y="130" text-anchor="middle" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">prompt + response</text>
+
+  <rect x="440" y="200" width="160" height="48" rx="6" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+  <text x="520" y="220" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#1d4ed8">Student</text>
+  <text x="520" y="238" text-anchor="middle" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">Llama 3.2 3B (Ollama)</text>
+
+  <rect x="440" y="268" width="160" height="40" rx="6" fill="#f0fdf4" stroke="#22c55e"/>
+  <text x="520" y="286" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#166534">Production router</text>
+  <text x="520" y="300" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">80% student, 20% cloud fallback</text>
+
+  <rect x="40" y="200" width="320" height="108" rx="6" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="200" y="222" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#475569">Benchmark results (ticket summarization)</text>
+  <text x="56" y="244" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Teacher ROUGE-L: 0.78</text>
+  <text x="56" y="262" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Student prompt-only: 0.61</text>
+  <text x="56" y="280" font-family="system-ui, sans-serif" font-size="9" fill="#16a34a">Student distilled: 0.74</text>
+  <text x="56" y="298" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Student latency: 340ms vs 890ms</text>
+</svg>

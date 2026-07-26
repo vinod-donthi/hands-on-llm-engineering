@@ -8,6 +8,10 @@
 
 **Goal:** LangGraph agentic RAG beats classic single-shot RAG on multi-hop golden cases.
 
+![agentic_rag_trace.json with grade, rewrite, and citation steps per case](../assets/images/labs/lab-04-agentic-rag-trace.svg)
+
+*Figure: Trace shows each node event — agentic must beat classic RAG by +3 cases on multihop set.*
+
 ---
 
 ## Task

@@ -2,6 +2,10 @@
 
 > [← README](../README.md) · [Concepts](concepts.md)
 
+![Week 5 interview cheat sheet — health probes, Redis, semantic cache, ARQ, observability](../assets/images/project/cheat-sheet-card.svg)
+
+*Figure: One-page review — stack diagram, probe semantics, cache lookup order, and backpressure signals.*
+
 ## One-page review (30 min before interview)
 
 ### Stack at a glance

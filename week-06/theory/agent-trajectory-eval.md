@@ -28,6 +28,10 @@ Final-answer eval misses **process failures**. Trajectory eval catches them.
 
 Both matter: correct answer via wrong path is fragile and may fail on next run.
 
+![Agent trajectory scoring comparing expected tool sequence against actual trajectory with pass and fail](../assets/images/day-06/agent-trajectory-scoring.svg)
+
+*Figure: Assert tool order and forbidden tools — not just whether the final string looks correct.*
+
 ### Golden trajectory schema
 
 ```json

@@ -18,6 +18,10 @@ Aggregate faithfulness can stay flat while **behavior regresses**:
 
 Golden outputs alone miss structural changes. **Trace baselines** catch them.
 
+![Golden dataset trace regression showing changed retrieval spans despite similar final answer](../assets/images/day-04/golden-set-regression.svg)
+
+*Figure: Faithfulness can stay flat while retrieval spans change — diff traces on every nightly run.*
+
 ### Golden dataset schema (Week 6)
 
 ```json

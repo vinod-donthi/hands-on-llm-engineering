@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 280" role="img" aria-labelledby="title desc">
+  <title id="title">Lab 2 DeepEval pytest output</title>
+  <desc id="desc">Terminal showing pytest -v passing faithfulness and GEval tests in under three minutes.</desc>
+  <rect width="720" height="280" fill="#fafafa"/>
+  <text x="360" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#1a1a1a">Lab 2: expected pytest tests/test_llm_eval.py -v</text>
+  <text x="360" y="42" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">Green output in under 3 min; failures show which golden ID broke</text>
+
+  <rect x="40" y="58" width="640" height="200" rx="8" fill="#1e293b"/>
+  <rect x="40" y="58" width="640" height="28" rx="8" fill="#334155"/>
+  <circle cx="58" cy="72" r="5" fill="#ef4444"/>
+  <circle cx="74" cy="72" r="5" fill="#f59e0b"/>
+  <circle cx="90" cy="72" r="5" fill="#22c55e"/>
+  <text x="360" y="76" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#94a3b8">pytest tests/test_llm_eval.py -v -m &quot;not nightly&quot;</text>
+
+  <text x="56" y="104" font-family="ui-monospace, monospace" font-size="9" fill="#22c55e">test_stipend_faithful PASSED     [ 33%]  faithfulness=0.87</text>
+  <text x="56" y="124" font-family="ui-monospace, monospace" font-size="9" fill="#22c55e">test_pto_relevancy PASSED        [ 66%]  relevancy=0.82</text>
+  <text x="56" y="144" font-family="ui-monospace, monospace" font-size="9" fill="#22c55e">test_citation_format PASSED      [100%]  GEval score=0.91</text>
+  <text x="56" y="168" font-family="ui-monospace, monospace" font-size="9" fill="#64748b">======================== 3 passed in 98.42s ========================</text>
+  <text x="56" y="188" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">Metrics: FaithfulnessMetric(threshold=0.75) + GEval citation rubric</text>
+  <text x="56" y="204" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">Cost estimate: ~$0.15 (5 samples x gpt-4o-mini judge)</text>
+  <text x="56" y="224" font-family="ui-monospace, monospace" font-size="8" fill="#94a3b8">@pytest.mark.nightly tests skipped on PR -- run on main only</text>
+  <text x="56" y="244" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">Exit code: 0</text>
+
+  <text x="360" y="272" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Deliverable: pytest suite with faithfulness + custom GEval thresholds</text>
+</svg>

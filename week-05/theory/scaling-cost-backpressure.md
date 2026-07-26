@@ -33,6 +33,10 @@ Load balancer ──────┼─ api replica 2 ─┼── Redis (shared 
 
 API replicas stay **stateless** — session and cache in Redis. Scale API for HTTP concurrency; scale workers for job throughput.
 
+![Horizontal scaling with shared Redis, worker pool, and backpressure signals](../assets/images/day-07/scaling-backpressure.svg)
+
+*Figure: Fail fast when overloaded — queue depth, OpenAI 429, and Redis memory trigger 503 or degraded cache writes.*
+
 ### Connection pooling
 
 Each replica must not open 500 new Redis/OpenAI connections per second.

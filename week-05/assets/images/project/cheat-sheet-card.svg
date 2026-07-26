@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 320" role="img" aria-labelledby="title desc">
+  <title id="title">Week 5 interview cheat sheet quick reference</title>
+  <desc id="desc">One-page card with health probes, Redis patterns, semantic cache, ARQ queue, and observability.</desc>
+  <rect width="720" height="320" fill="#fafafa"/>
+  <text x="360" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#1a1a1a">Week 5 cheat sheet -- memorize these patterns</text>
+
+  <rect x="40" y="40" width="310" height="120" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="56" y="62" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#475569">Health probes</text>
+  <text x="56" y="80" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">/health -- process alive (restart if fail)</text>
+  <text x="56" y="96" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">/ready -- deps OK (remove from LB)</text>
+  <text x="56" y="112" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">lifespan: connect pools on startup</text>
+  <text x="56" y="128" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">middleware: RequestID outermost</text>
+  <text x="56" y="144" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Drain in-flight on SIGTERM</text>
+
+  <rect x="370" y="40" width="310" height="120" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="386" y="62" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#475569">Redis patterns</text>
+  <text x="386" y="80" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">cache:rag:{sha256(query)} TTL 300s</text>
+  <text x="386" y="96" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">ratelimit:{client_id}:{window}</text>
+  <text x="386" y="112" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Token bucket: burst + refill rate</text>
+  <text x="386" y="128" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">429 + Retry-After when empty</text>
+  <text x="386" y="144" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Prefix all keys -- no collisions</text>
+
+  <rect x="40" y="172" width="310" height="120" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="56" y="194" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#475569">Semantic cache + ARQ</text>
+  <text x="56" y="212" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">embed --&gt; cosine sim &gt;= 0.92</text>
+  <text x="56" y="228" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Lookup: semantic --&gt; exact --&gt; RAG</text>
+  <text x="56" y="244" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">POST /jobs/rag --&gt; 202 job_id</text>
+  <text x="56" y="258" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">worker --&gt; Redis job:{id}:result</text>
+  <text x="56" y="274" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Idempotent retries on job_id</text>
+
+  <rect x="370" y="172" width="310" height="120" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="386" y="194" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#475569">Observability + scale</text>
+  <text x="386" y="212" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">OTEL spans + Langfuse LLM fields</text>
+  <text x="386" y="228" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Stateless API -- session in Redis</text>
+  <text x="386" y="244" font-family="system-ui, sans-serif" font-size="9" fill="#ea580c">Backpressure: queue depth &gt; 100</text>
+  <text x="386" y="258" font-family="system-ui, sans-serif" font-size="9" fill="#ea580c">Cost cap per request + per user/day</text>
+  <text x="386" y="274" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Compose --&gt; Azure Container Apps</text>
+
+  <text x="360" y="310" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Stack: Client --&gt; FastAPI --&gt; Redis --&gt; Worker --&gt; OpenAI + Langfuse</text>
+</svg>

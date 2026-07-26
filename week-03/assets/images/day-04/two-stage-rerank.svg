@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 240" role="img" aria-labelledby="title desc">
+  <title id="title">Two-stage retrieve then rerank pipeline</title>
+  <desc id="desc">Hybrid search returns top-20 candidates; cross-encoder reranks to top-5 for LLM context.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="720" height="240" fill="#fafafa"/>
+  <text x="360" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#1a1a1a">Two-stage retrieve then rerank</text>
+  <text x="360" y="42" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">Fast bi-encoder recall -- precise cross-encoder ordering</text>
+
+  <rect x="40" y="68" width="100" height="40" rx="6" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="90" y="92" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#1a1a1a">Query</text>
+
+  <line x1="140" y1="88" x2="156" y2="88" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="160" y="58" width="120" height="60" rx="6" fill="#eff6ff" stroke="#2563eb"/>
+  <text x="220" y="78" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" font-weight="600" fill="#1d4ed8">Stage 1</text>
+  <text x="220" y="94" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">Hybrid top-20</text>
+  <text x="220" y="108" text-anchor="middle" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">~40 ms</text>
+
+  <line x1="280" y1="88" x2="296" y2="88" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="300" y="58" width="120" height="60" rx="6" fill="#fff7ed" stroke="#ea580c" stroke-width="2"/>
+  <text x="360" y="78" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" font-weight="600" fill="#9a3412">Stage 2</text>
+  <text x="360" y="94" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">Cross-encoder</text>
+  <text x="360" y="108" text-anchor="middle" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">~180 ms</text>
+
+  <line x1="420" y1="88" x2="436" y2="88" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="440" y="58" width="100" height="60" rx="6" fill="#f0fdf4" stroke="#16a34a"/>
+  <text x="490" y="78" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" font-weight="600" fill="#166534">Top-5</text>
+  <text x="490" y="94" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">to LLM context</text>
+  <text x="490" y="108" text-anchor="middle" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">2000 tok max</text>
+
+  <rect x="40" y="140" width="640" height="80" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="56" y="162" font-family="system-ui, sans-serif" font-size="9" font-weight="600" fill="#475569">Rank flip example: equipment stipend query</text>
+  <text x="56" y="180" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">RRF #1: core hours 10am-3pm (cross-encoder 0.31)</text>
+  <text x="56" y="196" font-family="ui-monospace, monospace" font-size="8" fill="#16a34a">RRF #2: Equipment stipend $500 (cross-encoder 0.94) -- moves to #1 after rerank</text>
+  <text x="56" y="212" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Rerank adds ~15% latency but cuts wrong-context answers</text>
+</svg>

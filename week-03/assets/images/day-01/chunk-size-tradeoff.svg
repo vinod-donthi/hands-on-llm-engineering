@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" role="img" aria-labelledby="title desc">
+  <title id="title">Chunk size tradeoff between precision and recall</title>
+  <desc id="desc">Line chart showing recall rising and precision peaking around 512 tokens as chunk size increases; Week 3 default highlighted.</desc>
+  <rect width="720" height="300" fill="#fafafa"/>
+  <text x="360" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#1a1a1a">Chunk size tradeoff</text>
+  <text x="360" y="44" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">Smaller chunks = precise retrieval; larger chunks = complete thoughts</text>
+
+  <!-- Chart frame -->
+  <rect x="80" y="62" width="560" height="200" rx="6" fill="#ffffff" stroke="#cbd5e1"/>
+  <rect x="80" y="62" width="560" height="28" rx="6" fill="#f1f5f9"/>
+  <text x="360" y="80" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Metric score by chunk size (illustrative %)</text>
+
+  <!-- Y-axis gridlines: plot baseline y=232, top y=98 (134px = 100%) -->
+  <line x1="100" y1="232" x2="620" y2="232" stroke="#94a3b8" stroke-width="1.5"/>
+  <line x1="100" y1="198" x2="620" y2="198" stroke="#e2e8f0" stroke-width="1"/>
+  <line x1="100" y1="164" x2="620" y2="164" stroke="#e2e8f0" stroke-width="1"/>
+  <line x1="100" y1="130" x2="620" y2="130" stroke="#e2e8f0" stroke-width="1"/>
+  <line x1="100" y1="96" x2="620" y2="96" stroke="#e2e8f0" stroke-width="1"/>
+  <line x1="100" y1="62" x2="100" y2="232" stroke="#94a3b8" stroke-width="1.5"/>
+
+  <text x="92" y="236" text-anchor="end" font-family="system-ui, sans-serif" font-size="9" fill="#94a3b8">0</text>
+  <text x="92" y="202" text-anchor="end" font-family="system-ui, sans-serif" font-size="9" fill="#94a3b8">25</text>
+  <text x="92" y="168" text-anchor="end" font-family="system-ui, sans-serif" font-size="9" fill="#94a3b8">50</text>
+  <text x="92" y="134" text-anchor="end" font-family="system-ui, sans-serif" font-size="9" fill="#94a3b8">75</text>
+  <text x="92" y="100" text-anchor="end" font-family="system-ui, sans-serif" font-size="9" fill="#94a3b8">100</text>
+
+  <!-- Week 3 default highlight band at 512 -->
+  <rect x="328" y="90" width="64" height="142" rx="4" fill="#eff6ff" stroke="#2563eb" stroke-width="1" stroke-dasharray="4 3"/>
+  <text x="360" y="108" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" font-weight="600" fill="#2563eb">512 default</text>
+
+  <!-- Recall line (blue, rises) -->
+  <polyline points="130,134.1 230,125.9 360,116.4 490,112.3 590,109.6" fill="none" stroke="#2563eb" stroke-width="2.5" stroke-linejoin="round"/>
+  <circle cx="130" cy="134.1" r="4" fill="#2563eb"/>
+  <circle cx="230" cy="125.9" r="4" fill="#2563eb"/>
+  <circle cx="360" cy="116.4" r="5" fill="#2563eb" stroke="#ffffff" stroke-width="1.5"/>
+  <circle cx="490" cy="112.3" r="4" fill="#2563eb"/>
+  <circle cx="590" cy="109.6" r="4" fill="#2563eb"/>
+
+  <!-- Precision line (orange, peaks at 512) -->
+  <polyline points="130,170.8 230,147.7 360,131.4 490,139.5 590,157.2" fill="none" stroke="#ea580c" stroke-width="2.5" stroke-linejoin="round"/>
+  <circle cx="130" cy="170.8" r="4" fill="#ea580c"/>
+  <circle cx="230" cy="147.7" r="4" fill="#ea580c"/>
+  <circle cx="360" cy="131.4" r="5" fill="#ea580c" stroke="#ffffff" stroke-width="1.5"/>
+  <circle cx="490" cy="139.5" r="4" fill="#ea580c"/>
+  <circle cx="590" cy="157.2" r="4" fill="#ea580c"/>
+
+  <!-- Value labels at sweet spot only -->
+  <text x="374" y="112" font-family="system-ui, sans-serif" font-size="9" font-weight="600" fill="#2563eb">85%</text>
+  <text x="374" y="126" font-family="system-ui, sans-serif" font-size="9" font-weight="600" fill="#ea580c">74%</text>
+
+  <!-- X-axis category labels (below baseline, inside frame) -->
+  <text x="130" y="248" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">128</text>
+  <text x="230" y="248" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">256</text>
+  <text x="360" y="248" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" font-weight="600" fill="#2563eb">512</text>
+  <text x="490" y="248" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">1024</text>
+  <text x="590" y="248" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">2048</text>
+  <text x="360" y="262" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">tokens per chunk</text>
+
+  <!-- Legend below chart frame -->
+  <rect x="220" y="272" width="12" height="12" rx="2" fill="#2563eb"/>
+  <text x="238" y="282" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">Recall (rises with chunk size)</text>
+  <rect x="420" y="272" width="12" height="12" rx="2" fill="#ea580c"/>
+  <text x="438" y="282" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">Precision (peaks mid-size)</text>
+
+  <text x="360" y="296" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Week 3 default: 512 tokens + 64 overlap -- add parent-child for search vs context split</text>
+</svg>

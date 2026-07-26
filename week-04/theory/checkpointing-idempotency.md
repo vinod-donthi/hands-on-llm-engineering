@@ -14,6 +14,10 @@ A 12-step research run fails at step 11 (OOM, timeout, laptop sleep). Without ch
 
 With checkpoints + idempotent tools, step 11 continues from saved state.
 
+![Checkpoint resume after crash at step 4 using same thread_id without redoing prior searches](../assets/images/day-06/checkpointing-idempotency.svg)
+
+*Figure: SQLite checkpoints save state per node — same thread_id resumes from last saved step.*
+
 ### Worked example: resume after crash
 
 **Run:** `thread_id = "research-job-88"`

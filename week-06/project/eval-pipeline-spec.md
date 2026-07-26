@@ -4,6 +4,10 @@
 
 Defines report schemas, layer orchestration, and regression rules for **Eval Pipeline Studio**.
 
+![Eval Pipeline Studio architecture showing suite layers, eval runner, and data stores](../assets/images/project/eval-pipeline-studio-architecture.svg)
+
+*Figure: Suite definitions (fast, full, security, agent) map to the layered pipeline orchestrated by eval_runner.py.*
+
 ## Suite definitions
 
 | Suite | Layers | Max duration | Max cost |

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 320" role="img" aria-labelledby="title desc">
+  <title id="title">FastAPI middleware stack order</title>
+  <desc id="desc">Request flows through RequestID, Logging, RateLimit, and CostCap middleware before the route handler.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="720" height="320" fill="#fafafa"/>
+  <text x="360" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#1a1a1a">FastAPI middleware stack (order matters)</text>
+  <text x="360" y="42" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">Outermost runs first on the way in, last on the way out</text>
+
+  <line x1="360" y1="52" x2="360" y2="68" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="220" y="70" width="280" height="32" rx="6" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="360" y="90" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#475569">HTTP Request</text>
+
+  <line x1="360" y1="102" x2="360" y2="118" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="220" y="120" width="280" height="32" rx="6" fill="#eff6ff" stroke="#2563eb"/>
+  <text x="360" y="140" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#1d4ed8">RequestID</text>
+
+  <line x1="360" y1="152" x2="360" y2="168" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="220" y="170" width="280" height="32" rx="6" fill="#eff6ff" stroke="#2563eb"/>
+  <text x="360" y="190" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#1d4ed8">Logging (structlog JSON)</text>
+
+  <line x1="360" y1="202" x2="360" y2="218" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="220" y="220" width="280" height="32" rx="6" fill="#fff7ed" stroke="#ea580c"/>
+  <text x="360" y="240" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#9a3412">RateLimit (Redis token bucket)</text>
+
+  <line x1="360" y1="252" x2="360" y2="268" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="220" y="270" width="280" height="32" rx="6" fill="#fff7ed" stroke="#ea580c"/>
+  <text x="360" y="290" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#9a3412">CostCap (estimate before LLM)</text>
+
+  <line x1="360" y1="302" x2="360" y2="318" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="520" y="120" width="160" height="120" rx="8" fill="#f0fdf4" stroke="#16a34a"/>
+  <text x="600" y="142" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#166534">Route handler</text>
+  <text x="600" y="162" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">/health /ready</text>
+  <text x="600" y="178" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">/api/v1/rag/query</text>
+  <text x="600" y="200" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">lifespan: Redis pool</text>
+  <text x="600" y="220" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">app.state connections</text>
+
+  <line x1="500" y1="180" x2="520" y2="180" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="600" y1="240" x2="600" y2="268" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="520" y="270" width="160" height="32" rx="6" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="600" y="290" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#475569">Response (reverse order)</text>
+
+  <text x="80" y="140" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">/health</text>
+  <text x="80" y="156" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">always 200</text>
+  <text x="80" y="180" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">/ready</text>
+  <text x="80" y="196" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Redis + Qdrant ping</text>
+</svg>

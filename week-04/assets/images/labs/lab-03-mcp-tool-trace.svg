@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" role="img" aria-labelledby="title desc">
+  <title id="title">Lab 3 MCP server tool discovery and call trace</title>
+  <desc id="desc">LangGraph client lists tools from research-tools MCP server then calls web_search with trace output.</desc>
+  <rect width="720" height="300" fill="#fafafa"/>
+  <text x="360" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#1a1a1a">Lab 3: expected mcp_tool_trace.json</text>
+  <text x="360" y="42" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">Standalone MCP server -- agent discovers and calls tools at runtime</text>
+
+  <rect x="40" y="58" width="640" height="220" rx="8" fill="#1e293b"/>
+  <rect x="40" y="58" width="640" height="28" rx="8" fill="#334155"/>
+  <circle cx="58" cy="72" r="5" fill="#ef4444"/>
+  <circle cx="74" cy="72" r="5" fill="#f59e0b"/>
+  <circle cx="90" cy="72" r="5" fill="#22c55e"/>
+  <text x="360" y="76" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#94a3b8">python lab03_mcp_server.py</text>
+
+  <text x="56" y="104" font-family="ui-monospace, monospace" font-size="9" fill="#64748b">Starting research_mcp_server.py (stdio)...</text>
+  <text x="56" y="124" font-family="ui-monospace, monospace" font-size="9" fill="#38bdf8">list_tools() -- 2 tools: web_search, fetch_url</text>
+  <text x="56" y="144" font-family="ui-monospace, monospace" font-size="9" fill="#fbbf24">call_tool(&quot;web_search&quot;, {query: &quot;EU AI Act fines&quot;, max_results: 5})</text>
+  <text x="56" y="164" font-family="ui-monospace, monospace" font-size="9" fill="#22c55e">result: 5 snippets from Tavily (890ms)</text>
+  <text x="56" y="184" font-family="ui-monospace, monospace" font-size="9" fill="#f87171">fetch_url blocked: private IP 192.168.x.x (security check ok)</text>
+  <text x="56" y="208" font-family="ui-monospace, monospace" font-size="9" fill="#64748b">Wrote mcp_tool_trace.json</text>
+
+  <rect x="56" y="220" width="608" height="48" rx="4" fill="#0f172a"/>
+  <text x="72" y="240" font-family="ui-monospace, monospace" font-size="8" fill="#94a3b8">{ &quot;event&quot;: &quot;list_tools&quot;, &quot;count&quot;: 2, &quot;server&quot;: &quot;research-tools&quot; }</text>
+  <text x="72" y="256" font-family="ui-monospace, monospace" font-size="8" fill="#94a3b8">{ &quot;event&quot;: &quot;call_tool&quot;, &quot;tool&quot;: &quot;web_search&quot;, &quot;latency_ms&quot;: 890 }</text>
+
+  <text x="360" y="292" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Deliverable: MCP server exposes tools; LangGraph agent calls them via stdio client</text>
+</svg>

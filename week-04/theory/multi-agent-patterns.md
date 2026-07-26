@@ -14,6 +14,10 @@ A single agent with 12 tools and a 2,000-token system prompt confuses the model:
 
 Specialists narrow the tool surface; a coordinator handles routing.
 
+![Multi-agent supervisor routing to Web Researcher and Document Analyst specialists](../assets/images/day-06/multi-agent-patterns.svg)
+
+*Figure: Supervisor coordinates specialists — each has a narrow tool set; findings merge in parent state.*
+
 ### Worked example: supervisor routing
 
 **User:** *"Compare public reaction to our product launch (web) with claims in our press release (doc)."*

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" role="img" aria-labelledby="title desc">
+  <title id="title">Lab 3 Promptfoo eval results</title>
+  <desc id="desc">Terminal showing promptfoo eval comparing system_v1 and system_v2 with pass fail per test case.</desc>
+  <rect width="720" height="300" fill="#fafafa"/>
+  <text x="360" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#1a1a1a">Lab 3: expected promptfoo_results.json</text>
+  <text x="360" y="42" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">10+ test cases; pass/fail per prompt variant on assertions</text>
+
+  <rect x="40" y="58" width="640" height="220" rx="8" fill="#1e293b"/>
+  <rect x="40" y="58" width="640" height="28" rx="8" fill="#334155"/>
+  <circle cx="58" cy="72" r="5" fill="#ef4444"/>
+  <circle cx="74" cy="72" r="5" fill="#f59e0b"/>
+  <circle cx="90" cy="72" r="5" fill="#22c55e"/>
+  <text x="360" y="76" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#94a3b8">promptfoo eval --output promptfoo_results.json</text>
+
+  <text x="56" y="104" font-family="ui-monospace, monospace" font-size="9" fill="#64748b">Running 12 tests x 2 prompts = 24 evals...</text>
+  <text x="56" y="124" font-family="ui-monospace, monospace" font-size="9" fill="#22c55e">system_v1: 11/12 pass (91.7%)</text>
+  <text x="56" y="144" font-family="ui-monospace, monospace" font-size="9" fill="#ef4444">system_v2:  9/12 pass (75.0%) -- REGRESSION on g009</text>
+  <text x="56" y="164" font-family="ui-monospace, monospace" font-size="9" fill="#64748b">Winner: system_v1 (do not merge v2)</text>
+
+  <rect x="56" y="176" width="608" height="88" rx="4" fill="#0f172a"/>
+  <text x="72" y="196" font-family="ui-monospace, monospace" font-size="8" fill="#94a3b8">g009 invented benefit:</text>
+  <text x="88" y="212" font-family="ui-monospace, monospace" font-size="8" fill="#22c55e">  v1 llm-rubric PASS -- grounded, no invented detail</text>
+  <text x="88" y="228" font-family="ui-monospace, monospace" font-size="8" fill="#ef4444">  v2 llm-rubric FAIL -- added internet reimbursement</text>
+  <text x="72" y="248" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">assert: type llm-rubric, value grounded in context</text>
+  <text x="72" y="260" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">Wrote promptfoo_results.json</text>
+
+  <text x="360" y="292" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Deliverable: promptfooconfig.yaml with providers, tests, and assertion exports</text>
+</svg>
