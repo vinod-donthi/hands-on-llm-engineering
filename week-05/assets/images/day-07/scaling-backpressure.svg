@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 340" role="img" aria-labelledby="title desc">
+  <title id="title">Horizontal scaling and backpressure signals</title>
+  <desc id="desc">Load balancer distributes to stateless api replicas sharing Redis with worker pool and backpressure guards.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="720" height="340" fill="#fafafa"/>
+  <text x="360" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#1a1a1a">Scaling, cost caps, and backpressure</text>
+  <text x="360" y="42" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">Fail fast with clear signals instead of slow death under load</text>
+
+  <rect x="280" y="58" width="160" height="40" rx="8" fill="#eff6ff" stroke="#2563eb"/>
+  <text x="360" y="78" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#1d4ed8">Load balancer</text>
+  <text x="360" y="92" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">400 req/min spike</text>
+
+  <line x1="300" y1="98" x2="160" y2="118" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="360" y1="98" x2="360" y2="118" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="420" y1="98" x2="560" y2="118" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="80" y="120" width="120" height="44" rx="6" fill="#eff6ff" stroke="#2563eb"/>
+  <text x="140" y="140" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#1d4ed8">api replica 1</text>
+  <text x="140" y="156" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">stateless</text>
+
+  <rect x="300" y="120" width="120" height="44" rx="6" fill="#eff6ff" stroke="#2563eb"/>
+  <text x="360" y="140" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#1d4ed8">api replica 2</text>
+  <text x="360" y="156" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">stateless</text>
+
+  <rect x="520" y="120" width="120" height="44" rx="6" fill="#eff6ff" stroke="#2563eb"/>
+  <text x="580" y="140" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#1d4ed8">api replica 3</text>
+  <text x="580" y="156" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">stateless</text>
+
+  <line x1="360" y1="164" x2="360" y2="184" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="260" y="186" width="200" height="48" rx="8" fill="#fef2f2" stroke="#dc2626"/>
+  <text x="360" y="206" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#991b1b">Redis (shared)</text>
+  <text x="360" y="224" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">cache + rate + queue + budget counters</text>
+
+  <line x1="360" y1="234" x2="360" y2="254" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="240" y="256" width="120" height="36" rx="6" fill="#f0fdf4" stroke="#16a34a"/>
+  <text x="300" y="278" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#166534">worker 1</text>
+
+  <rect x="380" y="256" width="120" height="36" rx="6" fill="#f0fdf4" stroke="#16a34a"/>
+  <text x="440" y="278" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#166534">worker 2</text>
+
+  <rect x="40" y="186" width="200" height="120" rx="8" fill="#fff7ed" stroke="#ea580c"/>
+  <text x="140" y="206" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#9a3412">Backpressure</text>
+  <text x="52" y="226" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">queue depth &gt; 100</text>
+  <text x="52" y="240" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">--&gt; 503 Retry-After: 30</text>
+  <text x="52" y="258" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">OpenAI 429 --&gt; backoff</text>
+  <text x="52" y="272" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">Redis mem &gt; 90%</text>
+  <text x="52" y="286" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">--&gt; skip semantic write</text>
+  <text x="52" y="300" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">Max 20 in-flight RAG</text>
+
+  <rect x="480" y="186" width="200" height="120" rx="8" fill="#fff7ed" stroke="#ea580c"/>
+  <text x="580" y="206" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#9a3412">Cost control</text>
+  <text x="492" y="226" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">Per request: max $0.10</text>
+  <text x="492" y="240" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">Per user/day: $5 cap</text>
+  <text x="492" y="258" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">Model routing: Haiku first</text>
+  <text x="492" y="272" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">Cache: 35% fewer LLM calls</text>
+  <text x="492" y="286" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">Connection pools per replica</text>
+  <text x="492" y="300" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">max 20 Redis connections</text>
+
+  <text x="360" y="332" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Scale API for HTTP concurrency; scale workers separately for job throughput</text>
+</svg>

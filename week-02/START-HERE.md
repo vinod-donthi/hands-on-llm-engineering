@@ -32,6 +32,10 @@ Optional: copy Week 1 provider code as a head start (see [README](README.md#migr
 | **Learning path** | `Learning/week-02/` | Read playbooks, theory, lab specs |
 | **Work path** | `week-02-work/` or `~/ai-learning/week-02-work/` | Python, deliverables, `model-benchmark-studio/` |
 
+![Learning path vs work path — two folders, do not mix them](assets/images/project/start-here-two-paths.svg)
+
+*Figure: Read curriculum in `week-02/`; write code and secrets in `week-02-work/`.*
+
 ---
 
 ## 3. Every study session

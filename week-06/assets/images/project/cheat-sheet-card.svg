@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 320" role="img" aria-labelledby="title desc">
+  <title id="title">Week 6 interview cheat sheet quick reference</title>
+  <desc id="desc">One-page card with layered eval tools, RAGAS metrics, CI gate rules, and judge calibration patterns.</desc>
+  <rect width="720" height="320" fill="#fafafa"/>
+  <text x="360" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#1a1a1a">Week 6 cheat sheet -- memorize these patterns</text>
+
+  <rect x="40" y="40" width="310" height="120" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="56" y="62" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#475569">Layered eval</text>
+  <text x="56" y="80" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">L1 DeepEval -- every PR (~$0.15)</text>
+  <text x="56" y="96" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">L2 Promptfoo -- prompt diff</text>
+  <text x="56" y="112" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">L3 RAGAS -- main/nightly</text>
+  <text x="56" y="128" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">L4 Red team -- weekly</text>
+  <text x="56" y="144" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">L5 Langfuse -- online 1-5%</text>
+
+  <rect x="370" y="40" width="310" height="120" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="386" y="62" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#475569">RAGAS metrics</text>
+  <text x="386" y="80" font-family="system-ui, sans-serif" font-size="9" fill="#16a34a">Faithfulness -- grounded in context</text>
+  <text x="386" y="96" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Context precision -- low noise</text>
+  <text x="386" y="112" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Context recall -- found truth</text>
+  <text x="386" y="128" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Answer relevancy -- on topic</text>
+  <text x="386" y="144" font-family="system-ui, sans-serif" font-size="9" fill="#ea580c">CI gate pins faithfulness</text>
+
+  <rect x="40" y="172" width="310" height="120" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="56" y="194" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#475569">CI gate + judge</text>
+  <text x="56" y="212" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Max 5% faithfulness regression</text>
+  <text x="56" y="228" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Pin baseline in eval/baseline.json</text>
+  <text x="56" y="244" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Calibrate judge: 80%+ human agree</text>
+  <text x="56" y="260" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Freeze rubric in Git</text>
+  <text x="56" y="276" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Short-circuit: L1 fail skips L3</text>
+
+  <rect x="370" y="172" width="310" height="120" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="386" y="194" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#475569">Security + agents</text>
+  <text x="386" y="212" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Red team: injection, jailbreak, PII</text>
+  <text x="386" y="228" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Trajectory: tool order, not just answer</text>
+  <text x="386" y="244" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Golden traces in eval/traces/</text>
+  <text x="386" y="260" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Span diff catches structural drift</text>
+  <text x="386" y="276" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Offline + online both required</text>
+
+  <text x="360" y="310" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Pitch: DeepEval on PR, RAGAS on main with 5% gate, Promptfoo on prompts, red team weekly, Langfuse drift</text>
+</svg>

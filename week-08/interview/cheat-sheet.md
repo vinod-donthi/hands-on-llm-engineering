@@ -8,6 +8,10 @@
 
 **AI Radar** — scheduled RSS/GitHub ingestion → pgvector corpus → LangGraph agent (MCP search + agentic RAG) → Next.js dashboard + daily email → RAGAS CI gate. Docker Compose; ~$20/week dev cost with semantic cache.
 
+![Week 8 interview cheat sheet quick reference](../assets/images/project/cheat-sheet-card.svg)
+
+*Figure: Elevator pitch, stack, and query path — fill in your metrics before capstone defense.*
+
 ---
 
 ## Stack

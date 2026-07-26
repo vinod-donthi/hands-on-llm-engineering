@@ -24,6 +24,10 @@
 **Wrong:** One model for everything at max temperature.  
 **Right:** Registry metadata + benchmark evidence per route.
 
+![Task-based model routing table for a support bot](../assets/images/day-02/task-model-routing.svg)
+
+*Figure: Route by task type — JSON extraction, replies, classification, and CI each pick a different model backed by benchmark data.*
+
 ### Decision framework
 
 ```mermaid

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" role="img" aria-labelledby="title desc">
+  <title id="title">Lab 5 HITL approval CLI prompt before fetch_url</title>
+  <desc id="desc">Graph pauses on high-risk fetch_url; CLI shows Approve Reject; checkpoint persists; run continues or skips.</desc>
+  <rect width="720" height="300" fill="#fafafa"/>
+  <text x="360" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#1a1a1a">Lab 5: expected hitl_approval_trace.json</text>
+  <text x="360" y="42" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">Graph pauses on fetch_url -- CLI Approve/Reject -- checkpoint persists</text>
+
+  <rect x="40" y="58" width="640" height="220" rx="8" fill="#1e293b"/>
+  <rect x="40" y="58" width="640" height="28" rx="8" fill="#334155"/>
+  <circle cx="58" cy="72" r="5" fill="#ef4444"/>
+  <circle cx="74" cy="72" r="5" fill="#f59e0b"/>
+  <circle cx="90" cy="72" r="5" fill="#22c55e"/>
+  <text x="360" y="76" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#94a3b8">python lab05_hitl_interrupts.py</text>
+
+  <text x="56" y="104" font-family="ui-monospace, monospace" font-size="9" fill="#64748b">[tools] pending: fetch_url(http://internal-wiki/acquisition-plan)</text>
+  <rect x="56" y="116" width="608" height="72" rx="4" fill="#fff7ed" stroke="#ea580c"/>
+  <text x="360" y="136" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#9a3412">HITL APPROVAL REQUIRED</text>
+  <text x="360" y="154" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">tool: fetch_url  |  risk: internal URL access</text>
+  <text x="360" y="172" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">[A]pprove  [R]eject  (timeout: 300s)</text>
+  <text x="56" y="208" font-family="ui-monospace, monospace" font-size="9" fill="#22c55e">User chose: Approve -- graph resumed from checkpoint</text>
+  <text x="56" y="228" font-family="ui-monospace, monospace" font-size="9" fill="#64748b">Wrote hitl_approval_trace.json (pending to approved)</text>
+
+  <rect x="56" y="236" width="608" height="32" rx="4" fill="#0f172a"/>
+  <text x="72" y="256" font-family="ui-monospace, monospace" font-size="8" fill="#94a3b8">{ &quot;status&quot;: &quot;pending&quot; } -- { &quot;status&quot;: &quot;approved&quot;, &quot;tool&quot;: &quot;fetch_url&quot;, &quot;thread_id&quot;: &quot;job-42&quot; }</text>
+
+  <text x="360" y="292" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Deliverable: high-risk tool blocked until human approves; reject path skips safely</text>
+</svg>

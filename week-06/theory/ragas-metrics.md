@@ -27,6 +27,10 @@ One number ("accuracy") cannot separate these. RAGAS gives **per-layer signals**
 | **Context recall** | Did retrieval find ground-truth info? | Chunk size, embeddings, BM25 |
 | **Answer relevancy** | Does the answer address the question? | Prompt, max tokens |
 
+![RAGAS four metrics with fix levers for faithfulness, context precision, context recall, and answer relevancy](../assets/images/day-02/ragas-four-metrics.svg)
+
+*Figure: Per-layer signals — tune retrieval when recall/precision drop; tune prompt when faithfulness drops.*
+
 ### Worked example
 
 Question: *"What is the remote work equipment stipend?"*

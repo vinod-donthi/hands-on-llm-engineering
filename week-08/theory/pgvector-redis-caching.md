@@ -30,6 +30,10 @@ Store embedding as `vector(1536)` on `chunks` table (text-embedding-3-small).
 2. Keyword: `ts_rank` or BM25 on title/body
 3. Reciprocal rank fusion (RRF) merge → top 8 to agent
 
+![pgvector hybrid retrieval and Redis semantic cache query path](../assets/images/day-02/pgvector-redis-caching.svg)
+
+*Figure: Postgres holds the corpus; Redis short-circuits paraphrased repeat queries before the agent runs.*
+
 ### Redis semantic cache
 
 | Step | Action |

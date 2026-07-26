@@ -4,6 +4,10 @@
 
 ## System diagram
 
+![Doc Q&A Studio architecture from React frontend through FastAPI RAG pipeline to Chroma and pgvector](../assets/images/project/doc-qa-studio-architecture.svg)
+
+*Figure: Index path (ingest → chunk → embed) and chat path (hybrid → rerank → assemble → LLM stream).*
+
 ```mermaid
 flowchart TB
     subgraph client [Frontend_React]

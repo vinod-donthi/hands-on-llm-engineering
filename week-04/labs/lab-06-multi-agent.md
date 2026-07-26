@@ -10,6 +10,10 @@
 
 **Goal:** Supervisor routes to Web Researcher and Document Analyst subgraphs; shared `findings` in parent state; trace shows `agent_id` per step.
 
+![Lab 6 expected multi_agent_trace.json with agent_id per supervisor handoff step](../assets/images/labs/lab-06-multi-agent-trace.svg)
+
+*Figure: Optional lab — trace shows which specialist ran each tool call.*
+
 ---
 
 ## Agents

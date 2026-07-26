@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 320" role="img" aria-labelledby="title desc">
+  <title id="title">Decision matrix for prompt, RAG, fine-tune, and bigger model</title>
+  <desc id="desc">Weighted scoring matrix comparing four architecture options for support triage use case.</desc>
+  <rect width="720" height="320" fill="#fafafa"/>
+  <text x="360" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#1a1a1a">Decision matrix -- score before you ship</text>
+  <text x="360" y="42" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">Support triage example -- weights: quality 40%, cost 25%, latency 15%, ops 10%, risk 10%</text>
+
+  <rect x="40" y="58" width="640" height="32" rx="6" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="56" y="78" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#475569">Option</text>
+  <text x="200" y="78" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#475569">Quality</text>
+  <text x="280" y="78" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#475569">Cost</text>
+  <text x="360" y="78" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#475569">Latency</text>
+  <text x="440" y="78" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#475569">Ops</text>
+  <text x="520" y="78" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#475569">Risk</text>
+  <text x="600" y="78" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#475569">Total</text>
+
+  <rect x="40" y="90" width="640" height="36" rx="0" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="56" y="112" font-family="system-ui, sans-serif" font-size="9" fill="#1a1a1a">Prompt only</text>
+  <text x="200" y="112" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">3</text>
+  <text x="280" y="112" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#16a34a">5</text>
+  <text x="360" y="112" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">4</text>
+  <text x="440" y="112" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#16a34a">5</text>
+  <text x="520" y="112" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">4</text>
+  <text x="600" y="112" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">3.85</text>
+
+  <rect x="40" y="126" width="640" height="36" rx="0" fill="#fafafa" stroke="#e2e8f0"/>
+  <text x="56" y="148" font-family="system-ui, sans-serif" font-size="9" fill="#1a1a1a">RAG over handbook</text>
+  <text x="200" y="148" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">4</text>
+  <text x="280" y="148" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">3</text>
+  <text x="360" y="148" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">3</text>
+  <text x="440" y="148" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">3</text>
+  <text x="520" y="148" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">3</text>
+  <text x="600" y="148" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">3.45</text>
+
+  <rect x="40" y="162" width="640" height="36" rx="0" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+  <text x="56" y="184" font-family="system-ui, sans-serif" font-size="9" font-weight="600" fill="#1d4ed8">LoRA fine-tune</text>
+  <text x="200" y="184" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" font-weight="600" fill="#2563eb">5</text>
+  <text x="280" y="184" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" font-weight="600" fill="#2563eb">4</text>
+  <text x="360" y="184" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" font-weight="600" fill="#2563eb">4</text>
+  <text x="440" y="184" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">2</text>
+  <text x="520" y="184" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">3</text>
+  <text x="600" y="184" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" font-weight="600" fill="#2563eb">4.15</text>
+
+  <rect x="40" y="198" width="640" height="36" rx="0" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="56" y="220" font-family="system-ui, sans-serif" font-size="9" fill="#1a1a1a">Bigger model (GPT-4o)</text>
+  <text x="200" y="220" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#16a34a">5</text>
+  <text x="280" y="220" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#ea580c">1</text>
+  <text x="360" y="220" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#ea580c">2</text>
+  <text x="440" y="220" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#16a34a">5</text>
+  <text x="520" y="220" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">4</text>
+  <text x="600" y="220" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">3.55</text>
+
+  <rect x="120" y="248" width="480" height="56" rx="6" fill="#f0fdf4" stroke="#86efac"/>
+  <text x="360" y="268" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#166534">Winner at 50K+ tickets/month: LoRA fine-tune</text>
+  <text x="360" y="286" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Docs change weekly? RAG wins. Pilot only? Bigger model for baseline.</text>
+
+  <text x="360" y="312" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Score 1-5 per dimension -- run baseline_eval.json before committing</text>
+</svg>

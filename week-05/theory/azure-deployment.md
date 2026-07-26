@@ -23,6 +23,10 @@ Your Docker Compose stack maps cleanly to **Azure Container Apps** — managed c
 
 Environment variables from `.env` → Container Apps **secrets** + **env vars** references.
 
+![Docker Compose to Azure Container Apps via ACR with managed Redis](../assets/images/day-07/azure-container-apps-deploy.svg)
+
+*Figure: Same service topology — api and worker as Container Apps, Redis as Azure Cache, secrets via secretref.*
+
 ### Deployment path (high level)
 
 ```bash

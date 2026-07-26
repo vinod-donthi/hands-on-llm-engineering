@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" role="img" aria-labelledby="title desc">
+  <title id="title">Lab 1 decision matrix JSON output</title>
+  <desc id="desc">Terminal and decision_matrix.json showing weighted scores for prompt, RAG, fine-tune, and bigger model options.</desc>
+  <rect width="720" height="300" fill="#fafafa"/>
+  <text x="360" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#1a1a1a">Lab 1: expected decision_matrix.json</text>
+  <text x="360" y="42" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">Score four options + baseline eval on 10+ golden Q&amp;A pairs</text>
+
+  <rect x="40" y="58" width="640" height="220" rx="8" fill="#1e293b"/>
+  <rect x="40" y="58" width="640" height="28" rx="8" fill="#334155"/>
+  <circle cx="58" cy="72" r="5" fill="#ef4444"/>
+  <circle cx="74" cy="72" r="5" fill="#f59e0b"/>
+  <circle cx="90" cy="72" r="5" fill="#22c55e"/>
+  <text x="360" y="76" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#94a3b8">python lab01_decision_matrix.py --use-case support_triage</text>
+
+  <text x="56" y="104" font-family="ui-monospace, monospace" font-size="9" fill="#22c55e">Baseline eval: prompt 7/10, RAG 8/10 on golden set</text>
+  <text x="56" y="124" font-family="ui-monospace, monospace" font-size="9" fill="#64748b">Scoring dimensions: quality, cost, latency, ops, risk</text>
+  <text x="56" y="148" font-family="ui-monospace, monospace" font-size="9" fill="#64748b">Wrote decision_matrix.json</text>
+
+  <rect x="56" y="160" width="608" height="104" rx="4" fill="#0f172a"/>
+  <text x="72" y="180" font-family="ui-monospace, monospace" font-size="8" fill="#94a3b8">{</text>
+  <text x="88" y="196" font-family="ui-monospace, monospace" font-size="8" fill="#38bdf8">&quot;use_case&quot;: &quot;support_triage&quot;,</text>
+  <text x="88" y="212" font-family="ui-monospace, monospace" font-size="8" fill="#38bdf8">&quot;winner&quot;: &quot;lora_finetune&quot;, &quot;weighted_total&quot;: 4.15,</text>
+  <text x="88" y="228" font-family="ui-monospace, monospace" font-size="8" fill="#16a34a">&quot;options&quot;: [prompt_only, rag, lora_finetune, bigger_model],</text>
+  <text x="88" y="244" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">&quot;baseline_eval&quot;: { &quot;prompt&quot;: 0.70, &quot;rag&quot;: 0.80 }</text>
+  <text x="72" y="260" font-family="ui-monospace, monospace" font-size="8" fill="#94a3b8">}</text>
+
+  <text x="360" y="292" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Deliverable: scored matrix + track A or B marked in progress.md</text>
+</svg>

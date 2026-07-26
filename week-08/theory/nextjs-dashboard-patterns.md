@@ -26,6 +26,10 @@ Interviewer opens `localhost:3000`. Feed shows 20 items from today's ingestion. 
 | `/query` | `POST /api/v1/radar/query` |
 | `/digest` | `GET /api/v1/digest/latest` |
 
+![Next.js dashboard with feed list, trend tags, and query panel with metrics](../assets/images/day-05/nextjs-dashboard-patterns.svg)
+
+*Figure: Feed and trends on `/` — query panel shows loading skeleton, citations, and `cost_usd` / `cache_hit` metrics.*
+
 ### UX patterns for slow LLM calls
 
 | Pattern | Use |

@@ -2,6 +2,10 @@
 
 > [← README](../README.md)
 
+![Week 2 interview cheat sheet — API diffs, metrics, tool loop, context, guardrails](../assets/images/project/cheat-sheet-card.svg)
+
+*Figure: Quick reference for interviews — memorize API differences, TTFT, and the tool loop.*
+
 ## API differences
 
 | | OpenAI | Anthropic |

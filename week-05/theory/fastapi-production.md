@@ -67,6 +67,10 @@ Sample `/ready` response when Redis is down:
 
 ### Middleware stack (order matters)
 
+![FastAPI middleware stack from RequestID through CostCap to route handler](../assets/images/day-01/fastapi-middleware-stack.svg)
+
+*Figure: Outermost middleware runs first on the way in — RequestID before rate limits so every log line shares the same ID.*
+
 Outermost runs first on the way **in**, last on the way **out**:
 
 ```

@@ -10,6 +10,10 @@
 
 When it works: `promptfoo eval` completes; JSON shows which prompt variant won on assertions.
 
+![Expected promptfoo eval results comparing system_v1 and system_v2 pass fail per case](../assets/images/labs/lab-03-promptfoo-results.svg)
+
+*Figure: Lab 3 deliverable — promptfooconfig.yaml with assertions exported to promptfoo_results.json.*
+
 ---
 
 ## Task

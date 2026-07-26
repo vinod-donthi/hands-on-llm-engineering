@@ -14,6 +14,10 @@ Raw tool JSON from models can be malformed: wrong field types, missing URLs, or 
 
 Pydantic AI treats the agent as a **typed boundary**: schemas are the contract.
 
+![Pydantic AI validation boundary rejecting malformed LLM JSON before it enters agent state](../assets/images/day-02/pydantic-ai.svg)
+
+*Figure: Raw tool JSON passes through Pydantic models — bad types and missing fields rejected before the next LLM turn.*
+
 ### Worked example: citation extractor agent
 
 **Goal:** After research, extract structured citations — not free-form markdown.

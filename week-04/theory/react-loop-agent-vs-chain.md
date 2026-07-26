@@ -16,6 +16,10 @@ A **chain** might always: (1) embed question, (2) retrieve top-5 chunks, (3) one
 
 An **agent** can plan dynamically: search web → notice gap → query doc index → reflect → write cited summary.
 
+![ReAct agent loop vs fixed retrieve-then-answer chain for the same research question](../assets/images/day-01/react-loop-agent-vs-chain.svg)
+
+*Figure: A chain always runs the same steps; an agent loops Reason → Act → Observe until the answer is complete.*
+
 ### Worked example: one ReAct turn
 
 **Question:** *"What was Anthropic's latest model release date?"*

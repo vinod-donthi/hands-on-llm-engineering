@@ -30,6 +30,10 @@ T+8500ms  GET /jobs/abc → {"status": "completed", "answer": "..."}
 
 User sees progress; API thread never blocked 8 seconds.
 
+![ARQ worker queue from API enqueue through Redis to async RAG completion](../assets/images/day-05/arq-worker-queue.svg)
+
+*Figure: API returns 202 in ~50ms; worker processes RAG off the HTTP thread while client polls job status.*
+
 ### ARQ vs Celery (Week 5 picks ARQ)
 
 | | ARQ | Celery |

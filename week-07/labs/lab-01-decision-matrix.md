@@ -16,6 +16,10 @@ source .venv/bin/activate
 
 **Goal:** Score four architecture options and establish eval baseline for Week 7 capstone.
 
+![Expected decision_matrix.json with weighted scores and baseline eval](../assets/images/labs/lab-01-decision-matrix-output.svg)
+
+*Figure: Lab output scores all four options and records baseline prompt vs RAG accuracy on golden Q&A.*
+
 ---
 
 ## Task

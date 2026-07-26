@@ -36,6 +36,10 @@ Optional: copy reusable modules from `~/ai-learning/week-03-work/` through `week
 | **Learning path** | `Learning/week-08/` | Read playbooks, theory, project specs |
 | **Work path** | `week-08-work/` or `~/ai-learning/week-08-work/` | Python, Next.js, `ai-radar/`, eval artifacts |
 
+![Week 8 learning path vs work path folder split](assets/images/project/start-here-two-paths.svg)
+
+*Figure: Read curriculum in `week-08/` — code and secrets live only in `week-08-work/`.*
+
 ---
 
 ## 3. Four phases, seven days

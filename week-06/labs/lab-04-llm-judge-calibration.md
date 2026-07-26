@@ -10,6 +10,10 @@
 
 When it works: report shows agreement rate, misclassified samples, and rubric version used.
 
+![Expected judge_calibration_report.json with agreement rate and misclassified samples](../assets/images/labs/lab-04-judge-calibration-report.svg)
+
+*Figure: Lab 4 deliverable — calibrated judge with trace baselines stored in eval/traces/baseline/.*
+
 ---
 
 ## Task

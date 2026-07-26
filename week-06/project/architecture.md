@@ -4,6 +4,10 @@
 
 ## System diagram
 
+![Eval Pipeline Studio architecture from GitHub Actions through FastAPI to RAGAS, DeepEval, Promptfoo, and Langfuse](../assets/images/project/eval-pipeline-studio-architecture.svg)
+
+*Figure: Week 6 project — layered eval orchestrated by eval_runner.py with CI gate and observability.*
+
 ```mermaid
 flowchart TB
     subgraph Dev[Developer]

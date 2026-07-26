@@ -17,6 +17,10 @@ RAGAS reports are great for baselines but awkward in CI:
 
 DeepEval bridges "ML eval" and "software engineering" — failed eval = failed build.
 
+![DeepEval pytest flow from test file through metrics to CI pass or fail blocking merge](../assets/images/day-02/deepeval-pytest-ci.svg)
+
+*Figure: L1 fast layer — pytest failures block the PR the same way unit test failures do.*
+
 ### Before / after
 
 **Before (manual script):**

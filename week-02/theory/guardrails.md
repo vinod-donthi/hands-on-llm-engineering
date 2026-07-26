@@ -22,6 +22,10 @@ Users (or attackers) send bad input. Models sometimes echo secrets or run up you
 | Request would cost $0.12, cap is $0.05 | Cost guard | HTTP 400 — "Exceeds per-request cap" |
 | Daily spend already at $5.00 budget | Daily budget | HTTP 429 — "Daily budget exceeded" |
 
+![Input and output guardrail examples with HTTP status codes](../assets/images/day-05/guardrail-block-examples.svg)
+
+*Figure: Deterministic checks before and after the LLM — empty prompt, cost cap, secret redaction.*
+
 **Prompt injection example** (user tries to override system):
 
 ```

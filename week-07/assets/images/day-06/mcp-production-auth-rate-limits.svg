@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 340" role="img" aria-labelledby="title desc">
+  <title id="title">MCP production patterns with auth and rate limits</title>
+  <desc id="desc">LangGraph agent connects through SSE gateway with Bearer auth, Redis rate limiter, SSRF-safe fetch, and health endpoint.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="720" height="340" fill="#fafafa"/>
+  <text x="360" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#1a1a1a">MCP production: auth, rate limits, health</text>
+  <text x="360" y="42" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">Week 4 stdio dev server hardened for SSE deployment</text>
+
+  <line x1="120" y1="120" x2="180" y2="120" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="300" y1="120" x2="360" y2="120" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="480" y1="120" x2="540" y2="120" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="600" y1="148" x2="600" y2="180" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="600" y1="228" x2="600" y2="260" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="40" y="88" width="80" height="64" rx="6" fill="#eff6ff" stroke="#2563eb"/>
+  <text x="80" y="112" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#1d4ed8">LangGraph</text>
+  <text x="80" y="128" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">Agent</text>
+  <text x="80" y="142" text-anchor="middle" font-family="ui-monospace, monospace" font-size="7" fill="#64748b">Bearer token</text>
+
+  <rect x="180" y="76" width="120" height="88" rx="6" fill="#fff7ed" stroke="#ea580c" stroke-width="2"/>
+  <text x="240" y="100" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" font-weight="600" fill="#9a3412">SSE Gateway</text>
+  <text x="240" y="118" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">Auth: Bearer key</text>
+  <text x="240" y="134" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">Reject missing key</text>
+  <text x="240" y="150" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">GET /health</text>
+
+  <rect x="360" y="88" width="120" height="64" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="420" y="112" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#92400e">Rate Limiter</text>
+  <text x="420" y="128" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">Redis sliding</text>
+  <text x="420" y="142" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#ea580c">60 RPM / key</text>
+
+  <rect x="540" y="88" width="120" height="64" rx="6" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="600" y="112" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#475569">MCP Server</text>
+  <text x="600" y="128" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">Tool handlers</text>
+  <text x="600" y="142" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">32 KB cap</text>
+
+  <rect x="520" y="180" width="160" height="48" rx="6" fill="#f0fdf4" stroke="#22c55e"/>
+  <text x="600" y="200" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#166534">Tavily API</text>
+  <text x="600" y="216" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">Web search tool</text>
+
+  <rect x="520" y="260" width="160" height="48" rx="6" fill="#fef2f2" stroke="#fca5a5"/>
+  <text x="600" y="280" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#991b1b">fetch_url (SSRF safe)</text>
+  <text x="600" y="296" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">Block RFC1918 + metadata IPs</text>
+
+  <rect x="40" y="180" width="440" height="128" rx="6" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="260" y="202" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#475569">Production controls checklist</text>
+  <text x="56" y="224" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Auth rejects missing key -- 401</text>
+  <text x="56" y="242" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Rate limit exceeded -- 429</text>
+  <text x="56" y="260" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">SSRF blocks private IP ranges</text>
+  <text x="56" y="278" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Response body capped at 32 KB</text>
+  <text x="56" y="296" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Health returns tool count for K8s probe</text>
+</svg>

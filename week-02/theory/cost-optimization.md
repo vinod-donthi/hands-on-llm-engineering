@@ -22,6 +22,10 @@ GPT-4o Mini (verify live pricing):
 | Output | 800 | $0.60 | $0.000480 |
 | **Total** | | | **$0.001005** |
 
+![Single request cost bars and monthly projection at 10K requests per day](../assets/images/day-05/request-cost-breakdown.svg)
+
+*Figure: One call is fractions of a cent — volume turns it into hundreds per month; local Ollama is $0 marginal.*
+
 Looks tiny — but **10,000 requests/day** ≈ **$10/day** ≈ **$300/month** from one feature.
 
 Same prompt on **Llama 3.1 8B** local: **$0** (hardware already paid for).

@@ -12,6 +12,10 @@ A **vector database** stores embedding vectors and runs similarity search at sca
 
 You have 10,000 chunk vectors. Brute-force cosine similarity over all 10,000 on every query works in a lab — it fails in production. Vector DBs use **approximate nearest neighbor (ANN)** indexes (HNSW, IVF) to trade a tiny accuracy loss for 100× speed.
 
+![Chroma local dev vs PostgreSQL pgvector production comparison](../assets/images/day-02/chroma-vs-pgvector.svg)
+
+*Figure: Same embedding model — Chroma for labs, pgvector for production with SQL filters and HA.*
+
 ### A concrete example
 
 Doc Q&A Studio index stats after ingesting 8 PDFs:

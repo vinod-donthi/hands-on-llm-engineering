@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 240" role="img" aria-labelledby="title desc">
+  <title id="title">Chroma local dev vs pgvector production</title>
+  <desc id="desc">Side-by-side comparison of Chroma embedded library and PostgreSQL pgvector for Week 3 vector storage.</desc>
+  <rect width="720" height="240" fill="#fafafa"/>
+  <text x="360" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#1a1a1a">Chroma vs pgvector</text>
+  <text x="360" y="42" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">Same embedding model -- different deploy path for labs vs production</text>
+
+  <rect x="40" y="58" width="300" height="160" rx="8" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+  <text x="190" y="80" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#1d4ed8">Chroma (local dev)</text>
+  <text x="56" y="102" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Deploy: embedded Python library</text>
+  <text x="56" y="118" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Storage: persist_directory on disk</text>
+  <text x="56" y="134" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Filters: where={&quot;source&quot;: &quot;handbook.pdf&quot;}</text>
+  <text x="56" y="150" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Best for: Labs 1-5, single developer</text>
+  <text x="56" y="166" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Limit: no multi-tenant HA out of box</text>
+  <text x="56" y="186" font-family="ui-monospace, monospace" font-size="8" fill="#475569">Lab 2: doc_qa_v1 collection</text>
+  <text x="56" y="202" font-family="ui-monospace, monospace" font-size="8" fill="#475569">~45 MB for 1,247 chunks</text>
+
+  <rect x="380" y="58" width="300" height="160" rx="8" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
+  <text x="530" y="80" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#166534">pgvector (production)</text>
+  <text x="396" y="102" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Deploy: PostgreSQL + vector extension</text>
+  <text x="396" y="118" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Storage: document_chunks table + HNSW</text>
+  <text x="396" y="134" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Filters: SQL WHERE doc_id = ...</text>
+  <text x="396" y="150" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Best for: Doc Q&amp;A Studio prod path</text>
+  <text x="396" y="166" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Reuse: Week 2 Postgres skills</text>
+  <text x="396" y="186" font-family="ui-monospace, monospace" font-size="8" fill="#475569">Lab 6: docker-compose.yml</text>
+  <text x="396" y="202" font-family="ui-monospace, monospace" font-size="8" fill="#475569">Same chunk_id schema as Chroma</text>
+
+  <text x="360" y="232" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Index both during build -- query path picks store via config</text>
+</svg>

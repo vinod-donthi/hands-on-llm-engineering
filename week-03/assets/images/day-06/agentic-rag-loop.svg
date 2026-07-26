@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 280" role="img" aria-labelledby="title desc">
+  <title id="title">Agentic RAG loop vs classic single-shot RAG</title>
+  <desc id="desc">Classic RAG retrieves once; agentic RAG loops retrieve, assess, and re-query until context is sufficient.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="720" height="280" fill="#fafafa"/>
+  <text x="360" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#1a1a1a">Classic vs agentic RAG</text>
+  <text x="360" y="42" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">Multi-hop questions may need multiple retrieval passes</text>
+
+  <rect x="40" y="58" width="300" height="180" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="190" y="80" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#475569">Classic RAG (Week 3 default)</text>
+  <rect x="60" y="92" width="80" height="32" rx="4" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="100" y="112" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">Query</text>
+  <line x1="140" y1="108" x2="156" y2="108" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="160" y="92" width="80" height="32" rx="4" fill="#eff6ff" stroke="#2563eb"/>
+  <text x="200" y="112" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#1d4ed8">Retrieve</text>
+  <line x1="240" y1="108" x2="256" y2="108" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="260" y="92" width="60" height="32" rx="4" fill="#f0fdf4" stroke="#16a34a"/>
+  <text x="290" y="112" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#166534">Generate</text>
+  <text x="190" y="148" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">One pass -- fast, lower cost</text>
+  <text x="190" y="164" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">Misses UK PTO if US-only chunks retrieved</text>
+  <text x="190" y="188" text-anchor="middle" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">Latency: 1x retrieval</text>
+  <text x="190" y="204" text-anchor="middle" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">Cost: 1x embed + 1x LLM</text>
+  <text x="190" y="224" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#16a34a">Ship this in Week 3 project</text>
+
+  <rect x="380" y="58" width="300" height="180" rx="8" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+  <text x="530" y="80" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#1d4ed8">Agentic RAG (preview)</text>
+  <rect x="400" y="92" width="64" height="28" rx="4" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="432" y="110" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">Query</text>
+  <line x1="464" y1="106" x2="476" y2="106" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="480" y="92" width="64" height="28" rx="4" fill="#eff6ff" stroke="#2563eb"/>
+  <text x="512" y="110" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#1d4ed8">Retrieve</text>
+  <line x1="544" y1="106" x2="556" y2="106" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="560" y="92" width="56" height="28" rx="4" fill="#fff7ed" stroke="#ea580c"/>
+  <text x="588" y="110" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#9a3412">Judge</text>
+  <path d="M588 120 L588 138 L432 138 L432 120" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="510" y="134" text-anchor="middle" font-family="system-ui, sans-serif" font-size="7" fill="#64748b">incomplete? re-query</text>
+  <rect x="480" y="148" width="100" height="28" rx="4" fill="#f0fdf4" stroke="#16a34a"/>
+  <text x="530" y="166" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#166534">Assemble + Generate</text>
+  <text x="530" y="188" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">Compare US + UK PTO: 2 retrieval steps</text>
+  <text x="530" y="204" text-anchor="middle" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">Latency: 2-4x retrieval</text>
+  <text x="530" y="220" text-anchor="middle" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">Bridge to Week 4 LangGraph agents</text>
+
+  <text x="360" y="268" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Agent decides: retrieve again, rewrite query, or stop at step limit</text>
+</svg>

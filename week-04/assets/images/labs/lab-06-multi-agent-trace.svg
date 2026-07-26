@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" role="img" aria-labelledby="title desc">
+  <title id="title">Lab 6 multi-agent supervisor trace with agent_id per step</title>
+  <desc id="desc">Supervisor routes to Web Researcher and Document Analyst; shared findings; trace shows agent_id per step.</desc>
+  <rect width="720" height="300" fill="#fafafa"/>
+  <text x="360" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#1a1a1a">Lab 6: expected multi_agent_trace.json (optional)</text>
+  <text x="360" y="42" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">Supervisor routes to specialists -- shared findings in parent state</text>
+
+  <rect x="40" y="58" width="640" height="220" rx="8" fill="#1e293b"/>
+  <rect x="40" y="58" width="640" height="28" rx="8" fill="#334155"/>
+  <circle cx="58" cy="72" r="5" fill="#ef4444"/>
+  <circle cx="74" cy="72" r="5" fill="#f59e0b"/>
+  <circle cx="90" cy="72" r="5" fill="#22c55e"/>
+  <text x="360" y="76" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#94a3b8">python lab06_multi_agent.py --question &quot;Compare launch news vs press release&quot;</text>
+
+  <text x="56" y="104" font-family="ui-monospace, monospace" font-size="9" fill="#64748b">agent_id=Supervisor  action=handoff_to_web</text>
+  <text x="56" y="124" font-family="ui-monospace, monospace" font-size="9" fill="#38bdf8">agent_id=WebResearcher  tool=web_search  findings+=3</text>
+  <text x="56" y="144" font-family="ui-monospace, monospace" font-size="9" fill="#64748b">agent_id=Supervisor  action=handoff_to_docs</text>
+  <text x="56" y="164" font-family="ui-monospace, monospace" font-size="9" fill="#fbbf24">agent_id=DocumentAnalyst  tool=doc_search  findings+=2</text>
+  <text x="56" y="184" font-family="ui-monospace, monospace" font-size="9" fill="#64748b">agent_id=Supervisor  action=finalize  handoff_count=2</text>
+  <text x="56" y="204" font-family="ui-monospace, monospace" font-size="9" fill="#22c55e">Cited comparison report written</text>
+  <text x="56" y="224" font-family="ui-monospace, monospace" font-size="9" fill="#64748b">Wrote multi_agent_trace.json (handoff_count &lt;= 6)</text>
+
+  <rect x="56" y="232" width="608" height="40" rx="4" fill="#0f172a"/>
+  <text x="72" y="252" font-family="ui-monospace, monospace" font-size="8" fill="#94a3b8">{ &quot;agent_id&quot;: &quot;WebResearcher&quot;, &quot;tool&quot;: &quot;web_search&quot;, &quot;findings_count&quot;: 3 }</text>
+  <text x="72" y="266" font-family="ui-monospace, monospace" font-size="8" fill="#94a3b8">{ &quot;agent_id&quot;: &quot;DocumentAnalyst&quot;, &quot;tool&quot;: &quot;doc_search&quot;, &quot;findings_count&quot;: 2 }</text>
+
+  <text x="360" y="292" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Optional lab -- not required for Week 4 exit criteria</text>
+</svg>

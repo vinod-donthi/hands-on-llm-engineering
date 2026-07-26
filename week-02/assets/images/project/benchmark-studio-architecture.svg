@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 340" role="img" aria-labelledby="title desc">
+  <title id="title">Model Benchmark Studio architecture overview</title>
+  <desc id="desc">Next.js frontend connects to FastAPI backend with registry, guardrails, providers, and PostgreSQL.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="720" height="340" fill="#fafafa"/>
+  <text x="360" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#1a1a1a">Model Benchmark Studio architecture</text>
+  <text x="360" y="42" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">Week 2 project -- multi-provider with guardrails and run history</text>
+
+  <rect x="40" y="58" width="640" height="72" rx="8" fill="#eff6ff" stroke="#2563eb"/>
+  <text x="360" y="78" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#1d4ed8">Next.js Frontend</text>
+  <text x="120" y="100" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Prompt + Model Select</text>
+  <text x="280" y="100" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Stream Panel</text>
+  <text x="440" y="100" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Run History</text>
+  <text x="580" y="100" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Benchmark Trigger</text>
+
+  <line x1="360" y1="130" x2="360" y2="152" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="40" y="156" width="640" height="120" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="360" y="176" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#475569">FastAPI Backend</text>
+  <rect x="56" y="186" width="88" height="28" rx="4" fill="#fff7ed" stroke="#ea580c"/>
+  <text x="100" y="204" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#9a3412">Guardrails</text>
+  <rect x="152" y="186" width="88" height="28" rx="4" fill="#fff7ed" stroke="#ea580c"/>
+  <text x="196" y="204" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#9a3412">ContextBudget</text>
+  <rect x="248" y="186" width="72" height="28" rx="4" fill="#fff7ed" stroke="#ea580c"/>
+  <text x="284" y="204" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#9a3412">CostGuard</text>
+  <rect x="328" y="186" width="88" height="28" rx="4" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="372" y="204" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#475569">ToolRouter</text>
+  <rect x="424" y="186" width="100" height="28" rx="4" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="474" y="204" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#475569">ExtractionSvc</text>
+  <rect x="532" y="186" width="88" height="28" rx="4" fill="#eff6ff" stroke="#2563eb"/>
+  <text x="576" y="204" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#1d4ed8">Registry</text>
+  <rect x="56" y="224" width="100" height="28" rx="4" fill="#eff6ff" stroke="#2563eb"/>
+  <text x="106" y="242" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#1d4ed8">Provider Factory</text>
+  <rect x="164" y="224" width="72" height="28" rx="4" fill="#f0fdf4" stroke="#22c55e"/>
+  <text x="200" y="242" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#166534">OpenAI</text>
+  <rect x="244" y="224" width="72" height="28" rx="4" fill="#f0fdf4" stroke="#22c55e"/>
+  <text x="280" y="242" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#166534">Anthropic</text>
+  <rect x="324" y="224" width="72" height="28" rx="4" fill="#f0fdf4" stroke="#22c55e"/>
+  <text x="360" y="242" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#166534">Ollama</text>
+  <rect x="404" y="224" width="88" height="28" rx="4" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="448" y="242" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#475569">Observability</text>
+
+  <line x1="360" y1="276" x2="360" y2="292" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="280" y="296" width="160" height="36" rx="8" fill="#1e293b"/>
+  <text x="360" y="318" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#94a3b8">PostgreSQL (runs)</text>
+
+  <text x="360" y="336" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Work dir: ~/ai-learning/week-02-work/model-benchmark-studio/</text>
+</svg>

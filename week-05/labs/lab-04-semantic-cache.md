@@ -18,6 +18,10 @@ docker compose -f production-ai-stack/docker-compose.yml up -d
 
 **Goal:** Paraphrased query returns cached answer with `"semantic_cache_hit": true` and `"llm_called": false`.
 
+![Expected semantic_cache_demo.json with paraphrase similarity 0.94 hit](../assets/images/labs/lab-04-semantic-cache-demo.svg)
+
+*Figure: Query B paraphrases Query A — semantic hit at 0.94 with no LLM call on second request.*
+
 ---
 
 ## Task

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 280" role="img" aria-labelledby="title desc">
+  <title id="title">Week 4 interview cheat sheet quick reference card</title>
+  <desc id="desc">Key concepts: ReAct loop, LangGraph nodes, framework pick, MCP, HITL, checkpointing, observability.</desc>
+  <rect width="720" height="280" fill="#fafafa"/>
+  <text x="360" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#1a1a1a">Week 4 interview cheat sheet</text>
+  <text x="360" y="42" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">Quick reference for agent architecture interviews</text>
+
+  <rect x="40" y="58" width="200" height="100" rx="8" fill="#eff6ff" stroke="#2563eb"/>
+  <text x="140" y="78" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#1d4ed8">ReAct</text>
+  <text x="140" y="96" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Reason - Act - Observe</text>
+  <text x="140" y="112" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Agent vs chain</text>
+  <text x="140" y="128" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">LLM picks next step</text>
+  <text x="140" y="144" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">Week 3 = chain, Week 4 = agent</text>
+
+  <rect x="260" y="58" width="200" height="100" rx="8" fill="#eff6ff" stroke="#2563eb"/>
+  <text x="360" y="78" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#1d4ed8">LangGraph</text>
+  <text x="360" y="96" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">State, nodes, edges</text>
+  <text x="360" y="112" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Conditional routing</text>
+  <text x="360" y="128" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">thread_id = resume key</text>
+  <text x="360" y="144" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">SQLite checkpoints</text>
+
+  <rect x="480" y="58" width="200" height="100" rx="8" fill="#fff7ed" stroke="#ea580c"/>
+  <text x="580" y="78" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#9a3412">Frameworks</text>
+  <text x="580" y="96" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">LangGraph: graph + HITL</text>
+  <text x="580" y="112" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">OpenAI SDK: handoffs</text>
+  <text x="580" y="128" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Pydantic AI: typed I/O</text>
+  <text x="580" y="144" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">MCP: portable tools</text>
+
+  <rect x="40" y="172" width="200" height="88" rx="8" fill="#fef2f2" stroke="#ef4444"/>
+  <text x="140" y="192" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#991b1b">HITL</text>
+  <text x="140" y="210" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">interrupt() before risky tools</text>
+  <text x="140" y="226" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Approve / Reject gate</text>
+  <text x="140" y="242" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">fetch_url, send_email</text>
+
+  <rect x="260" y="172" width="200" height="88" rx="8" fill="#f0fdf4" stroke="#16a34a"/>
+  <text x="360" y="192" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#166534">Durability</text>
+  <text x="360" y="210" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Checkpoints per node</text>
+  <text x="360" y="226" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Idempotent tools</text>
+  <text x="360" y="242" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">Resume after crash</text>
+
+  <rect x="480" y="172" width="200" height="88" rx="8" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="580" y="192" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#475569">Observability</text>
+  <text x="580" y="210" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Trace every LLM + tool</text>
+  <text x="580" y="226" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">coverage_score, cost_usd</text>
+  <text x="580" y="242" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">research_trace.jsonl</text>
+</svg>

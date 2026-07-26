@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" role="img" aria-labelledby="title desc">
+  <title id="title">Lab 5 long context vs RAG benchmark output</title>
+  <desc id="desc">Terminal and long_context_vs_rag.json comparing stuff-doc vs RAG strategies at multiple document sizes.</desc>
+  <rect width="720" height="300" fill="#fafafa"/>
+  <text x="360" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#1a1a1a">Lab 5: long_context_vs_rag.json</text>
+  <text x="360" y="42" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">Measure cost, latency, quality at 10K, 50K, 120K token docs</text>
+
+  <rect x="40" y="58" width="640" height="220" rx="8" fill="#1e293b"/>
+  <rect x="40" y="58" width="640" height="28" rx="8" fill="#334155"/>
+  <circle cx="58" cy="72" r="5" fill="#ef4444"/>
+  <circle cx="74" cy="72" r="5" fill="#f59e0b"/>
+  <circle cx="90" cy="72" r="5" fill="#22c55e"/>
+  <text x="360" y="76" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#94a3b8">python lab05_long_context_vs_rag.py --doc-sizes 10k,50k,120k</text>
+
+  <rect x="56" y="96" width="608" height="96" rx="4" fill="#0f172a"/>
+  <text x="72" y="116" font-family="ui-monospace, monospace" font-size="8" fill="#475569">tokens  strategy       cost      p95_ms   correct</text>
+  <text x="72" y="132" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">50K     long_context   $0.0075    8500     7/10</text>
+  <text x="72" y="148" font-family="ui-monospace, monospace" font-size="8" fill="#16a34a">50K     rag            $0.0009    2100     8/10</text>
+  <text x="72" y="164" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">120K    long_context   $0.0180   14200    6/10</text>
+  <text x="72" y="180" font-family="ui-monospace, monospace" font-size="8" fill="#16a34a">120K    rag            $0.0012    2800     7/10</text>
+
+  <text x="56" y="208" font-family="ui-monospace, monospace" font-size="9" fill="#64748b">Insight: RAG wins on specific FAQ at all sizes tested</text>
+  <text x="56" y="228" font-family="ui-monospace, monospace" font-size="9" fill="#64748b">Long context wins on &quot;summarize entire doc&quot; question type</text>
+  <text x="56" y="248" font-family="ui-monospace, monospace" font-size="9" fill="#22c55e">Wrote long_context_vs_rag.json (6 runs)</text>
+  <text x="56" y="268" font-family="ui-monospace, monospace" font-size="9" fill="#64748b">Monthly projection at 10K queries: RAG saves ~$140</text>
+
+  <text x="360" y="292" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Deliverable: measured tradeoffs documented for ADR</text>
+</svg>

@@ -8,6 +8,10 @@
 
 **Goal:** Digest job produces HTML preview; optional live email.
 
+![Lab 6 expected digest_preview.html email layout](../assets/images/labs/lab-06-email-digest-scheduler.svg)
+
+*Figure: Headline summary, model sections, GitHub highlights — 3+ external links required.*
+
 ---
 
 ## Task

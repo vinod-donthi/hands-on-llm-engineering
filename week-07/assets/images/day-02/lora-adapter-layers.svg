@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" role="img" aria-labelledby="title desc">
+  <title id="title">LoRA adapter layers beside frozen transformer weights</title>
+  <desc id="desc">Frozen base weight matrix W with low-rank A and B adapters that train only 0.1 to 1 percent of parameters.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="720" height="300" fill="#fafafa"/>
+  <text x="360" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#1a1a1a">LoRA: train adapters, freeze the base model</text>
+  <text x="360" y="42" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">Delta W approx A x B -- rank 8-64 typical</text>
+
+  <line x1="120" y1="130" x2="200" y2="130" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="320" y1="130" x2="400" y2="130" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="520" y1="130" x2="600" y2="130" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="40" y="100" width="80" height="60" rx="6" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="80" y="125" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#475569">Input</text>
+  <text x="80" y="142" text-anchor="middle" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">x</text>
+
+  <rect x="200" y="88" width="120" height="84" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="2"/>
+  <text x="260" y="108" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" font-weight="600" fill="#475569">Frozen W</text>
+  <text x="260" y="128" text-anchor="middle" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">4096 x 4096</text>
+  <text x="260" y="148" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#94a3b8">no gradients</text>
+
+  <rect x="400" y="68" width="120" height="124" rx="6" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+  <text x="460" y="88" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" font-weight="600" fill="#1d4ed8">LoRA path</text>
+  <rect x="412" y="96" width="96" height="36" rx="4" fill="#dbeafe" stroke="#2563eb"/>
+  <text x="460" y="114" text-anchor="middle" font-family="ui-monospace, monospace" font-size="8" fill="#1d4ed8">A (4096 x r)</text>
+  <text x="460" y="126" text-anchor="middle" font-family="system-ui, sans-serif" font-size="7" fill="#64748b">trainable</text>
+  <text x="460" y="148" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">x</text>
+  <rect x="412" y="154" width="96" height="36" rx="4" fill="#dbeafe" stroke="#2563eb"/>
+  <text x="460" y="172" text-anchor="middle" font-family="ui-monospace, monospace" font-size="8" fill="#1d4ed8">B (r x 4096)</text>
+  <text x="460" y="184" text-anchor="middle" font-family="system-ui, sans-serif" font-size="7" fill="#64748b">trainable</text>
+
+  <rect x="600" y="100" width="80" height="60" rx="6" fill="#f0fdf4" stroke="#22c55e"/>
+  <text x="640" y="125" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#166534">Output</text>
+  <text x="640" y="142" text-anchor="middle" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">Wx + ABx</text>
+
+  <line x1="260" y1="172" x2="460" y2="200" stroke="#64748b" stroke-width="1" stroke-dasharray="4,3"/>
+  <text x="360" y="196" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">+ merge at inference</text>
+
+  <rect x="80" y="220" width="560" height="64" rx="6" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="360" y="242" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#475569">Parameter budget comparison</text>
+  <text x="120" y="264" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Full fine-tune: 7B params</text>
+  <text x="120" y="278" font-family="system-ui, sans-serif" font-size="9" fill="#ea580c">LoRA rank 16: ~4M params (0.06%)</text>
+  <text x="420" y="264" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Swap adapters per task</text>
+  <text x="420" y="278" font-family="system-ui, sans-serif" font-size="9" fill="#16a34a">Behavior change, not new facts</text>
+</svg>

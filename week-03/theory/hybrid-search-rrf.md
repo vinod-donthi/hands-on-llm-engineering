@@ -22,6 +22,10 @@ Pure BM25 misses **semantic** queries:
 
 Hybrid search aims for **both** recall profiles in one retriever.
 
+![BM25 and dense retrieval lists fused with Reciprocal Rank Fusion](../assets/images/day-03/bm25-dense-rrf-fusion.svg)
+
+*Figure: RRF merges rank lists without score normalization — keyword hits and paraphrases both survive to top-10.*
+
 ### A concrete example
 
 Corpus chunk: *"Remote employees may claim a $500 equipment stipend annually."*

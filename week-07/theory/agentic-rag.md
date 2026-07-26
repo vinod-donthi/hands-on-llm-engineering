@@ -27,6 +27,10 @@ Query: *"Does our EU data retention policy allow the same backup window as the U
 
 Without iteration, step 2 alone might answer only the EU half.
 
+![LangGraph agentic RAG loop with grade, rewrite, and second retrieve pass](../assets/images/day-04/agentic-rag-grade-rewrite-loop.svg)
+
+*Figure: Grade context after each retrieve — insufficient evidence triggers rewrite and a second search before generate.*
+
 ### Classic vs agentic (Week 7 production)
 
 | | Classic RAG (Week 3) | Agentic RAG (Week 7) |

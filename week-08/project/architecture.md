@@ -68,6 +68,10 @@ flowchart TB
     RAGAS --> CI
 ```
 
+![AI Radar capstone system architecture from scheduler through eval CI](../assets/images/project/ai-radar-capstone-architecture.svg)
+
+*Figure: Full component diagram — memorize query path and cache placement for interviews.*
+
 ---
 
 ## Data Flow (query path)

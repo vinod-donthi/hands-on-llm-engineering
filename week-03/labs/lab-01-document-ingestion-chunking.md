@@ -19,6 +19,10 @@ mkdir -p data/documents
 
 When it works: `chunked_documents.json` shows three strategy blocks per doc with token stats and sample chunks.
 
+![Lab 1 expected chunked_documents.json with three chunking strategies](../assets/images/labs/lab-01-chunking-output.svg)
+
+*Figure: Each document produces fixed, semantic, and parent-child chunk blocks with metadata preserved.*
+
 ---
 
 ## Task

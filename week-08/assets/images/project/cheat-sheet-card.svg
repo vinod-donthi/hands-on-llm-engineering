@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 320" role="img" aria-labelledby="title desc">
+  <title id="title">Week 8 interview cheat sheet quick reference</title>
+  <desc id="desc">One-page card with elevator pitch, stack, query path, and key metrics for capstone defense.</desc>
+  <rect width="720" height="320" fill="#fafafa"/>
+  <text x="360" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#1a1a1a">Week 8 cheat sheet -- memorize these patterns</text>
+
+  <rect x="40" y="40" width="310" height="120" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="56" y="62" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#475569">Elevator pitch</text>
+  <text x="56" y="80" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">RSS/GitHub ingest -&gt; pgvector</text>
+  <text x="56" y="96" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">LangGraph + MCP + agentic RAG</text>
+  <text x="56" y="112" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Next.js dashboard + email digest</text>
+  <text x="56" y="128" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">RAGAS CI gate -- Docker Compose</text>
+  <text x="56" y="148" font-family="system-ui, sans-serif" font-size="9" fill="#ea580c">~$20/week dev with semantic cache</text>
+
+  <rect x="370" y="40" width="310" height="120" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="386" y="62" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#475569">Stack</text>
+  <text x="386" y="80" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">FastAPI -- LangGraph + MCP</text>
+  <text x="386" y="96" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Postgres + pgvector -- Redis cache</text>
+  <text x="386" y="112" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Next.js -- Celery Beat</text>
+  <text x="386" y="128" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">RAGAS + GitHub Actions</text>
+  <text x="386" y="148" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">gpt-4o-mini default for cost</text>
+
+  <rect x="40" y="172" width="640" height="120" rx="8" fill="#ffffff" stroke="#2563eb"/>
+  <text x="56" y="194" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#1d4ed8">Query path (memorize)</text>
+  <text x="56" y="214" font-family="ui-monospace, monospace" font-size="9" fill="#64748b">Query -&gt; embed -&gt; Redis similar? -&gt; hit return</text>
+  <text x="56" y="232" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">miss -&gt; LangGraph plan -&gt; MCP? -&gt; agentic RAG</text>
+  <text x="56" y="248" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">-&gt; critique -&gt; synthesize + cite -&gt; cache set</text>
+  <text x="56" y="272" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Key metrics: docs ingested | faithfulness | cache hit rate | p95 latency</text>
+  <text x="56" y="288" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Justify agentic RAG over static -- cite ADR 001</text>
+
+  <text x="360" y="310" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Draw architecture diagram -- explain cache placement -- show CI badge</text>
+</svg>

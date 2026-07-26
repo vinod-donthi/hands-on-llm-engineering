@@ -31,6 +31,10 @@ Engineers default to "use GPT-4" or "fine-tune everything." Both waste money. Yo
 
 **Decision:** Fine-tune if volume > 50K tickets/month and taxonomy stable. RAG if policy docs change weekly. Bigger model for pilot only.
 
+![Weighted decision matrix scoring prompt, RAG, LoRA fine-tune, and bigger model options](../assets/images/day-01/decision-matrix-options.svg)
+
+*Figure: Score all four levers on quality, cost, latency, ops, and risk — LoRA wins at high volume with stable taxonomy; RAG wins when docs change weekly.*
+
 ### Decision flowchart
 
 ```mermaid

@@ -35,6 +35,10 @@ Install Docker Desktop before Day 2.
 | **Learning path** | `Learning/week-05/` | Read playbooks, theory, lab specs |
 | **Work path** | `week-05-work/` or `~/ai-learning/week-05-work/` | Python, deliverables, `production-ai-stack/` |
 
+![Learning path vs work path — two folders, do not mix them](assets/images/project/start-here-two-paths.svg)
+
+*Figure: Read curriculum in `week-05/`; run code and store secrets in `week-05-work/` only.*
+
 ---
 
 ## 3. Every study session

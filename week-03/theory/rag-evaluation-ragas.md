@@ -18,6 +18,10 @@ You cannot improve RAG by vibe alone. **RAGAS** (Retrieval Augmented Generation 
 
 You need a **golden dataset** (question + ground-truth answer + source references) and automated metrics before shipping.
 
+![RAGAS metrics dashboard with faithfulness, context precision, recall, and answer relevancy](../assets/images/day-05/ragas-metrics.svg)
+
+*Figure: Four RAGAS scores on golden pairs — faithfulness ≥ 0.75 is the Week 3 ship gate.*
+
 ### A concrete example
 
 Golden pair:

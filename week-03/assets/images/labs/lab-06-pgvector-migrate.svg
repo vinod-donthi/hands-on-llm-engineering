@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" role="img" aria-labelledby="title desc">
+  <title id="title">Lab 6 pgvector migration report</title>
+  <desc id="desc">Chroma vectors migrated to PostgreSQL pgvector with matching chunk counts and smoke query.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="720" height="300" fill="#fafafa"/>
+  <text x="360" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#1a1a1a">Lab 6: pgvector migration (optional)</text>
+  <text x="360" y="42" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">Mirror Chroma index into PostgreSQL document_chunks table</text>
+
+  <rect x="80" y="68" width="140" height="56" rx="8" fill="#eff6ff" stroke="#2563eb"/>
+  <text x="150" y="90" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" font-weight="600" fill="#1d4ed8">Chroma</text>
+  <text x="150" y="108" text-anchor="middle" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">247 chunks</text>
+
+  <line x1="220" y1="96" x2="280" y2="96" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="284" y="68" width="140" height="56" rx="8" fill="#fff7ed" stroke="#ea580c"/>
+  <text x="354" y="90" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" font-weight="600" fill="#9a3412">lab06_migrate</text>
+  <text x="354" y="108" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">Alembic + copy</text>
+
+  <line x1="424" y1="96" x2="484" y2="96" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="488" y="68" width="152" height="56" rx="8" fill="#f0fdf4" stroke="#16a34a"/>
+  <text x="564" y="90" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" font-weight="600" fill="#166534">pgvector</text>
+  <text x="564" y="108" text-anchor="middle" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">247 rows (match)</text>
+
+  <rect x="40" y="140" width="640" height="130" rx="8" fill="#1e293b"/>
+  <text x="56" y="162" font-family="ui-monospace, monospace" font-size="9" fill="#22c55e">docker compose up -d  --  alembic upgrade head</text>
+  <text x="56" y="182" font-family="ui-monospace, monospace" font-size="9" fill="#64748b">SELECT count(*) FROM document_chunks;  -- 247</text>
+  <text x="56" y="202" font-family="ui-monospace, monospace" font-size="9" fill="#64748b">Smoke: search_pgvector(q_vec, top_k=20, doc_id_filter=NULL)</text>
+  <text x="56" y="222" font-family="ui-monospace, monospace" font-size="9" fill="#16a34a">Chroma top-1: c042  |  pgvector top-1: c042  -- MATCH</text>
+  <text x="56" y="246" font-family="ui-monospace, monospace" font-size="9" fill="#64748b">Wrote pgvector_migration_report.json</text>
+  <text x="56" y="262" font-family="ui-monospace, monospace" font-size="8" fill="#94a3b8">{ &quot;chroma_count&quot;: 247, &quot;pg_count&quot;: 247, &quot;top1_match&quot;: true }</text>
+
+  <text x="360" y="292" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Optional -- not required for Week 3 exit if documented in progress.md</text>
+</svg>

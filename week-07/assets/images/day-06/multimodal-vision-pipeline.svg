@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" role="img" aria-labelledby="title desc">
+  <title id="title">Multimodal vision pipeline for image and text</title>
+  <desc id="desc">Screenshot or diagram flows through vision encoder tiles to multimodal model alongside text question.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="720" height="300" fill="#fafafa"/>
+  <text x="360" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#1a1a1a">Multimodal vision pipeline</text>
+  <text x="360" y="42" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">Grafana alert screenshot + text question in one request</text>
+
+  <line x1="140" y1="120" x2="200" y2="120" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="320" y1="120" x2="380" y2="120" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="500" y1="120" x2="560" y2="120" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="40" y="88" width="100" height="64" rx="6" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="90" y="112" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#475569">Screenshot</text>
+  <text x="90" y="128" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">1920x1080 PNG</text>
+  <text x="90" y="142" text-anchor="middle" font-family="system-ui, sans-serif" font-size="7" fill="#64748b">Grafana panel</text>
+
+  <rect x="200" y="88" width="120" height="64" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="260" y="112" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#92400e">Vision encoder</text>
+  <text x="260" y="128" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">Tile encoding</text>
+  <text x="260" y="142" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#ea580c">~1-2K tokens</text>
+
+  <rect x="380" y="76" width="120" height="88" rx="6" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+  <text x="440" y="100" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#1d4ed8">GPT-4o Mini</text>
+  <text x="440" y="118" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">image_url + text</text>
+  <text x="440" y="134" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">multimodal fusion</text>
+  <text x="440" y="152" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">single messages[]</text>
+
+  <rect x="560" y="88" width="120" height="64" rx="6" fill="#f0fdf4" stroke="#22c55e"/>
+  <text x="620" y="112" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#166534">Answer</text>
+  <text x="620" y="128" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">CPU &gt; 85% for 5m</text>
+  <text x="620" y="142" text-anchor="middle" font-family="system-ui, sans-serif" font-size="7" fill="#64748b">reads pixels directly</text>
+
+  <rect x="40" y="180" width="320" height="100" rx="6" fill="#fef2f2" stroke="#fca5a5"/>
+  <text x="200" y="202" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#991b1b">OCR then RAG path</text>
+  <text x="200" y="222" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">OCR misreads 99.2% as 992%</text>
+  <text x="200" y="240" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Wrong threshold in answer</text>
+  <text x="200" y="264" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">Use vision for UI screenshots, not every message</text>
+
+  <rect x="380" y="180" width="300" height="100" rx="6" fill="#f0fdf4" stroke="#86efac"/>
+  <text x="530" y="202" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#166534">Vision direct path</text>
+  <text x="530" y="222" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Reads panel label correctly</text>
+  <text x="530" y="240" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Week 8 AI Radar preview</text>
+  <text x="530" y="264" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">Selective agent tool, not default RAG</text>
+</svg>

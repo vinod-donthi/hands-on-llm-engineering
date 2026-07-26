@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" role="img" aria-labelledby="title desc">
+  <title id="title">Lab 3 distillation benchmark results</title>
+  <desc id="desc">Terminal output from distillation benchmark comparing teacher GPT-4o Mini vs student Ollama 3B on latency cost and ROUGE-L.</desc>
+  <rect width="720" height="300" fill="#fafafa"/>
+  <text x="360" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#1a1a1a">Lab 3: distillation_benchmark.json</text>
+  <text x="360" y="42" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">Teacher vs student on latency, cost, and quality</text>
+
+  <rect x="40" y="58" width="640" height="220" rx="8" fill="#1e293b"/>
+  <rect x="40" y="58" width="640" height="28" rx="8" fill="#334155"/>
+  <circle cx="58" cy="72" r="5" fill="#ef4444"/>
+  <circle cx="74" cy="72" r="5" fill="#f59e0b"/>
+  <circle cx="90" cy="72" r="5" fill="#22c55e"/>
+  <text x="360" y="76" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#94a3b8">python lab03_distillation_benchmark.py --golden data/golden/eval.jsonl</text>
+
+  <text x="56" y="104" font-family="ui-monospace, monospace" font-size="9" fill="#64748b">Teacher: gpt-4o-mini | Student: ollama:llama3.2:3b</text>
+  <text x="56" y="124" font-family="ui-monospace, monospace" font-size="9" fill="#64748b">Eval set: 50 ticket summaries</text>
+
+  <rect x="56" y="136" width="608" height="80" rx="4" fill="#0f172a"/>
+  <text x="72" y="156" font-family="ui-monospace, monospace" font-size="8" fill="#475569">Model          p95_ms   $/1K    ROUGE-L</text>
+  <text x="72" y="172" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">gpt-4o-mini      890    0.45     0.78</text>
+  <text x="72" y="188" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">llama3.2:3b      320    0.00     0.61</text>
+  <text x="72" y="204" font-family="ui-monospace, monospace" font-size="8" fill="#16a34a">llama3.2:3b+dist 340    0.00     0.74</text>
+
+  <text x="56" y="232" font-family="ui-monospace, monospace" font-size="9" fill="#22c55e">Router recommendation: 80% student, escalate if confidence &lt; 0.7</text>
+  <text x="56" y="252" font-family="ui-monospace, monospace" font-size="9" fill="#64748b">Wrote distillation_benchmark.json</text>
+  <text x="56" y="268" font-family="ui-monospace, monospace" font-size="9" fill="#64748b">Estimated teacher gen cost: $1.20 (100 pairs)</text>
+
+  <text x="360" y="292" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Deliverable: teacher vs student benchmark with routing recommendation</text>
+</svg>

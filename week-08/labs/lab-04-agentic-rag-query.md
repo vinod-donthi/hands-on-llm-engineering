@@ -8,6 +8,10 @@
 
 **Goal:** End-to-end cited answers via API with full trace for portfolio.
 
+![Lab 4 expected agent_query_trace.json with citations](../assets/images/labs/lab-04-agentic-rag-query.svg)
+
+*Figure: Three golden questions — each run includes citations, tool trace, and cost.*
+
 ---
 
 ## Task

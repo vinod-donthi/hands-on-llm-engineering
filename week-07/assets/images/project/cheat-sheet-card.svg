@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 340" role="img" aria-labelledby="title desc">
+  <title id="title">Week 7 interview cheat sheet quick reference</title>
+  <desc id="desc">One-page card with decision matrix, LoRA, agentic RAG loop, long context vs RAG, MCP production, and ADR skeleton.</desc>
+  <rect width="720" height="340" fill="#fafafa"/>
+  <text x="360" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#1a1a1a">Week 7 cheat sheet -- memorize these patterns</text>
+
+  <rect x="40" y="40" width="310" height="130" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="56" y="62" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#475569">Decision matrix</text>
+  <text x="56" y="80" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Fresh docs --&gt; RAG / agentic RAG</text>
+  <text x="56" y="96" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Locked style --&gt; LoRA fine-tune</text>
+  <text x="56" y="112" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Quick pilot --&gt; prompt + bigger model</text>
+  <text x="56" y="128" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">High QPS narrow task --&gt; distill + router</text>
+  <text x="56" y="144" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">One huge doc summary --&gt; long context</text>
+  <text x="56" y="160" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Themes across 10K docs --&gt; GraphRAG</text>
+
+  <rect x="370" y="40" width="310" height="130" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="386" y="62" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#475569">LoRA + distillation</text>
+  <text x="386" y="80" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">LoRA: adapters, rank 8-32, behavior not facts</text>
+  <text x="386" y="96" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">JSONL messages --&gt; job --&gt; ft:... id</text>
+  <text x="386" y="112" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Distill: teacher labels --&gt; student SFT</text>
+  <text x="386" y="128" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Router: 80% student, cloud fallback</text>
+  <text x="386" y="144" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Fine-tune beats RAG when taxonomy stable</text>
+  <text x="386" y="160" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">RAG beats fine-tune when docs change weekly</text>
+
+  <rect x="40" y="182" width="310" height="130" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="56" y="204" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#475569">Agentic RAG + long context</text>
+  <text x="56" y="222" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">plan -&gt; retrieve -&gt; grade -&gt; rewrite*</text>
+  <text x="56" y="236" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">-&gt; generate (max 3 steps)</text>
+  <text x="56" y="254" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Stuff = simple, expensive prefill</text>
+  <text x="56" y="270" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">RAG = cheaper, better multi-doc</text>
+  <text x="56" y="286" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Measure cost + latency + eval score</text>
+  <text x="56" y="302" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">2-4x latency vs classic RAG typical</text>
+
+  <rect x="370" y="182" width="310" height="130" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="386" y="204" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#475569">MCP production + ADR</text>
+  <text x="386" y="222" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Bearer auth header on SSE gateway</text>
+  <text x="386" y="238" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Rate limit 60 RPM -- SSRF deny private IPs</text>
+  <text x="386" y="254" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">GET /health -- 32 KB response cap</text>
+  <text x="386" y="270" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">ADR: Context -- Decision -- Options</text>
+  <text x="386" y="286" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Consequences -- Metrics (your numbers)</text>
+  <text x="386" y="302" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Secrets in server env only, never client</text>
+
+  <text x="360" y="330" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Fill in your numbers: baseline vs advanced path quality + cost delta</text>
+</svg>

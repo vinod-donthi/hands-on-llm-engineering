@@ -21,6 +21,10 @@ Some information is inherently visual: architecture diagrams, chart trends, erro
 | OCR → text RAG | OCR misreads "99.2%" as "992%" — wrong answer |
 | GPT-4o vision direct | Reads panel: "CPU > 85% for 5m" — correct |
 
+![Multimodal vision pipeline from screenshot through encoder to GPT-4o answer](../assets/images/day-06/multimodal-vision-pipeline.svg)
+
+*Figure: Vision reads pixels directly — OCR-then-RAG misreads numbers; use vision selectively for UI screenshots.*
+
 **Request shape (OpenAI):**
 
 ```json

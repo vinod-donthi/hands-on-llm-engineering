@@ -14,6 +14,10 @@ Autonomous agents with tools can leak data, hit internal admin URLs, or email th
 
 HITL is the production pattern: **automation for low-risk steps, human gate for irreversible or sensitive steps.**
 
+![Human-in-the-loop interrupt pausing graph before fetch_url with Approve or Reject prompt](../assets/images/day-05/human-in-the-loop.svg)
+
+*Figure: LangGraph interrupt() saves checkpoint; human approves or rejects before the tool executes.*
+
 ### Worked example: interrupt before fetch
 
 **Config:** `HITL_REQUIRE_APPROVAL_FOR=fetch_url,send_email`

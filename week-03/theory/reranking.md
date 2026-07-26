@@ -14,6 +14,10 @@ Hybrid search returns 20 plausible chunks. Your LLM context budget fits **5**. I
 
 **Reranking** is the precision layer: expensive scoring on a small set only.
 
+![Two-stage pipeline from hybrid top-20 to cross-encoder rerank top-5](../assets/images/day-04/two-stage-rerank.svg)
+
+*Figure: Fast bi-encoder recall in stage 1 — cross-encoder reorders top-20 to top-5 before LLM context assembly.*
+
 ### A concrete example
 
 Query: *"What is the annual equipment stipend for remote workers?"*

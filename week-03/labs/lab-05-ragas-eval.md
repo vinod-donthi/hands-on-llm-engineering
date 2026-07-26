@@ -10,6 +10,10 @@
 
 When it works: report shows aggregate faithfulness, context precision/recall, answer relevancy plus per-sample breakdown.
 
+![Lab 5 rag_eval_report.json with RAGAS aggregate scores](../assets/images/labs/lab-05-ragas-report.svg)
+
+*Figure: Faithfulness gate ≥ 0.75 on 50+ golden pairs — per-sample breakdown catches weak queries.*
+
 ---
 
 ## Task

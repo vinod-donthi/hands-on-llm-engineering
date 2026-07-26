@@ -48,6 +48,10 @@ Daily: ~40% hit rate on FAQ-style traffic → ~$8/day saved (illustrative)
 
 Cosine similarity intuition: 1.0 = identical direction; 0.0 = unrelated. FAQ paraphrases often land **0.90–0.97**.
 
+![Semantic cache embedding similarity 0.94 exceeds threshold 0.92 for paraphrase hit](../assets/images/day-04/semantic-cache-similarity.svg)
+
+*Figure: Paraphrased queries embed to nearby vectors — threshold 0.92+ avoids false positives on unrelated topics.*
+
 ```python
 import numpy as np
 

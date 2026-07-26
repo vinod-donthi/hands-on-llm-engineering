@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 400" role="img" aria-labelledby="title desc">
+  <title id="title">Next.js AI Radar dashboard layout mockup</title>
+  <desc id="desc">Dashboard with feed list, trend tags, query panel with loading state, citations, and cost metrics bar.</desc>
+  <rect width="720" height="400" fill="#fafafa"/>
+  <text x="360" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#1a1a1a">Next.js dashboard layout</text>
+  <text x="360" y="42" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">Feed + trends on / -- cited answers on /query</text>
+
+  <rect x="40" y="58" width="640" height="36" rx="6" fill="#1e293b"/>
+  <text x="56" y="80" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#f8fafc">AI Radar</text>
+  <text x="520" y="80" font-family="system-ui, sans-serif" font-size="9" fill="#94a3b8">Feed</text>
+  <text x="580" y="80" font-family="system-ui, sans-serif" font-size="9" fill="#94a3b8">Query</text>
+  <text x="640" y="80" font-family="system-ui, sans-serif" font-size="9" fill="#94a3b8">Digest</text>
+
+  <rect x="40" y="104" width="380" height="240" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="56" y="124" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#475569">Feed (GET /api/v1/feed)</text>
+
+  <rect x="56" y="136" width="348" height="36" rx="4" fill="#f8fafc" stroke="#e2e8f0"/>
+  <text x="72" y="152" font-family="system-ui, sans-serif" font-size="9" fill="#1d4ed8">OpenAI releases GPT-4.1 Mini</text>
+  <text x="72" y="166" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">model -- 2h ago</text>
+
+  <rect x="56" y="180" width="348" height="36" rx="4" fill="#f8fafc" stroke="#e2e8f0"/>
+  <text x="72" y="196" font-family="system-ui, sans-serif" font-size="9" fill="#1d4ed8">agent-kit trending on GitHub</text>
+  <text x="72" y="210" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">tool -- 5h ago</text>
+
+  <rect x="56" y="224" width="348" height="36" rx="4" fill="#f8fafc" stroke="#e2e8f0"/>
+  <text x="72" y="240" font-family="system-ui, sans-serif" font-size="9" fill="#1d4ed8">New MMLU benchmark results</text>
+  <text x="72" y="254" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">benchmark -- 1d ago</text>
+
+  <text x="56" y="284" font-family="system-ui, sans-serif" font-size="9" font-weight="600" fill="#475569">Trend tags</text>
+  <rect x="56" y="292" width="56" height="20" rx="10" fill="#eff6ff" stroke="#2563eb"/>
+  <text x="84" y="306" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#1d4ed8">models</text>
+  <rect x="120" y="292" width="56" height="20" rx="10" fill="#f0fdf4" stroke="#22c55e"/>
+  <text x="148" y="306" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#166534">agents</text>
+  <rect x="184" y="292" width="72" height="20" rx="10" fill="#fff7ed" stroke="#ea580c"/>
+  <text x="220" y="306" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#9a3412">benchmarks</text>
+
+  <rect x="436" y="104" width="244" height="240" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="2"/>
+  <text x="452" y="124" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#1d4ed8">Query panel</text>
+
+  <rect x="452" y="136" width="212" height="28" rx="4" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="464" y="154" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">embedding model releases</text>
+
+  <rect x="452" y="172" width="80" height="24" rx="4" fill="#2563eb"/>
+  <text x="492" y="188" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#ffffff">Ask Radar</text>
+
+  <rect x="452" y="204" width="212" height="48" rx="4" fill="#f8fafc" stroke="#e2e8f0"/>
+  <text x="464" y="222" font-family="system-ui, sans-serif" font-size="8" fill="#475569">Loading skeleton (4s)...</text>
+  <rect x="464" y="230" width="160" height="6" rx="2" fill="#e2e8f0"/>
+  <rect x="464" y="242" width="120" height="6" rx="2" fill="#e2e8f0"/>
+
+  <text x="452" y="272" font-family="system-ui, sans-serif" font-size="8" fill="#16a34a">[1] OpenAI blog</text>
+  <text x="452" y="286" font-family="system-ui, sans-serif" font-size="8" fill="#16a34a">[2] HuggingFace release</text>
+
+  <rect x="452" y="296" width="212" height="36" rx="4" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="464" y="312" font-family="ui-monospace, monospace" font-size="8" fill="#92400e">cost_usd: 0.019</text>
+  <text x="464" y="326" font-family="ui-monospace, monospace" font-size="8" fill="#92400e">cache_hit: false -- rephrase: 200ms, true</text>
+
+  <text x="360" y="368" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Frontend :3000 -- backend :8000 -- use skeleton + disable submit during LLM calls</text>
+  <text x="360" y="384" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">react-markdown for answers -- CORS or Next.js rewrites in Docker</text>
+</svg>

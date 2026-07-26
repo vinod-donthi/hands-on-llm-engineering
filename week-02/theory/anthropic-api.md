@@ -45,6 +45,10 @@ Relying on one cloud vendor is risky — outages, price hikes, or quality gaps o
 
 **Response difference:** Anthropic returns `content: [{type: "text", text: "Hi!"}]` — your adapter extracts the string before sending to the frontend.
 
+![Side-by-side OpenAI messages array vs Anthropic top-level system field](../assets/images/day-01/anthropic-openai-request-diff.svg)
+
+*Figure: Same conversation — system prompt placement and response shape differ; your adapter hides both from the frontend.*
+
 ### OpenAI vs Anthropic (at a glance)
 
 | Aspect | OpenAI Chat Completions | Anthropic Messages |

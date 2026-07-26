@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" role="img" aria-labelledby="title desc">
+  <title id="title">Lab 2 pgvector hybrid retrieval smoke output</title>
+  <desc id="desc">Terminal showing three test queries with top chunks, scores, and documents_in_db count.</desc>
+  <rect width="720" height="300" fill="#fafafa"/>
+  <text x="360" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#1a1a1a">Lab 2: expected retrieval_eval_smoke.json</text>
+  <text x="360" y="42" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">Hybrid retriever after 50+ documents ingested</text>
+
+  <rect x="40" y="58" width="640" height="220" rx="8" fill="#1e293b"/>
+  <rect x="40" y="58" width="640" height="28" rx="8" fill="#334155"/>
+  <circle cx="58" cy="72" r="5" fill="#ef4444"/>
+  <circle cx="74" cy="72" r="5" fill="#f59e0b"/>
+  <circle cx="90" cy="72" r="5" fill="#22c55e"/>
+  <text x="360" y="76" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#94a3b8">python lab02_retrieval_smoke.py</text>
+
+  <text x="56" y="104" font-family="ui-monospace, monospace" font-size="9" fill="#22c55e">Query 1: &quot;new large language model release&quot; -- 5 chunks, 45ms</text>
+  <text x="72" y="120" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">top score 0.87 -- OpenAI GPT-4.1 Mini blog</text>
+  <text x="56" y="140" font-family="ui-monospace, monospace" font-size="9" fill="#22c55e">Query 2: &quot;AI agent framework GitHub&quot; -- 5 chunks, 38ms</text>
+  <text x="56" y="160" font-family="ui-monospace, monospace" font-size="9" fill="#22c55e">Query 3: &quot;benchmark evaluation LLM&quot; -- 5 chunks, 42ms</text>
+  <text x="56" y="180" font-family="ui-monospace, monospace" font-size="9" fill="#64748b">documents_in_db: 52</text>
+
+  <rect x="56" y="192" width="608" height="72" rx="4" fill="#0f172a"/>
+  <text x="72" y="212" font-family="ui-monospace, monospace" font-size="8" fill="#94a3b8">&quot;queries&quot;: [{ &quot;query&quot;: &quot;...&quot;, &quot;top_k&quot;: 5,</text>
+  <text x="88" y="228" font-family="ui-monospace, monospace" font-size="8" fill="#38bdf8">&quot;chunks&quot;: [{ &quot;chunk_id&quot;: &quot;...&quot;, &quot;score&quot;: 0.87, &quot;title&quot;: &quot;...&quot; }] }]</text>
+  <text x="72" y="248" font-family="ui-monospace, monospace" font-size="8" fill="#16a34a">Estimated cost: ~$0.05 embeddings</text>
+
+  <text x="360" y="292" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Deliverable: hybrid retrieval returns relevant chunks for capstone queries</text>
+</svg>

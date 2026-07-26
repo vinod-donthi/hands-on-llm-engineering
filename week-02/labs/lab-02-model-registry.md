@@ -6,6 +6,10 @@
 
 **Goal:** Load models from `config/models.yaml`; route `model_id` → provider class.
 
+![models.yaml registry with three models and registry.py routing](../assets/images/labs/lab-02-registry-yaml.svg)
+
+*Figure: YAML metadata drives provider selection, cost calculation, and capability checks.*
+
 ---
 
 ## `config/models.yaml`

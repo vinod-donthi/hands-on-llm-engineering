@@ -12,6 +12,10 @@ RAG retrieval depends on **embedding models** (bi-encoders) that map queries and
 
 You need a fast way to find the top-K chunks related to a user question among thousands of vectors. **Bi-encoder embeddings** encode query and document **independently**, then rank by cosine similarity — fast enough for real-time search.
 
+![Bi-encoder retrieval with query and document vectors ranked by cosine similarity](../assets/images/day-02/bi-encoder-retrieval.svg)
+
+*Figure: Query and docs encoded separately — ANN search in ~65 ms; cross-encoder reranking comes later.*
+
 ### A concrete example
 
 Index: 2,400 chunks from 12 internal runbooks.  

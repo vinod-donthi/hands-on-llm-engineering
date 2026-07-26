@@ -46,6 +46,10 @@ Small A·B  ──►  behavior delta
 
 You train only A and B; base model stays frozen. At inference, adapter merges into weights or runs as side path.
 
+![LoRA adapter matrices A and B beside frozen base weight W](../assets/images/day-02/lora-adapter-layers.svg)
+
+*Figure: Train only low-rank A and B adapters (~0.1–1% of params) — behavior change baked in, not new factual knowledge.*
+
 ### Cloud vs local paths (Week 7)
 
 | Path | Tooling | When |

@@ -18,6 +18,10 @@ docker compose -f production-ai-stack/docker-compose.yml up -d
 
 **Goal:** POST enqueue returns in < 100ms; worker completes job; GET status shows result.
 
+![Expected job_run_trace.json with 202 enqueue and completed worker result](../assets/images/labs/lab-05-job-trace-demo.svg)
+
+*Figure: Enqueue in ~45ms; worker completes RAG async; client polls until status completed.*
+
 ---
 
 ## Task

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" role="img" aria-labelledby="title desc">
+  <title id="title">Lab 4 semantic cache demo output</title>
+  <desc id="desc">semantic_cache_demo.json showing paraphrase hit with similarity 0.94 and llm_called false.</desc>
+  <rect width="720" height="300" fill="#fafafa"/>
+  <text x="360" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#1a1a1a">Lab 4: expected semantic_cache_demo.json</text>
+  <text x="360" y="42" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">Paraphrased query returns cached answer without LLM call</text>
+
+  <rect x="40" y="58" width="640" height="220" rx="8" fill="#1e293b"/>
+  <rect x="40" y="58" width="640" height="28" rx="8" fill="#334155"/>
+  <circle cx="58" cy="72" r="5" fill="#ef4444"/>
+  <circle cx="74" cy="72" r="5" fill="#f59e0b"/>
+  <circle cx="90" cy="72" r="5" fill="#22c55e"/>
+  <text x="360" y="76" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#94a3b8">python lab04_semantic_cache_demo.py</text>
+
+  <text x="56" y="104" font-family="ui-monospace, monospace" font-size="9" fill="#64748b">Query A: &quot;What is our refund policy for annual plans?&quot;</text>
+  <text x="72" y="122" font-family="ui-monospace, monospace" font-size="9" fill="#ea580c">semantic_cache_hit: false  llm_called: true  cost_usd: 0.004</text>
+  <text x="56" y="142" font-family="ui-monospace, monospace" font-size="9" fill="#64748b">Query B: &quot;How do yearly subscription refunds work?&quot;</text>
+  <text x="72" y="160" font-family="ui-monospace, monospace" font-size="9" fill="#22c55e">semantic_cache_hit: true   llm_called: false  similarity: 0.94</text>
+  <text x="72" y="178" font-family="ui-monospace, monospace" font-size="9" fill="#22c55e">threshold: 0.92  embed_cost_usd: 0.00004</text>
+  <text x="56" y="198" font-family="ui-monospace, monospace" font-size="9" fill="#64748b">Lookup order: semantic --&gt; exact --&gt; RAG</text>
+
+  <rect x="56" y="210" width="608" height="56" rx="4" fill="#0f172a"/>
+  <text x="72" y="230" font-family="ui-monospace, monospace" font-size="8" fill="#38bdf8">&quot;query_a&quot;: {&quot;llm_called&quot;: true, &quot;answer_preview&quot;: &quot;Annual plans refund within 30 days...&quot;},</text>
+  <text x="72" y="248" font-family="ui-monospace, monospace" font-size="8" fill="#16a34a">&quot;query_b&quot;: {&quot;semantic_cache_hit&quot;: true, &quot;similarity&quot;: 0.94, &quot;llm_called&quot;: false}</text>
+
+  <text x="360" y="292" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Deliverable: embed + cosine lookup with SEMANTIC_CACHE_THRESHOLD=0.92</text>
+</svg>

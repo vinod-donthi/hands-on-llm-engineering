@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" role="img" aria-labelledby="title desc">
+  <title id="title">Lab 6 MCP production checklist output</title>
+  <desc id="desc">Terminal showing mcp_production_checklist.json with pass status for auth, rate limit, SSRF, and health checks.</desc>
+  <rect width="720" height="300" fill="#fafafa"/>
+  <text x="360" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#1a1a1a">Lab 6: mcp_production_checklist.json</text>
+  <text x="360" y="42" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">SSE server with auth, rate limits, SSRF blocks, health probe</text>
+
+  <rect x="40" y="58" width="640" height="220" rx="8" fill="#1e293b"/>
+  <rect x="40" y="58" width="640" height="28" rx="8" fill="#334155"/>
+  <circle cx="58" cy="72" r="5" fill="#ef4444"/>
+  <circle cx="74" cy="72" r="5" fill="#f59e0b"/>
+  <circle cx="90" cy="72" r="5" fill="#22c55e"/>
+  <text x="360" y="76" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#94a3b8">python lab06_mcp_production_check.py --output mcp_production_checklist.json</text>
+
+  <text x="56" y="104" font-family="ui-monospace, monospace" font-size="9" fill="#22c55e">health_endpoint ........................ PASS (tools: 4)</text>
+  <text x="56" y="124" font-family="ui-monospace, monospace" font-size="9" fill="#22c55e">auth_rejects_missing_key ............... PASS (401)</text>
+  <text x="56" y="144" font-family="ui-monospace, monospace" font-size="9" fill="#22c55e">auth_accepts_valid_key ................. PASS (200)</text>
+  <text x="56" y="164" font-family="ui-monospace, monospace" font-size="9" fill="#22c55e">rate_limit_returns_429 ................. PASS (61st req)</text>
+  <text x="56" y="184" font-family="ui-monospace, monospace" font-size="9" fill="#22c55e">ssrf_blocks_private_ip ................. PASS (10.0.0.1 denied)</text>
+  <text x="56" y="204" font-family="ui-monospace, monospace" font-size="9" fill="#22c55e">response_size_cap ...................... PASS (truncated at 32KB)</text>
+
+  <rect x="56" y="216" width="608" height="52" rx="4" fill="#0f172a"/>
+  <text x="72" y="236" font-family="ui-monospace, monospace" font-size="8" fill="#16a34a">{ &quot;all_required_pass&quot;: true, &quot;checks_passed&quot;: 6, &quot;checks_total&quot;: 6 }</text>
+  <text x="72" y="256" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">Wrote mcp_production_checklist.json</text>
+
+  <text x="360" y="292" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Deliverable: all required checks pass -- optional lab but recommended for Week 8</text>
+</svg>

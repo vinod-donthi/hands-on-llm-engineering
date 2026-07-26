@@ -4,6 +4,10 @@
 
 ## System diagram
 
+![Advanced AI Studio architecture with Track A fine-tuned route and Track B agentic RAG](../assets/images/project/advanced-ai-studio-architecture.svg)
+
+*Figure: FastAPI gateway routes to Track A (ft: model) or Track B (LangGraph + Qdrant + MCP) per ADR.*
+
 ```mermaid
 flowchart TB
     Client[Client / CLI] --> API[FastAPI Gateway]

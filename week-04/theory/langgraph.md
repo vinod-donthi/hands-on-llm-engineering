@@ -14,6 +14,10 @@ Plain Python `while` loops for agents become spaghetti: nested if/else for tool 
 
 LangGraph gives you a **visible graph** and a **single state object** passed between nodes — like a state machine with LLM steps inside.
 
+![LangGraph research state machine with plan research tools reflect write nodes and shared ResearchState](../assets/images/day-01/langgraph.svg)
+
+*Figure: Nodes are functions; edges route on tool_calls and reflection scores; SQLite saves state after each step.*
+
 ### Worked example: minimal research graph
 
 **State** (TypedDict or Pydantic):

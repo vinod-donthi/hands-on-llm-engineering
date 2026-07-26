@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" role="img" aria-labelledby="title desc">
+  <title id="title">Multi-agent supervisor orchestrating specialist subgraphs</title>
+  <desc id="desc">Supervisor routes to Web Researcher and Document Analyst; shared findings return to supervisor for final report.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#64748b"/>
+    </marker>
+    <marker id="arrowBlue" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#2563eb"/>
+    </marker>
+  </defs>
+  <rect width="720" height="300" fill="#fafafa"/>
+  <text x="360" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#1a1a1a">Multi-agent supervisor pattern</text>
+  <text x="360" y="42" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">Narrow tool surface per specialist; coordinator handles routing</text>
+
+  <rect x="260" y="58" width="200" height="52" rx="8" fill="#2563eb"/>
+  <text x="360" y="78" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#ffffff">Supervisor</text>
+  <text x="360" y="96" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#bfdbfe">routing only -- handoff_to_web, handoff_to_docs, finalize</text>
+
+  <line x1="300" y1="110" x2="140" y2="152" stroke="#2563eb" stroke-width="1.5" marker-end="url(#arrowBlue)"/>
+  <line x1="420" y1="110" x2="580" y2="152" stroke="#2563eb" stroke-width="1.5" marker-end="url(#arrowBlue)"/>
+
+  <rect x="40" y="156" width="200" height="88" rx="8" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+  <text x="140" y="178" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#1d4ed8">Web Researcher</text>
+  <text x="140" y="196" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">web_search, fetch_url</text>
+  <text x="140" y="212" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Public reaction, news</text>
+  <text x="140" y="232" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">findings to parent state</text>
+
+  <rect x="480" y="156" width="200" height="88" rx="8" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+  <text x="580" y="178" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#1d4ed8">Document Analyst</text>
+  <text x="580" y="196" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">doc_search, summarize_chunk</text>
+  <text x="580" y="212" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Press release claims</text>
+  <text x="580" y="232" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">findings to parent state</text>
+
+  <line x1="140" y1="244" x2="300" y2="268" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="580" y1="244" x2="420" y2="268" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="260" y="252" width="200" height="36" rx="6" fill="#16a34a"/>
+  <text x="360" y="274" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#ffffff">finalize -- cited comparison report</text>
+
+  <text x="360" y="296" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Lab 6 (optional): multi_agent_trace.json shows agent_id per step</text>
+</svg>

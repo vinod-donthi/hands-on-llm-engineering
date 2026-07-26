@@ -12,6 +12,10 @@ Before you can answer questions about **your** PDFs, policies, or runbooks, you 
 
 LLMs do not magically read your Google Drive. RAG systems need a repeatable pipeline: **file → text → chunks → vectors → searchable index**. If ingestion drops tables, scrambles page order, or loses filenames, every downstream step — chunking, embedding, citations — suffers.
 
+![Document ingestion pipeline from file through parse, metadata, normalize, and raw store](../assets/images/day-01/document-ingestion-pipeline.svg)
+
+*Figure: Five stages before chunking — metadata and raw store enable citations and re-index without re-parsing.*
+
 ### A concrete example
 
 A 40-page employee handbook PDF arrives:

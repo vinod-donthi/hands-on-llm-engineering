@@ -35,6 +35,10 @@ A staff engineer asks: *"Walk me through your AI monitoring system."* You open o
 3. **Reason** — LangGraph agent + MCP + agentic RAG
 4. **Deliver** — dashboard, email, eval CI
 
+![AI Radar capstone four layers from Collect through Deliver](../assets/images/day-01/capstone-architecture-overview.svg)
+
+*Figure: Four layers and end-to-end path — draw this before coding Day 1.*
+
 See [project/architecture.md](../project/architecture.md) diagram.
 
 ### Four implementation phases

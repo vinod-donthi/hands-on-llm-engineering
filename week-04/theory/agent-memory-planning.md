@@ -14,6 +14,10 @@
 
 Without planning, the agent might search "Acme Corp" once and hallucinate the rest. Without memory, it forgets what it already found when the context window fills.
 
+![Agent memory tiers: planning node, short-term messages, working findings, optional long-term store](../assets/images/day-04/agent-memory-planning.svg)
+
+*Figure: Plan sub-questions first; store structured findings in working memory so they survive context trims.*
+
 ### Worked example: plan → execute → remember
 
 **1. Planning node** (LangGraph `plan`):

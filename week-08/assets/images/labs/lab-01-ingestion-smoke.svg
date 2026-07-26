@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" role="img" aria-labelledby="title desc">
+  <title id="title">Lab 1 ingestion smoke test output</title>
+  <desc id="desc">Terminal showing RSS and GitHub fetch results written to ingestion_smoke.json with normalized schema.</desc>
+  <rect width="720" height="300" fill="#fafafa"/>
+  <text x="360" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#1a1a1a">Lab 1: expected ingestion_smoke.json</text>
+  <text x="360" y="42" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">5+ RSS feeds and 2+ GitHub queries from sources.yaml</text>
+
+  <rect x="40" y="58" width="640" height="220" rx="8" fill="#1e293b"/>
+  <rect x="40" y="58" width="640" height="28" rx="8" fill="#334155"/>
+  <circle cx="58" cy="72" r="5" fill="#ef4444"/>
+  <circle cx="74" cy="72" r="5" fill="#f59e0b"/>
+  <circle cx="90" cy="72" r="5" fill="#22c55e"/>
+  <text x="360" y="76" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#94a3b8">python lab01_ingestion_smoke.py</text>
+
+  <text x="56" y="104" font-family="ui-monospace, monospace" font-size="9" fill="#22c55e">RSS openai_rss: 8 items fetched</text>
+  <text x="56" y="122" font-family="ui-monospace, monospace" font-size="9" fill="#22c55e">RSS anthropic_rss: 5 items fetched</text>
+  <text x="56" y="140" font-family="ui-monospace, monospace" font-size="9" fill="#22c55e">GitHub agent repos: 12 items fetched</text>
+  <text x="56" y="158" font-family="ui-monospace, monospace" font-size="9" fill="#64748b">Normalized 22 items -- deduped 3 existing URLs</text>
+  <text x="56" y="176" font-family="ui-monospace, monospace" font-size="9" fill="#64748b">Wrote artifacts/ingestion_smoke.json</text>
+
+  <rect x="56" y="188" width="608" height="80" rx="4" fill="#0f172a"/>
+  <text x="72" y="208" font-family="ui-monospace, monospace" font-size="8" fill="#94a3b8">{ &quot;fetched_at&quot;: &quot;2026-07-25T10:00:00Z&quot;,</text>
+  <text x="88" y="224" font-family="ui-monospace, monospace" font-size="8" fill="#38bdf8">&quot;items&quot;: [{ &quot;title&quot;: &quot;Example model release&quot;,</text>
+  <text x="104" y="240" font-family="ui-monospace, monospace" font-size="8" fill="#16a34a">&quot;url&quot;: &quot;https://...&quot;, &quot;source&quot;: &quot;openai_rss&quot;, &quot;category&quot;: &quot;model&quot; }] }</text>
+  <text x="72" y="256" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">Cost: $0 (RSS + GitHub free tier)</text>
+
+  <text x="360" y="292" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Deliverable: proof fetchers pull real AI news before embedding</text>
+</svg>

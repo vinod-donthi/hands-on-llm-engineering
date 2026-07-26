@@ -10,6 +10,10 @@
 
 When it works: `hybrid_search_results.json` shows queries where hybrid rank@1 beats dense-only.
 
+![Lab 3 hybrid_search_results.json comparing hybrid vs dense rank@1](../assets/images/labs/lab-03-hybrid-search-results.svg)
+
+*Figure: Hybrid wins on exact tokens (ERR_AUTH) and paraphrases (WFH allowance) that dense-only misses.*
+
 ---
 
 ## Task

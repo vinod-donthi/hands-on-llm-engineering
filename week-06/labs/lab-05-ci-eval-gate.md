@@ -10,6 +10,10 @@
 
 When it works: intentional prompt break fails gate; revert passes; artifacts uploaded.
 
+![Expected GitHub Actions eval-gate.yml failure blocking merge on faithfulness regression](../assets/images/labs/lab-05-ci-gate-failure.svg)
+
+*Figure: Lab 5 deliverable — eval-gate.yml blocks merge when faithfulness drops more than 5% vs baseline.*
+
 ---
 
 ## Task

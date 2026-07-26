@@ -8,6 +8,10 @@
 
 **Goal:** A standalone MCP server exposes `web_search` and `fetch_url`; your LangGraph agent discovers and calls them — trace in `mcp_tool_trace.json`.
 
+![Lab 3 expected mcp_tool_trace.json with list_tools and call_tool events](../assets/images/labs/lab-03-mcp-tool-trace.svg)
+
+*Figure: MCP server exposes tools; LangGraph client discovers and calls them at runtime.*
+
 ---
 
 ## Server tools

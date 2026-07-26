@@ -12,6 +12,10 @@ An **eval gate** is a CI job that **blocks merge** when quality metrics regress 
 
 Without automated gates, eval reports become PDFs nobody reads. The gate makes quality **non-negotiable** — same as unit test failures.
 
+![CI eval gate blocking merge on faithfulness regression versus allowing merge when within 5% limit](../assets/images/day-05/ci-gate-block-merge.svg)
+
+*Figure: Week 6 blocks merge when faithfulness drops more than 5% vs pinned baseline in eval/baseline.json.*
+
 ### Gate design decisions
 
 | Decision | Week 6 choice | Alternative |

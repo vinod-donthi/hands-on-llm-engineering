@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" role="img" aria-labelledby="title desc">
+  <title id="title">Lab 1 RAGAS baseline report output</title>
+  <desc id="desc">Terminal and JSON showing ragas_baseline_report.json with faithfulness and context metrics on golden set.</desc>
+  <rect width="720" height="300" fill="#fafafa"/>
+  <text x="360" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#1a1a1a">Lab 1: expected ragas_baseline_report.json</text>
+  <text x="360" y="42" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">Pinned CI baseline for faithfulness on 10-30 golden pairs</text>
+
+  <rect x="40" y="58" width="640" height="220" rx="8" fill="#1e293b"/>
+  <rect x="40" y="58" width="640" height="28" rx="8" fill="#334155"/>
+  <circle cx="58" cy="72" r="5" fill="#ef4444"/>
+  <circle cx="74" cy="72" r="5" fill="#f59e0b"/>
+  <circle cx="90" cy="72" r="5" fill="#22c55e"/>
+  <text x="360" y="76" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#94a3b8">python lab01_ragas_baseline.py</text>
+
+  <text x="56" y="104" font-family="ui-monospace, monospace" font-size="9" fill="#64748b">Evaluating 30 golden pairs with RAGAS...</text>
+  <text x="56" y="124" font-family="ui-monospace, monospace" font-size="9" fill="#22c55e">faithfulness: 0.78  context_precision: 0.74</text>
+  <text x="56" y="144" font-family="ui-monospace, monospace" font-size="9" fill="#22c55e">context_recall: 0.71  answer_relevancy: 0.80</text>
+  <text x="56" y="164" font-family="ui-monospace, monospace" font-size="9" fill="#64748b">Wrote reports/ragas_baseline_report.json</text>
+
+  <rect x="56" y="176" width="608" height="88" rx="4" fill="#0f172a"/>
+  <text x="72" y="196" font-family="ui-monospace, monospace" font-size="8" fill="#94a3b8">{</text>
+  <text x="88" y="212" font-family="ui-monospace, monospace" font-size="8" fill="#38bdf8">&quot;num_samples&quot;: 30, &quot;pipeline_version&quot;: &quot;hybrid_v1&quot;,</text>
+  <text x="88" y="228" font-family="ui-monospace, monospace" font-size="8" fill="#16a34a">&quot;metrics&quot;: { &quot;faithfulness&quot;: 0.78, &quot;context_recall&quot;: 0.71 }</text>
+  <text x="88" y="244" font-family="ui-monospace, monospace" font-size="8" fill="#ea580c">&quot;pinned_for_ci&quot;: true, &quot;cost_usd&quot;: 1.20</text>
+  <text x="72" y="260" font-family="ui-monospace, monospace" font-size="8" fill="#94a3b8">}</text>
+
+  <text x="360" y="292" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Deliverable: faithfulness &gt;= 0.70 on golden set -- tune pipeline if below</text>
+</svg>

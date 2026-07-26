@@ -18,6 +18,10 @@ Prompts live in Git, but teams rarely test them systematically:
 
 Promptfoo answers: *"Given these 10 test cases, did prompt B beat prompt A on our assertions?"*
 
+![Promptfoo diff grid comparing system_v1 and system_v2 pass fail per test case](../assets/images/day-03/promptfoo-diff-grid.svg)
+
+*Figure: Behavioral diff review — block merge when v2 loses on critical golden cases.*
+
 ### Sample promptfooconfig.yaml
 
 ```yaml

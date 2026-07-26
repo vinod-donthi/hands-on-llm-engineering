@@ -32,6 +32,10 @@ Not every prompt can leave your laptop. **Open-source models** (run locally via 
 | **Runtime** | Ollama, llama.cpp, vLLM | HTTP API on `:11434` |
 | **Your app** | FastAPI provider | Same `BaseLLMProvider` as cloud |
 
+![Open-source stack from weights through Ollama to your FastAPI provider](../assets/images/day-02/open-source-stack-layers.svg)
+
+*Figure: Three layers — pull weights, run Ollama locally, call through the same provider interface as cloud APIs.*
+
 ### Week 2 required local model
 
 | Model | Ollama tag | Role |

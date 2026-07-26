@@ -24,6 +24,10 @@ Vector RAG excels at *local* facts ("What is the refund window?"). It struggles 
 | "Top 5 recurring reliability themes in Q3 RFCs" | Weak (random similar chunks) | Strong (community summary nodes) |
 | "Which teams co-own payment APIs?" | Medium | Strong (entity edges) |
 
+![GraphRAG pipeline from documents through entity graph to community summary nodes](../assets/images/day-05/graphrag-communities.svg)
+
+*Figure: Community summaries answer global thematic questions — vector RAG still wins on single-fact lookups.*
+
 ### Pipeline (Microsoft GraphRAG pattern)
 
 ```mermaid

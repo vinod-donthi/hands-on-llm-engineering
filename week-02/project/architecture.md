@@ -4,6 +4,10 @@
 
 > **Work dir:** `~/ai-learning/week-02-work/model-benchmark-studio/`
 
+![Model Benchmark Studio architecture from Next.js frontend through FastAPI to providers and Postgres](../assets/images/project/benchmark-studio-architecture.svg)
+
+*Figure: Request flows through guardrails and budget checks before hitting the provider factory — runs persist to Postgres.*
+
 ```mermaid
 flowchart TB
     subgraph frontend [NextJS_Frontend]

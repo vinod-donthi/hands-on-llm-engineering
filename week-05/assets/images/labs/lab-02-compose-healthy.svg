@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 260" role="img" aria-labelledby="title desc">
+  <title id="title">Lab 2 docker compose ps healthy output</title>
+  <desc id="desc">docker compose ps showing api and redis both Up healthy with port mappings.</desc>
+  <rect width="720" height="260" fill="#fafafa"/>
+  <text x="360" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#1a1a1a">Lab 2: expected docker compose ps</text>
+  <text x="360" y="42" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">Both services healthy before first RAG request</text>
+
+  <rect x="40" y="58" width="640" height="180" rx="8" fill="#1e293b"/>
+  <rect x="40" y="58" width="640" height="28" rx="8" fill="#334155"/>
+  <circle cx="58" cy="72" r="5" fill="#ef4444"/>
+  <circle cx="74" cy="72" r="5" fill="#f59e0b"/>
+  <circle cx="90" cy="72" r="5" fill="#22c55e"/>
+  <text x="360" y="76" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#94a3b8">docker compose up -d --build &amp;&amp; docker compose ps</text>
+
+  <text x="56" y="104" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">NAME                        STATUS                   PORTS</text>
+  <text x="56" y="124" font-family="ui-monospace, monospace" font-size="9" fill="#22c55e">production-ai-stack-api-1   Up (healthy)             0.0.0.0:8000-&gt;8000/tcp</text>
+  <text x="56" y="144" font-family="ui-monospace, monospace" font-size="9" fill="#22c55e">production-ai-stack-redis-1 Up (healthy)             6379/tcp</text>
+  <text x="56" y="168" font-family="ui-monospace, monospace" font-size="9" fill="#64748b">curl localhost:8000/ready --&gt; {&quot;ready&quot;: true, &quot;checks&quot;: {&quot;redis&quot;: &quot;ok&quot;}}</text>
+  <text x="56" y="188" font-family="ui-monospace, monospace" font-size="9" fill="#64748b">REDIS_URL=redis://redis:6379/0 (container DNS, not localhost)</text>
+  <text x="56" y="208" font-family="ui-monospace, monospace" font-size="9" fill="#64748b">depends_on: redis condition service_healthy</text>
+  <text x="56" y="228" font-family="ui-monospace, monospace" font-size="9" fill="#64748b">backend/Dockerfile: Python 3.12 multi-stage, non-root user</text>
+
+  <text x="360" y="252" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Deliverable: api + redis with health gates and /ready Redis ping</text>
+</svg>

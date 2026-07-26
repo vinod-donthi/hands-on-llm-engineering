@@ -6,6 +6,10 @@
 
 **Goal:** Persist every compare/stream run to Postgres; list via API.
 
+![Run history table from GET /api/v1/runs with tokens, cost, latency, and TTFT](../assets/images/labs/lab-06-run-history-ui.svg)
+
+*Figure: Each run persisted with observability fields — prompt preview truncated for privacy.*
+
 **Skip if behind:** use in-memory list; note skip in [progress.md](../progress.md).
 
 ---

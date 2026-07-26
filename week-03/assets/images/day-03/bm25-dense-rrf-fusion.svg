@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 280" role="img" aria-labelledby="title desc">
+  <title id="title">BM25 and dense retrieval fused with RRF</title>
+  <desc id="desc">Two rank lists merge via Reciprocal Rank Fusion without tuning score scales.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="720" height="280" fill="#fafafa"/>
+  <text x="360" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#1a1a1a">Hybrid search: BM25 + dense + RRF</text>
+  <text x="360" y="42" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">Keyword hits and semantic paraphrases merge without score normalization</text>
+
+  <rect x="40" y="58" width="140" height="40" rx="6" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="110" y="82" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#1a1a1a">User query</text>
+
+  <line x1="90" y1="98" x2="90" y2="116" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="130" y1="98" x2="130" y2="116" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="40" y="120" width="100" height="72" rx="6" fill="#fff7ed" stroke="#ea580c"/>
+  <text x="90" y="140" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" font-weight="600" fill="#9a3412">BM25</text>
+  <text x="90" y="156" text-anchor="middle" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">#1 ERR_AUTH</text>
+  <text x="90" y="170" text-anchor="middle" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">#2 stipend</text>
+  <text x="90" y="184" text-anchor="middle" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">top-50</text>
+
+  <rect x="160" y="120" width="100" height="72" rx="6" fill="#eff6ff" stroke="#2563eb"/>
+  <text x="210" y="140" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" font-weight="600" fill="#1d4ed8">Dense</text>
+  <text x="210" y="156" text-anchor="middle" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">#1 WFH policy</text>
+  <text x="210" y="170" text-anchor="middle" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">#3 stipend</text>
+  <text x="210" y="184" text-anchor="middle" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">top-50</text>
+
+  <line x1="90" y1="192" x2="280" y2="228" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="210" y1="192" x2="280" y2="228" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="280" y="212" width="160" height="48" rx="8" fill="#f1f5f9" stroke="#475569" stroke-width="2"/>
+  <text x="360" y="232" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#475569">RRF merge</text>
+  <text x="360" y="248" text-anchor="middle" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">score += 1/(k + rank), k=60</text>
+
+  <rect x="480" y="120" width="200" height="140" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="580" y="142" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#475569">Fused top-10</text>
+  <text x="500" y="164" font-family="ui-monospace, monospace" font-size="8" fill="#16a34a">1. chunk_stipend  (RRF 0.032)</text>
+  <text x="500" y="180" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">2. chunk_err_auth (RRF 0.028)</text>
+  <text x="500" y="196" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">3. chunk_remote   (RRF 0.025)</text>
+  <text x="500" y="216" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">Dense-only missed ERR_AUTH at #40</text>
+  <text x="500" y="232" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">BM25-only missed WFH paraphrase</text>
+  <text x="500" y="248" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">Hybrid keeps both recall profiles</text>
+
+  <text x="360" y="272" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Week 3: 50+50 retrieve, RRF to top-20, then rerank to top-5</text>
+</svg>

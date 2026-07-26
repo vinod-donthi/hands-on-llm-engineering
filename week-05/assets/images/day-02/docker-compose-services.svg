@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 340" role="img" aria-labelledby="title desc">
+  <title id="title">Docker Compose multi-service stack</title>
+  <desc id="desc">Client connects to api service which depends on healthy redis, worker, and optional qdrant containers.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="720" height="340" fill="#fafafa"/>
+  <text x="360" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#1a1a1a">Production AI Stack -- Docker Compose services</text>
+  <text x="360" y="42" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">Health gates prevent api from starting before redis is ready</text>
+
+  <rect x="280" y="58" width="160" height="44" rx="8" fill="#eff6ff" stroke="#2563eb"/>
+  <text x="360" y="78" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#1d4ed8">Client</text>
+  <text x="360" y="94" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Web / CLI / curl</text>
+
+  <line x1="360" y1="102" x2="360" y2="118" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="240" y="120" width="240" height="56" rx="8" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+  <text x="360" y="142" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#1d4ed8">api :8000</text>
+  <text x="360" y="160" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">FastAPI + /health + /ready</text>
+  <text x="360" y="172" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#16a34a">healthcheck: curl /health</text>
+
+  <line x1="300" y1="176" x2="140" y2="210" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="360" y1="176" x2="360" y2="210" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="420" y1="176" x2="580" y2="210" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="40" y="212" width="160" height="56" rx="8" fill="#fef2f2" stroke="#dc2626"/>
+  <text x="120" y="234" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#991b1b">redis :6379</text>
+  <text x="120" y="252" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">cache + rate + ARQ broker</text>
+  <text x="120" y="264" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#16a34a">healthcheck: redis-cli ping</text>
+
+  <rect x="280" y="212" width="160" height="56" rx="8" fill="#f0fdf4" stroke="#16a34a"/>
+  <text x="360" y="234" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#166534">worker</text>
+  <text x="360" y="252" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">arq app.worker.WorkerSettings</text>
+  <text x="360" y="264" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">no HTTP port</text>
+
+  <rect x="520" y="212" width="160" height="56" rx="8" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="600" y="234" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#475569">qdrant :6333</text>
+  <text x="600" y="252" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">vector retrieval (optional)</text>
+  <text x="600" y="264" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">Week 3 carry-over</text>
+
+  <line x1="200" y1="240" x2="280" y2="240" stroke="#64748b" stroke-width="1" stroke-dasharray="4,3"/>
+  <line x1="440" y1="240" x2="520" y2="240" stroke="#64748b" stroke-width="1" stroke-dasharray="4,3"/>
+
+  <rect x="40" y="288" width="640" height="40" rx="6" fill="#fff7ed" stroke="#ea580c"/>
+  <text x="360" y="306" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#9a3412">depends_on: redis condition service_healthy</text>
+  <text x="360" y="320" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">REDIS_URL=redis://redis:6379/0 (service name, not localhost)</text>
+</svg>

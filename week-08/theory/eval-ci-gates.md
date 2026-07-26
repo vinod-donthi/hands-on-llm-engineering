@@ -40,6 +40,10 @@ fail if any metric drops > EVAL_REGRESSION_MAX_PCT (default 5%)
 fail if any metric below absolute minimum (.env thresholds)
 ```
 
+![RAGAS eval CI gate comparing PR metrics to baseline and failing on regression](../assets/images/day-07/eval-ci-gates.svg)
+
+*Figure: Faithfulness drop from 0.82 to 0.71 blocks merge — commit a green baseline before opening PRs.*
+
 ### Cost control in CI
 
 Use `mode: rag_only` for PR checks; full agentic eval on `main` nightly (optional).

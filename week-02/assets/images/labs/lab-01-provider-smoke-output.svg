@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" role="img" aria-labelledby="title desc">
+  <title id="title">Lab 1 provider smoke test terminal output</title>
+  <desc id="desc">Terminal showing successful OpenAI, Anthropic, and Ollama smoke test results with observability fields.</desc>
+  <rect width="720" height="300" fill="#fafafa"/>
+  <text x="360" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#1a1a1a">Lab 1: expected provider_smoke_results.json</text>
+  <text x="360" y="42" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">Same prompt to all three providers through shared interface</text>
+
+  <rect x="40" y="58" width="640" height="220" rx="8" fill="#1e293b"/>
+  <rect x="40" y="58" width="640" height="28" rx="8" fill="#334155"/>
+  <circle cx="58" cy="72" r="5" fill="#ef4444"/>
+  <circle cx="74" cy="72" r="5" fill="#f59e0b"/>
+  <circle cx="90" cy="72" r="5" fill="#22c55e"/>
+  <text x="360" y="76" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#94a3b8">python lab01_provider_smoke.py</text>
+
+  <text x="56" y="104" font-family="ui-monospace, monospace" font-size="9" fill="#22c55e">openai   gpt-4o-mini     text=&quot;OK&quot;  latency=450ms  cost=$0.000003</text>
+  <text x="56" y="124" font-family="ui-monospace, monospace" font-size="9" fill="#22c55e">anthropic claude-haiku  text=&quot;OK&quot;  latency=520ms  cost=$0.000012</text>
+  <text x="56" y="144" font-family="ui-monospace, monospace" font-size="9" fill="#22c55e">ollama   llama3.1:8b     text=&quot;OK&quot;  latency=2100ms cost=$0.000000</text>
+  <text x="56" y="168" font-family="ui-monospace, monospace" font-size="9" fill="#64748b">Wrote provider_smoke_results.json (3 entries, error: null)</text>
+
+  <rect x="56" y="184" width="608" height="80" rx="4" fill="#0f172a"/>
+  <text x="72" y="204" font-family="ui-monospace, monospace" font-size="8" fill="#94a3b8">[</text>
+  <text x="88" y="220" font-family="ui-monospace, monospace" font-size="8" fill="#38bdf8">{ &quot;provider_id&quot;: &quot;openai&quot;, &quot;model_id&quot;: &quot;gpt-4o-mini&quot;,</text>
+  <text x="104" y="236" font-family="ui-monospace, monospace" font-size="8" fill="#16a34a">&quot;text&quot;: &quot;OK&quot;, &quot;input_tokens&quot;: 12, &quot;output_tokens&quot;: 2, &quot;error&quot;: null }</text>
+  <text x="72" y="252" font-family="ui-monospace, monospace" font-size="8" fill="#94a3b8">]</text>
+
+  <text x="360" y="292" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Deliverable: all three providers return OK through BaseLLMProvider</text>
+</svg>

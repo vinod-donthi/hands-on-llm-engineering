@@ -56,6 +56,10 @@ Lab 4 saves this path as `tool_call_trace.json`.
 
 Same question, no tool — model might answer `248,071` (wrong digit) with full confidence. Tools ground **computable** steps in real execution.
 
+![Tool loop message flow for calculate with 847 times 293](../assets/images/day-04/tool-loop-message-flow.svg)
+
+*Figure: Five steps — user question, tool_call proposal, your code executes, tool_result back, final natural-language answer.*
+
 ### The tool loop
 
 ```mermaid

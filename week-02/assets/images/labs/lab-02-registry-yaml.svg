@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 280" role="img" aria-labelledby="title desc">
+  <title id="title">Lab 2 YAML model registry structure</title>
+  <desc id="desc">models.yaml listing GPT-4o Mini, Claude Haiku, and Llama 8B with provider, cost, and capabilities.</desc>
+  <rect width="720" height="280" fill="#fafafa"/>
+  <text x="360" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#1a1a1a">Lab 2: config/models.yaml registry</text>
+  <text x="360" y="42" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">model_id routes to provider class + metadata for cost and capabilities</text>
+
+  <rect x="40" y="58" width="640" height="200" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="56" y="78" font-family="ui-monospace, monospace" font-size="9" fill="#64748b">models:</text>
+  <text x="72" y="96" font-family="ui-monospace, monospace" font-size="9" fill="#2563eb">- id: gpt-4o-mini</text>
+  <text x="96" y="112" font-family="ui-monospace, monospace" font-size="8" fill="#475569">provider: openai | context_window: 128000</text>
+  <text x="96" y="126" font-family="ui-monospace, monospace" font-size="8" fill="#ea580c">cost_per_million_input: 0.15 | output: 0.60</text>
+  <text x="96" y="140" font-family="ui-monospace, monospace" font-size="8" fill="#16a34a">capabilities: [chat, json_schema, tools, stream]</text>
+
+  <text x="72" y="162" font-family="ui-monospace, monospace" font-size="9" fill="#2563eb">- id: claude-3-5-haiku-20241022</text>
+  <text x="96" y="176" font-family="ui-monospace, monospace" font-size="8" fill="#475569">provider: anthropic | context_window: 200000</text>
+  <text x="96" y="190" font-family="ui-monospace, monospace" font-size="8" fill="#16a34a">capabilities: [chat, tools, stream]</text>
+
+  <text x="72" y="212" font-family="ui-monospace, monospace" font-size="9" fill="#2563eb">- id: llama3.1:8b</text>
+  <text x="96" y="226" font-family="ui-monospace, monospace" font-size="8" fill="#475569">provider: ollama | cost_per_million: 0</text>
+  <text x="96" y="240" font-family="ui-monospace, monospace" font-size="8" fill="#16a34a">capabilities: [chat, stream]</text>
+
+  <rect x="400" y="58" width="260" height="56" rx="6" fill="#eff6ff" stroke="#2563eb"/>
+  <text x="530" y="78" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" font-weight="600" fill="#1d4ed8">registry.py</text>
+  <text x="530" y="96" text-anchor="middle" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">get_model(id) -&gt; ModelConfig</text>
+  <text x="530" y="108" text-anchor="middle" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">get_provider(id) -&gt; Provider class</text>
+
+  <text x="360" y="272" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">GET /api/v1/models lists registry entries for frontend dropdown</text>
+</svg>

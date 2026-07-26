@@ -17,6 +17,10 @@ docker compose -f production-ai-stack/docker-compose.yml up -d
 
 **Goal:** Second identical query returns `"cache_hit": true` in under 10ms; burst traffic triggers HTTP 429.
 
+![Expected redis_cache_demo.json with cache hit and 429 rate limit count](../assets/images/labs/lab-03-redis-cache-demo.svg)
+
+*Figure: First query misses cache; second identical query hits in ~6ms; burst triggers 429.*
+
 ---
 
 ## Task

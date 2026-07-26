@@ -19,6 +19,10 @@ docker compose -f production-ai-stack/docker-compose.yml up -d
 
 **Goal:** One RAG request appears in Langfuse with nested spans; `trace_export.json` captures trace ID and span names.
 
+![Expected trace_export.json and Langfuse UI with nested RAG spans](../assets/images/labs/lab-06-trace-export.svg)
+
+*Figure: One traced RAG request — rag_answer parent span with embed, retrieve, and generate children.*
+
 ---
 
 ## Task

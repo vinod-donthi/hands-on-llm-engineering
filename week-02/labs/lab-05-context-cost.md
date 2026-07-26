@@ -6,6 +6,10 @@
 
 **Goal:** Middleware trims history; cost cap rejects expensive requests; guardrails block empty prompts.
 
+![Three API outcomes: trimmed success, empty prompt 422, cost cap 400](../assets/images/labs/lab-05-budget-guard.svg)
+
+*Figure: Context trim logs dropped count; guards reject bad input and over-budget requests before the LLM call.*
+
 ---
 
 ## `app/middleware/context_budget.py`

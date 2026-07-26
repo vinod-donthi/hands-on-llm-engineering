@@ -8,6 +8,10 @@
 
 **Goal:** Second paraphrased query returns faster with `cache_hit: true`.
 
+![Lab 5 expected cache_hit_report.json showing paraphrase hit](../assets/images/labs/lab-05-redis-semantic-cache.svg)
+
+*Figure: Query B latency under 20% of Query A — similarity above 0.92 threshold.*
+
 ---
 
 ## Task

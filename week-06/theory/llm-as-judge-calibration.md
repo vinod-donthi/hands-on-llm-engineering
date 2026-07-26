@@ -12,6 +12,10 @@ RAGAS, DeepEval, and Promptfoo all use **LLM-as-judge** — another model scores
 
 If your judge always scores 0.9, thresholds are meaningless. If it favors verbose answers, you'll optimize for fluff. **Calibration** aligns judge scores with human labels on a labeled subset.
 
+![Judge calibration curve showing scores aligned with human good, partial, and bad zones](../assets/images/day-04/judge-calibration-curve.svg)
+
+*Figure: Tune rubric until agreement reaches 80%+ on a frozen human-labeled set before trusting CI thresholds.*
+
 ### Pointwise vs pairwise
 
 | Method | How it works | Use when |

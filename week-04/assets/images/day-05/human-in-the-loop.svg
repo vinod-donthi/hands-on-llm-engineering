@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" role="img" aria-labelledby="title desc">
+  <title id="title">Human-in-the-loop interrupt before high-risk tool execution</title>
+  <desc id="desc">LangGraph pauses at fetch_url call, shows approval UI, then resumes or skips based on human decision.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#64748b"/>
+    </marker>
+    <marker id="arrowOrange" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#ea580c"/>
+    </marker>
+  </defs>
+  <rect width="720" height="300" fill="#fafafa"/>
+  <text x="360" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#1a1a1a">Human-in-the-loop interrupt</text>
+  <text x="360" y="42" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">Automation for low-risk steps; human gate for irreversible or sensitive actions</text>
+
+  <rect x="40" y="68" width="100" height="36" rx="6" fill="#2563eb"/>
+  <text x="90" y="90" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#ffffff">research</text>
+  <line x1="140" y1="86" x2="160" y2="86" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="164" y="68" width="100" height="36" rx="6" fill="#2563eb"/>
+  <text x="214" y="90" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#ffffff">tools node</text>
+  <line x1="264" y1="86" x2="284" y2="86" stroke="#ea580c" stroke-width="2" marker-end="url(#arrowOrange)"/>
+  <rect x="288" y="58" width="144" height="56" rx="8" fill="#fff7ed" stroke="#ea580c" stroke-width="2"/>
+  <text x="360" y="78" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#9a3412">INTERRUPT</text>
+  <text x="360" y="96" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">fetch_url pending</text>
+  <text x="360" y="110" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">checkpoint saved</text>
+
+  <rect x="460" y="58" width="220" height="120" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="570" y="78" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#475569">Approval prompt</text>
+  <text x="570" y="98" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">tool: fetch_url</text>
+  <text x="570" y="114" text-anchor="middle" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">url: internal-wiki/acquisition</text>
+  <text x="570" y="130" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#ea580c">risk: internal URL access</text>
+  <rect x="490" y="140" width="72" height="24" rx="4" fill="#16a34a"/>
+  <text x="526" y="156" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#ffffff">Approve</text>
+  <rect x="578" y="140" width="72" height="24" rx="4" fill="#ef4444"/>
+  <text x="614" y="156" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#ffffff">Reject</text>
+
+  <line x1="360" y1="114" x2="360" y2="188" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="280" y="192" width="160" height="36" rx="6" fill="#16a34a"/>
+  <text x="360" y="214" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#ffffff">execute tool</text>
+  <rect x="480" y="192" width="160" height="36" rx="6" fill="#64748b"/>
+  <text x="560" y="214" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#ffffff">skip + log rejection</text>
+
+  <text x="360" y="256" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">HITL_REQUIRE_APPROVAL_FOR=fetch_url,send_email</text>
+  <text x="360" y="276" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Lab 5: hitl_approval_trace.json with pending to approved/rejected events</text>
+</svg>

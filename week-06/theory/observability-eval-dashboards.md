@@ -18,6 +18,10 @@ CI passed yesterday. Today users report slow answers and weird refusals. You nee
 
 Without a dashboard, you're grep-ing JSON logs.
 
+![Eval dashboard with faithfulness trend, p95 latency, cost per query, and trace drill-down](../assets/images/day-05/eval-dashboard.svg)
+
+*Figure: Three streams — OTel traces, CI reports, and online judge scores on a 1–5% sample.*
+
 ### Week 5 → Week 6 progression
 
 [Week 5](../../week-05/theory/observability.md) wired basic OTel + Langfuse for RAG latency debugging. Week 6 adds:

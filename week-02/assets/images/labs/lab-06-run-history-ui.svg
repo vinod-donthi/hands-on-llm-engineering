@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" role="img" aria-labelledby="title desc">
+  <title id="title">Lab 6 PostgreSQL run history API list</title>
+  <desc id="desc">Run history table showing model, tokens, cost, latency, and TTFT from GET /api/v1/runs.</desc>
+  <rect width="720" height="300" fill="#fafafa"/>
+  <text x="360" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#1a1a1a">Lab 6: run history (illustrative)</text>
+  <text x="360" y="42" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">GET /api/v1/runs?limit=20 -- persisted after compare/stream</text>
+
+  <rect x="40" y="58" width="640" height="220" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+  <rect x="40" y="58" width="640" height="28" rx="8" fill="#f1f5f9"/>
+  <text x="56" y="76" font-family="system-ui, sans-serif" font-size="9" font-weight="600" fill="#475569">Model</text>
+  <text x="180" y="76" font-family="system-ui, sans-serif" font-size="9" font-weight="600" fill="#475569">Tokens</text>
+  <text x="280" y="76" font-family="system-ui, sans-serif" font-size="9" font-weight="600" fill="#475569">Cost</text>
+  <text x="360" y="76" font-family="system-ui, sans-serif" font-size="9" font-weight="600" fill="#475569">Latency</text>
+  <text x="460" y="76" font-family="system-ui, sans-serif" font-size="9" font-weight="600" fill="#475569">TTFT</text>
+  <text x="540" y="76" font-family="system-ui, sans-serif" font-size="9" font-weight="600" fill="#475569">Time</text>
+
+  <text x="56" y="104" font-family="ui-monospace, monospace" font-size="8" fill="#2563eb">gpt-4o-mini</text>
+  <text x="180" y="104" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">28 / 142</text>
+  <text x="280" y="104" font-family="ui-monospace, monospace" font-size="8" fill="#ea580c">$0.00009</text>
+  <text x="360" y="104" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">890ms</text>
+  <text x="460" y="104" font-family="ui-monospace, monospace" font-size="8" fill="#16a34a">155ms</text>
+  <text x="540" y="104" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">10:42</text>
+
+  <line x1="40" y1="112" x2="680" y2="112" stroke="#e2e8f0"/>
+
+  <text x="56" y="132" font-family="ui-monospace, monospace" font-size="8" fill="#2563eb">claude-haiku</text>
+  <text x="180" y="132" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">28 / 138</text>
+  <text x="280" y="132" font-family="ui-monospace, monospace" font-size="8" fill="#ea580c">$0.00058</text>
+  <text x="360" y="132" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">920ms</text>
+  <text x="460" y="132" font-family="ui-monospace, monospace" font-size="8" fill="#16a34a">180ms</text>
+  <text x="540" y="132" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">10:41</text>
+
+  <line x1="40" y1="140" x2="680" y2="140" stroke="#e2e8f0"/>
+
+  <text x="56" y="160" font-family="ui-monospace, monospace" font-size="8" fill="#16a34a">llama3.1:8b</text>
+  <text x="180" y="160" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">28 / 156</text>
+  <text x="280" y="160" font-family="ui-monospace, monospace" font-size="8" fill="#16a34a">$0.00000</text>
+  <text x="360" y="160" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">3200ms</text>
+  <text x="460" y="160" font-family="ui-monospace, monospace" font-size="8" fill="#16a34a">420ms</text>
+  <text x="540" y="160" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">10:38</text>
+
+  <rect x="56" y="180" width="608" height="80" rx="4" fill="#f8fafc" stroke="#e2e8f0"/>
+  <text x="72" y="200" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">prompt_preview: first 200 chars only (privacy)</text>
+  <text x="72" y="218" font-family="ui-monospace, monospace" font-size="8" fill="#475569">request_id indexed | error nullable | created_at DESC</text>
+  <text x="72" y="240" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Optional lab -- skip with in-memory list if behind</text>
+
+  <text x="360" y="292" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Docker Compose: postgres service + alembic migrations</text>
+</svg>

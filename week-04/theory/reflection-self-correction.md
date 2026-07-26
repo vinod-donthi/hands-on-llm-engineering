@@ -12,6 +12,10 @@
 
 Agents often **sound confident** with incomplete evidence. One-pass RAG or single search yields shallow answers. Reflection inserts a **critic** turn before the final write.
 
+![Reflection loop with coverage score 0.55 routing back to research instead of write](../assets/images/day-04/reflection-self-correction.svg)
+
+*Figure: Reflect node scores coverage — low scores re-route to research; high scores proceed to write.*
+
 ### Worked example: coverage check
 
 **Question:** *"What are EU AI Act penalties for GPAI providers?"*

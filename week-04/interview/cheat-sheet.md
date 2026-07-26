@@ -2,6 +2,10 @@
 
 > [← README](../README.md)
 
+![Week 4 interview cheat sheet — ReAct, LangGraph, frameworks, HITL, checkpoints, observability](../assets/images/project/cheat-sheet-card.svg)
+
+*Figure: Quick reference for agent architecture interviews — frameworks, durability, and tracing.*
+
 ## ReAct
 
 `Reason → Act (tool) → Observe → repeat`

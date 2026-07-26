@@ -16,6 +16,10 @@ source .venv/bin/activate
 
 **Goal:** When this lab passes, you have proof your fetchers pull real AI news items before you embed anything.
 
+![Lab 1 expected ingestion_smoke.json terminal output](../assets/images/labs/lab-01-ingestion-smoke.svg)
+
+*Figure: Normalized items from RSS and GitHub — deliverable before any embedding work.*
+
 ---
 
 ## Task

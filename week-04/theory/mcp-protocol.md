@@ -14,6 +14,10 @@ Every agent framework defines tools differently. Moving `web_search` from LangGr
 
 MCP standardizes: **list tools → call tool → get structured result** — like USB-C for agent tools.
 
+![MCP client-server flow with list_tools and call_tool over stdio transport](../assets/images/day-03/mcp-protocol.svg)
+
+*Figure: LangGraph agent discovers tools at startup; MCP server wraps Tavily/DuckDuckGo behind a standard interface.*
+
 ### Worked example: research MCP server
 
 Your **Research Agent Studio** runs:

@@ -8,6 +8,10 @@
 
 **Goal:** Measure cost, latency, quality for stuff-doc vs RAG on same questions.
 
+![long_context_vs_rag.json benchmark at multiple document sizes](../assets/images/labs/lab-05-long-context-benchmark.svg)
+
+*Figure: Same questions, two strategies — document measured cost and latency for your ADR.*
+
 ---
 
 ## Task

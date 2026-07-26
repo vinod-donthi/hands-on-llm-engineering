@@ -2,6 +2,10 @@
 
 > Week 3 · [← Concepts](concepts.md) · [Quiz](../checkpoints/quiz.md)
 
+![Week 3 interview cheat sheet — RAG pipeline, numbers, stack, debug order](../assets/images/project/cheat-sheet-card.svg)
+
+*Figure: One-page card — pipeline flow, typical values, RRF formula, and debug order.*
+
 ## One-liner
 
 **RAG** = retrieve relevant chunks → assemble context → generate grounded answer with citations → measure with RAGAS.

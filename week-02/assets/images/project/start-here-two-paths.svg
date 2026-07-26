@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 200" role="img" aria-labelledby="title desc">
+  <title id="title">Week 2 learning path vs work path</title>
+  <desc id="desc">Two folders: week-02 curriculum markdown vs week-02-work code and secrets.</desc>
+  <rect width="720" height="200" fill="#fafafa"/>
+  <text x="360" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#1a1a1a">Two folders -- do not mix them</text>
+  <text x="360" y="42" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">Read in Learning repo; code in week-02-work with .venv and .env</text>
+
+  <rect x="60" y="58" width="280" height="120" rx="8" fill="#eff6ff" stroke="#2563eb"/>
+  <text x="200" y="82" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#1d4ed8">Learning path</text>
+  <text x="200" y="102" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#475569">week-02/</text>
+  <text x="200" y="122" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Markdown only</text>
+  <text x="200" y="138" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">daily/, theory/, labs specs</text>
+  <text x="200" y="154" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">No secrets, no .venv</text>
+
+  <rect x="380" y="58" width="280" height="120" rx="8" fill="#f0fdf4" stroke="#86efac"/>
+  <text x="520" y="82" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#166534">Work path</text>
+  <text x="520" y="102" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#475569">week-02-work/</text>
+  <text x="520" y="122" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">model-benchmark-studio/</text>
+  <text x="520" y="138" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">.venv, .env, deliverables</text>
+  <text x="520" y="154" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Never commit .env</text>
+
+  <text x="360" y="188" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Open daily/day-XX.md -- follow steps -- tick progress.md</text>
+</svg>

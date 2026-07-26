@@ -8,6 +8,10 @@
 
 **Goal:** Agent plans sub-questions, stores structured `findings`, reflects with a coverage score, and re-searches when gaps remain.
 
+![Lab 4 expected reflection_report.json with coverage score and re-search routing](../assets/images/labs/lab-04-reflection-coverage.svg)
+
+*Figure: Coverage gauge drives re-search — structured findings survive context trims.*
+
 ---
 
 ## Extend graph

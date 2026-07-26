@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" role="img" aria-labelledby="title desc">
+  <title id="title">Lab 6 Langfuse eval traces UI</title>
+  <desc id="desc">Langfuse UI mockup showing eval run traces with faithfulness scores and span hierarchy.</desc>
+  <rect width="720" height="300" fill="#fafafa"/>
+  <text x="360" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#1a1a1a">Lab 6: expected Langfuse trace view</text>
+  <text x="360" y="42" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">Optional -- eval runs visible with scores and span hierarchy</text>
+
+  <rect x="40" y="58" width="640" height="220" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+  <rect x="40" y="58" width="640" height="28" rx="8" fill="#f1f5f9"/>
+  <text x="56" y="76" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#475569">Langfuse -- Traces</text>
+  <text x="520" y="76" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">Filter: name=eval_run</text>
+
+  <rect x="56" y="98" width="608" height="36" rx="4" fill="#eff6ff" stroke="#2563eb"/>
+  <text x="72" y="120" font-family="ui-monospace, monospace" font-size="9" fill="#1d4ed8">eval_run</text>
+  <text x="200" y="120" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">suite=full</text>
+  <text x="320" y="120" font-family="system-ui, sans-serif" font-size="8" fill="#16a34a">faithfulness: 0.79</text>
+  <text x="480" y="120" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">22m 14s</text>
+
+  <text x="72" y="152" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">  ragas_eval (18m)</text>
+  <text x="88" y="168" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">    retrieve (420ms x 30)</text>
+  <text x="88" y="184" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">    generate (1.8s x 30)</text>
+  <text x="88" y="200" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">    judge_score (0.4s x 30)</text>
+  <text x="72" y="216" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">  deepeval_fast (98s)</text>
+  <text x="72" y="232" font-family="ui-monospace, monospace" font-size="8" fill="#64748b">  promptfoo (3m)</text>
+
+  <rect x="56" y="244" width="120" height="24" rx="4" fill="#dcfce7" stroke="#16a34a"/>
+  <text x="116" y="260" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#166534">Score: 0.79</text>
+  <text x="200" y="260" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">linked: eval_20260725_180000</text>
+
+  <text x="360" y="292" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Deliverable: @observe on eval runner + langfuse_context.score_current_trace()</text>
+</svg>

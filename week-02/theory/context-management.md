@@ -29,6 +29,10 @@ A user has a 40-message chat thread. Each new reply sends **the entire history**
 
 **Store full history in Postgres** (Week 2 Lab 6); **trim only what you send** to the model.
 
+![Tail-keep trim drops oldest messages while preserving system prompt](../assets/images/day-05/context-tail-keep-trim.svg)
+
+*Figure: Never drop system prompt — drop oldest pairs until under budget; log `trimmed_messages_count`.*
+
 ### The budget equation
 
 ```

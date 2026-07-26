@@ -14,6 +14,10 @@ Hand-rolling agent orchestration means reimplementing: which agent speaks next, 
 
 The SDK wraps OpenAI's tool-calling models with a **Runner** that executes agent loops and routes to specialist agents when configured.
 
+![OpenAI Agents SDK Triage agent handoff to Research and Writer specialists](../assets/images/day-02/openai-agents-sdk.svg)
+
+*Figure: Triage routes by intent — research questions go to Research (with tools); formatting goes to Writer.*
+
 ### Worked example: triage → research handoff
 
 **User:** *"Find GDPR fines related to AI training data and summarize for legal."*

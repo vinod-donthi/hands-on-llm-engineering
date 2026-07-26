@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" role="img" aria-labelledby="title desc">
+  <title id="title">Lab 5 RAGAS eval report output</title>
+  <desc id="desc">rag_eval_report.json with aggregate RAGAS metrics and per-sample breakdown.</desc>
+  <rect width="720" height="300" fill="#fafafa"/>
+  <text x="360" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#1a1a1a">Lab 5: rag_eval_report.json</text>
+  <text x="360" y="42" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">Full RAG pipeline evaluated on golden dataset</text>
+
+  <rect x="40" y="58" width="640" height="220" rx="8" fill="#1e293b"/>
+  <rect x="40" y="58" width="640" height="28" rx="8" fill="#334155"/>
+  <circle cx="58" cy="72" r="5" fill="#ef4444"/>
+  <circle cx="74" cy="72" r="5" fill="#f59e0b"/>
+  <circle cx="90" cy="72" r="5" fill="#22c55e"/>
+  <text x="360" y="76" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#94a3b8">python lab05_ragas_eval.py --samples 50</text>
+
+  <text x="56" y="104" font-family="ui-monospace, monospace" font-size="9" fill="#22c55e">Evaluated 50 golden pairs</text>
+  <text x="56" y="124" font-family="ui-monospace, monospace" font-size="9" fill="#64748b">Aggregate:</text>
+  <text x="72" y="144" font-family="ui-monospace, monospace" font-size="9" fill="#16a34a">faithfulness:       0.82  (gate &gt;= 0.75 PASS)</text>
+  <text x="72" y="164" font-family="ui-monospace, monospace" font-size="9" fill="#64748b">context_precision:  0.78</text>
+  <text x="72" y="184" font-family="ui-monospace, monospace" font-size="9" fill="#64748b">context_recall:     0.74</text>
+  <text x="72" y="204" font-family="ui-monospace, monospace" font-size="9" fill="#64748b">answer_relevancy:   0.81</text>
+  <text x="56" y="228" font-family="ui-monospace, monospace" font-size="9" fill="#64748b">Wrote rag_eval_report.json (50 samples + aggregates)</text>
+
+  <rect x="400" y="116" width="260" height="88" rx="4" fill="#0f172a"/>
+  <text x="416" y="136" font-family="ui-monospace, monospace" font-size="8" fill="#38bdf8">&quot;samples&quot;: [{</text>
+  <text x="432" y="152" font-family="ui-monospace, monospace" font-size="8" fill="#94a3b8">&quot;id&quot;: &quot;g001&quot;, &quot;faithfulness&quot;: 0.95,</text>
+  <text x="432" y="168" font-family="ui-monospace, monospace" font-size="8" fill="#16a34a">&quot;context_recall&quot;: 0.90, &quot;pass&quot;: true</text>
+  <text x="416" y="184" font-family="ui-monospace, monospace" font-size="8" fill="#38bdf8">}]</text>
+
+  <text x="360" y="292" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Expand to 50+ pairs by Day 7 -- faithfulness gate required for exit criteria</text>
+</svg>

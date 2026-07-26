@@ -8,6 +8,10 @@
 
 **Goal:** After ingestion + embed pipeline, hybrid retrieval returns relevant chunks for capstone test queries.
 
+![Lab 2 expected retrieval_eval_smoke.json with hybrid scores](../assets/images/labs/lab-02-pgvector-retrieval.svg)
+
+*Figure: Three fixed test queries — each returns top-k chunks with scores after 50+ docs ingested.*
+
 ---
 
 ## Task

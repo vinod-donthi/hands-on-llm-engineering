@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 240" role="img" aria-labelledby="title desc">
+  <title id="title">OpenAI API response mapped to observability envelope</title>
+  <desc id="desc">Chat completion JSON fields translate into LLMResponse envelope fields your app logs.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="720" height="240" fill="#fafafa"/>
+  <text x="360" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#1a1a1a">OpenAI response to LLMResponse envelope</text>
+  <text x="360" y="42" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">Your provider adapter normalizes vendor JSON into one shape</text>
+
+  <rect x="40" y="58" width="280" height="160" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text x="56" y="78" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#475569">OpenAI JSON</text>
+  <text x="56" y="98" font-family="ui-monospace, monospace" font-size="9" fill="#64748b">choices[0].message.content</text>
+  <text x="56" y="114" font-family="ui-monospace, monospace" font-size="9" fill="#64748b">usage.prompt_tokens</text>
+  <text x="56" y="130" font-family="ui-monospace, monospace" font-size="9" fill="#64748b">usage.completion_tokens</text>
+  <text x="56" y="146" font-family="ui-monospace, monospace" font-size="9" fill="#64748b">id (request id header)</text>
+  <text x="56" y="166" font-family="ui-monospace, monospace" font-size="9" fill="#64748b">+ measured latency_ms</text>
+  <text x="56" y="186" font-family="ui-monospace, monospace" font-size="9" fill="#64748b">+ computed cost_usd</text>
+
+  <rect x="400" y="58" width="280" height="160" rx="8" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+  <text x="416" y="78" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#1d4ed8">LLMResponse envelope</text>
+  <text x="416" y="98" font-family="ui-monospace, monospace" font-size="9" fill="#2563eb">text</text>
+  <text x="416" y="114" font-family="ui-monospace, monospace" font-size="9" fill="#16a34a">input_tokens</text>
+  <text x="416" y="130" font-family="ui-monospace, monospace" font-size="9" fill="#16a34a">output_tokens</text>
+  <text x="416" y="146" font-family="ui-monospace, monospace" font-size="9" fill="#64748b">request_id</text>
+  <text x="416" y="166" font-family="ui-monospace, monospace" font-size="9" fill="#64748b">latency_ms</text>
+  <text x="416" y="186" font-family="ui-monospace, monospace" font-size="9" fill="#ea580c">cost_usd</text>
+
+  <line x1="324" y1="98" x2="396" y2="98" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="324" y1="114" x2="396" y2="114" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="324" y1="130" x2="396" y2="130" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="324" y1="146" x2="396" y2="146" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <text x="360" y="228" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Same envelope for Anthropic and Ollama -- only the adapter changes</text>
+</svg>

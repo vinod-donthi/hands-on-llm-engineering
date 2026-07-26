@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 320" role="img" aria-labelledby="title desc">
+  <title id="title">Long context vs RAG cost and quality comparison</title>
+  <desc id="desc">Bar chart comparing stuff full document vs RAG top-8 chunks on cost, latency, and answer quality for 80-page handbook.</desc>
+  <rect width="720" height="320" fill="#fafafa"/>
+  <text x="360" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#1a1a1a">Long context vs RAG -- measured tradeoffs</text>
+  <text x="360" y="42" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">80-page handbook (~95K tokens) -- 10 question eval set</text>
+
+  <rect x="80" y="58" width="560" height="200" rx="6" fill="#ffffff" stroke="#cbd5e1"/>
+  <rect x="80" y="58" width="560" height="28" rx="6" fill="#f1f5f9"/>
+  <text x="120" y="76" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#475569">Cost per query ($)</text>
+  <text x="280" y="76" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#475569">p95 latency (s)</text>
+  <text x="440" y="76" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#475569">Correct / 10</text>
+
+  <line x1="80" y1="228" x2="640" y2="228" stroke="#cbd5e1" stroke-width="1"/>
+
+  <rect x="120" y="168" width="80" height="60" rx="4" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="160" y="158" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#92400e">$0.015</text>
+  <text x="160" y="248" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#475569">Stuff full PDF</text>
+
+  <rect x="280" y="188" width="80" height="40" rx="4" fill="#dbeafe" stroke="#2563eb"/>
+  <text x="320" y="178" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#1d4ed8">$0.001</text>
+  <text x="320" y="248" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#475569">RAG top-8</text>
+
+  <rect x="120" y="108" width="80" height="120" rx="4" fill="#fef3c7" stroke="#f59e0b" opacity="0.5"/>
+  <text x="160" y="98" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#92400e">12s</text>
+
+  <rect x="280" y="188" width="80" height="40" rx="4" fill="#dbeafe" stroke="#2563eb" opacity="0.5"/>
+  <text x="320" y="178" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#1d4ed8">2.1s</text>
+
+  <text x="440" y="198" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#92400e">7/10</text>
+  <text x="440" y="248" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#475569">Stuff</text>
+
+  <text x="520" y="198" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#2563eb">8/10</text>
+  <text x="520" y="248" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#475569">RAG</text>
+
+  <rect x="120" y="268" width="480" height="40" rx="6" fill="#f0fdf4" stroke="#86efac"/>
+  <text x="360" y="286" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#166534">Whole-doc summary? Stuff wins. Specific FAQs at scale? RAG wins at 15x lower cost.</text>
+  <text x="360" y="300" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">RAG narrows haystack -- better needle precision even when doc fits in context</text>
+</svg>

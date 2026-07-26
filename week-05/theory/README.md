@@ -26,3 +26,5 @@
 | [observability.md](observability.md) | OpenTelemetry traces + Langfuse LLM spans |
 | [scaling-cost-backpressure.md](scaling-cost-backpressure.md) | Scale-out, budgets, queue depth guards |
 | [azure-deployment.md](azure-deployment.md) | Container Apps deploy path *(optional K8s depth)* |
+
+Visual assets: [assets/images/README.md](../assets/images/README.md) — one SVG per theory file, lab mockups, project diagrams.

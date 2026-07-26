@@ -12,6 +12,10 @@
 
 A 50-page PDF might be 30,000 tokens. You cannot embed it as one blob (blurry average vector) or paste it all into GPT-4o Mini (context overflow). Chunking decides **what text becomes one retrieval unit**.
 
+![Chunk size tradeoff chart showing recall vs precision by token count](../assets/images/day-01/chunk-size-tradeoff.svg)
+
+*Figure: Smaller chunks improve precision; larger chunks improve recall — Week 3 default 512 + 64 overlap sits in the sweet spot.*
+
 ### A concrete example
 
 Policy doc section (800 tokens):
