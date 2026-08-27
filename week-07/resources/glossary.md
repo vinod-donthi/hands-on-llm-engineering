@@ -31,3 +31,5 @@
 | LangGraph | 4 | [week-04/theory/langgraph.md](../../week-04/theory/langgraph.md) |
 | RAGAS faithfulness | 3 | [week-03/theory/rag-evaluation-ragas.md](../../week-03/theory/rag-evaluation-ragas.md) |
 | Semantic cache | 5 | [week-05/theory/semantic-caching.md](../../week-05/theory/semantic-caching.md) |
+| Agent skills / harness *(optional)* | 4 | [agent-skills-and-harness.md](../../week-04/theory/agent-skills-and-harness.md) |
+| A2A / Agent Card *(optional)* | 4 | [a2a-protocol.md](../../week-04/theory/a2a-protocol.md) |

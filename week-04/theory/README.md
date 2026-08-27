@@ -12,6 +12,13 @@
 | 6 | Multi-agent + durability | [multi-agent-patterns](multi-agent-patterns.md) → [checkpointing-idempotency](checkpointing-idempotency.md) |
 | 7 | Observability + capstone | [agent-observability](agent-observability.md) → [project/overview](../project/overview.md) |
 
+**Optional — not required for Week 4 exit** (Day 6 Go Deeper, ~20–30 min total):
+
+| File | One-line |
+|------|----------|
+| [agent-skills-and-harness.md](agent-skills-and-harness.md) | Reusable skill playbooks + agent harness (context/control/action/persist) |
+| [a2a-protocol.md](a2a-protocol.md) | Cross-service Agent-to-Agent discovery vs in-process multi-agent |
+
 **Entry point:** [START-HERE.md](../START-HERE.md) → [Day 1 playbook](../daily/day-01.md)
 
 Each file follows the **Concepts** pattern. Unfamiliar terms link to the [glossary](../resources/glossary.md).

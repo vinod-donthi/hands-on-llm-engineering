@@ -19,7 +19,7 @@ Each day is a **numbered playbook**. Follow steps in order — do not read all t
 | **3** | [day-03.md](day-03.md) | mcp-protocol | [Lab 3](../labs/lab-03-mcp-server.md) | `mcp_tool_trace.json` |
 | **4** | [day-04.md](day-04.md) | agent-memory-planning → reflection | [Lab 4](../labs/lab-04-memory-reflection.md) | `reflection_report.json` |
 | **5** | [day-05.md](day-05.md) | human-in-the-loop | [Lab 5](../labs/lab-05-hitl-interrupts.md) | `hitl_approval_trace.json` |
-| **6** | [day-06.md](day-06.md) | multi-agent → checkpointing | [Lab 6](../labs/lab-06-multi-agent.md) *(optional)* + project wiring | Checkpoints + project scaffold |
+| **6** | [day-06.md](day-06.md) | multi-agent → checkpointing *(+ optional skills / A2A)* | [Lab 6](../labs/lab-06-multi-agent.md) *(optional)* + project wiring | Checkpoints + project scaffold |
 | **7** | [day-07.md](day-07.md) | agent-observability | Research Agent Studio capstone | `research_report.json`, trace |
 
 ---

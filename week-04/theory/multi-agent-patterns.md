@@ -140,6 +140,8 @@ From Day 2: `triage` agent with `handoffs=[research, writer]`. Same idea, less e
 | [openai-agents-sdk.md](openai-agents-sdk.md) | Handoffs API |
 | [langgraph.md](langgraph.md) | Subgraphs |
 | [agent-observability.md](agent-observability.md) | Trace per agent |
+| [a2a-protocol.md](a2a-protocol.md) | **Optional** — when specialists live on other servers |
+| [agent-skills-and-harness.md](agent-skills-and-harness.md) | **Optional** — package specialist workflows as skills |
 
 ---
 

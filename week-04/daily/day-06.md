@@ -20,6 +20,15 @@
 
 Read [multi-agent-patterns.md](../theory/multi-agent-patterns.md) — supervisor vs handoff.
 
+### Step 1b — Optional Go Deeper (~20–30 min)
+
+**Optional — not required for Week 4 exit.** If ahead of schedule:
+
+1. [agent-skills-and-harness.md](../theory/agent-skills-and-harness.md) — skill playbooks + harness map  
+2. [a2a-protocol.md](../theory/a2a-protocol.md) — cross-service agents vs in-process multi-agent  
+
+Skip entirely in catch-up mode.
+
 ### Step 2 — Theory: Checkpointing (~25 min)
 
 Read [checkpointing-idempotency.md](../theory/checkpointing-idempotency.md) — thread_id, idempotent search cache.

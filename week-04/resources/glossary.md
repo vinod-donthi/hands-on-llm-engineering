@@ -29,9 +29,14 @@
 | **Trace** | Log of LLM calls, tools, costs for one agent run. |
 | **SSRF** | Server-side request forgery — risk when agents fetch URLs. |
 | **Specialist agent** | Agent with narrow tools and instructions. |
+| **Agent skill** *(optional)* | Reusable playbook (name, trigger, rules, steps) loaded into an agent. [Theory →](../theory/agent-skills-and-harness.md) |
+| **Agent harness** *(optional)* | Runtime around the LLM: context, control, action, persist. [Theory →](../theory/agent-skills-and-harness.md) |
+| **A2A** *(optional)* | Agent-to-Agent protocol for cross-service discovery and tasks. [Theory →](../theory/a2a-protocol.md) |
+| **Agent Card** *(optional)* | JSON manifest advertising a remote agent's identity and capabilities. |
 
 ## Week links
 
 - Week 2 [function calling](../week-02/theory/function-calling.md) — tool loop foundation  
 - Week 3 RAG — `doc_search` prerequisite  
 - Week 5 — production deployment of agent services  
+- Optional: [Skills & harness](../theory/agent-skills-and-harness.md) · [A2A](../theory/a2a-protocol.md)  

@@ -120,6 +120,8 @@ Interview: "MCP is not magic security — treat tool servers like microservices.
 | [MCP specification](https://modelcontextprotocol.io/) | Protocol details |
 | [Week 4 MCP theory](../../week-04/theory/mcp-protocol.md) | Foundations |
 | [Week 4 project MCP spec](../../week-04/project/mcp-server.md) | Starter server |
+| [a2a-protocol.md](../../week-04/theory/a2a-protocol.md) | **Optional** — agents↔agents vs tools↔agents |
+| [agent-skills-and-harness.md](../../week-04/theory/agent-skills-and-harness.md) | **Optional** — playbooks over production tools |
 
 ---
 

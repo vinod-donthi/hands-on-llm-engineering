@@ -27,6 +27,13 @@
 | [multimodal-preview.md](multimodal-preview.md) | Vision + text for diagrams and screenshots |
 | [mcp-production-patterns.md](mcp-production-patterns.md) | Auth, rate limits, SSRF-safe MCP servers |
 
+**Optional revisit from Week 4** (not Week 7 exit criteria):
+
+| File | When |
+|------|------|
+| [agent-skills-and-harness.md](../../week-04/theory/agent-skills-and-harness.md) | Packaging workflows that call your hardened MCP tools |
+| [a2a-protocol.md](../../week-04/theory/a2a-protocol.md) | Cross-service agents after you understand production MCP |
+
 ---
 
 ## Prerequisites from earlier weeks
