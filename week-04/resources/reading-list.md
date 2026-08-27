@@ -22,6 +22,9 @@
 
 | Resource | Time | Why |
 |----------|------|-----|
+| [agent-skills-and-harness.md](../theory/agent-skills-and-harness.md) | 15m | Skill playbooks + harness map (Day 6) |
+| [a2a-protocol.md](../theory/a2a-protocol.md) | 15m | Cross-service agents vs in-process multi-agent |
+| [A2A protocol specification](https://a2a-protocol.org/latest/specification/) | 30m | Official Agent-to-Agent overview |
 | [ReAct paper](https://arxiv.org/abs/2210.03629) | 1h | Academic background |
 | [Reflexion paper](https://arxiv.org/abs/2303.11366) | 1h | Reflection lineage |
 | Cursor MCP docs | 20m | See MCP in IDE context |

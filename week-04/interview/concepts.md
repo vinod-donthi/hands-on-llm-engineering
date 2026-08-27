@@ -55,6 +55,20 @@ A: Irreversible or sensitive: email, internal URLs, payments, prod writes.
 **Q: Supervisor pattern?**  
 A: Router agent delegates to specialists with narrow tool sets; shared findings bus.
 
+## Optional — Skills, harness, A2A *(not exit criteria)*
+
+**Q: What is an agent skill?**  
+A: A reusable playbook (trigger, rules, steps) that packages a workflow; MCP tools still execute the actions.
+
+**Q: What is an agent harness?**  
+A: The runtime shell around the LLM — context injection, control/orchestration, tool actions, and persistence/checkpoints. Distinct from an *eval* harness.
+
+**Q: Multi-agent vs A2A?**  
+A: Multi-agent = specialists in one app/graph. A2A = protocol so independent agent *services* discover each other (Agent Cards) and exchange tasks/artifacts.
+
+**Q: MCP vs A2A?**  
+A: MCP plugs tools/data into an agent; A2A lets agents talk to other agents across services.
+
 ## Observability
 
 **Q: Minimum production trace fields?**  
