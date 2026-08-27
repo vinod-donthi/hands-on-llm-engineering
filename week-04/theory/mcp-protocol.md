@@ -58,6 +58,10 @@ research-agent-studio/   # LangGraph client
 
 When Cursor or another MCP client connects to the same server binary, they get identical tool schemas without importing your LangGraph code.
 
+![MCP client-server flow with list_tools and call_tool over stdio transport](../assets/images/day-03/mcp-protocol.svg)
+
+*Figure: LangGraph agent discovers tools at startup; MCP server wraps Tavily/DuckDuckGo behind a standard interface.*
+
 ### Worked example: research MCP server
 
 Your **Research Agent Studio** runs two processes:
